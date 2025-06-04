@@ -1,0 +1,56 @@
+import { motion } from "framer-motion";
+
+export default function HeroSection() {
+  const handleBookCall = () => {
+    // This would typically integrate with a booking system
+    console.log("Book a call clicked");
+    alert("Booking system integration would be implemented here");
+  };
+
+  return (
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background Placeholder */}
+      <div className="absolute inset-0 w-full h-full">
+        <img
+          src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
+          alt="Professional cinematographer with camera equipment"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      <div className="absolute inset-0 video-overlay"></div>
+      
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+        <motion.h1 
+          className="text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 3.2 }}
+        >
+          We create films that lead culture — not follow it.
+        </motion.h1>
+        
+        <motion.p 
+          className="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto opacity-90"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 3.6 }}
+        >
+          For lifestyle brands and bold startups ready to cut through the noise.
+        </motion.p>
+        
+        <motion.button 
+          onClick={handleBookCall}
+          className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 4.0 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          BOOK A CALL
+        </motion.button>
+      </div>
+    </section>
+  );
+}
