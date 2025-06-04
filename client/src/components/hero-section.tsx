@@ -27,16 +27,16 @@ export default function HeroSection() {
       
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6 geometric-accent">
         <motion.h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-6 text-gradient"
+          className="text-5xl md:text-7xl lg:text-8xl font-newake font-normal leading-tight mb-6 text-gradient tracking-wide"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.2 }}
         >
-          We create films that lead culture — not follow it.
+          WE CREATE FILMS THAT LEAD CULTURE — NOT FOLLOW IT.
         </motion.h1>
         
         <motion.p 
-          className="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto opacity-90"
+          className="text-xl md:text-2xl font-helvetica font-light mb-8 max-w-3xl mx-auto opacity-90"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.6 }}
@@ -46,14 +46,14 @@ export default function HeroSection() {
         
         <motion.button 
           onClick={handleBookCall}
-          className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105"
+          className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 text-lg font-helvetica font-medium tracking-wide transition-all duration-300 hover:scale-105 uppercase"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 4.0 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          BOOK A CALL
+          Book a Call
         </motion.button>
       </div>
     </section>

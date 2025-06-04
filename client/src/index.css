@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,6 +63,22 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  .font-newake {
+    font-family: 'Newake', 'Helvetica Neue', sans-serif;
+  }
+  
+  .font-spartan {
+    font-family: 'League Spartan', 'Helvetica Neue', sans-serif;
+  }
+  
+  .font-baskerville {
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+  
+  .font-helvetica {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 

@@ -14,7 +14,7 @@ export default function ProblemSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center section-divider pt-8">
           <motion.h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-8 geometric-accent"
+            className="text-4xl md:text-6xl lg:text-7xl font-helvetica font-bold leading-tight mb-8 geometric-accent uppercase tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -23,7 +23,7 @@ export default function ProblemSection() {
           </motion.h2>
           
           <motion.p 
-            className="text-2xl md:text-3xl font-light opacity-80 max-w-4xl mx-auto leading-relaxed"
+            className="text-2xl md:text-3xl font-helvetica font-light opacity-80 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}

@@ -32,7 +32,7 @@ export default function ProcessSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16 section-divider pt-8">
           <motion.h2 
-            className="text-4xl md:text-5xl font-light mb-8 geometric-accent"
+            className="text-4xl md:text-5xl font-spartan font-bold mb-8 geometric-accent uppercase tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -53,13 +53,13 @@ export default function ProcessSection() {
             >
               <div className="absolute inset-0 bg-fiery/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative z-10 p-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-fiery to-fiery/80 rounded-full flex items-center justify-center text-2xl font-bold mb-6 mx-auto shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-fiery to-fiery/80 rounded-full flex items-center justify-center text-2xl font-spartan font-bold mb-6 mx-auto shadow-lg">
                   {step.number}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                <h3 className="text-2xl md:text-3xl font-spartan font-bold mb-4 uppercase tracking-wide">
                   {step.title}
                 </h3>
-                <p className="text-lg opacity-80 leading-relaxed">
+                <p className="text-lg font-helvetica opacity-80 leading-relaxed">
                   {step.description}
                 </p>
               </div>
