@@ -43,13 +43,12 @@ export default function CredibilitySection() {
           {brands.map((brand, index) => (
             <motion.div
               key={brand.id}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-xl w-36 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-onyx/5"
+              className="premium-card rounded-xl p-6 w-36 h-24 flex items-center justify-center brand-card"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.4 + (index * 0.1) }}
-              whileHover={{ y: -5 }}
             >
-              <span className="text-lg font-bold text-onyx/90">
+              <span className="text-lg font-helvetica font-bold text-onyx/90">
                 {brand.name}
               </span>
             </motion.div>

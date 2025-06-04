@@ -8,7 +8,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden cinema-grain">
       {/* Video Background Placeholder */}
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -18,14 +18,15 @@ export default function HeroSection() {
         />
       </div>
       
-      <div className="absolute inset-0 video-overlay"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-onyx/80 via-onyx/40 to-onyx/80"></div>
       <div className="geometric-overlay"></div>
       
-      {/* Floating geometric elements */}
-      <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-fiery/20 rounded-full floating-element opacity-60"></div>
-      <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border-2 border-fiery/30 rotate-45 floating-element" style={{animationDelay: '2s'}}></div>
+      {/* Enhanced floating elements */}
+      <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-gradient-to-br from-fiery/30 to-fiery/10 rounded-full floating-element opacity-60 blur-sm"></div>
+      <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border-2 border-fiery/30 rotate-45 floating-element premium-card" style={{animationDelay: '2s'}}></div>
+      <div className="absolute top-1/2 left-1/6 w-2 h-20 bg-fiery/20 floating-element" style={{animationDelay: '1s'}}></div>
       
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 geometric-accent">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 geometric-accent">
         <motion.h1 
           className="text-5xl md:text-7xl lg:text-8xl font-newake font-normal leading-tight mb-6 text-gradient tracking-wide"
           initial={{ opacity: 0, y: 30 }}

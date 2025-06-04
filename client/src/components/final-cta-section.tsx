@@ -32,7 +32,7 @@ export default function FinalCTASection() {
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
         <div className="text-center geometric-accent">
           <motion.h2 
-            className="text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-12 text-gradient"
+            className="text-5xl md:text-7xl lg:text-8xl font-spartan font-bold leading-tight mb-12 text-gradient uppercase tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -42,14 +42,14 @@ export default function FinalCTASection() {
           
           <motion.button 
             onClick={handleBookCall}
-            className="bg-gradient-to-r from-fiery to-fiery/90 hover:from-fiery/90 hover:to-fiery text-white px-12 py-6 text-xl font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg shadow-xl hover:shadow-2xl"
+            className="bg-gradient-to-r from-fiery to-fiery/90 hover:from-fiery/90 hover:to-fiery text-white px-12 py-6 text-xl font-helvetica font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg shadow-xl hover:shadow-2xl uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            BOOK A CALL
+            Book a Call
           </motion.button>
         </div>
       </div>
