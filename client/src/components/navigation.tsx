@@ -32,7 +32,11 @@ export default function Navigation() {
       transition={{ duration: 0.6, delay: 2.8 }}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-2xl font-light tracking-wider">ENTAVIEW</div>
+        <img 
+          src="/attached_assets/Asset 2@4x - WHITE - 1308x241.png" 
+          alt="Entaview" 
+          className="h-8 w-auto"
+        />
         
         <div className="hidden md:flex space-x-8">
           <button 

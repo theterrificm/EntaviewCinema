@@ -105,3 +105,66 @@
 .video-overlay {
   background: linear-gradient(rgba(14, 13, 18, 0.6), rgba(14, 13, 18, 0.6));
 }
+
+.geometric-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(242, 64, 5, 0.1) 60%);
+  pointer-events: none;
+}
+
+.geometric-accent {
+  position: relative;
+}
+
+.geometric-accent::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, hsl(var(--fiery)) 0%, transparent 70%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  opacity: 0.7;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-divider {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, hsl(var(--fiery)) 50%, transparent 100%);
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.parallax-bg {
+  transform: translateZ(0);
+  will-change: transform;
+}

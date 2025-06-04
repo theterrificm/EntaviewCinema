@@ -7,11 +7,14 @@ export default function ProblemSection() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="py-24 md:py-32 bg-onyx" ref={ref}>
+    <section className="py-24 md:py-32 bg-onyx relative overflow-hidden" ref={ref}>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-fiery/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-24 h-24 border border-fiery/20 rotate-45"></div>
+      
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center">
+        <div className="text-center section-divider pt-8">
           <motion.h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-8 geometric-accent"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -25,7 +28,7 @@ export default function ProblemSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We help brands tell cinematic stories people actually care about.
+            We help brands tell <span className="text-fiery font-medium">cinematic stories</span> people actually care about.
           </motion.p>
         </div>
       </div>

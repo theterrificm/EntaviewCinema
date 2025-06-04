@@ -20,10 +20,13 @@ export default function LogoLoader() {
           times: [0, 0.5, 1],
           ease: "easeInOut"
         }}
+        className="flex items-center justify-center"
       >
-        <h1 className="text-6xl md:text-8xl font-light tracking-wider text-white">
-          ENTAVIEW
-        </h1>
+        <img 
+          src="/attached_assets/Asset 2@4x - WHITE - 1308x241.png" 
+          alt="Entaview" 
+          className="h-16 md:h-24 w-auto"
+        />
       </motion.div>
     </motion.div>
   );
