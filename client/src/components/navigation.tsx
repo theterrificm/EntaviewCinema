@@ -27,7 +27,7 @@ export default function Navigation() {
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, delay: 2.8 }}
+      transition={{ duration: 0.6, delay: 0.5 }}
     >
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         {/* Logo */}
