@@ -35,8 +35,8 @@ export default function HeroSection() {
             className="mb-8"
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-league-spartan font-bold leading-none mb-6 text-white text-center">
-              Transform Your<br />
-              <span className="text-fiery">Vision</span>
+              We help brands lead culture —<br />
+              <span className="text-fiery">not follow it.</span>
             </h1>
           </motion.div>
           
@@ -46,7 +46,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 3.9 }}
           >
-            Create powerful and profitable films that lead culture — not follow it. For lifestyle brands and bold startups ready to cut through the noise.
+            For lifestyle labels, tech startups and culture-first brands ready to stop blending in.
           </motion.p>
           
           <motion.div 
