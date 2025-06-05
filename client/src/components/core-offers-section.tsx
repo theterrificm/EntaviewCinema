@@ -76,16 +76,13 @@ export default function CoreOffersSection() {
             >
               {/* Image Container */}
               <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3]">
-                <motion.div
-                  className="w-full h-full bg-gradient-to-br from-stone/20 to-fiery/10 flex items-center justify-center"
+                <motion.img
+                  src={offer.image}
+                  alt={offer.title}
+                  className="w-full h-full object-cover"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
-                >
-                  {/* Placeholder for now - will replace with actual images */}
-                  <div className="text-6xl text-stone/30 font-helvetica">
-                    {index === 0 ? "🎬" : index === 1 ? "📈" : "🚀"}
-                  </div>
-                </motion.div>
+                />
                 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
