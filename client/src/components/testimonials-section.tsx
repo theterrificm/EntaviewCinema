@@ -48,30 +48,53 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white/80 p-8 rounded-lg"
+              className="bg-white/90 p-8 rounded-lg relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
             >
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-fiery/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
               {/* Rating Stars */}
-              <div className="flex mb-4">
+              <div className="flex mb-4 relative z-10">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-fiery text-lg">★</span>
+                  <motion.span 
+                    key={i} 
+                    className="text-fiery text-lg"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 + i * 0.1 }}
+                  >
+                    ★
+                  </motion.span>
                 ))}
               </div>
               
-              <blockquote className="text-lg font-helvetica mb-6 leading-relaxed">
+              <blockquote className="text-lg font-helvetica mb-6 leading-relaxed relative z-10">
                 "{testimonial.quote}"
               </blockquote>
               
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-fiery/20 rounded-full flex items-center justify-center mr-4 text-fiery font-bold">
+              <div className="flex items-center relative z-10">
+                <motion.div 
+                  className="w-12 h-12 bg-fiery/20 rounded-full flex items-center justify-center mr-4 text-fiery font-bold group-hover:bg-fiery/30 transition-colors duration-300"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   {testimonial.author.charAt(0)}
-                </div>
+                </motion.div>
                 <div>
-                  <div className="font-helvetica font-medium">{testimonial.author}</div>
+                  <div className="font-helvetica font-medium group-hover:text-fiery transition-colors duration-300">
+                    {testimonial.author}
+                  </div>
                   <div className="text-sm opacity-70">{testimonial.title}</div>
                 </div>
+              </div>
+              
+              {/* Floating quote mark */}
+              <div className="absolute top-4 right-4 text-6xl text-fiery/10 font-baskerville leading-none select-none">
+                "
               </div>
             </motion.div>
           ))}

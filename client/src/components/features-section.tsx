@@ -50,14 +50,28 @@ export default function FeaturesSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="text-center"
+              className="text-center group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
             >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-helvetica font-medium mb-3">{feature.title}</h3>
-              <p className="font-helvetica text-sm opacity-70 leading-relaxed">{feature.description}</p>
+              <motion.div 
+                className="text-4xl mb-4 transition-transform duration-300 group-hover:scale-110"
+                animate={{ rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
+              >
+                {feature.icon}
+              </motion.div>
+              <h3 className="text-xl font-helvetica font-medium mb-3 group-hover:text-fiery transition-colors duration-300">
+                {feature.title}
+              </h3>
+              <p className="font-helvetica text-sm opacity-70 leading-relaxed group-hover:opacity-100 transition-opacity duration-300">
+                {feature.description}
+              </p>
+              
+              {/* Animated underline */}
+              <div className="mt-4 h-0.5 bg-fiery/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </motion.div>
           ))}
         </div>

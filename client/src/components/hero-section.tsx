@@ -8,9 +8,19 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-onyx">
-      {/* Background Video/Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="w-full h-full bg-gradient-to-br from-onyx via-onyx/95 to-onyx/90"></div>
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-onyx/70"></div>
       </div>
       
       {/* Main Content */}
@@ -59,16 +69,31 @@ export default function HeroSection() {
       {/* Video Section */}
       <div className="absolute bottom-20 right-20 hidden lg:block">
         <motion.div 
-          className="w-80 h-52 bg-onyx/80 rounded-lg border border-white/20 overflow-hidden"
+          className="w-80 h-52 bg-onyx/80 rounded-lg border border-white/20 overflow-hidden relative group cursor-pointer"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 4.4 }}
+          whileHover={{ scale: 1.05 }}
         >
-          <img 
-            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=520"
-            alt="Film production"
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1c9a1a1a2&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Play button overlay */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="w-16 h-16 bg-fiery rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M8 5v10l8-5z"/>
+              </svg>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -74,46 +74,76 @@ export default function PricingSection() {
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
-              className={`relative p-8 rounded-lg border ${
+              className={`relative p-8 rounded-lg border overflow-hidden group cursor-pointer ${
                 pkg.popular 
                   ? 'border-fiery bg-fiery/5' 
                   : 'border-white/20 bg-white/5'
               }`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, rotateX: 45 }}
+              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 50, rotateX: 45 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
+              {/* Animated background shimmer */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-fiery/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
               {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-4 py-1 text-sm font-helvetica font-medium rounded-full">
+                <motion.div 
+                  className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-4 py-1 text-sm font-helvetica font-medium rounded-full z-10"
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
                   Most Popular
-                </div>
+                </motion.div>
               )}
               
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-helvetica font-medium mb-2">{pkg.name}</h3>
-                <div className="text-3xl font-helvetica font-light mb-2">{pkg.price}</div>
+              <div className="text-center mb-8 relative z-10">
+                <h3 className="text-2xl font-helvetica font-medium mb-2 group-hover:text-fiery transition-colors duration-300">
+                  {pkg.name}
+                </h3>
+                <motion.div 
+                  className="text-3xl font-helvetica font-light mb-2"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {pkg.price}
+                </motion.div>
                 <p className="text-sm opacity-70">{pkg.description}</p>
               </div>
               
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 relative z-10">
                 {pkg.features.map((feature, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="text-fiery mr-3 mt-1">•</span>
+                  <motion.li 
+                    key={i} 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + i * 0.1 }}
+                  >
+                    <motion.span 
+                      className="text-fiery mr-3 mt-1"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                    >
+                      •
+                    </motion.span>
                     <span className="text-sm font-helvetica">{feature}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
               
-              <button 
+              <motion.button 
                 onClick={handleBookCall}
-                className={`w-full py-3 font-helvetica text-sm uppercase tracking-wider transition-all duration-300 ${
+                className={`w-full py-3 font-helvetica text-sm uppercase tracking-wider transition-all duration-300 relative z-10 ${
                   pkg.popular
                     ? 'bg-fiery hover:bg-fiery/90 text-white'
                     : 'border border-white/30 text-white hover:bg-white/10'
                 }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Get Started
-              </button>
+              </motion.button>
             </motion.div>
           ))}
         </div>
