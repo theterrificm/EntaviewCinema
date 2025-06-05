@@ -42,18 +42,18 @@ export default function CoreOffersSection() {
       <div className="container mx-auto px-6">
         {/* Animated Headline */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-24 relative z-10"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-helvetica font-bold mb-4">
             Transform Your{" "}
-            <span className="relative inline-block min-w-[300px] text-left">
+            <span className="relative inline-block min-w-[280px] md:min-w-[350px] text-left">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentWordIndex}
-                  className="absolute left-0 text-fiery"
+                  className="absolute left-0 text-fiery z-20"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
@@ -67,7 +67,7 @@ export default function CoreOffersSection() {
         </motion.div>
 
         {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+        <div className="grid md:grid-cols-3 gap-12 max-w-full mx-auto mb-16">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
@@ -78,13 +78,27 @@ export default function CoreOffersSection() {
               whileHover={{ y: -10 }}
             >
               {/* Video Container */}
-              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[16/10] shadow-2xl"
+                onMouseEnter={(e) => {
+                  const video = e.currentTarget.querySelector('video') as HTMLVideoElement;
+                  if (video) {
+                    video.currentTime = 0;
+                    video.play();
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const video = e.currentTarget.querySelector('video') as HTMLVideoElement;
+                  if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                }}
+              >
                 <motion.video
                   key={offer.videoSrc}
-                  autoPlay
-                  loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
@@ -128,18 +142,25 @@ export default function CoreOffersSection() {
                   </div>
                 </motion.div>
                 
+                {/* Preview Text Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-onyx/90 via-onyx/60 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-helvetica font-bold text-white mb-2">
+                    {offer.title}
+                  </h3>
+                  <p className="text-sm font-helvetica text-stone/90 leading-relaxed">
+                    {offer.caption}
+                  </p>
+                </div>
+                
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              {/* Card Content */}
+              {/* Card Title - Always Visible */}
               <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-helvetica font-bold mb-4 group-hover:text-fiery transition-colors duration-300">
+                <h3 className="text-2xl md:text-3xl font-helvetica font-bold group-hover:text-fiery transition-colors duration-300">
                   {offer.title}
                 </h3>
-                <p className="text-lg font-helvetica leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                  {offer.caption}
-                </p>
               </div>
             </motion.div>
           ))}
