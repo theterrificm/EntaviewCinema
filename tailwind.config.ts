@@ -5,12 +5,16 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        'helvetica': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+        'league-spartan': ['League Spartan', 'Arial', 'sans-serif'],
+        'newake': ['Newake', 'serif'],
+        'libre-baskerville': ['Libre Baskerville', 'serif'],
       },
       colors: {
+        onyx: "hsl(var(--onyx))",
+        stone: "hsl(var(--stone))",
+        fiery: "hsl(var(--fiery))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

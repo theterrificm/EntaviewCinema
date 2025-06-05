@@ -28,9 +28,16 @@ export default function HeroSection() {
         <div className="max-w-6xl">
           {/* Large Entaview Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 3.0 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ 
+              opacity: [0, 1, 1, 0], 
+              scale: [0.5, 1.2, 1, 0.8] 
+            }}
+            transition={{ 
+              duration: 3.5,
+              times: [0, 0.3, 0.8, 1],
+              ease: "easeInOut"
+            }}
             className="mb-16 text-center"
           >
             <img 
@@ -43,12 +50,12 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.6 }}
+            transition={{ duration: 0.8, delay: 4.0 }}
             className="mb-8"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-helvetica font-light leading-none mb-6 text-white text-center">
-              Create Powerful &<br />
-              Profitable Films
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-league-spartan font-bold leading-none mb-6 text-white text-center">
+              Transform Your<br />
+              <span className="text-fiery">Vision</span>
             </h1>
           </motion.div>
           
@@ -56,24 +63,24 @@ export default function HeroSection() {
             className="text-xl md:text-2xl font-helvetica font-light text-white/80 mb-12 max-w-2xl leading-relaxed text-center mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.0 }}
+            transition={{ duration: 0.8, delay: 4.4 }}
           >
-            We create films that lead culture — not follow it. For lifestyle brands and bold startups ready to cut through the noise.
+            Create powerful and profitable films that lead culture — not follow it. For lifestyle brands and bold startups ready to cut through the noise.
           </motion.p>
           
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.4 }}
+            transition={{ duration: 0.8, delay: 4.8 }}
           >
             <button 
               onClick={handleBookCall}
-              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-helvetica font-medium text-lg transition-all duration-300 hover:scale-105"
+              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-league-spartan font-semibold text-lg transition-all duration-300 hover:scale-105"
             >
               BOOK A CALL
             </button>
-            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-helvetica font-medium text-lg transition-all duration-300">
+            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-league-spartan font-semibold text-lg transition-all duration-300">
               WATCH TRAILER
             </button>
           </motion.div>
