@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LogoLoader from "@/components/logo-loader";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
+import CoreOffersSection from "@/components/core-offers-section";
 import FeaturesSection from "@/components/features-section";
 import VideoGallerySection from "@/components/video-gallery-section";
 import TestimonialsSection from "@/components/testimonials-section";
@@ -24,6 +25,7 @@ export default function Home() {
       {showLoader && <LogoLoader />}
       <Navigation />
       <HeroSection />
+      <CoreOffersSection />
       <FeaturesSection />
       <VideoGallerySection />
       <TestimonialsSection />

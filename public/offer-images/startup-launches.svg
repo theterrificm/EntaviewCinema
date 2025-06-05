@@ -1,0 +1,37 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#1A1A1A"/>
+  
+  <!-- Rocket body -->
+  <ellipse cx="200" cy="180" rx="25" ry="60" fill="#2A2A2A" stroke="#F24005" stroke-width="2"/>
+  
+  <!-- Rocket tip -->
+  <path d="M175 120 L200 80 L225 120 Z" fill="#F24005"/>
+  
+  <!-- Rocket fins -->
+  <path d="M175 220 L165 240 L185 235 Z" fill="#3A3A3A" stroke="#F24005" stroke-width="1"/>
+  <path d="M225 220 L235 240 L215 235 Z" fill="#3A3A3A" stroke="#F24005" stroke-width="1"/>
+  
+  <!-- Rocket window -->
+  <circle cx="200" cy="160" r="12" fill="#1A1A1A" stroke="#D9D9D6" stroke-width="2"/>
+  <circle cx="200" cy="160" r="8" fill="#F24005" opacity="0.5"/>
+  
+  <!-- Flame -->
+  <ellipse cx="200" cy="250" rx="20" ry="15" fill="#F24005" opacity="0.8"/>
+  <ellipse cx="200" cy="255" rx="15" ry="12" fill="#FF6B35" opacity="0.8"/>
+  <ellipse cx="200" cy="260" rx="10" ry="8" fill="#FFD700" opacity="0.9"/>
+  
+  <!-- Stars -->
+  <circle cx="100" cy="80" r="2" fill="#D9D9D6"/>
+  <circle cx="320" cy="100" r="2" fill="#D9D9D6"/>
+  <circle cx="80" cy="150" r="2" fill="#D9D9D6"/>
+  <circle cx="350" cy="180" r="2" fill="#D9D9D6"/>
+  <circle cx="120" cy="220" r="2" fill="#D9D9D6"/>
+  <circle cx="300" cy="250" r="2" fill="#D9D9D6"/>
+  
+  <!-- Trajectory lines -->
+  <path d="M50 200 Q150 100 250 120" stroke="#F24005" stroke-width="2" fill="none" opacity="0.4" stroke-dasharray="5,5"/>
+  
+  <!-- Launch text -->
+  <text x="200" y="290" text-anchor="middle" fill="#D9D9D6" font-family="Arial, sans-serif" font-size="14" font-weight="bold">LAUNCH</text>
+</svg>
