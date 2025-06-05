@@ -26,31 +26,12 @@ export default function HeroSection() {
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6 py-20">
         <div className="max-w-6xl">
-          {/* Large Entaview Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0], 
-              scale: [0.5, 1.2, 1, 0.8] 
-            }}
-            transition={{ 
-              duration: 3.5,
-              times: [0, 0.3, 0.8, 1],
-              ease: "easeInOut"
-            }}
-            className="mb-16 text-center"
-          >
-            <img 
-              src="/Layer 25@4x_1749156997169.png" 
-              alt="Entaview" 
-              className="h-32 md:h-48 lg:h-64 w-auto mx-auto object-contain"
-            />
-          </motion.div>
+
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.0 }}
+            transition={{ duration: 0.8, delay: 3.5 }}
             className="mb-8"
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-league-spartan font-bold leading-none mb-6 text-white text-center">
@@ -63,7 +44,7 @@ export default function HeroSection() {
             className="text-xl md:text-2xl font-helvetica font-light text-white/80 mb-12 max-w-2xl leading-relaxed text-center mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.4 }}
+            transition={{ duration: 0.8, delay: 3.9 }}
           >
             Create powerful and profitable films that lead culture — not follow it. For lifestyle brands and bold startups ready to cut through the noise.
           </motion.p>
@@ -72,7 +53,7 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.8 }}
+            transition={{ duration: 0.8, delay: 4.3 }}
           >
             <button 
               onClick={handleBookCall}
