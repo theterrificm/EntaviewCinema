@@ -35,7 +35,7 @@ export default function Navigation() {
           <img 
             src="/entaview-logo-white.png" 
             alt="Entaview" 
-            className="h-6 w-auto"
+            className="h-8 w-auto"
           />
         </div>
         
