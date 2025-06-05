@@ -24,10 +24,10 @@ export default function VideoGallerySection() {
     },
     {
       id: 3,
-      title: "ICON Amsterdam",
-      category: "Fashion",
+      title: "ICON Heist",
+      category: "Fashion Film",
       thumbnail: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+      videoUrl: "/attached_assets/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749160669052.mp4"
     },
     {
       id: 4,
