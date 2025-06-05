@@ -67,7 +67,7 @@ export default function CoreOffersSection() {
         </motion.div>
 
         {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16 px-6">
+        <div className="grid md:grid-cols-3 gap-4 w-full max-w-none px-4 mb-16">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
@@ -114,7 +114,7 @@ export default function CoreOffersSection() {
                 </motion.div>
                 
                 {/* Hover Text Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
                   <h3 className="text-lg font-helvetica font-bold text-white mb-2">
                     {offer.title}
                   </h3>
