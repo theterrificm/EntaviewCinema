@@ -10,22 +10,22 @@ export default function LogoLoader() {
       transition={{ duration: 0.5, delay: 2 }}
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0, scale: 0.5 }}
         animate={{ 
           opacity: 1, 
-          scale: [0.8, 1.1, 1] 
+          scale: [0.5, 1.2, 1] 
         }}
         transition={{ 
-          duration: 2,
-          times: [0, 0.5, 1],
+          duration: 2.5,
+          times: [0, 0.6, 1],
           ease: "easeInOut"
         }}
         className="flex items-center justify-center"
       >
         <img 
-          src="/entaview-logo-white.png" 
+          src="/entaview-logo-orange.png" 
           alt="Entaview" 
-          className="h-16 md:h-24 w-auto"
+          className="h-48 md:h-72 lg:h-96 w-auto max-w-screen-md"
         />
       </motion.div>
     </motion.div>

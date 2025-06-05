@@ -34,7 +34,7 @@ export default function HeroSection() {
             className="mb-16 text-center"
           >
             <img 
-              src="/entaview-logo-white-horizontal.png" 
+              src="/entaview-logo-orange.png" 
               alt="Entaview" 
               className="h-32 md:h-48 lg:h-64 w-auto mx-auto"
             />
