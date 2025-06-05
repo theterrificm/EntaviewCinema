@@ -29,15 +29,47 @@ export default function ProblemSection() {
         transition={{ duration: 2.5, repeat: Infinity }}
       ></motion.div>
       
-      {/* Animated Entaview Logo */}
+      {/* Multiple Animated Entaview Logos */}
       <motion.div 
-        className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-16 h-16 opacity-20"
+        className="absolute top-1/4 left-1/4 w-20 h-20 opacity-30"
         animate={{ 
-          rotate: isHovered ? [0, 180, 360] : [0, 90, 180],
-          scale: isHovered ? [1, 1.3, 1] : [1, 1.1, 1],
-          opacity: isHovered ? [0.2, 0.6, 0.2] : [0.2, 0.4, 0.2]
+          rotate: isHovered ? [0, 360] : [0, 180],
+          scale: isHovered ? [1, 1.5, 1] : [1, 1.2, 1],
+          opacity: isHovered ? [0.3, 0.7, 0.3] : [0.3, 0.5, 0.3]
         }}
-        transition={{ duration: 4, repeat: Infinity }}
+        transition={{ duration: 5, repeat: Infinity }}
+      >
+        <img 
+          src="/entaview-icon.png" 
+          alt="Entaview Icon" 
+          className="w-full h-full object-contain filter invert"
+        />
+      </motion.div>
+      
+      <motion.div 
+        className="absolute bottom-1/3 right-1/4 w-24 h-24 opacity-25"
+        animate={{ 
+          rotate: isHovered ? [360, 0] : [180, 0],
+          scale: isHovered ? [1, 1.4, 1] : [1, 1.15, 1],
+          opacity: isHovered ? [0.25, 0.6, 0.25] : [0.25, 0.4, 0.25]
+        }}
+        transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+      >
+        <img 
+          src="/entaview-icon.png" 
+          alt="Entaview Icon" 
+          className="w-full h-full object-contain filter invert"
+        />
+      </motion.div>
+      
+      <motion.div 
+        className="absolute top-2/3 left-3/4 w-16 h-16 opacity-20"
+        animate={{ 
+          rotate: isHovered ? [0, -360] : [0, -180],
+          scale: isHovered ? [1, 1.3, 1] : [1, 1.1, 1],
+          opacity: isHovered ? [0.2, 0.5, 0.2] : [0.2, 0.35, 0.2]
+        }}
+        transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}
       >
         <img 
           src="/entaview-icon.png" 
@@ -88,43 +120,20 @@ export default function ProblemSection() {
               You're creating content, but it doesn't connect. Your brand deserves more than just views — it deserves impact.
             </motion.p>
             
-            {/* Animated text overlay on hover */}
+            {/* Subtle text animation on hover - no overlay */}
             <motion.div 
-              className="absolute inset-0 flex items-center justify-center bg-onyx/90 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"
-              initial={{ scale: 0.8 }}
-              whileHover={{ scale: 1 }}
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"
+              initial={{ y: 20 }}
+              whileHover={{ y: 0 }}
             >
-              <div className="text-center text-white relative">
-                {/* Background Entaview logo in overlay */}
-                <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 opacity-10"
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
-                  <img 
-                    src="/entaview-icon.png" 
-                    alt="Entaview Icon" 
-                    className="w-full h-full object-contain filter invert"
-                  />
-                </motion.div>
-                
-                <motion.h3 
-                  className="text-3xl md:text-4xl font-league-spartan font-bold mb-4 relative z-10"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileHover={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  Break Through the Noise
-                </motion.h3>
-                <motion.p 
-                  className="text-lg font-helvetica font-light relative z-10"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileHover={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  Stand out with content that commands attention
-                </motion.p>
-              </div>
+              <motion.p 
+                className="text-sm font-helvetica font-medium text-white/90 bg-onyx/30 px-4 py-2 rounded-full backdrop-blur-sm"
+                initial={{ scale: 0.8 }}
+                whileHover={{ scale: 1 }}
+                transition={{ delay: 0.1 }}
+              >
+                Break Through the Noise
+              </motion.p>
             </motion.div>
           </div>
           
