@@ -23,7 +23,7 @@ export default function LogoLoader() {
         className="flex items-center justify-center"
       >
         <img 
-          src="/Layer 25@4x_1749156997169.png" 
+          src="/entaview-logo-white-horizontal.png" 
           alt="Entaview" 
           className="h-48 md:h-72 lg:h-96 w-auto max-w-screen-md object-contain"
         />
