@@ -67,7 +67,7 @@ export default function CoreOffersSection() {
         </motion.div>
 
         {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-2 w-full max-w-none px-0 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto px-6 mb-16">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
@@ -83,7 +83,7 @@ export default function CoreOffersSection() {
               style={{ zIndex: 1 }}
             >
               {/* Video Container */}
-              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[280px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
+              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[350px] md:h-[400px] lg:h-[450px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
                 {/* Animated Background Preview */}
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
