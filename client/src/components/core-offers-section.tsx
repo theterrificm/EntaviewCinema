@@ -67,7 +67,7 @@ export default function CoreOffersSection() {
         </motion.div>
 
         {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16 justify-center">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
