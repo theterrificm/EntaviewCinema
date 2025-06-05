@@ -42,28 +42,28 @@ export default function CoreOffersSection() {
       <div className="w-full">
         {/* Animated Headline */}
         <motion.div
-          className="flex items-center justify-center mb-24 relative z-10 w-full"
+          className="text-center pt-8 pb-20 relative z-10 w-full"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold text-center">
-            Transform Your{" "}
-            <span className="relative inline-block min-w-[200px] md:min-w-[280px]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentWordIndex}
-                  className="absolute left-1/2 top-0 transform -translate-x-1/2 text-fiery z-20 whitespace-nowrap"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  {rotatingWords[currentWordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold text-white">
+            Transform Your
           </h2>
+          <div className="relative inline-block min-w-[200px] md:min-w-[280px] mt-2">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentWordIndex}
+                className="block text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold text-fiery"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                {rotatingWords[currentWordIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
         </motion.div>
 
         {/* Three Service Cards */}
