@@ -34,9 +34,9 @@ export default function HeroSection() {
             className="mb-16 text-center"
           >
             <img 
-              src="/entaview-logo-orange.png" 
+              src="/Layer 25@4x_1749156997169.png" 
               alt="Entaview" 
-              className="h-32 md:h-48 lg:h-64 w-auto mx-auto"
+              className="h-32 md:h-48 lg:h-64 w-auto mx-auto object-contain"
             />
           </motion.div>
           

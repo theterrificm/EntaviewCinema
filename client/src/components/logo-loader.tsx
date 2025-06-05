@@ -23,9 +23,9 @@ export default function LogoLoader() {
         className="flex items-center justify-center"
       >
         <img 
-          src="/entaview-logo-orange.png" 
+          src="/Layer 25@4x_1749156997169.png" 
           alt="Entaview" 
-          className="h-48 md:h-72 lg:h-96 w-auto max-w-screen-md"
+          className="h-48 md:h-72 lg:h-96 w-auto max-w-screen-md object-contain"
         />
       </motion.div>
     </motion.div>

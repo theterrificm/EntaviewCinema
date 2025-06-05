@@ -5,6 +5,7 @@ import HeroSection from "@/components/hero-section";
 import CoreOffersSection from "@/components/core-offers-section";
 import FeaturesSection from "@/components/features-section";
 import VideoGallerySection from "@/components/video-gallery-section";
+import BrandingShowcaseSection from "@/components/branding-showcase-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import PricingSection from "@/components/pricing-section";
 import FinalCTASection from "@/components/final-cta-section";
@@ -28,6 +29,7 @@ export default function Home() {
       <CoreOffersSection />
       <FeaturesSection />
       <VideoGallerySection />
+      <BrandingShowcaseSection />
       <TestimonialsSection />
       <PricingSection />
       <FinalCTASection />
