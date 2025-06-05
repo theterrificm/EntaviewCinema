@@ -53,7 +53,7 @@ export default function CoreOffersSection() {
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentWordIndex}
-                  className="absolute left-1/2 transform -translate-x-1/2 text-fiery z-20"
+                  className="absolute left-1/2 transform -translate-x-1/2 text-fiery z-20 text-left pl-[-11px] pr-[-11px] ml-[6px] mr-[6px]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
