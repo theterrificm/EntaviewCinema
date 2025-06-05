@@ -71,11 +71,16 @@ export default function CoreOffersSection() {
           {offers.map((offer, index) => (
             <motion.div
               key={index}
-              className="group cursor-pointer"
+              className="group cursor-pointer relative"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ 
+                y: -10,
+                scale: 1.05,
+                zIndex: 50
+              }}
+              style={{ zIndex: 1 }}
             >
               {/* Video Container */}
               <div className="relative overflow-hidden rounded-lg mb-6 aspect-[16/9] h-[400px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
