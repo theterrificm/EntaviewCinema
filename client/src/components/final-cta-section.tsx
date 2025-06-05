@@ -7,51 +7,67 @@ export default function FinalCTASection() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const handleBookCall = () => {
-    // This would typically integrate with a booking system
     console.log("Book a call clicked");
     alert("Booking system integration would be implemented here");
   };
 
   return (
-    <section className="py-24 md:py-32 bg-onyx relative overflow-hidden" ref={ref} id="contact">
-      <div className="absolute inset-0 opacity-20">
-        <img 
-          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080" 
-          alt="Professional film equipment and lighting setup" 
-          className="w-full h-full object-cover parallax-bg"
-        />
-      </div>
-      
-      <div className="absolute inset-0 bg-gradient-to-t from-onyx via-transparent to-onyx/80"></div>
-      <div className="geometric-overlay"></div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-fiery/10 rounded-full floating-element blur-xl"></div>
-      <div className="absolute bottom-1/3 right-1/3 w-32 h-32 border border-fiery/20 rotate-45 floating-element" style={{animationDelay: '1s'}}></div>
-      
-      <div className="container mx-auto px-6 max-w-4xl relative z-10">
-        <div className="text-center geometric-accent">
-          <motion.h2 
-            className="text-5xl md:text-7xl lg:text-8xl font-spartan font-bold leading-tight mb-12 text-gradient uppercase tracking-wide"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-          >
-            Let's build something bold.
-          </motion.h2>
+    <section className="py-32 bg-onyx text-white" ref={ref} id="contact">
+      <div className="container mx-auto px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-5xl md:text-7xl font-helvetica font-light mb-8 leading-tight">
+            Ready to Create<br />
+            Something Bold?
+          </h2>
           
-          <motion.button 
-            onClick={handleBookCall}
-            className="bg-gradient-to-r from-fiery to-fiery/90 hover:from-fiery/90 hover:to-fiery text-white px-12 py-6 text-xl font-helvetica font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg shadow-xl hover:shadow-2xl uppercase"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Book a Call
-          </motion.button>
-        </div>
+          <p className="text-xl font-helvetica font-light opacity-70 mb-12 max-w-2xl mx-auto">
+            Let's discuss your vision and create a film that leads culture, not follows it.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={handleBookCall}
+              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-helvetica font-medium text-lg transition-all duration-300 hover:scale-105"
+            >
+              BOOK A DISCOVERY CALL
+            </button>
+            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-helvetica font-medium text-lg transition-all duration-300">
+              VIEW OUR WORK
+            </button>
+          </div>
+        </motion.div>
+        
+        {/* Footer */}
+        <motion.div 
+          className="mt-24 pt-12 border-t border-white/20"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-8 md:mb-0">
+              <img 
+                src="/attached_assets/Asset 2@4x - WHITE - 1308x241.png" 
+                alt="Entaview" 
+                className="h-8 w-auto mx-auto md:mx-0"
+              />
+            </div>
+            
+            <div className="flex space-x-8 text-sm font-helvetica opacity-70">
+              <a href="#" className="hover:opacity-100 transition-opacity">Privacy</a>
+              <a href="#" className="hover:opacity-100 transition-opacity">Terms</a>
+              <a href="#" className="hover:opacity-100 transition-opacity">Contact</a>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center text-sm font-helvetica opacity-50">
+            © 2024 Entaview. All rights reserved.
+          </div>
+        </motion.div>
       </div>
     </section>
   );

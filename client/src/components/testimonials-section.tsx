@@ -10,58 +10,68 @@ export default function TestimonialsSection() {
     {
       quote: "Entaview didn't just create a film for us—they created a cultural moment. The response was unlike anything we'd seen before.",
       author: "Sarah Chen",
-      title: "Creative Director at Lifestyle Brand"
+      title: "Creative Director, Lifestyle Brand",
+      rating: 5
     },
     {
       quote: "Working with Entaview elevated our brand story from noise to narrative. The cinematic quality speaks for itself.",
-      author: "Marcus Rodriguez",
-      title: "Founder, Bold Startup"
+      author: "Marcus Rodriguez", 
+      title: "Founder, Bold Startup",
+      rating: 5
+    },
+    {
+      quote: "The team's attention to detail and creative vision exceeded our expectations. Our campaign reached 10M+ views.",
+      author: "James Wilson",
+      title: "Marketing Director, PlayStation",
+      rating: 5
     }
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-stone text-onyx relative overflow-hidden" ref={ref}>
-      <div className="absolute top-1/3 right-0 w-36 h-36 bg-fiery/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-24 h-24 border border-onyx/10 rotate-12 floating-element"></div>
-      
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="section-divider pt-8 mb-16">
-          <motion.h2 
-            className="text-4xl md:text-5xl font-helvetica font-bold text-center mb-12 geometric-accent uppercase tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-          >
-            What Our Clients Say
-          </motion.h2>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-16 md:gap-20">
+    <section className="py-24 bg-stone text-onyx" ref={ref} id="testimonials">
+      <div className="container mx-auto px-6">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-5xl md:text-6xl font-helvetica font-light mb-6">
+            Client Reviews
+          </h2>
+          <p className="text-xl font-helvetica font-light opacity-70 max-w-2xl mx-auto">
+            See what our clients say about working with Entaview
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <motion.div 
+            <motion.div
               key={index}
-              className="relative group"
+              className="bg-white/80 p-8 rounded-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: index * 0.3 }}
-              whileHover={{ y: -5 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <div className="absolute inset-0 bg-white/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm"></div>
-              <div className="relative z-10 p-8">
-                <div className="text-fiery text-6xl font-baskerville mb-4 opacity-20">"</div>
-                <blockquote className="text-3xl md:text-4xl font-baskerville italic leading-relaxed mb-8 -mt-8">
-                  {testimonial.quote}
-                </blockquote>
-                <cite className="text-lg font-helvetica opacity-80 flex items-center">
-                  <div className="w-12 h-12 bg-fiery/20 rounded-full flex items-center justify-center mr-4 text-fiery font-bold">
-                    {testimonial.author.charAt(0)}
-                  </div>
-                  <div>
-                    <span className="font-medium">{testimonial.author}</span>
-                    <br />
-                    <span className="text-sm opacity-60">{testimonial.title}</span>
-                  </div>
-                </cite>
+              {/* Rating Stars */}
+              <div className="flex mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="text-fiery text-lg">★</span>
+                ))}
+              </div>
+              
+              <blockquote className="text-lg font-helvetica mb-6 leading-relaxed">
+                "{testimonial.quote}"
+              </blockquote>
+              
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-fiery/20 rounded-full flex items-center justify-center mr-4 text-fiery font-bold">
+                  {testimonial.author.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-helvetica font-medium">{testimonial.author}</div>
+                  <div className="text-sm opacity-70">{testimonial.title}</div>
+                </div>
               </div>
             </motion.div>
           ))}

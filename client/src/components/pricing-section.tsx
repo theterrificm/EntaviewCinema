@@ -1,0 +1,123 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
+export default function PricingSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const handleBookCall = () => {
+    console.log("Book a call clicked");
+    alert("Booking system integration would be implemented here");
+  };
+
+  const packages = [
+    {
+      name: "Starter",
+      price: "From $15k",
+      description: "Perfect for emerging brands",
+      features: [
+        "30-60 second commercial",
+        "Single location shoot",
+        "Basic post-production",
+        "2 rounds of revisions",
+        "HD delivery"
+      ]
+    },
+    {
+      name: "Professional",
+      price: "From $35k",
+      description: "For established businesses",
+      features: [
+        "60-120 second film",
+        "Multiple locations",
+        "Advanced cinematography",
+        "Color grading & sound design",
+        "4K delivery",
+        "Social media versions"
+      ],
+      popular: true
+    },
+    {
+      name: "Premium",
+      price: "From $75k",
+      description: "For global campaigns",
+      features: [
+        "Feature-length content",
+        "International shoots",
+        "Celebrity talent",
+        "Full production crew",
+        "Cinema-grade equipment",
+        "Global distribution strategy"
+      ]
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-onyx text-white" ref={ref} id="pricing">
+      <div className="container mx-auto px-6">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-5xl md:text-6xl font-helvetica font-light mb-6">
+            Investment Options
+          </h2>
+          <p className="text-xl font-helvetica font-light opacity-70 max-w-2xl mx-auto">
+            Choose the package that matches your vision and budget. All packages include our signature cinematic approach.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {packages.map((pkg, index) => (
+            <motion.div
+              key={index}
+              className={`relative p-8 rounded-lg border ${
+                pkg.popular 
+                  ? 'border-fiery bg-fiery/5' 
+                  : 'border-white/20 bg-white/5'
+              }`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-4 py-1 text-sm font-helvetica font-medium rounded-full">
+                  Most Popular
+                </div>
+              )}
+              
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-helvetica font-medium mb-2">{pkg.name}</h3>
+                <div className="text-3xl font-helvetica font-light mb-2">{pkg.price}</div>
+                <p className="text-sm opacity-70">{pkg.description}</p>
+              </div>
+              
+              <ul className="space-y-3 mb-8">
+                {pkg.features.map((feature, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="text-fiery mr-3 mt-1">•</span>
+                    <span className="text-sm font-helvetica">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <button 
+                onClick={handleBookCall}
+                className={`w-full py-3 font-helvetica text-sm uppercase tracking-wider transition-all duration-300 ${
+                  pkg.popular
+                    ? 'bg-fiery hover:bg-fiery/90 text-white'
+                    : 'border border-white/30 text-white hover:bg-white/10'
+                }`}
+              >
+                Get Started
+              </button>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

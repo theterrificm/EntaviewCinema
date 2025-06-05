@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import LogoLoader from "@/components/logo-loader";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
-import ProblemSection from "@/components/problem-section";
-import CredibilitySection from "@/components/credibility-section";
-import ProcessSection from "@/components/process-section";
+import FeaturesSection from "@/components/features-section";
 import TestimonialsSection from "@/components/testimonials-section";
+import PricingSection from "@/components/pricing-section";
 import FinalCTASection from "@/components/final-cta-section";
 
 export default function Home() {
@@ -24,10 +23,9 @@ export default function Home() {
       {showLoader && <LogoLoader />}
       <Navigation />
       <HeroSection />
-      <ProblemSection />
-      <CredibilitySection />
-      <ProcessSection />
+      <FeaturesSection />
       <TestimonialsSection />
+      <PricingSection />
       <FinalCTASection />
     </div>
   );
