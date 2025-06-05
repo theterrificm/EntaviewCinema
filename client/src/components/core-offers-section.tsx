@@ -67,7 +67,7 @@ export default function CoreOffersSection() {
         </motion.div>
 
         {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-12 max-w-full mx-auto mb-16">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
@@ -78,7 +78,7 @@ export default function CoreOffersSection() {
               whileHover={{ y: -10 }}
             >
               {/* Video Container */}
-              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
+              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[16/9] h-[400px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
                 {/* Animated Background Preview */}
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
@@ -108,9 +108,12 @@ export default function CoreOffersSection() {
                   </div>
                 </motion.div>
                 
-                {/* Bottom Text Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4">
-                  <p className="text-sm font-helvetica text-white leading-relaxed">
+                {/* Hover Text Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-lg font-helvetica font-bold text-white mb-2">
+                    {offer.title}
+                  </h3>
+                  <p className="text-sm font-helvetica text-white/90 leading-relaxed">
                     {offer.caption}
                   </p>
                 </div>
