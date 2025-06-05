@@ -32,11 +32,9 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <img 
-            src="/entaview-logo-white-horizontal.png" 
-            alt="Entaview" 
-            className="h-10 w-auto"
-          />
+          <span className="text-white text-2xl font-bold font-helvetica">
+            <span className="text-fiery">enta</span>view
+          </span>
         </div>
         
         {/* Navigation Links */}
