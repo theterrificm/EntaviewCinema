@@ -49,11 +49,11 @@ export default function CoreOffersSection() {
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold mb-4 whitespace-nowrap">
             Transform Your{" "}
-            <span className="relative inline-block min-w-[200px] md:min-w-[280px] text-left">
+            <span className="relative inline-block min-w-[200px] md:min-w-[280px] text-center">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentWordIndex}
-                  className="absolute left-0 text-fiery z-20"
+                  className="absolute left-1/2 transform -translate-x-1/2 text-fiery z-20"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
