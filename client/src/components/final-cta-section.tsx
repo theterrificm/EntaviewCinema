@@ -51,7 +51,7 @@ export default function FinalCTASection() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-8 md:mb-0">
               <img 
-                src="/entaview-logo-orange.png" 
+                src="/attached_assets/Layer 25@4x_1749161317114.png" 
                 alt="Entaview" 
                 className="h-6 w-auto object-contain mx-auto md:mx-0"
               />
