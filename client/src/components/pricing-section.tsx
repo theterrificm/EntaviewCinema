@@ -89,13 +89,12 @@ export default function PricingSection() {
               
               {pkg.popular && (
                 <motion.div 
-                  className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-fiery text-white px-12 py-6 text-2xl font-helvetica font-bold rounded-full shadow-2xl border-4 border-white backdrop-blur-sm"
-                  style={{ zIndex: 9999 }}
+                  className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-6 py-2 text-sm font-helvetica font-bold rounded-full z-20 shadow-lg border-2 border-white"
                   initial={{ opacity: 0, scale: 0, y: 0 }}
                   animate={{ 
                     opacity: 1, 
                     scale: 1,
-                    y: [0, -5, 0] 
+                    y: [0, -2, 0] 
                   }}
                   transition={{ 
                     opacity: { duration: 0.5, delay: 0.3 },
