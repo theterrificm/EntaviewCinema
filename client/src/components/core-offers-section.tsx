@@ -47,9 +47,9 @@ export default function CoreOffersSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-helvetica font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold mb-4 whitespace-nowrap">
             Transform Your{" "}
-            <span className="relative inline-block min-w-[280px] md:min-w-[350px] text-left">
+            <span className="relative inline-block min-w-[200px] md:min-w-[280px] text-left">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentWordIndex}
@@ -78,42 +78,8 @@ export default function CoreOffersSection() {
               whileHover={{ y: -10 }}
             >
               {/* Video Container */}
-              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[16/10] shadow-2xl"
-                onMouseEnter={(e) => {
-                  const video = e.currentTarget.querySelector('video') as HTMLVideoElement;
-                  if (video) {
-                    video.currentTime = 0;
-                    video.play();
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  const video = e.currentTarget.querySelector('video') as HTMLVideoElement;
-                  if (video) {
-                    video.pause();
-                    video.currentTime = 0;
-                  }
-                }}
-              >
-                <motion.video
-                  key={offer.videoSrc}
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  onError={(e) => {
-                    // Fallback to animated placeholder if video fails to load
-                    const target = e.target as HTMLVideoElement;
-                    target.style.display = 'none';
-                    const fallback = target.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = 'flex';
-                  }}
-                >
-                  <source src={offer.videoSrc} type="video/mp4" />
-                </motion.video>
-                
-                {/* Animated Fallback that shows until videos are uploaded */}
+              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
+                {/* Animated Background Preview */}
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
                   style={{ 
@@ -134,26 +100,23 @@ export default function CoreOffersSection() {
                 >
                   <div className="text-center text-stone mix-blend-overlay">
                     <div className="text-lg font-helvetica font-bold mb-2">
-                      {offer.title.split(' ')[0]} Video
+                      {offer.title}
                     </div>
                     <div className="text-xs opacity-60">
-                      Upload video to replace
+                      Video Preview
                     </div>
                   </div>
                 </motion.div>
                 
-                {/* Preview Text Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-onyx/90 via-onyx/60 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl font-helvetica font-bold text-white mb-2">
-                    {offer.title}
-                  </h3>
-                  <p className="text-sm font-helvetica text-stone/90 leading-relaxed">
+                {/* Bottom Text Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4">
+                  <p className="text-sm font-helvetica text-white leading-relaxed">
                     {offer.caption}
                   </p>
                 </div>
                 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
 
               {/* Card Title - Always Visible */}
