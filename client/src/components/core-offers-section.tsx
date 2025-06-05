@@ -20,17 +20,20 @@ export default function CoreOffersSection() {
     {
       title: "Brand Campaigns",
       caption: "High-impact hero films that define your identity and build cultural buzz.",
-      image: "/offer-images/brand-campaigns.svg"
+      videoSrc: "/offer-videos/brand-campaigns-loop.mp4",
+      fallbackType: "brand"
     },
     {
       title: "Retainers", 
       caption: "Ongoing content that keeps your brand top-of-mind every single month.",
-      image: "/offer-images/retainers.svg"
+      videoSrc: "/offer-videos/retainers-loop.mp4",
+      fallbackType: "retainer"
     },
     {
       title: "Startup Launches",
       caption: "Launch with purpose through strategic storytelling and product films.",
-      image: "/offer-images/startup-launches.svg"
+      videoSrc: "/offer-videos/startup-launches-loop.mp4",
+      fallbackType: "launch"
     }
   ];
 
@@ -74,15 +77,56 @@ export default function CoreOffersSection() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
             >
-              {/* Image Container */}
+              {/* Video Container */}
               <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3]">
-                <motion.img
-                  src={offer.image}
-                  alt={offer.title}
+                <motion.video
+                  key={offer.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
-                />
+                  onError={(e) => {
+                    // Fallback to animated placeholder if video fails to load
+                    const target = e.target as HTMLVideoElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                >
+                  <source src={offer.videoSrc} type="video/mp4" />
+                </motion.video>
+                
+                {/* Animated Fallback that shows until videos are uploaded */}
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{ 
+                    background: offer.fallbackType === "brand" 
+                      ? 'linear-gradient(45deg, #1a1a1a 25%, #2a2a2a 25%, #2a2a2a 50%, #1a1a1a 50%, #1a1a1a 75%, #2a2a2a 75%, #2a2a2a)'
+                      : offer.fallbackType === "retainer"
+                      ? 'radial-gradient(circle at 30% 40%, #F24005 0%, #1a1a1a 70%)'
+                      : 'linear-gradient(135deg, #F24005 0%, #1a1a1a 100%)',
+                    backgroundSize: offer.fallbackType === "brand" ? '20px 20px' : 'cover',
+                    animation: offer.fallbackType === "brand" 
+                      ? 'slide 2s linear infinite'
+                      : offer.fallbackType === "retainer"
+                      ? 'pulse 3s ease-in-out infinite'
+                      : 'gradient-shift 4s ease-in-out infinite'
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <div className="text-center text-stone mix-blend-overlay">
+                    <div className="text-lg font-helvetica font-bold mb-2">
+                      {offer.title.split(' ')[0]} Video
+                    </div>
+                    <div className="text-xs opacity-60">
+                      Upload video to replace
+                    </div>
+                  </div>
+                </motion.div>
                 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
