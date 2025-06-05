@@ -70,8 +70,8 @@ export default function GuideSection() {
                 key={`${brand.id}-1`}
                 className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
                 whileHover={{ 
-                  scale: 1.1,
-                  y: -5,
+                  scale: 1.05,
+                  y: -2,
                   backgroundColor: "rgba(242, 64, 5, 0.1)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -87,8 +87,8 @@ export default function GuideSection() {
                 key={`${brand.id}-2`}
                 className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
                 whileHover={{ 
-                  scale: 1.1,
-                  y: -5,
+                  scale: 1.05,
+                  y: -2,
                   backgroundColor: "rgba(242, 64, 5, 0.1)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
