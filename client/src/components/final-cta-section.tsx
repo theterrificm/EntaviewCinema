@@ -19,7 +19,7 @@ export default function FinalCTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-helvetica font-light mb-8 leading-tight">
+          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold mb-8 leading-tight">
             Ready to Create<br />
             Something Bold?
           </h2>

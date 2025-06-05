@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl font-helvetica font-light mb-6">
+          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold mb-6">
             Client Reviews
           </h2>
           <p className="text-xl font-helvetica font-light opacity-70 max-w-2xl mx-auto">
