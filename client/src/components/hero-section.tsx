@@ -25,33 +25,47 @@ export default function HeroSection() {
       
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="max-w-4xl">
+        <div className="max-w-6xl">
+          {/* Large Entaview Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 3.0 }}
+            className="mb-16 text-center"
+          >
+            <img 
+              src="/entaview-logo-white-horizontal.png" 
+              alt="Entaview" 
+              className="h-32 md:h-48 lg:h-64 w-auto mx-auto"
+            />
+          </motion.div>
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.2 }}
+            transition={{ duration: 0.8, delay: 3.6 }}
             className="mb-8"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-helvetica font-light leading-none mb-6 text-white">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-helvetica font-light leading-none mb-6 text-white text-center">
               Create Powerful &<br />
               Profitable Films
             </h1>
           </motion.div>
           
           <motion.p 
-            className="text-xl md:text-2xl font-helvetica font-light text-white/80 mb-12 max-w-2xl leading-relaxed"
+            className="text-xl md:text-2xl font-helvetica font-light text-white/80 mb-12 max-w-2xl leading-relaxed text-center mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.6 }}
+            transition={{ duration: 0.8, delay: 4.0 }}
           >
             We create films that lead culture — not follow it. For lifestyle brands and bold startups ready to cut through the noise.
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.0 }}
+            transition={{ duration: 0.8, delay: 4.4 }}
           >
             <button 
               onClick={handleBookCall}
