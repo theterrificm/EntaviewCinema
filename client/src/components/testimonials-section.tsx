@@ -11,19 +11,22 @@ export default function TestimonialsSection() {
       quote: "Entaview didn't just create a film for us—they created a cultural moment. The response was unlike anything we'd seen before.",
       author: "Sarah Chen",
       title: "Creative Director, Lifestyle Brand",
-      rating: 5
+      rating: 5,
+      photo: "/client-photos/sarah-chen.svg"
     },
     {
       quote: "Working with Entaview elevated our brand story from noise to narrative. The cinematic quality speaks for itself.",
       author: "Marcus Rodriguez", 
       title: "Founder, Bold Startup",
-      rating: 5
+      rating: 5,
+      photo: "/client-photos/marcus-rodriguez.svg"
     },
     {
       quote: "The team's attention to detail and creative vision exceeded our expectations. Our campaign reached 10M+ views.",
       author: "James Wilson",
       title: "Marketing Director, PlayStation",
-      rating: 5
+      rating: 5,
+      photo: "/client-photos/james-wilson.svg"
     }
   ];
 
@@ -78,11 +81,15 @@ export default function TestimonialsSection() {
               
               <div className="flex items-center relative z-10">
                 <motion.div 
-                  className="w-12 h-12 bg-fiery/20 rounded-full flex items-center justify-center mr-4 text-fiery font-bold group-hover:bg-fiery/30 transition-colors duration-300"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
+                  className="w-12 h-12 mr-4 overflow-hidden rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {testimonial.author.charAt(0)}
+                  <img 
+                    src={testimonial.photo} 
+                    alt={testimonial.author}
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
                 <div>
                   <div className="font-helvetica font-medium group-hover:text-fiery transition-colors duration-300">
