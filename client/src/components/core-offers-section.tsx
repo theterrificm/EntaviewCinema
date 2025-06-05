@@ -39,7 +39,7 @@ export default function CoreOffersSection() {
 
   return (
     <section className="py-32 bg-onyx text-stone" ref={ref}>
-      <div className="container mx-auto px-6">
+      <div className="w-full">
         {/* Animated Headline */}
         <motion.div
           className="text-center mb-24 relative z-10"
@@ -47,27 +47,29 @@ export default function CoreOffersSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold mb-4 text-center">
-            Transform Your{" "}
-            <span className="relative inline-block min-w-[200px] md:min-w-[280px]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentWordIndex}
-                  className="absolute left-1/2 transform -translate-x-1/2 text-fiery z-20 text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  {rotatingWords[currentWordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </h2>
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold mb-4 inline-block">
+              Transform Your{" "}
+              <span className="relative inline-block min-w-[200px] md:min-w-[280px] text-center">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentWordIndex}
+                    className="absolute left-1/2 transform -translate-x-1/2 text-fiery z-20 whitespace-nowrap"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  >
+                    {rotatingWords[currentWordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+            </h2>
+          </div>
         </motion.div>
 
         {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-4 w-full max-w-none px-4 mb-16">
+        <div className="grid md:grid-cols-3 gap-2 w-full max-w-none px-0 mb-16">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
