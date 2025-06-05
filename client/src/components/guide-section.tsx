@@ -49,57 +49,57 @@ export default function GuideSection() {
             We've led global campaigns and branded shorts for some of the boldest brands in culture. Let's make yours unforgettable.
           </motion.p>
         </div>
-        
-        {/* Horizontal scrolling marquee */}
-        <div className="relative w-full overflow-hidden">
-          <motion.div 
-            className="flex space-x-12 items-center"
-            animate={{
-              x: [0, -100 * brands.length]
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{ width: `${200 * brands.length}px` }}
-          >
-            {/* First set of brands */}
-            {brands.map((brand, index) => (
-              <motion.div
-                key={`${brand.id}-1`}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -2,
-                  backgroundColor: "rgba(242, 64, 5, 0.1)"
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
-                  {brand.name}
-                </span>
-              </motion.div>
-            ))}
-            {/* Second set for seamless loop */}
-            {brands.map((brand, index) => (
-              <motion.div
-                key={`${brand.id}-2`}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -2,
-                  backgroundColor: "rgba(242, 64, 5, 0.1)"
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
-                  {brand.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+      </div>
+      
+      {/* Full-width horizontal scrolling marquee */}
+      <div className="relative w-full overflow-hidden">
+        <motion.div 
+          className="flex space-x-12 items-center"
+          animate={{
+            x: [1920, -(212 * brands.length)]
+          }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{ width: `${(212 * brands.length * 2) + 1920}px` }}
+        >
+          {/* First set of brands */}
+          {brands.map((brand, index) => (
+            <motion.div
+              key={`${brand.id}-1`}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
+              whileHover={{ 
+                scale: 1.05,
+                y: -2,
+                backgroundColor: "rgba(242, 64, 5, 0.1)"
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
+                {brand.name}
+              </span>
+            </motion.div>
+          ))}
+          {/* Second set for seamless loop */}
+          {brands.map((brand, index) => (
+            <motion.div
+              key={`${brand.id}-2`}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
+              whileHover={{ 
+                scale: 1.05,
+                y: -2,
+                backgroundColor: "rgba(242, 64, 5, 0.1)"
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
+                {brand.name}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
