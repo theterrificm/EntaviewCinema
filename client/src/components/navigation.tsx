@@ -33,7 +33,7 @@ export default function Navigation() {
         {/* Logo */}
         <div className="flex items-center">
           <img 
-            src="/entaview-logo-white-horizontal.png" 
+            src="/entaview-logo-orange.png" 
             alt="Entaview" 
             className="h-6 w-auto object-contain"
           />
