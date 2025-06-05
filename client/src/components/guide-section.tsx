@@ -9,8 +9,19 @@ export default function GuideSection() {
   const brands = [
     { name: "PlayStation", id: "playstation" },
     { name: "Jägermeister", id: "jagermeister" },
-    { name: "ICON", id: "icon" },
-    { name: "Remington", id: "remington" }
+    { name: "ICON Amsterdam", id: "icon" },
+    { name: "Remington", id: "remington" },
+    { name: "Teremana Tequila", id: "teremana" },
+    { name: "Sony Music Entertainment", id: "sony" },
+    { name: "Apple Music", id: "apple" },
+    { name: "Graft Events", id: "graft" },
+    { name: "Manchester United", id: "manchester" },
+    { name: "Parklife Festival", id: "parklife" },
+    { name: "Fresh Ego Kid", id: "fresh" },
+    { name: "Padel Social Club", id: "padel" },
+    { name: "Relentless Records", id: "relentless" },
+    { name: "Maximum Music", id: "maximum" },
+    { name: "RnB & Slow Jams", id: "rnb" }
   ];
 
   return (
@@ -39,21 +50,55 @@ export default function GuideSection() {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
-          {brands.map((brand, index) => (
-            <motion.div
-              key={brand.id}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-36 h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.4 + (index * 0.1) }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="font-helvetica font-medium text-sm text-white/90 text-center">
-                {brand.name}
-              </span>
-            </motion.div>
-          ))}
+        {/* Horizontal scrolling marquee */}
+        <div className="relative w-full overflow-hidden">
+          <motion.div 
+            className="flex space-x-12 items-center"
+            animate={{
+              x: [0, -100 * brands.length]
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{ width: `${200 * brands.length}px` }}
+          >
+            {/* First set of brands */}
+            {brands.map((brand, index) => (
+              <motion.div
+                key={`${brand.id}-1`}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
+                whileHover={{ 
+                  scale: 1.1,
+                  y: -5,
+                  backgroundColor: "rgba(242, 64, 5, 0.1)"
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
+                  {brand.name}
+                </span>
+              </motion.div>
+            ))}
+            {/* Second set for seamless loop */}
+            {brands.map((brand, index) => (
+              <motion.div
+                key={`${brand.id}-2`}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
+                whileHover={{ 
+                  scale: 1.1,
+                  y: -5,
+                  backgroundColor: "rgba(242, 64, 5, 0.1)"
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
+                  {brand.name}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
