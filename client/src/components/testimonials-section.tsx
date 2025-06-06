@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               
-              <blockquote className="text-lg font-helvetica mb-6 leading-relaxed relative z-10">
+              <blockquote className="text-lg font-jetbrains-mono mb-6 leading-relaxed relative z-10">
                 "{testimonial.quote}"
               </blockquote>
               
@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
                   />
                 </motion.div>
                 <div>
-                  <div className="font-helvetica font-medium group-hover:text-fiery transition-colors duration-300">
+                  <div className="font-jetbrains-mono font-medium group-hover:text-fiery transition-colors duration-300">
                     {testimonial.author}
                   </div>
                   <div className="text-sm opacity-70">{testimonial.title}</div>

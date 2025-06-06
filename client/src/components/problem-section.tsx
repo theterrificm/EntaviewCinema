@@ -112,7 +112,7 @@ export default function ProblemSection() {
             </motion.h2>
             
             <motion.p 
-              className="text-xl md:text-2xl font-roboto-condensed font-light opacity-80 max-w-3xl mx-auto leading-relaxed group-hover:opacity-100 transition-opacity duration-300 tracking-wide"
+              className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-80 max-w-3xl mx-auto leading-relaxed group-hover:opacity-100 transition-opacity duration-300"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -127,7 +127,7 @@ export default function ProblemSection() {
               whileHover={{ y: 0 }}
             >
               <motion.p 
-                className="text-sm font-helvetica font-medium text-white/90 bg-onyx/30 px-4 py-2 rounded-full backdrop-blur-sm"
+                className="text-sm font-jetbrains-mono font-medium text-white/90 bg-onyx/30 px-4 py-2 rounded-full backdrop-blur-sm"
                 initial={{ scale: 0.8 }}
                 whileHover={{ scale: 1 }}
                 transition={{ delay: 0.1 }}

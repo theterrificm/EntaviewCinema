@@ -136,14 +136,14 @@ export default function PricingSection() {
                     >
                       •
                     </motion.span>
-                    <span className="text-sm font-helvetica">{feature}</span>
+                    <span className="text-sm font-jetbrains-mono">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
               
               <motion.button 
                 onClick={handleBookCall}
-                className={`w-full py-3 font-helvetica text-sm uppercase tracking-wider transition-all duration-300 relative z-10 ${
+                className={`w-full py-3 font-jetbrains-mono text-sm uppercase tracking-wider transition-all duration-300 relative z-10 ${
                   pkg.popular
                     ? 'bg-fiery hover:bg-fiery/90 text-white'
                     : 'border border-white/30 text-white hover:bg-white/10'

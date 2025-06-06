@@ -61,7 +61,7 @@ export default function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection("contact")}
-            className="bg-fiery hover:bg-fiery/90 text-white px-6 py-2 font-helvetica text-sm uppercase tracking-wider transition-all duration-300"
+            className="bg-fiery hover:bg-fiery/90 text-white px-6 py-2 font-jetbrains-mono text-sm uppercase tracking-wider transition-all duration-300"
           >
             Book Now
           </button>
@@ -69,7 +69,7 @@ export default function Navigation() {
         
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
-          <button className="text-white/80 hover:text-white font-helvetica text-sm uppercase tracking-wider">
+          <button className="text-white/80 hover:text-white font-jetbrains-mono text-sm uppercase tracking-wider">
             Menu
           </button>
         </div>

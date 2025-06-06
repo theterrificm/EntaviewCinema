@@ -63,7 +63,7 @@ export default function BrandingShowcaseSection() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl font-helvetica font-light text-white/80 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -97,8 +97,8 @@ export default function BrandingShowcaseSection() {
               </div>
               
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-lg font-helvetica font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm font-helvetica font-light text-white/80 leading-relaxed">{item.description}</p>
+                <h3 className="text-lg font-jetbrains-mono font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm font-jetbrains-mono font-light text-white/80 leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -110,7 +110,7 @@ export default function BrandingShowcaseSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <p className="text-lg font-helvetica font-light text-white/60 max-w-2xl mx-auto">
+          <p className="text-lg font-jetbrains-mono font-light text-white/60 max-w-2xl mx-auto">
             Every brand deserves to be seen, felt, and remembered. We make that happen across every medium that matters.
           </p>
         </motion.div>
