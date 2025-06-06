@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { usePackageImages } from "@/hooks/use-package-images";
 
 export default function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const { images, isLoading, error, generateImages } = usePackageImages();
 
   const handleBookCall = () => {
     console.log("Book a call clicked");
@@ -13,9 +15,10 @@ export default function PricingSection() {
 
   const packages = [
     {
-      name: "Starter",
+      name: "Essential",
       price: "From $15k",
       description: "Perfect for emerging brands",
+      packageType: "essential" as const,
       features: [
         "30-60 second commercial",
         "Single location shoot",
@@ -28,6 +31,7 @@ export default function PricingSection() {
       name: "Professional",
       price: "From $35k",
       description: "For established businesses",
+      packageType: "professional" as const,
       features: [
         "60-120 second film",
         "Multiple locations",
@@ -42,6 +46,7 @@ export default function PricingSection() {
       name: "Premium",
       price: "From $75k",
       description: "For global campaigns",
+      packageType: "premium" as const,
       features: [
         "Feature-length content",
         "International shoots",
@@ -68,6 +73,22 @@ export default function PricingSection() {
           <p className="text-xl font-jetbrains-mono font-light opacity-70 max-w-2xl mx-auto">
             Choose the package that matches your vision and budget. All packages include our signature cinematic approach.
           </p>
+          
+          {/* AI Image Generation Control */}
+          <div className="mt-8">
+            <motion.button
+              onClick={generateImages}
+              disabled={isLoading}
+              className="bg-fiery hover:bg-fiery/90 text-white px-6 py-3 font-oswald font-medium text-sm uppercase tracking-widest transition-all duration-300 disabled:opacity-50"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {isLoading ? 'Generating Course Images...' : 'Generate AI Course Boxes'}
+            </motion.button>
+            {error && (
+              <p className="text-red-400 mt-2 text-sm font-jetbrains-mono">{error}</p>
+            )}
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

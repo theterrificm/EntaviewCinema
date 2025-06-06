@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { apiRequest } from '@/lib/queryClient';
+import { useState } from 'react';
 
 interface PackageImage {
   packageType: 'essential' | 'professional' | 'premium';
@@ -23,7 +22,7 @@ export function usePackageImages(): UsePackageImagesReturn {
     setError(null);
     
     try {
-      const response = await apiRequest('/api/generate-all-package-images', {
+      const response = await fetch('/api/generate-all-package-images', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
