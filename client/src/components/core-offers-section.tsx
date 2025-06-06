@@ -104,10 +104,10 @@ export default function CoreOffersSection() {
                   transition={{ duration: 0.4 }}
                 >
                   <div className="text-center text-stone mix-blend-overlay">
-                    <div className="text-lg font-helvetica font-bold mb-2">
+                    <div className="text-lg font-oswald font-medium mb-2 tracking-wide uppercase">
                       {offer.title}
                     </div>
-                    <div className="text-xs opacity-60">
+                    <div className="text-xs opacity-60 font-roboto-condensed tracking-wide">
                       Video Preview
                     </div>
                   </div>
@@ -115,10 +115,10 @@ export default function CoreOffersSection() {
                 
                 {/* Hover Text Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
-                  <h3 className="text-lg font-helvetica font-bold text-white mb-2">
+                  <h3 className="text-lg font-oswald font-medium text-white mb-2 tracking-wide uppercase">
                     {offer.title}
                   </h3>
-                  <p className="text-sm font-helvetica text-white/90 leading-relaxed">
+                  <p className="text-sm font-roboto-condensed text-white/90 leading-relaxed tracking-wide">
                     {offer.caption}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function CoreOffersSection() {
 
               {/* Card Title - Always Visible */}
               <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-helvetica font-bold group-hover:text-fiery transition-colors duration-300">
+                <h3 className="text-2xl md:text-3xl font-oswald font-medium group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
                   {offer.title}
                 </h3>
               </div>
@@ -145,7 +145,7 @@ export default function CoreOffersSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.button
-            className="bg-fiery text-white px-12 py-4 rounded-full text-lg font-helvetica font-medium hover:bg-fiery/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="bg-fiery text-white px-12 py-4 rounded-full text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 shadow-lg hover:shadow-xl tracking-widest uppercase"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
