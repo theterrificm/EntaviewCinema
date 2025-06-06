@@ -61,10 +61,10 @@ export default function VideoGallerySection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold mb-6">
+          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
             Our Work
           </h2>
-          <p className="text-xl font-helvetica font-light opacity-70 max-w-2xl mx-auto">
+          <p className="text-xl font-roboto-condensed font-light opacity-70 max-w-2xl mx-auto tracking-wide">
             Cinematic stories that captivate audiences and drive results for leading brands
           </p>
         </motion.div>
@@ -101,8 +101,8 @@ export default function VideoGallerySection() {
                 
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="text-sm text-fiery font-helvetica font-medium mb-2">{video.category}</div>
-                  <h3 className="text-xl font-helvetica font-medium">{video.title}</h3>
+                  <div className="text-sm text-fiery font-oswald font-medium mb-2 tracking-wider uppercase">{video.category}</div>
+                  <h3 className="text-xl font-oswald font-medium tracking-wide">{video.title}</h3>
                 </div>
               </div>
             </motion.div>
