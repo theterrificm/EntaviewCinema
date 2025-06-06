@@ -24,7 +24,7 @@ export default function FinalCTASection() {
             Something Bold?
           </h2>
           
-          <p className="text-xl font-roboto-condensed font-light opacity-70 mb-12 max-w-2xl mx-auto tracking-wide">
+          <p className="text-xl font-jetbrains-mono font-light opacity-70 mb-12 max-w-2xl mx-auto">
             Let's discuss your vision and create a film that leads culture, not follows it.
           </p>
           
@@ -57,14 +57,14 @@ export default function FinalCTASection() {
               />
             </div>
             
-            <div className="flex space-x-8 text-sm font-roboto-condensed opacity-70 tracking-wide">
+            <div className="flex space-x-8 text-sm font-jetbrains-mono opacity-70">
               <a href="#" className="hover:opacity-100 transition-opacity">Privacy</a>
               <a href="#" className="hover:opacity-100 transition-opacity">Terms</a>
               <a href="#" className="hover:opacity-100 transition-opacity">Contact</a>
             </div>
           </div>
           
-          <div className="mt-8 text-center text-sm font-roboto-condensed opacity-50 tracking-wide">
+          <div className="mt-8 text-center text-sm font-jetbrains-mono opacity-50">
             © 2024 Entaview. All rights reserved.
           </div>
         </motion.div>

@@ -107,7 +107,7 @@ export default function CoreOffersSection() {
                     <div className="text-lg font-oswald font-medium mb-2 tracking-wide uppercase">
                       {offer.title}
                     </div>
-                    <div className="text-xs opacity-60 font-roboto-condensed tracking-wide">
+                    <div className="text-xs opacity-60 font-jetbrains-mono">
                       Video Preview
                     </div>
                   </div>
@@ -118,7 +118,7 @@ export default function CoreOffersSection() {
                   <h3 className="text-lg font-oswald font-medium text-white mb-2 tracking-wide uppercase">
                     {offer.title}
                   </h3>
-                  <p className="text-sm font-roboto-condensed text-white/90 leading-relaxed tracking-wide">
+                  <p className="text-sm font-jetbrains-mono text-white/90 leading-relaxed">
                     {offer.caption}
                   </p>
                 </div>
