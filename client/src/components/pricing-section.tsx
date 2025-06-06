@@ -108,88 +108,151 @@ export default function PricingSection() {
               
               {/* 3D Package Graphics Section */}
               <div className="mb-8 relative z-10">
-                <div className="flex items-center justify-center h-40 perspective-1000">
+                <div className="flex items-center justify-center h-48 perspective-1000">
                   {pkg.name === "Essential" && (
-                    <div className="relative transform-gpu preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
-                      {/* Single Book Package */}
-                      <div className="relative w-32 h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-r-lg shadow-2xl transform rotate-y-15">
-                        {/* Book spine */}
-                        <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-gray-300 to-gray-400 rounded-l-sm"></div>
-                        {/* Book cover */}
-                        <div className="absolute inset-0 bg-white rounded-r-lg border border-gray-200 flex flex-col justify-center items-center p-4">
-                          <div className="w-8 h-8 bg-onyx rounded-full mb-2 flex items-center justify-center">
-                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1v-3.5l4 2v-7l-4 2z"/>
-                            </svg>
+                    <div className="relative transform-gpu preserve-3d group-hover:scale-105 transition-transform duration-700">
+                      {/* Single Course Box - Foundations */}
+                      <div className="relative w-24 h-32 transform rotate-y-20 rotate-x-5">
+                        {/* Box depth/side */}
+                        <div className="absolute top-0 left-0 w-2 h-32 bg-gradient-to-b from-gray-800 to-gray-900 transform skew-y-12 origin-bottom"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-2 bg-gradient-to-r from-gray-700 to-gray-800 transform skew-x-12"></div>
+                        
+                        {/* Main box face */}
+                        <div className="relative w-24 h-32 bg-gradient-to-br from-gray-900 to-black rounded-sm shadow-2xl border border-gray-700">
+                          {/* Orange accent stripe */}
+                          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-fiery"></div>
+                          
+                          {/* Course content */}
+                          <div className="p-2 h-full flex flex-col">
+                            {/* Top section with person image placeholder */}
+                            <div className="h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-sm mb-1 relative overflow-hidden">
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                              <div className="absolute bottom-1 left-1 w-4 h-4 bg-white rounded-full opacity-80"></div>
+                            </div>
+                            
+                            {/* Title area */}
+                            <div className="flex-1 flex flex-col justify-end">
+                              <div className="text-xs font-bold text-white mb-1 leading-tight">
+                                FOUNDATIONS
+                              </div>
+                              <div className="text-[8px] text-gray-300 leading-tight">
+                                Film Production Basics
+                              </div>
+                            </div>
                           </div>
-                          <div className="text-xs font-bold text-onyx text-center leading-tight">
-                            ESSENTIAL<br/>GUIDE
+                          
+                          {/* Entaview branding */}
+                          <div className="absolute bottom-1 right-1 text-[6px] text-fiery font-bold">
+                            ENTAVIEW
                           </div>
                         </div>
-                        {/* Shadow */}
-                        <div className="absolute -bottom-2 -right-2 w-32 h-40 bg-black/20 rounded-r-lg -z-10 blur-sm"></div>
+                        
+                        {/* Realistic shadow */}
+                        <div className="absolute -bottom-1 -right-1 w-24 h-32 bg-black/40 rounded-sm -z-10 blur-sm transform translate-x-1 translate-y-1"></div>
                       </div>
                     </div>
                   )}
+                  
                   {pkg.name === "Professional" && (
-                    <div className="relative transform-gpu preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
-                      {/* Multiple Books Bundle */}
-                      <div className="relative">
-                        {/* Background books */}
-                        <div className="absolute w-28 h-36 bg-gradient-to-br from-orange-400 to-orange-500 rounded-r-lg shadow-xl transform rotate-y-10 translate-x-2 translate-y-1">
-                          <div className="absolute left-0 top-0 w-2 h-full bg-orange-600 rounded-l-sm"></div>
-                        </div>
-                        <div className="absolute w-30 h-38 bg-gradient-to-br from-gray-700 to-gray-800 rounded-r-lg shadow-xl transform rotate-y-8 translate-x-1 translate-y-0.5">
-                          <div className="absolute left-0 top-0 w-2 h-full bg-gray-900 rounded-l-sm"></div>
-                        </div>
-                        {/* Front book */}
-                        <div className="relative w-32 h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-r-lg shadow-2xl transform rotate-y-15">
-                          <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-gray-300 to-gray-400 rounded-l-sm"></div>
-                          <div className="absolute inset-0 bg-white rounded-r-lg border border-gray-200 flex flex-col justify-center items-center p-4">
-                            <div className="w-10 h-10 bg-onyx rounded-lg mb-2 flex items-center justify-center">
-                              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                              </svg>
+                    <div className="relative transform-gpu preserve-3d group-hover:scale-105 transition-transform duration-700">
+                      {/* Multiple Course Boxes Bundle */}
+                      <div className="relative flex items-end space-x-1">
+                        {/* Background boxes */}
+                        {[...Array(5)].map((_, i) => (
+                          <div key={i} className={`relative w-5 h-${24 + i * 2} transform rotate-y-${10 + i * 5} ${i === 2 ? 'z-10' : 'z-0'}`}>
+                            <div className={`w-5 h-${24 + i * 2} bg-gradient-to-br ${
+                              i === 0 ? 'from-blue-800 to-blue-900' :
+                              i === 1 ? 'from-green-800 to-green-900' :
+                              i === 2 ? 'from-gray-900 to-black' :
+                              i === 3 ? 'from-purple-800 to-purple-900' :
+                              'from-red-800 to-red-900'
+                            } rounded-sm shadow-lg border border-gray-600`}>
+                              {/* Top accent */}
+                              <div className={`h-0.5 w-full ${
+                                i === 0 ? 'bg-blue-400' :
+                                i === 1 ? 'bg-green-400' :
+                                i === 2 ? 'bg-fiery' :
+                                i === 3 ? 'bg-purple-400' :
+                                'bg-red-400'
+                              }`}></div>
+                              
+                              {/* Course image area */}
+                              <div className="h-3 bg-gradient-to-br from-gray-600 to-gray-700 m-0.5 rounded-[1px]"></div>
+                              
+                              {/* Title area */}
+                              <div className="px-0.5 mt-1">
+                                <div className="text-[4px] text-white font-bold leading-none">
+                                  {i === 0 ? 'BASICS' :
+                                   i === 1 ? 'CAMERA' :
+                                   i === 2 ? 'DIRECTION' :
+                                   i === 3 ? 'EDITING' :
+                                   'POST'}
+                                </div>
+                              </div>
                             </div>
-                            <div className="text-xs font-bold text-onyx text-center leading-tight">
-                              PRO<br/>BUNDLE
-                            </div>
+                            
+                            {/* Individual shadows */}
+                            <div className={`absolute -bottom-0.5 -right-0.5 w-5 h-${24 + i * 2} bg-black/30 rounded-sm -z-10 blur-[1px]`}></div>
                           </div>
-                        </div>
-                        {/* Bundle shadow */}
-                        <div className="absolute -bottom-3 -right-3 w-36 h-42 bg-black/25 rounded-r-lg -z-10 blur-md"></div>
+                        ))}
                       </div>
+                      
+                      {/* Main shadow for entire bundle */}
+                      <div className="absolute -bottom-2 -right-2 w-32 h-32 bg-black/25 rounded-lg -z-20 blur-md"></div>
                     </div>
                   )}
+                  
                   {pkg.name === "Premium" && (
-                    <div className="relative transform-gpu preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
-                      {/* Luxury Box Set */}
-                      <div className="relative">
-                        {/* Box container */}
-                        <div className="relative w-36 h-44 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-2xl transform rotate-y-10">
-                          {/* Box lid */}
-                          <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-r from-gray-800 to-gray-900 rounded-t-lg border-b border-gray-700"></div>
-                          {/* Box front */}
-                          <div className="absolute inset-x-0 top-8 bottom-0 bg-gradient-to-b from-gray-100 to-white rounded-b-lg p-4 flex flex-col items-center justify-center">
-                            <div className="w-12 h-12 bg-gradient-to-br from-fiery to-orange-600 rounded-xl mb-2 flex items-center justify-center shadow-lg">
-                              <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                              </svg>
+                    <div className="relative transform-gpu preserve-3d group-hover:scale-105 transition-transform duration-700">
+                      {/* Single Premium Course Box */}
+                      <div className="relative w-28 h-36 transform rotate-y-15 rotate-x-3">
+                        {/* Box depth/sides */}
+                        <div className="absolute top-0 left-0 w-2 h-36 bg-gradient-to-b from-gray-800 to-gray-900 transform skew-y-12 origin-bottom"></div>
+                        <div className="absolute bottom-0 left-0 w-28 h-2 bg-gradient-to-r from-gray-700 to-gray-800 transform skew-x-12"></div>
+                        
+                        {/* Main premium box */}
+                        <div className="relative w-28 h-36 bg-gradient-to-br from-gray-900 to-black rounded-sm shadow-2xl border border-gray-600">
+                          {/* Premium orange header */}
+                          <div className="h-2 bg-gradient-to-r from-orange-500 to-fiery flex items-center justify-center">
+                            <div className="text-[6px] text-white font-bold">PREMIUM</div>
+                          </div>
+                          
+                          {/* Main course image area */}
+                          <div className="h-20 bg-gradient-to-br from-gray-600 to-gray-700 m-1 rounded-sm relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            {/* Person silhouette */}
+                            <div className="absolute bottom-2 left-2 w-6 h-6 bg-white rounded-full opacity-90"></div>
+                            <div className="absolute bottom-1 right-1 text-[6px] text-white font-bold">4K</div>
+                          </div>
+                          
+                          {/* Course info section */}
+                          <div className="p-1 space-y-1">
+                            <div className="text-xs font-bold text-white leading-tight">
+                              CINEMA MASTERY
                             </div>
-                            <div className="text-xs font-bold text-onyx text-center leading-tight">
-                              PREMIUM<br/>COLLECTION
+                            <div className="text-[8px] text-gray-300 leading-tight">
+                              Professional Film Production
                             </div>
-                            <div className="mt-2 flex space-x-1">
-                              {[...Array(5)].map((_, i) => (
-                                <div key={i} className="w-1 h-4 bg-gradient-to-t from-gray-400 to-gray-300 rounded-full"></div>
-                              ))}
+                            
+                            {/* Feature indicators */}
+                            <div className="flex justify-between items-center mt-2">
+                              <div className="flex space-x-1">
+                                {[...Array(4)].map((_, i) => (
+                                  <div key={i} className="w-1 h-1 bg-fiery rounded-full"></div>
+                                ))}
+                              </div>
+                              <div className="text-[6px] text-fiery font-bold">12 HOURS</div>
                             </div>
                           </div>
-                          {/* Premium accent */}
-                          <div className="absolute top-4 right-2 w-2 h-16 bg-gradient-to-b from-fiery to-orange-600 rounded-full"></div>
+                          
+                          {/* Entaview premium branding */}
+                          <div className="absolute bottom-1 right-1 text-[6px] text-fiery font-bold">
+                            ENTAVIEW PRO
+                          </div>
                         </div>
-                        {/* Luxury shadow */}
-                        <div className="absolute -bottom-4 -right-4 w-36 h-44 bg-black/30 rounded-lg -z-10 blur-lg"></div>
+                        
+                        {/* Premium shadow */}
+                        <div className="absolute -bottom-2 -right-2 w-28 h-36 bg-black/50 rounded-sm -z-10 blur-sm transform translate-x-2 translate-y-2"></div>
                       </div>
                     </div>
                   )}
