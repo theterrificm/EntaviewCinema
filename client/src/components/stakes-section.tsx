@@ -19,7 +19,7 @@ export default function StakesSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center">
           <motion.h2 
-            className="text-5xl md:text-7xl font-league-spartan font-bold mb-8 leading-tight"
+            className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -28,7 +28,7 @@ export default function StakesSection() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl font-helvetica font-light text-white/80 max-w-4xl mx-auto leading-relaxed mb-12"
+            className="text-xl md:text-2xl font-roboto-condensed font-light text-white/80 max-w-4xl mx-auto leading-relaxed mb-12 tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}

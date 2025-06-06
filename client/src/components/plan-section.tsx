@@ -32,7 +32,7 @@ export default function PlanSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <motion.h2 
-            className="text-5xl md:text-7xl font-league-spartan font-bold mb-8 leading-tight"
+            className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -51,18 +51,18 @@ export default function PlanSection() {
               transition={{ duration: 0.8, delay: 0.2 + (index * 0.2) }}
             >
               <motion.div 
-                className="relative mb-6 mx-auto w-16 h-16 bg-fiery rounded-full flex items-center justify-center text-white font-league-spartan font-bold text-lg group-hover:scale-110 transition-transform duration-300"
+                className="relative mb-6 mx-auto w-16 h-16 bg-fiery rounded-full flex items-center justify-center text-white font-anton text-lg group-hover:scale-110 transition-transform duration-300"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
                 {step.number}
               </motion.div>
               
-              <h3 className="text-xl md:text-2xl font-league-spartan font-semibold mb-4 group-hover:text-fiery transition-colors duration-300">
+              <h3 className="text-xl md:text-2xl font-oswald font-medium mb-4 group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
                 {step.title}
               </h3>
               
-              <p className="font-helvetica text-lg opacity-80 leading-relaxed">
+              <p className="font-roboto-condensed text-lg opacity-80 leading-relaxed tracking-wide">
                 {step.description}
               </p>
               

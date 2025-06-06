@@ -41,7 +41,7 @@ export default function GuideSection() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl font-helvetica font-light text-white/80 max-w-4xl mx-auto leading-relaxed mb-12"
+            className="text-xl md:text-2xl font-roboto-condensed font-light text-white/80 max-w-4xl mx-auto leading-relaxed mb-12 tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -77,7 +77,7 @@ export default function GuideSection() {
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
+              <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
                 {brand.name}
               </span>
             </motion.div>
@@ -94,7 +94,7 @@ export default function GuideSection() {
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="font-helvetica font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300">
+              <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
                 {brand.name}
               </span>
             </motion.div>
