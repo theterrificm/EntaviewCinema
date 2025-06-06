@@ -43,19 +43,19 @@ export default function Navigation() {
         <div className="hidden md:flex items-center space-x-12">
           <button 
             onClick={() => scrollToSection("features")}
-            className="text-white/80 hover:text-white font-helvetica text-sm uppercase tracking-wider transition-colors"
+            className="text-white/80 hover:text-white font-jetbrains-mono text-sm uppercase tracking-wider transition-colors"
           >
             Features
           </button>
           <button 
             onClick={() => scrollToSection("testimonials")}
-            className="text-white/80 hover:text-white font-helvetica text-sm uppercase tracking-wider transition-colors"
+            className="text-white/80 hover:text-white font-jetbrains-mono text-sm uppercase tracking-wider transition-colors"
           >
             Reviews
           </button>
           <button 
             onClick={() => scrollToSection("pricing")}
-            className="text-white/80 hover:text-white font-helvetica text-sm uppercase tracking-wider transition-colors"
+            className="text-white/80 hover:text-white font-jetbrains-mono text-sm uppercase tracking-wider transition-colors"
           >
             Pricing
           </button>
