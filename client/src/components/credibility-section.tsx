@@ -21,7 +21,7 @@ export default function CredibilitySection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16 section-divider pt-8">
           <motion.h2 
-            className="text-4xl md:text-5xl font-helvetica font-bold mb-8 geometric-accent uppercase tracking-tight"
+            className="text-4xl md:text-5xl font-bebas font-normal mb-8 geometric-accent uppercase tracking-wide leading-[0.9]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
@@ -30,7 +30,7 @@ export default function CredibilitySection() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl font-helvetica font-light opacity-80 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl font-roboto-condensed font-light opacity-80 max-w-3xl mx-auto tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}

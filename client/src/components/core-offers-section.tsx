@@ -47,14 +47,14 @@ export default function CoreOffersSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold text-white">
+          <h2 className="text-5xl md:text-7xl font-bebas font-normal text-white leading-[0.9] tracking-wide uppercase">
             Transform Your
           </h2>
           <div className="relative inline-block min-w-[200px] md:min-w-[280px] mt-2">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentWordIndex}
-                className="block text-4xl md:text-5xl lg:text-6xl font-helvetica font-bold text-fiery"
+                className="block text-4xl md:text-5xl lg:text-6xl font-bebas font-normal text-fiery leading-[0.9] tracking-wide uppercase"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}

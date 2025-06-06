@@ -39,10 +39,10 @@ export default function TestimonialsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold mb-6">
+          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
             Client Reviews
           </h2>
-          <p className="text-xl font-helvetica font-light opacity-70 max-w-2xl mx-auto">
+          <p className="text-xl font-roboto-condensed font-light opacity-70 max-w-2xl mx-auto tracking-wide">
             See what our clients say about working with Entaview
           </p>
         </motion.div>
