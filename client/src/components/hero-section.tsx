@@ -59,10 +59,10 @@ export default function HeroSection() {
               onClick={handleBookCall}
               className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 hover:scale-105"
             >
-              BOOK A CALL
+              BOOK A DISCOVERY CALL
             </button>
             <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300">
-              WATCH TRAILER
+              WATCH OUR REEL
             </button>
           </motion.div>
         </div>

@@ -117,7 +117,8 @@ export default function ProblemSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              You're creating content, but it doesn't connect. Your brand deserves more than just views — it deserves impact.
+              You've worked too hard to be overlooked.
+              Don't let your brand blend in. We help you create stories that connect, convert, and cut through the noise.
             </motion.p>
             
             {/* Subtle text animation on hover - no overlay */}

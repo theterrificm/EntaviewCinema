@@ -19,7 +19,7 @@ export default function PlanSection() {
     },
     {
       number: "03",
-      title: "You Get Cinematic Results", 
+      title: "You Launch with Cinematic Impact", 
       description: "Launch with a film that captures attention and drives action"
     }
   ];

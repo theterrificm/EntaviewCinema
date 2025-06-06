@@ -20,12 +20,12 @@ export default function FinalCTASection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase">
-            Ready to Create<br />
-            Something Bold?
+            Ready to create<br />
+            something bold?
           </h2>
           
           <p className="text-xl font-jetbrains-mono font-light opacity-70 mb-12 max-w-2xl mx-auto">
-            Let's discuss your vision and create a film that leads culture, not follows it.
+            Let's craft a film that turns your brand into a cultural moment.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
