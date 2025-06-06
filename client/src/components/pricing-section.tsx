@@ -106,61 +106,93 @@ export default function PricingSection() {
                 </motion.div>
               )}
               
-              {/* Production Graphics Section */}
+              {/* 3D Package Graphics Section */}
               <div className="mb-8 relative z-10">
-                <div className="bg-white rounded-lg p-6 mb-6 shadow-lg">
-                  <div className="flex items-center justify-center h-32">
-                    {pkg.name === "Essential" && (
-                      <svg className="w-20 h-20 text-onyx" viewBox="0 0 100 100" fill="none">
-                        {/* Single Camera Icon */}
-                        <rect x="20" y="35" width="60" height="40" rx="8" stroke="currentColor" strokeWidth="3" fill="none"/>
-                        <circle cx="50" cy="55" r="12" stroke="currentColor" strokeWidth="3" fill="none"/>
-                        <rect x="15" y="30" width="10" height="8" rx="2" fill="currentColor"/>
-                        <path d="M35 25 L65 25" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-                        <circle cx="65" cy="40" r="2" fill="currentColor"/>
-                      </svg>
-                    )}
-                    {pkg.name === "Professional" && (
-                      <svg className="w-20 h-20 text-onyx" viewBox="0 0 100 100" fill="none">
-                        {/* Multi-Camera Setup */}
-                        <rect x="10" y="35" width="35" height="25" rx="4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <circle cx="27.5" cy="47.5" r="6" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <rect x="55" y="35" width="35" height="25" rx="4" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <circle cx="72.5" cy="47.5" r="6" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        {/* Lighting Equipment */}
-                        <rect x="40" y="15" width="20" height="15" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <path d="M45 15 L55 15" stroke="currentColor" strokeWidth="2"/>
-                        <path d="M50 15 L50 10" stroke="currentColor" strokeWidth="2"/>
-                        {/* Audio Equipment */}
-                        <circle cx="30" cy="75" r="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <path d="M30 67 L30 83" stroke="currentColor" strokeWidth="2"/>
-                        <circle cx="70" cy="75" r="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <path d="M70 67 L70 83" stroke="currentColor" strokeWidth="2"/>
-                      </svg>
-                    )}
-                    {pkg.name === "Premium" && (
-                      <svg className="w-20 h-20 text-onyx" viewBox="0 0 100 100" fill="none">
-                        {/* Cinema-Grade Equipment */}
-                        <rect x="15" y="40" width="70" height="30" rx="6" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <circle cx="50" cy="55" r="15" stroke="currentColor" strokeWidth="3" fill="none"/>
-                        <circle cx="50" cy="55" r="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        {/* Professional Rig */}
-                        <rect x="10" y="35" width="5" height="35" rx="2" fill="currentColor"/>
-                        <rect x="85" y="35" width="5" height="35" rx="2" fill="currentColor"/>
-                        {/* Crane/Gimbal */}
-                        <path d="M30 25 L70 25" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-                        <circle cx="30" cy="25" r="3" fill="currentColor"/>
-                        <circle cx="70" cy="25" r="3" fill="currentColor"/>
-                        {/* Film Reels */}
-                        <circle cx="25" cy="15" r="5" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <circle cx="75" cy="15" r="5" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        {/* Multiple Lights */}
-                        <rect x="20" y="75" width="15" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                        <rect x="40" y="75" width="15" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                        <rect x="60" y="75" width="15" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                      </svg>
-                    )}
-                  </div>
+                <div className="flex items-center justify-center h-40 perspective-1000">
+                  {pkg.name === "Essential" && (
+                    <div className="relative transform-gpu preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
+                      {/* Single Book Package */}
+                      <div className="relative w-32 h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-r-lg shadow-2xl transform rotate-y-15">
+                        {/* Book spine */}
+                        <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-gray-300 to-gray-400 rounded-l-sm"></div>
+                        {/* Book cover */}
+                        <div className="absolute inset-0 bg-white rounded-r-lg border border-gray-200 flex flex-col justify-center items-center p-4">
+                          <div className="w-8 h-8 bg-onyx rounded-full mb-2 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1v-3.5l4 2v-7l-4 2z"/>
+                            </svg>
+                          </div>
+                          <div className="text-xs font-bold text-onyx text-center leading-tight">
+                            ESSENTIAL<br/>GUIDE
+                          </div>
+                        </div>
+                        {/* Shadow */}
+                        <div className="absolute -bottom-2 -right-2 w-32 h-40 bg-black/20 rounded-r-lg -z-10 blur-sm"></div>
+                      </div>
+                    </div>
+                  )}
+                  {pkg.name === "Professional" && (
+                    <div className="relative transform-gpu preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
+                      {/* Multiple Books Bundle */}
+                      <div className="relative">
+                        {/* Background books */}
+                        <div className="absolute w-28 h-36 bg-gradient-to-br from-orange-400 to-orange-500 rounded-r-lg shadow-xl transform rotate-y-10 translate-x-2 translate-y-1">
+                          <div className="absolute left-0 top-0 w-2 h-full bg-orange-600 rounded-l-sm"></div>
+                        </div>
+                        <div className="absolute w-30 h-38 bg-gradient-to-br from-gray-700 to-gray-800 rounded-r-lg shadow-xl transform rotate-y-8 translate-x-1 translate-y-0.5">
+                          <div className="absolute left-0 top-0 w-2 h-full bg-gray-900 rounded-l-sm"></div>
+                        </div>
+                        {/* Front book */}
+                        <div className="relative w-32 h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-r-lg shadow-2xl transform rotate-y-15">
+                          <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-gray-300 to-gray-400 rounded-l-sm"></div>
+                          <div className="absolute inset-0 bg-white rounded-r-lg border border-gray-200 flex flex-col justify-center items-center p-4">
+                            <div className="w-10 h-10 bg-onyx rounded-lg mb-2 flex items-center justify-center">
+                              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                              </svg>
+                            </div>
+                            <div className="text-xs font-bold text-onyx text-center leading-tight">
+                              PRO<br/>BUNDLE
+                            </div>
+                          </div>
+                        </div>
+                        {/* Bundle shadow */}
+                        <div className="absolute -bottom-3 -right-3 w-36 h-42 bg-black/25 rounded-r-lg -z-10 blur-md"></div>
+                      </div>
+                    </div>
+                  )}
+                  {pkg.name === "Premium" && (
+                    <div className="relative transform-gpu preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
+                      {/* Luxury Box Set */}
+                      <div className="relative">
+                        {/* Box container */}
+                        <div className="relative w-36 h-44 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-2xl transform rotate-y-10">
+                          {/* Box lid */}
+                          <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-r from-gray-800 to-gray-900 rounded-t-lg border-b border-gray-700"></div>
+                          {/* Box front */}
+                          <div className="absolute inset-x-0 top-8 bottom-0 bg-gradient-to-b from-gray-100 to-white rounded-b-lg p-4 flex flex-col items-center justify-center">
+                            <div className="w-12 h-12 bg-gradient-to-br from-fiery to-orange-600 rounded-xl mb-2 flex items-center justify-center shadow-lg">
+                              <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                              </svg>
+                            </div>
+                            <div className="text-xs font-bold text-onyx text-center leading-tight">
+                              PREMIUM<br/>COLLECTION
+                            </div>
+                            <div className="mt-2 flex space-x-1">
+                              {[...Array(5)].map((_, i) => (
+                                <div key={i} className="w-1 h-4 bg-gradient-to-t from-gray-400 to-gray-300 rounded-full"></div>
+                              ))}
+                            </div>
+                          </div>
+                          {/* Premium accent */}
+                          <div className="absolute top-4 right-2 w-2 h-16 bg-gradient-to-b from-fiery to-orange-600 rounded-full"></div>
+                        </div>
+                        {/* Luxury shadow */}
+                        <div className="absolute -bottom-4 -right-4 w-36 h-44 bg-black/30 rounded-lg -z-10 blur-lg"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="text-center">
