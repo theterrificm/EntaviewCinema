@@ -125,7 +125,7 @@ export default function PricingSection() {
                       whileHover={{ scale: 1.05, rotateY: 5 }}
                     >
                       <img
-                        src="/attached_assets/Gemini_Generated_Image_j5irgnj5irgnj5ir_1749250114246.jpeg"
+                        src="/essential-package.jpeg"
                         alt="Essential Course Package"
                         className="w-40 h-40 object-contain drop-shadow-2xl"
                       />
@@ -141,7 +141,7 @@ export default function PricingSection() {
                       whileHover={{ scale: 1.05, rotateY: 5 }}
                     >
                       <img
-                        src="/attached_assets/Gemini_Generated_Image_j5irgoj5irgoj5ir_1749250114246.jpeg"
+                        src="/professional-package.jpeg"
                         alt="Professional Course Package Bundle"
                         className="w-48 h-40 object-contain drop-shadow-2xl"
                       />
@@ -157,7 +157,7 @@ export default function PricingSection() {
                       whileHover={{ scale: 1.05, rotateY: 5 }}
                     >
                       <img
-                        src="/attached_assets/Gemini_Generated_Image_j5irgpj5irgpj5ir_1749250114246.jpeg"
+                        src="/premium-package.jpeg"
                         alt="Premium Course Package"
                         className="w-44 h-40 object-contain drop-shadow-2xl"
                       />
