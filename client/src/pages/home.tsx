@@ -11,6 +11,8 @@ import FeaturesSection from "@/components/features-section";
 import VideoGallerySection from "@/components/video-gallery-section";
 import BrandingShowcaseSection from "@/components/branding-showcase-section";
 import TestimonialsSection from "@/components/testimonials-section";
+import AfterEntaviewSection from "@/components/after-entaview-section";
+import StatsSection from "@/components/stats-section";
 import PricingSection from "@/components/pricing-section";
 import FinalCTASection from "@/components/final-cta-section";
 
@@ -39,6 +41,8 @@ export default function Home() {
       <VideoGallerySection />
       <BrandingShowcaseSection />
       <TestimonialsSection />
+      <AfterEntaviewSection />
+      <StatsSection />
       <PricingSection />
       <FinalCTASection />
     </div>
