@@ -102,7 +102,7 @@ export default function ProblemSection() {
           
           <div className="relative z-10 p-8">
             <motion.h2 
-              className="text-5xl md:text-7xl font-league-spartan font-bold mb-8 leading-tight group-hover:text-onyx transition-colors duration-300"
+              className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] group-hover:text-onyx transition-colors duration-300 tracking-wide uppercase"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8 }}
@@ -112,7 +112,7 @@ export default function ProblemSection() {
             </motion.h2>
             
             <motion.p 
-              className="text-xl md:text-2xl font-helvetica font-light opacity-80 max-w-3xl mx-auto leading-relaxed group-hover:opacity-100 transition-opacity duration-300"
+              className="text-xl md:text-2xl font-roboto-condensed font-light opacity-80 max-w-3xl mx-auto leading-relaxed group-hover:opacity-100 transition-opacity duration-300 tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}

@@ -32,7 +32,7 @@ export default function GuideSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <motion.h2 
-            className="text-5xl md:text-7xl font-league-spartan font-bold mb-8 leading-tight"
+            className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}

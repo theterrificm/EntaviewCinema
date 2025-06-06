@@ -6,10 +6,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        'anton': ['Anton', 'sans-serif'],
+        'bebas': ['Bebas Neue', 'sans-serif'],
+        'oswald': ['Oswald', 'sans-serif'],
+        'roboto-condensed': ['Roboto Condensed', 'sans-serif'],
         'helvetica': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-        'league-spartan': ['League Spartan', 'Arial', 'sans-serif'],
-        'newake': ['Newake', 'serif'],
-        'libre-baskerville': ['Libre Baskerville', 'serif'],
       },
       colors: {
         onyx: "hsl(var(--onyx))",
