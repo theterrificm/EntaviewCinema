@@ -64,7 +64,7 @@ export default function VideoGallerySection() {
           <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
             Our Work
           </h2>
-          <p className="text-xl font-roboto-condensed font-light opacity-70 max-w-2xl mx-auto tracking-wide">
+          <p className="text-xl font-jetbrains-mono font-light opacity-70 max-w-2xl mx-auto">
             Cinematic stories that captivate audiences and drive results for leading brands
           </p>
         </motion.div>

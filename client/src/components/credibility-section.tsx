@@ -30,7 +30,7 @@ export default function CredibilitySection() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl font-roboto-condensed font-light opacity-80 max-w-3xl mx-auto tracking-wide"
+            className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-80 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}

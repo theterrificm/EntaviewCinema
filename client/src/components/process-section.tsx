@@ -59,7 +59,7 @@ export default function ProcessSection() {
                 <h3 className="text-2xl md:text-3xl font-oswald font-medium mb-4 uppercase tracking-wide">
                   {step.title}
                 </h3>
-                <p className="text-lg font-roboto-condensed opacity-80 leading-relaxed tracking-wide">
+                <p className="text-lg font-jetbrains-mono opacity-80 leading-relaxed">
                   {step.description}
                 </p>
               </div>

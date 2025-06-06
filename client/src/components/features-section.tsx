@@ -41,7 +41,7 @@ export default function FeaturesSection() {
           <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
             Why Choose Entaview
           </h2>
-          <p className="text-xl font-roboto-condensed font-light opacity-70 max-w-2xl mx-auto tracking-wide">
+          <p className="text-xl font-jetbrains-mono font-light opacity-70 max-w-2xl mx-auto">
             We combine technical expertise with creative vision to deliver films that make an impact.
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ export default function FeaturesSection() {
               <h3 className="text-xl font-oswald font-medium mb-3 group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
                 {feature.title}
               </h3>
-              <p className="font-roboto-condensed text-sm opacity-70 leading-relaxed group-hover:opacity-100 transition-opacity duration-300 tracking-wide">
+              <p className="font-jetbrains-mono text-sm opacity-70 leading-relaxed group-hover:opacity-100 transition-opacity duration-300">
                 {feature.description}
               </p>
               

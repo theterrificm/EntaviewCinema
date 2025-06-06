@@ -65,7 +65,7 @@ export default function PricingSection() {
           <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
             Investment Options
           </h2>
-          <p className="text-xl font-roboto-condensed font-light opacity-70 max-w-2xl mx-auto tracking-wide">
+          <p className="text-xl font-jetbrains-mono font-light opacity-70 max-w-2xl mx-auto">
             Choose the package that matches your vision and budget. All packages include our signature cinematic approach.
           </p>
         </motion.div>
@@ -117,7 +117,7 @@ export default function PricingSection() {
                 >
                   {pkg.price}
                 </motion.div>
-                <p className="text-sm opacity-70 font-roboto-condensed tracking-wide">{pkg.description}</p>
+                <p className="text-sm opacity-70 font-jetbrains-mono">{pkg.description}</p>
               </div>
               
               <ul className="space-y-3 mb-8 relative z-10">

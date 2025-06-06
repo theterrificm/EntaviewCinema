@@ -41,7 +41,7 @@ export default function HeroSection() {
           </motion.div>
           
           <motion.p 
-            className="text-xl md:text-2xl font-roboto-condensed font-light text-white/80 mb-12 max-w-2xl leading-relaxed text-center mx-auto tracking-wide"
+            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 mb-12 max-w-2xl leading-relaxed text-center mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 3.9 }}
