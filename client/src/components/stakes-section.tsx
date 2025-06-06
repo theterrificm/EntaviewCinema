@@ -43,7 +43,7 @@ export default function StakesSection() {
           >
             <button 
               onClick={handleBookCall}
-              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-league-spartan font-semibold text-lg transition-all duration-300 hover:scale-105"
+              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 hover:scale-105"
             >
               BOOK A CALL
             </button>
