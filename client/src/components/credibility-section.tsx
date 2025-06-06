@@ -48,7 +48,7 @@ export default function CredibilitySection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.4 + (index * 0.1) }}
             >
-              <span className="text-lg font-helvetica font-bold text-onyx/90">
+              <span className="text-lg font-oswald font-medium text-onyx/90 tracking-wider uppercase">
                 {brand.name}
               </span>
             </motion.div>

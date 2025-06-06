@@ -19,23 +19,23 @@ export default function FinalCTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold mb-8 leading-tight">
+          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase">
             Ready to Create<br />
             Something Bold?
           </h2>
           
-          <p className="text-xl font-helvetica font-light opacity-70 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl font-roboto-condensed font-light opacity-70 mb-12 max-w-2xl mx-auto tracking-wide">
             Let's discuss your vision and create a film that leads culture, not follows it.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={handleBookCall}
-              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-league-spartan font-semibold text-lg transition-all duration-300 hover:scale-105"
+              className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-oswald font-medium text-lg transition-all duration-300 hover:scale-105 tracking-widest uppercase"
             >
               BOOK A DISCOVERY CALL
             </button>
-            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-league-spartan font-semibold text-lg transition-all duration-300">
+            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-oswald font-medium text-lg transition-all duration-300 tracking-widest uppercase">
               VIEW OUR WORK
             </button>
           </div>
@@ -57,14 +57,14 @@ export default function FinalCTASection() {
               />
             </div>
             
-            <div className="flex space-x-8 text-sm font-helvetica opacity-70">
+            <div className="flex space-x-8 text-sm font-roboto-condensed opacity-70 tracking-wide">
               <a href="#" className="hover:opacity-100 transition-opacity">Privacy</a>
               <a href="#" className="hover:opacity-100 transition-opacity">Terms</a>
               <a href="#" className="hover:opacity-100 transition-opacity">Contact</a>
             </div>
           </div>
           
-          <div className="mt-8 text-center text-sm font-helvetica opacity-50">
+          <div className="mt-8 text-center text-sm font-roboto-condensed opacity-50 tracking-wide">
             © 2024 Entaview. All rights reserved.
           </div>
         </motion.div>

@@ -62,10 +62,10 @@ export default function PricingSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-league-spartan font-bold mb-6">
+          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
             Investment Options
           </h2>
-          <p className="text-xl font-helvetica font-light opacity-70 max-w-2xl mx-auto">
+          <p className="text-xl font-roboto-condensed font-light opacity-70 max-w-2xl mx-auto tracking-wide">
             Choose the package that matches your vision and budget. All packages include our signature cinematic approach.
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ export default function PricingSection() {
               
               {pkg.popular && (
                 <motion.div 
-                  className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-6 py-2 text-sm font-helvetica font-bold rounded-full z-20 shadow-lg border-2 border-white"
+                  className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-6 py-2 text-sm font-oswald font-medium rounded-full z-20 shadow-lg border-2 border-white tracking-wider uppercase"
                   initial={{ opacity: 0, scale: 0, y: 0 }}
                   animate={{ 
                     opacity: 1, 
@@ -107,17 +107,17 @@ export default function PricingSection() {
               )}
               
               <div className="text-center mb-8 relative z-10">
-                <h3 className="text-2xl font-helvetica font-medium mb-2 group-hover:text-fiery transition-colors duration-300">
+                <h3 className="text-2xl font-oswald font-medium mb-2 group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
                   {pkg.name}
                 </h3>
                 <motion.div 
-                  className="text-3xl font-helvetica font-light mb-2"
+                  className="text-3xl font-anton mb-2"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
                   {pkg.price}
                 </motion.div>
-                <p className="text-sm opacity-70">{pkg.description}</p>
+                <p className="text-sm opacity-70 font-roboto-condensed tracking-wide">{pkg.description}</p>
               </div>
               
               <ul className="space-y-3 mb-8 relative z-10">
