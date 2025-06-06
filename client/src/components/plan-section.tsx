@@ -62,7 +62,7 @@ export default function PlanSection() {
                 {step.title}
               </h3>
               
-              <p className="font-roboto-condensed text-lg opacity-80 leading-relaxed tracking-wide">
+              <p className="font-jetbrains-mono text-lg opacity-80 leading-relaxed">
                 {step.description}
               </p>
               

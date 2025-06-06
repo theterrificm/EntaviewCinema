@@ -11,6 +11,7 @@ export default {
         'oswald': ['Oswald', 'sans-serif'],
         'roboto-condensed': ['Roboto Condensed', 'sans-serif'],
         'helvetica': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+        'jetbrains-mono': ['JetBrains Mono', 'monospace'],
       },
       colors: {
         onyx: "hsl(var(--onyx))",
