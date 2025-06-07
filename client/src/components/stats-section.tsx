@@ -50,8 +50,8 @@ export default function StatsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase">
-            The Results Speak for Themselves
+          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] tracking-tight uppercase">
+            The Results Speak for <em className="text-fiery not-italic">Themselves</em>
           </h2>
         </motion.div>
 

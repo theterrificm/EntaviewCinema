@@ -39,8 +39,8 @@ export default function TestimonialsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
-            Client Reviews
+          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase">
+            Client <em className="text-fiery not-italic">Reviews</em>
           </h2>
           <p className="text-xl font-jetbrains-mono font-light opacity-70 max-w-2xl mx-auto">
             See what our clients say about working with Entaview

@@ -20,12 +20,12 @@ export default function AfterEntaviewSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2 
-            className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase"
+            className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] tracking-tight uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            After working with Entaview
+            After working with <em className="text-fiery italic">Entaview</em>
           </motion.h2>
           
           <motion.p 

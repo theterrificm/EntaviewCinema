@@ -19,12 +19,12 @@ export default function StakesSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center">
           <motion.h2 
-            className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase"
+            className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] tracking-tight uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            Without story, your brand becomes forgettable.
+            Without <em className="text-fiery not-italic">story</em>, your brand becomes forgettable.
           </motion.h2>
           
           <motion.p 
