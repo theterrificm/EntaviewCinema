@@ -15,6 +15,7 @@ import AfterEntaviewSection from "@/components/after-entaview-section";
 import StatsSection from "@/components/stats-section";
 import PricingSection from "@/components/pricing-section";
 import FinalCTASection from "@/components/final-cta-section";
+import ScrollingBanner from "@/components/scrolling-banner";
 
 export default function Home() {
   const [showLoader, setShowLoader] = useState(true);
@@ -32,6 +33,7 @@ export default function Home() {
       {showLoader && <LogoLoader />}
       <Navigation />
       <HeroSection />
+      <ScrollingBanner />
       <ProblemSection />
       <GuideSection />
       <PlanSection />
