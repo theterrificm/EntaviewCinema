@@ -163,6 +163,7 @@ export default function CoreOffersSection() {
                   <video
                     ref={(el) => videoRefs.current[index] = el}
                     src={offer.videoSrc}
+                    poster={offer.videoSrc + "#t=0.1"}
                     className="absolute inset-0 w-full h-full object-cover z-10"
                     muted
                     loop
@@ -171,7 +172,7 @@ export default function CoreOffersSection() {
                     onError={(e) => console.error('Video error:', e)}
                     onLoadedData={() => console.log('Video loaded:', offer.videoSrc)}
                     style={{
-                      opacity: hoveredCard === index ? 1 : 0,
+                      opacity: hoveredCard === index || !hoveredCard ? 1 : 0,
                       transition: 'opacity 0.3s ease-in-out'
                     }}
                   />
