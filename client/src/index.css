@@ -124,6 +124,67 @@
   }
 }
 
+/* TV Static Effect */
+.tv-static {
+  background-image: 
+    radial-gradient(circle at 20% 50%, white 1px, transparent 1px),
+    radial-gradient(circle at 70% 70%, white 1px, transparent 1px),
+    radial-gradient(circle at 40% 20%, white 1px, transparent 1px),
+    radial-gradient(circle at 90% 40%, white 1px, transparent 1px),
+    radial-gradient(circle at 30% 80%, white 1px, transparent 1px);
+  background-size: 15px 15px, 20px 20px, 25px 25px, 18px 18px, 22px 22px;
+  background-position: 0 0, 10px 10px, 5px 15px, 15px 5px, 8px 20px;
+  opacity: 0.1;
+  animation: static-noise 0.1s infinite linear;
+}
+
+@keyframes static-noise {
+  0% { 
+    background-position: 0 0, 10px 10px, 5px 15px, 15px 5px, 8px 20px;
+    opacity: 0.1;
+  }
+  10% { 
+    background-position: 1px 2px, 11px 8px, 3px 17px, 17px 3px, 6px 22px;
+    opacity: 0.15;
+  }
+  20% { 
+    background-position: -1px 1px, 9px 12px, 7px 13px, 13px 7px, 10px 18px;
+    opacity: 0.08;
+  }
+  30% { 
+    background-position: 2px -1px, 12px 9px, 4px 16px, 16px 4px, 7px 21px;
+    opacity: 0.12;
+  }
+  40% { 
+    background-position: 0px 3px, 8px 11px, 6px 14px, 14px 6px, 9px 19px;
+    opacity: 0.18;
+  }
+  50% { 
+    background-position: 3px 0px, 13px 7px, 2px 18px, 18px 2px, 5px 23px;
+    opacity: 0.06;
+  }
+  60% { 
+    background-position: -2px 2px, 7px 13px, 8px 12px, 12px 8px, 11px 17px;
+    opacity: 0.14;
+  }
+  70% { 
+    background-position: 1px -2px, 14px 6px, 1px 19px, 19px 1px, 4px 24px;
+    opacity: 0.11;
+  }
+  80% { 
+    background-position: 4px 1px, 6px 14px, 9px 11px, 11px 9px, 12px 16px;
+    opacity: 0.16;
+  }
+  90% { 
+    background-position: -1px -1px, 15px 5px, 0px 20px, 20px 0px, 3px 25px;
+    opacity: 0.09;
+  }
+  100% { 
+    background-position: 0 0, 10px 10px, 5px 15px, 15px 5px, 8px 20px;
+    opacity: 0.1;
+  }
+}
+
 .video-overlay {
   background: linear-gradient(rgba(14, 13, 18, 0.6), rgba(14, 13, 18, 0.6));
 }
