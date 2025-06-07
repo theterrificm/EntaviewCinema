@@ -145,7 +145,7 @@ export default function CoreOffersSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.button
-            className="bg-fiery text-white px-12 py-4 rounded-full text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 shadow-lg hover:shadow-xl tracking-widest uppercase"
+            className="bg-fiery text-white px-12 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 shadow-lg hover:shadow-xl tracking-widest uppercase"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
