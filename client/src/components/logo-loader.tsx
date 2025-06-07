@@ -1,18 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function LogoLoader() {
-  const [animationPhase, setAnimationPhase] = useState<'reveal' | 'scale' | 'shake' | 'complete'>('reveal');
+  const [phase, setPhase] = useState<'static' | 'scan' | 'assemble' | 'reveal' | 'complete'>('static');
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setAnimationPhase('scale'), 1200);
-    const timer2 = setTimeout(() => setAnimationPhase('shake'), 2000);
-    const timer3 = setTimeout(() => setAnimationPhase('complete'), 2800);
+    const timer1 = setTimeout(() => setPhase('scan'), 600);
+    const timer2 = setTimeout(() => setPhase('assemble'), 1400);
+    const timer3 = setTimeout(() => setPhase('reveal'), 2200);
+    const timer4 = setTimeout(() => setPhase('complete'), 3000);
     
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
+      clearTimeout(timer4);
     };
   }, []);
 
@@ -22,150 +24,270 @@ export default function LogoLoader() {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, delay: 3 }}
+      transition={{ duration: 0.5, delay: 3.5 }}
     >
-      {/* Animated Background Stripes */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        style={{
-          background: 'repeating-linear-gradient(45deg, transparent, transparent 2px, #F24005 2px, #F24005 4px)',
-        }}
-        animate={{
-          backgroundPosition: animationPhase === 'reveal' ? ['0px 0px', '40px 40px'] : ['40px 40px', '40px 40px']
-        }}
-        transition={{
-          duration: 1.2,
-          ease: "linear",
-          repeat: animationPhase === 'reveal' ? Infinity : 0
-        }}
-      />
+      {/* Static/Noise Background */}
+      <AnimatePresence>
+        {phase === 'static' && (
+          <motion.div
+            className="absolute inset-0"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="tv-static absolute inset-0 opacity-30" />
+            <motion.div
+              className="absolute inset-0"
+              style={{
+                background: 'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 2px)',
+              }}
+              animate={{
+                backgroundPosition: ['0px 0px', '0px 20px']
+              }}
+              transition={{
+                duration: 0.1,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Main Logo Container */}
-      <motion.div
-        className="relative z-20 flex items-center justify-center"
-        initial={{ 
-          opacity: 0,
-          scale: 0.3,
-          rotateX: 90
-        }}
-        animate={{ 
-          opacity: animationPhase === 'reveal' ? [0, 0.7, 1] : 1,
-          scale: animationPhase === 'reveal' 
-            ? [0.3, 0.8, 1] 
-            : animationPhase === 'scale' 
-            ? [1, 1.15, 1] 
-            : animationPhase === 'shake'
-            ? [1, 1.02, 0.98, 1.01, 0.99, 1]
-            : 1,
-          rotateX: animationPhase === 'reveal' ? [90, 45, 0] : 0,
-          x: animationPhase === 'shake' ? [0, -2, 2, -1, 1, 0] : 0,
-          y: animationPhase === 'shake' ? [0, -1, 1, -0.5, 0.5, 0] : 0
-        }}
-        transition={{ 
-          duration: animationPhase === 'reveal' 
-            ? 1.2 
-            : animationPhase === 'scale' 
-            ? 0.8 
-            : animationPhase === 'shake'
-            ? 0.8
-            : 0.5,
-          ease: animationPhase === 'reveal' 
-            ? "easeOut" 
-            : animationPhase === 'scale'
-            ? "easeInOut"
-            : "easeInOut"
-        }}
-      >
-        {/* Logo Glow Effect */}
+      {/* Scanning Grid */}
+      <AnimatePresence>
+        {phase === 'scan' && (
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Horizontal scanning lines */}
+            {Array.from({ length: 8 }).map((_, i) => (
+              <motion.div
+                key={`h-${i}`}
+                className="absolute w-full h-[1px] bg-fiery shadow-lg"
+                style={{ 
+                  top: `${(i + 1) * 12.5}%`,
+                  boxShadow: '0 0 10px #F24005, 0 0 20px #F24005'
+                }}
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ 
+                  scaleX: [0, 1, 1, 0],
+                  opacity: [0, 1, 1, 0]
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: i * 0.08,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+            
+            {/* Vertical scanning lines */}
+            {Array.from({ length: 6 }).map((_, i) => (
+              <motion.div
+                key={`v-${i}`}
+                className="absolute h-full w-[1px] bg-fiery shadow-lg"
+                style={{ 
+                  left: `${(i + 1) * 16.66}%`,
+                  boxShadow: '0 0 10px #F24005, 0 0 20px #F24005'
+                }}
+                initial={{ scaleY: 0, opacity: 0 }}
+                animate={{ 
+                  scaleY: [0, 1, 1, 0],
+                  opacity: [0, 1, 1, 0]
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.4 + i * 0.06,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Logo Assembly Phase */}
+      <motion.div className="relative z-20">
+        {/* Background Pulse */}
         <motion.div
-          className="absolute inset-0 rounded-lg blur-xl"
+          className="absolute inset-0 rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(242, 64, 5, 0.4) 0%, transparent 70%)'
+            background: 'radial-gradient(circle, rgba(242, 64, 5, 0.2) 0%, transparent 70%)',
+          }}
+          animate={phase === 'assemble' || phase === 'reveal' || phase === 'complete' ? {
+            scale: [0.8, 1.2, 1],
+            opacity: [0, 0.6, 0.3]
+          } : {}}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut"
+          }}
+        />
+
+        {/* Logo Container with Assembly Effect */}
+        <motion.div
+          className="relative"
+          initial={{ 
+            scale: 0,
+            rotateY: 180,
+            z: -1000
           }}
           animate={{
-            scale: animationPhase === 'scale' ? [1, 1.3, 1] : 1,
-            opacity: animationPhase === 'reveal' ? [0, 0.5, 0.8] : animationPhase === 'scale' ? [0.8, 1, 0.8] : 0.8
+            scale: phase === 'static' || phase === 'scan' 
+              ? 0 
+              : phase === 'assemble'
+              ? [0, 0.3, 0.8, 1.1, 1]
+              : 1,
+            rotateY: phase === 'static' || phase === 'scan'
+              ? 180
+              : phase === 'assemble'
+              ? [180, 90, 45, 0, 0]
+              : 0,
+            z: phase === 'static' || phase === 'scan'
+              ? -1000
+              : phase === 'assemble'
+              ? [-1000, -500, -100, 50, 0]
+              : 0
           }}
           transition={{
-            duration: animationPhase === 'scale' ? 0.8 : 1.2,
-            ease: "easeInOut"
+            duration: phase === 'assemble' ? 0.8 : 0.3,
+            ease: "easeOut"
           }}
-        />
-
-        {/* Main Logo */}
-        <img 
-          src="/Layer 25@4x_1749161317114.png" 
-          alt="Entaview" 
-          className="h-32 sm:h-40 md:h-56 lg:h-72 w-auto max-w-[90vw] object-contain relative z-10"
-        />
-
-        {/* Scanline Effect */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(transparent 50%, rgba(242, 64, 5, 0.1) 50%)',
-            backgroundSize: '100% 4px'
+            transformStyle: "preserve-3d",
+            perspective: "1000px"
           }}
-          animate={{
-            y: animationPhase === 'reveal' ? ['-100%', '100%'] : '100%',
-            opacity: animationPhase === 'reveal' ? [0.8, 0.8, 0] : 0
-          }}
-          transition={{
-            duration: 1.2,
-            ease: "linear"
-          }}
-        />
-      </motion.div>
+        >
+          {/* Pixelated Assembly Effect */}
+          <AnimatePresence>
+            {phase === 'assemble' && (
+              <motion.div
+                className="absolute inset-0"
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+              >
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute"
+                    style={{
+                      width: '8px',
+                      height: '8px',
+                      background: '#F24005',
+                      left: `${20 + Math.random() * 60}%`,
+                      top: `${20 + Math.random() * 60}%`,
+                      boxShadow: '0 0 4px #F24005'
+                    }}
+                    animate={{
+                      scale: [0, 1, 0],
+                      opacity: [0, 1, 0],
+                      rotate: [0, 360]
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      delay: i * 0.05,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-      {/* Corner Brackets Animation */}
-      <motion.div
-        className="absolute inset-8 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: animationPhase === 'scale' || animationPhase === 'shake' || animationPhase === 'complete' ? 1 : 0 
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        {/* Top Left */}
-        <motion.div
-          className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-fiery"
-          initial={{ scale: 0, rotate: 45 }}
-          animate={{ 
-            scale: animationPhase === 'scale' || animationPhase === 'shake' || animationPhase === 'complete' ? 1 : 0,
-            rotate: 0
-          }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        />
-        {/* Top Right */}
-        <motion.div
-          className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-fiery"
-          initial={{ scale: 0, rotate: -45 }}
-          animate={{ 
-            scale: animationPhase === 'scale' || animationPhase === 'shake' || animationPhase === 'complete' ? 1 : 0,
-            rotate: 0
-          }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        />
-        {/* Bottom Left */}
-        <motion.div
-          className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-fiery"
-          initial={{ scale: 0, rotate: -45 }}
-          animate={{ 
-            scale: animationPhase === 'scale' || animationPhase === 'shake' || animationPhase === 'complete' ? 1 : 0,
-            rotate: 0
-          }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        />
-        {/* Bottom Right */}
-        <motion.div
-          className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-fiery"
-          initial={{ scale: 0, rotate: 45 }}
-          animate={{ 
-            scale: animationPhase === 'scale' || animationPhase === 'shake' || animationPhase === 'complete' ? 1 : 0,
-            rotate: 0
-          }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        />
+          {/* Main Logo */}
+          <motion.img 
+            src="/Layer 25@4x_1749161317114.png" 
+            alt="Entaview" 
+            className="h-32 sm:h-40 md:h-56 lg:h-72 w-auto max-w-[90vw] object-contain"
+            animate={{
+              filter: phase === 'static' || phase === 'scan'
+                ? "brightness(0) contrast(0)"
+                : phase === 'assemble'
+                ? ["brightness(0) contrast(0)", "brightness(0.3) contrast(1.5)", "brightness(1.2) contrast(1.2)", "brightness(1) contrast(1)"]
+                : phase === 'reveal'
+                ? ["brightness(1) contrast(1)", "brightness(1.3) contrast(1.3)", "brightness(1) contrast(1)"]
+                : "brightness(1) contrast(1)"
+            }}
+            transition={{
+              duration: phase === 'assemble' ? 0.8 : phase === 'reveal' ? 0.5 : 0.3,
+              ease: "easeOut"
+            }}
+          />
+
+          {/* Holographic Effect */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(45deg, transparent 30%, rgba(242, 64, 5, 0.1) 50%, transparent 70%)',
+              mixBlendMode: 'screen'
+            }}
+            animate={phase === 'reveal' || phase === 'complete' ? {
+              x: ['-100%', '100%'],
+              opacity: [0, 0.8, 0]
+            } : {}}
+            transition={{
+              duration: 1.2,
+              ease: "easeInOut"
+            }}
+          />
+        </motion.div>
+
+        {/* Targeting System */}
+        <AnimatePresence>
+          {(phase === 'reveal' || phase === 'complete') && (
+            <motion.div
+              className="absolute inset-0 pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {/* Corner Targeting Lines */}
+              {[
+                { position: "top-0 left-0", border: "border-l-2 border-t-2", rotation: 0 },
+                { position: "top-0 right-0", border: "border-r-2 border-t-2", rotation: 90 },
+                { position: "bottom-0 left-0", border: "border-l-2 border-b-2", rotation: -90 },
+                { position: "bottom-0 right-0", border: "border-r-2 border-b-2", rotation: 180 }
+              ].map((corner, i) => (
+                <motion.div
+                  key={i}
+                  className={`absolute ${corner.position} w-16 h-16 ${corner.border} border-fiery`}
+                  style={{
+                    boxShadow: '0 0 10px #F24005'
+                  }}
+                  initial={{ 
+                    scale: 0,
+                    rotate: corner.rotation + 45
+                  }}
+                  animate={{ 
+                    scale: 1,
+                    rotate: corner.rotation
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    delay: i * 0.1,
+                    ease: "easeOut"
+                  }}
+                />
+              ))}
+
+              {/* Center Crosshair */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+              >
+                <div className="w-8 h-[1px] bg-fiery shadow-lg absolute top-0 left-1/2 transform -translate-x-1/2" />
+                <div className="w-[1px] h-8 bg-fiery shadow-lg absolute left-0 top-1/2 transform -translate-y-1/2" />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </motion.div>
   );
