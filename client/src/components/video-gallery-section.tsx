@@ -27,7 +27,7 @@ export default function VideoGallerySection() {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
-      thumbnail: "/attached_assets/Screenshot 2025-06-07 at 23.10.44_1749334275347.png",
+      thumbnail: "/icon-heist-thumbnail.png",
       videoUrl: "/icon-heist-video.mp4"
     },
     {
@@ -98,13 +98,20 @@ export default function VideoGallerySection() {
                   src={video.videoUrl}
                   muted
                   loop
-                  autoPlay={hoveredVideo === video.videoUrl}
+                  preload="metadata"
+                  playsInline
                   className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
                   }`}
-                  onLoadedData={(e) => {
-                    const video = e.target as HTMLVideoElement;
-                    video.currentTime = 0; // Start from beginning
+                  onMouseEnter={(e) => {
+                    const videoEl = e.target as HTMLVideoElement;
+                    videoEl.currentTime = 0;
+                    videoEl.play();
+                  }}
+                  onMouseLeave={(e) => {
+                    const videoEl = e.target as HTMLVideoElement;
+                    videoEl.pause();
+                    videoEl.currentTime = 0;
                   }}
                 />
                 
