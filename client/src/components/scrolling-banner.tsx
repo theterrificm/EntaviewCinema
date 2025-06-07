@@ -20,15 +20,18 @@ export default function ScrollingBanner() {
     { text: "•", color: "fiery" },
   ];
 
+  // Calculate the total width of one complete text cycle
+  const textWidth = 1800; // Approximate width of one complete text cycle
+  
   // Create the repeating text string
   const createTextElement = (offset: number = 0) => (
     <motion.div
       key={offset}
       className="flex items-center whitespace-nowrap"
-      initial={{ x: offset }}
-      animate={{ x: offset - 2000 }}
+      initial={{ x: offset * textWidth }}
+      animate={{ x: (offset - 1) * textWidth }}
       transition={{
-        duration: 20,
+        duration: 25,
         repeat: Infinity,
         ease: "linear",
         repeatType: "loop"
@@ -55,8 +58,8 @@ export default function ScrollingBanner() {
         {/* Multiple offset text elements for continuous scroll */}
         <div className="flex">
           {createTextElement(0)}
-          {createTextElement(2000)}
-          {createTextElement(4000)}
+          {createTextElement(1)}
+          {createTextElement(2)}
         </div>
         
         {/* Gradient fade on edges */}
