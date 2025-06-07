@@ -1,12 +1,32 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function VideoGallerySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+
+  // Handle video playback based on hover state
+  useEffect(() => {
+    if (hoveredVideo) {
+      const video = videoRefs.current[hoveredVideo];
+      if (video) {
+        video.currentTime = 0;
+        video.play().catch(console.error);
+      }
+    } else {
+      // Pause all videos when not hovering
+      Object.values(videoRefs.current).forEach(video => {
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    }
+  }, [hoveredVideo]);
 
   const videos = [
     {
@@ -95,6 +115,7 @@ export default function VideoGallerySection() {
                 
                 {/* Video preview on hover */}
                 <video
+                  ref={(el) => { videoRefs.current[video.videoUrl] = el; }}
                   src={video.videoUrl}
                   muted
                   loop
@@ -103,16 +124,6 @@ export default function VideoGallerySection() {
                   className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
                   }`}
-                  onMouseEnter={(e) => {
-                    const videoEl = e.target as HTMLVideoElement;
-                    videoEl.currentTime = 0;
-                    videoEl.play();
-                  }}
-                  onMouseLeave={(e) => {
-                    const videoEl = e.target as HTMLVideoElement;
-                    videoEl.pause();
-                    videoEl.currentTime = 0;
-                  }}
                 />
                 
                 {/* Overlay */}
