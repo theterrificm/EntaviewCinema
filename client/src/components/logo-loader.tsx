@@ -2,19 +2,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function LogoLoader() {
-  const [phase, setPhase] = useState<'static' | 'scan' | 'assemble' | 'reveal' | 'complete'>('static');
+  const [phase, setPhase] = useState<'noise' | 'glitch1' | 'digital' | 'glitch2' | 'stabilize' | 'enhance' | 'complete'>('noise');
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setPhase('scan'), 600);
-    const timer2 = setTimeout(() => setPhase('assemble'), 1400);
-    const timer3 = setTimeout(() => setPhase('reveal'), 2200);
-    const timer4 = setTimeout(() => setPhase('complete'), 3000);
+    const timer1 = setTimeout(() => setPhase('glitch1'), 1200);
+    const timer2 = setTimeout(() => setPhase('digital'), 2400);
+    const timer3 = setTimeout(() => setPhase('glitch2'), 3600);
+    const timer4 = setTimeout(() => setPhase('stabilize'), 4800);
+    const timer5 = setTimeout(() => setPhase('enhance'), 6000);
+    const timer6 = setTimeout(() => setPhase('complete'), 7200);
     
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
       clearTimeout(timer4);
+      clearTimeout(timer5);
+      clearTimeout(timer6);
     };
   }, []);
 
@@ -24,27 +28,27 @@ export default function LogoLoader() {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, delay: 3.5 }}
+      transition={{ duration: 0.8, delay: 7.5 }}
     >
-      {/* Static/Noise Background */}
+      {/* Heavy Static Noise Background */}
       <AnimatePresence>
-        {phase === 'static' && (
+        {phase === 'noise' && (
           <motion.div
             className="absolute inset-0"
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
-            <div className="tv-static absolute inset-0 opacity-30" />
+            <div className="tv-static absolute inset-0 opacity-60" />
             <motion.div
               className="absolute inset-0"
               style={{
-                background: 'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 2px)',
+                background: 'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.08) 1px, rgba(255,255,255,0.08) 2px)',
               }}
               animate={{
-                backgroundPosition: ['0px 0px', '0px 20px']
+                backgroundPosition: ['0px 0px', '0px 40px', '0px 0px']
               }}
               transition={{
-                duration: 0.1,
+                duration: 0.05,
                 repeat: Infinity,
                 ease: "linear"
               }}
@@ -53,145 +57,126 @@ export default function LogoLoader() {
         )}
       </AnimatePresence>
 
-      {/* Scanning Grid */}
-      <AnimatePresence>
-        {phase === 'scan' && (
-          <motion.div
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {/* Horizontal scanning lines */}
-            {Array.from({ length: 8 }).map((_, i) => (
-              <motion.div
-                key={`h-${i}`}
-                className="absolute w-full h-[1px] bg-fiery shadow-lg"
-                style={{ 
-                  top: `${(i + 1) * 12.5}%`,
-                  boxShadow: '0 0 10px #F24005, 0 0 20px #F24005'
-                }}
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ 
-                  scaleX: [0, 1, 1, 0],
-                  opacity: [0, 1, 1, 0]
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: i * 0.08,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-            
-            {/* Vertical scanning lines */}
-            {Array.from({ length: 6 }).map((_, i) => (
-              <motion.div
-                key={`v-${i}`}
-                className="absolute h-full w-[1px] bg-fiery shadow-lg"
-                style={{ 
-                  left: `${(i + 1) * 16.66}%`,
-                  boxShadow: '0 0 10px #F24005, 0 0 20px #F24005'
-                }}
-                initial={{ scaleY: 0, opacity: 0 }}
-                animate={{ 
-                  scaleY: [0, 1, 1, 0],
-                  opacity: [0, 1, 1, 0]
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.4 + i * 0.06,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Logo Assembly Phase */}
+      {/* Logo Container with Advanced Glitch Effects */}
       <motion.div className="relative z-20">
-        {/* Background Pulse */}
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(242, 64, 5, 0.2) 0%, transparent 70%)',
-          }}
-          animate={phase === 'assemble' || phase === 'reveal' || phase === 'complete' ? {
-            scale: [0.8, 1.2, 1],
-            opacity: [0, 0.6, 0.3]
-          } : {}}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut"
-          }}
-        />
-
-        {/* Logo Container with Assembly Effect */}
+        {/* Main Logo with Complex Glitch Animation */}
         <motion.div
           className="relative"
-          initial={{ 
-            scale: 0,
-            rotateY: 180,
-            z: -1000
-          }}
-          animate={{
-            scale: phase === 'static' || phase === 'scan' 
-              ? 0 
-              : phase === 'assemble'
-              ? [0, 0.3, 0.8, 1.1, 1]
-              : 1,
-            rotateY: phase === 'static' || phase === 'scan'
-              ? 180
-              : phase === 'assemble'
-              ? [180, 90, 45, 0, 0]
-              : 0,
-            z: phase === 'static' || phase === 'scan'
-              ? -1000
-              : phase === 'assemble'
-              ? [-1000, -500, -100, 50, 0]
-              : 0
-          }}
-          transition={{
-            duration: phase === 'assemble' ? 0.8 : 0.3,
-            ease: "easeOut"
-          }}
-          style={{
-            transformStyle: "preserve-3d",
-            perspective: "1000px"
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: phase === 'noise' ? 0 : 1 }}
+          transition={{ duration: 0.1 }}
         >
-          {/* Pixelated Assembly Effect */}
+          {/* Glitch Layer 1 - Red Channel */}
+          <motion.img 
+            src="/Layer 25@4x_1749161317114.png" 
+            alt="" 
+            className="absolute h-32 sm:h-40 md:h-56 lg:h-72 w-auto max-w-[90vw] object-contain"
+            style={{
+              filter: 'sepia(1) hue-rotate(315deg) saturate(3)',
+              mixBlendMode: 'screen'
+            }}
+            animate={{
+              x: phase === 'glitch1' || phase === 'glitch2' 
+                ? [0, -8, 12, -4, 8, -12, 4, 0] 
+                : 0,
+              opacity: phase === 'glitch1' || phase === 'glitch2' ? 0.7 : 0,
+              scaleX: phase === 'glitch1' || phase === 'glitch2' 
+                ? [1, 1.02, 0.98, 1.01, 0.99, 1.03, 0.97, 1]
+                : 1
+            }}
+            transition={{
+              duration: phase === 'glitch1' ? 1.2 : phase === 'glitch2' ? 1.2 : 0.1,
+              repeat: phase === 'glitch1' || phase === 'glitch2' ? 3 : 0,
+              ease: "easeInOut"
+            }}
+          />
+
+          {/* Glitch Layer 2 - Blue Channel */}
+          <motion.img 
+            src="/Layer 25@4x_1749161317114.png" 
+            alt="" 
+            className="absolute h-32 sm:h-40 md:h-56 lg:h-72 w-auto max-w-[90vw] object-contain"
+            style={{
+              filter: 'sepia(1) hue-rotate(180deg) saturate(3)',
+              mixBlendMode: 'screen'
+            }}
+            animate={{
+              x: phase === 'glitch1' || phase === 'glitch2' 
+                ? [0, 6, -10, 8, -6, 10, -8, 0] 
+                : 0,
+              opacity: phase === 'glitch1' || phase === 'glitch2' ? 0.6 : 0,
+              scaleY: phase === 'glitch1' || phase === 'glitch2' 
+                ? [1, 0.98, 1.02, 0.99, 1.01, 0.97, 1.03, 1]
+                : 1
+            }}
+            transition={{
+              duration: phase === 'glitch1' ? 1.2 : phase === 'glitch2' ? 1.2 : 0.1,
+              repeat: phase === 'glitch1' || phase === 'glitch2' ? 3 : 0,
+              ease: "easeInOut",
+              delay: 0.1
+            }}
+          />
+
+          {/* Main Logo - Clean */}
+          <motion.img 
+            src="/Layer 25@4x_1749161317114.png" 
+            alt="Entaview" 
+            className="relative h-32 sm:h-40 md:h-56 lg:h-72 w-auto max-w-[90vw] object-contain z-10"
+            animate={{
+              filter: phase === 'noise' 
+                ? "brightness(0) contrast(0) blur(20px)"
+                : phase === 'glitch1'
+                ? ["brightness(0) contrast(0)", "brightness(0.2) contrast(2) saturate(2)", "brightness(1.5) contrast(1.5)", "brightness(1) contrast(1)"]
+                : phase === 'digital'
+                ? ["brightness(1) contrast(1)", "brightness(1.2) contrast(1.3) hue-rotate(10deg)", "brightness(1) contrast(1)"]
+                : phase === 'glitch2'
+                ? ["brightness(1) contrast(1)", "brightness(0.3) contrast(3) saturate(0)", "brightness(1.8) contrast(1.2)", "brightness(1) contrast(1)"]
+                : phase === 'stabilize'
+                ? ["brightness(1) contrast(1)", "brightness(1.1) contrast(1.1)", "brightness(1) contrast(1)"]
+                : phase === 'enhance'
+                ? ["brightness(1) contrast(1)", "brightness(1.3) contrast(1.2) saturate(1.1)", "brightness(1) contrast(1)"]
+                : "brightness(1) contrast(1)",
+              scale: phase === 'glitch1' || phase === 'glitch2'
+                ? [1, 1.02, 0.98, 1.01, 0.99, 1]
+                : phase === 'digital'
+                ? [1, 1.05, 1]
+                : phase === 'enhance'
+                ? [1, 1.03, 1]
+                : 1,
+              y: phase === 'glitch1' || phase === 'glitch2'
+                ? [0, -2, 4, -1, 2, 0]
+                : 0
+            }}
+            transition={{
+              duration: phase === 'glitch1' ? 1.2 : phase === 'glitch2' ? 1.2 : phase === 'digital' ? 1.2 : phase === 'stabilize' ? 1.2 : phase === 'enhance' ? 1.2 : 0.8,
+              repeat: phase === 'glitch1' || phase === 'glitch2' ? 3 : phase === 'digital' ? 2 : phase === 'enhance' ? 1 : 0,
+              ease: "easeInOut"
+            }}
+          />
+
+          {/* Digital Scan Lines */}
           <AnimatePresence>
-            {phase === 'assemble' && (
+            {phase === 'digital' && (
               <motion.div
-                className="absolute inset-0"
-                initial={{ opacity: 1 }}
+                className="absolute inset-0 pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
               >
-                {Array.from({ length: 12 }).map((_, i) => (
+                {Array.from({ length: 20 }).map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute"
-                    style={{
-                      width: '8px',
-                      height: '8px',
-                      background: '#F24005',
-                      left: `${20 + Math.random() * 60}%`,
-                      top: `${20 + Math.random() * 60}%`,
-                      boxShadow: '0 0 4px #F24005'
-                    }}
+                    className="absolute w-full h-[2px] bg-fiery/30"
+                    style={{ top: `${i * 5}%` }}
                     animate={{
-                      scale: [0, 1, 0],
                       opacity: [0, 1, 0],
-                      rotate: [0, 360]
+                      scaleX: [0, 1, 0]
                     }}
                     transition={{
-                      duration: 0.6,
-                      delay: i * 0.05,
-                      ease: "easeInOut"
+                      duration: 0.1,
+                      delay: i * 0.02,
+                      repeat: 10,
+                      ease: "linear"
                     }}
                   />
                 ))}
@@ -199,91 +184,104 @@ export default function LogoLoader() {
             )}
           </AnimatePresence>
 
-          {/* Main Logo */}
-          <motion.img 
-            src="/Layer 25@4x_1749161317114.png" 
-            alt="Entaview" 
-            className="h-32 sm:h-40 md:h-56 lg:h-72 w-auto max-w-[90vw] object-contain"
-            animate={{
-              filter: phase === 'static' || phase === 'scan'
-                ? "brightness(0) contrast(0)"
-                : phase === 'assemble'
-                ? ["brightness(0) contrast(0)", "brightness(0.3) contrast(1.5)", "brightness(1.2) contrast(1.2)", "brightness(1) contrast(1)"]
-                : phase === 'reveal'
-                ? ["brightness(1) contrast(1)", "brightness(1.3) contrast(1.3)", "brightness(1) contrast(1)"]
-                : "brightness(1) contrast(1)"
-            }}
-            transition={{
-              duration: phase === 'assemble' ? 0.8 : phase === 'reveal' ? 0.5 : 0.3,
-              ease: "easeOut"
-            }}
-          />
-
-          {/* Holographic Effect */}
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'linear-gradient(45deg, transparent 30%, rgba(242, 64, 5, 0.1) 50%, transparent 70%)',
-              mixBlendMode: 'screen'
-            }}
-            animate={phase === 'reveal' || phase === 'complete' ? {
-              x: ['-100%', '100%'],
-              opacity: [0, 0.8, 0]
-            } : {}}
-            transition={{
-              duration: 1.2,
-              ease: "easeInOut"
-            }}
-          />
+          {/* Data Stream Effect */}
+          <AnimatePresence>
+            {(phase === 'digital' || phase === 'stabilize') && (
+              <motion.div
+                className="absolute inset-0 pointer-events-none overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.3 }}
+                exit={{ opacity: 0 }}
+              >
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute text-fiery font-mono text-xs opacity-50"
+                    style={{
+                      left: `${10 + i * 10}%`,
+                      fontSize: '8px'
+                    }}
+                    animate={{
+                      y: ['-20px', '120vh'],
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: i * 0.2,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  >
+                    {['01001', '11010', '00110', '10101', '01011'][i % 5]}
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
-        {/* Targeting System */}
+        {/* Enhanced Targeting System */}
         <AnimatePresence>
-          {(phase === 'reveal' || phase === 'complete') && (
+          {(phase === 'enhance' || phase === 'complete') && (
             <motion.div
               className="absolute inset-0 pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* Corner Targeting Lines */}
+              {/* Advanced Corner Brackets */}
               {[
-                { position: "top-0 left-0", border: "border-l-2 border-t-2", rotation: 0 },
-                { position: "top-0 right-0", border: "border-r-2 border-t-2", rotation: 90 },
-                { position: "bottom-0 left-0", border: "border-l-2 border-b-2", rotation: -90 },
-                { position: "bottom-0 right-0", border: "border-r-2 border-b-2", rotation: 180 }
+                { position: "top-0 left-0", border: "border-l-4 border-t-4", rotation: 0 },
+                { position: "top-0 right-0", border: "border-r-4 border-t-4", rotation: 90 },
+                { position: "bottom-0 left-0", border: "border-l-4 border-b-4", rotation: -90 },
+                { position: "bottom-0 right-0", border: "border-r-4 border-b-4", rotation: 180 }
               ].map((corner, i) => (
                 <motion.div
                   key={i}
-                  className={`absolute ${corner.position} w-16 h-16 ${corner.border} border-fiery`}
+                  className={`absolute ${corner.position} w-20 h-20 ${corner.border} border-fiery`}
                   style={{
-                    boxShadow: '0 0 10px #F24005'
+                    boxShadow: '0 0 20px #F24005, inset 0 0 20px rgba(242, 64, 5, 0.2)'
                   }}
                   initial={{ 
                     scale: 0,
                     rotate: corner.rotation + 45
                   }}
                   animate={{ 
-                    scale: 1,
-                    rotate: corner.rotation
+                    scale: [0, 1.2, 1],
+                    rotate: corner.rotation,
+                    opacity: [0, 1, 0.8]
                   }}
                   transition={{
-                    duration: 0.4,
-                    delay: i * 0.1,
+                    duration: 0.6,
+                    delay: i * 0.15,
                     ease: "easeOut"
                   }}
                 />
               ))}
 
-              {/* Center Crosshair */}
+              {/* Center Crosshair with Pulse */}
               <motion.div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
+                animate={{ 
+                  scale: [0, 1.3, 1], 
+                  opacity: [0, 1, 0.9] 
+                }}
+                transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="w-8 h-[1px] bg-fiery shadow-lg absolute top-0 left-1/2 transform -translate-x-1/2" />
-                <div className="w-[1px] h-8 bg-fiery shadow-lg absolute left-0 top-1/2 transform -translate-y-1/2" />
+                <motion.div 
+                  className="w-12 h-[2px] bg-fiery shadow-lg absolute top-0 left-1/2 transform -translate-x-1/2"
+                  animate={{ 
+                    boxShadow: ['0 0 5px #F24005', '0 0 20px #F24005', '0 0 5px #F24005'] 
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <motion.div 
+                  className="w-[2px] h-12 bg-fiery shadow-lg absolute left-0 top-1/2 transform -translate-y-1/2"
+                  animate={{ 
+                    boxShadow: ['0 0 5px #F24005', '0 0 20px #F24005', '0 0 5px #F24005'] 
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                />
               </motion.div>
             </motion.div>
           )}
