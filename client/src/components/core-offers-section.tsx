@@ -66,27 +66,23 @@ export default function CoreOffersSection() {
           </div>
         </motion.div>
 
-        {/* Mobile: Horizontal Scroll Container */}
-        <div className="md:hidden mb-8">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-6 px-6 pb-4">
+        {/* Mobile: Full-Width Horizontal Scroll Container */}
+        <div className="md:hidden mb-6">
+          <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+            <div className="flex gap-4 px-4">
               {offers.map((offer, index) => (
                 <motion.div
                   key={index}
-                  className="group cursor-pointer relative flex-shrink-0 w-[85vw] max-w-[300px]"
+                  className="group cursor-pointer relative flex-shrink-0 w-[92vw] snap-center"
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  whileHover={{ 
-                    y: -5,
-                    scale: 1.02
-                  }}
                 >
-                  {/* Video Container */}
-                  <div className="relative overflow-hidden rounded-lg mb-4 aspect-[4/3] h-[240px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
+                  {/* Full Height Video Container */}
+                  <div className="relative overflow-hidden rounded-xl h-[65vh] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
                     {/* Animated Background Preview */}
                     <motion.div
-                      className="absolute inset-0 flex items-center justify-center"
+                      className="absolute inset-0 flex flex-col justify-end"
                       style={{ 
                         background: offer.fallbackType === "brand" 
                           ? 'linear-gradient(45deg, #1a1a1a 25%, #2a2a2a 25%, #2a2a2a 50%, #1a1a1a 50%, #1a1a1a 75%, #2a2a2a 75%, #2a2a2a)'
@@ -100,31 +96,20 @@ export default function CoreOffersSection() {
                           ? 'pulse 3s ease-in-out infinite'
                           : 'gradient-shift 4s ease-in-out infinite'
                       }}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
                     >
-                      <div className="text-center text-stone mix-blend-overlay">
-                        <div className="text-base font-oswald font-medium mb-2 tracking-wide uppercase">
+                      {/* Content Overlay at Bottom */}
+                      <div className="bg-gradient-to-t from-black/90 via-black/60 to-transparent p-8 text-white">
+                        <h3 className="text-3xl font-oswald font-medium mb-3 tracking-wide uppercase">
                           {offer.title}
-                        </div>
-                        <div className="text-xs opacity-60 font-jetbrains-mono">
-                          Video Preview
-                        </div>
+                        </h3>
+                        <p className="text-sm font-jetbrains-mono text-white/90 leading-relaxed">
+                          {offer.caption}
+                        </p>
                       </div>
                     </motion.div>
                     
                     {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  </div>
-
-                  {/* Card Title - Always Visible */}
-                  <div className="text-center">
-                    <h3 className="text-lg font-oswald font-medium group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
-                      {offer.title}
-                    </h3>
-                    <p className="text-xs font-jetbrains-mono text-white/70 mt-2 leading-relaxed">
-                      {offer.caption}
-                    </p>
+                    <div className="absolute inset-0 bg-fiery/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   </div>
                 </motion.div>
               ))}

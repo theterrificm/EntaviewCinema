@@ -185,6 +185,16 @@
   }
 }
 
+/* Hide scrollbars */
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .video-overlay {
   background: linear-gradient(rgba(14, 13, 18, 0.6), rgba(14, 13, 18, 0.6));
 }
