@@ -6,6 +6,7 @@ export default function VideoGallerySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
 
   const videos = [
     {
@@ -26,7 +27,7 @@ export default function VideoGallerySection() {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
-      thumbnail: "/attached_assets/Screenshot 2025-06-06 at 20.39.47_1749238887189.png",
+      thumbnail: "/attached_assets/Screenshot 2025-06-07 at 23.10.44_1749334275347.png",
       videoUrl: "/icon-heist-video.mp4"
     },
     {
@@ -78,13 +79,33 @@ export default function VideoGallerySection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               onClick={() => setSelectedVideo(video.videoUrl)}
+              onMouseEnter={() => setHoveredVideo(video.videoUrl)}
+              onMouseLeave={() => setHoveredVideo(null)}
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative overflow-hidden rounded-lg">
+                {/* Static thumbnail */}
                 <img 
                   src={video.thumbnail}
                   alt={video.title}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`w-full h-64 object-cover transition-all duration-500 ${
+                    hoveredVideo === video.videoUrl ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
+                  }`}
+                />
+                
+                {/* Video preview on hover */}
+                <video
+                  src={video.videoUrl}
+                  muted
+                  loop
+                  autoPlay={hoveredVideo === video.videoUrl}
+                  className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
+                    hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoadedData={(e) => {
+                    const video = e.target as HTMLVideoElement;
+                    video.currentTime = 0; // Start from beginning
+                  }}
                 />
                 
                 {/* Overlay */}
