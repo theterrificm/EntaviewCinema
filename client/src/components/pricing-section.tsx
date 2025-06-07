@@ -67,8 +67,8 @@ export default function PricingSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-6 leading-[0.9] tracking-wide uppercase">
-            Investment Options
+          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase">
+            Investment <em className="text-fiery italic">Options</em>
           </h2>
           <p className="text-xl font-jetbrains-mono font-light opacity-70 max-w-2xl mx-auto">
             Choose the package that matches your vision and budget. All packages include our signature cinematic approach.
