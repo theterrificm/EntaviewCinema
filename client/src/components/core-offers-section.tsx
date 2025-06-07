@@ -5,6 +5,8 @@ import { useRef, useState, useEffect } from "react";
 export default function CoreOffersSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
   
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const rotatingWords = ["Brand", "Content Strategy", "Launch Plan"];
@@ -15,6 +17,25 @@ export default function CoreOffersSection() {
     }, 2500);
     return () => clearInterval(interval);
   }, []);
+
+  // Handle video playback on hover
+  useEffect(() => {
+    if (hoveredCard !== null) {
+      const video = videoRefs.current[hoveredCard];
+      if (video && offers[hoveredCard].videoSrc) {
+        video.currentTime = 0;
+        video.play().catch(console.error);
+      }
+    } else {
+      // Pause all videos when not hovering
+      Object.values(videoRefs.current).forEach(video => {
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    }
+  }, [hoveredCard]);
 
   const offers = [
     {
@@ -132,9 +153,27 @@ export default function CoreOffersSection() {
                 zIndex: 50
               }}
               style={{ zIndex: 1 }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Video Container */}
               <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[350px] md:h-[400px] lg:h-[450px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
+                {/* Video Element (for Brand Campaigns) */}
+                {offer.videoSrc && (
+                  <video
+                    ref={(el) => videoRefs.current[index] = el}
+                    src={offer.videoSrc}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
+                    style={{
+                      opacity: hoveredCard === index ? 1 : 0,
+                      transition: 'opacity 0.3s ease-in-out'
+                    }}
+                  />
+                )}
+
                 {/* Animated Background Preview */}
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
@@ -149,7 +188,9 @@ export default function CoreOffersSection() {
                       ? 'slide 2s linear infinite'
                       : offer.fallbackType === "retainer"
                       ? 'pulse 3s ease-in-out infinite'
-                      : 'gradient-shift 4s ease-in-out infinite'
+                      : 'gradient-shift 4s ease-in-out infinite',
+                    opacity: hoveredCard === index && offer.videoSrc ? 0 : 1,
+                    transition: 'opacity 0.3s ease-in-out'
                   }}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
@@ -159,13 +200,13 @@ export default function CoreOffersSection() {
                       {offer.title}
                     </div>
                     <div className="text-xs opacity-60 font-jetbrains-mono">
-                      Video Preview
+                      {offer.videoSrc ? 'Hover to Preview' : 'Video Preview'}
                     </div>
                   </div>
                 </motion.div>
                 
                 {/* Hover Text Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center z-10">
                   <h3 className="text-lg font-oswald font-medium text-white mb-2 tracking-wide uppercase">
                     {offer.title}
                   </h3>
@@ -175,7 +216,7 @@ export default function CoreOffersSection() {
                 </div>
                 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-5"></div>
               </div>
 
               {/* Card Title - Always Visible */}
