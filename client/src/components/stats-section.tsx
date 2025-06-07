@@ -9,19 +9,19 @@ export default function StatsSection() {
 
   const stats = [
     {
-      number: "10M+",
-      label: "Views Generated",
-      icon: "👁️"
+      number: "+10M",
+      label: "VIEWS GENERATED",
+      category: "TOTAL REACH"
     },
     {
-      number: "40+",
-      label: "Campaigns Delivered",
-      icon: "🎬"
+      number: "+40",
+      label: "CAMPAIGNS DELIVERED", 
+      category: "COMPLETED PROJECTS"
     },
     {
-      number: "5",
-      label: "Countries",
-      icon: "🌍"
+      number: "+5",
+      label: "COUNTRIES",
+      category: "GLOBAL PRESENCE"
     }
   ];
 
@@ -45,70 +45,61 @@ export default function StatsSection() {
       
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-32"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] tracking-tight uppercase">
-            The Results Speak for <em className="text-fiery not-italic">Themselves</em>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-roboto-condensed font-black leading-tight tracking-tight mb-8">
+            <span className="text-white">Over 10M+ people have had</span><br />
+            <span className="text-white">their content </span><span className="text-fiery italic">impacted by Entaview</span>
           </h2>
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center group"
-              initial={{ opacity: 0, y: 50, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.8 }}
+              className="text-center"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ 
                 duration: 0.8, 
-                delay: index * 0.2,
-                type: "spring",
-                stiffness: 100
+                delay: index * 0.15
               }}
-              whileHover={{ scale: 1.05, y: -5 }}
             >
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 group-hover:bg-white/10 group-hover:border-fiery/50 transition-all duration-300">
-                <motion.div 
-                  className="text-4xl mb-4"
-                  animate={{ 
-                    scale: hasAnimated ? [1, 1.2, 1] : 1,
-                    rotate: hasAnimated ? [0, 10, -10, 0] : 0
-                  }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.3 + 0.5
-                  }}
-                >
-                  {stat.icon}
-                </motion.div>
-                
-                <motion.div 
-                  className="text-4xl md:text-6xl font-bebas font-normal text-fiery mb-4 tracking-wide"
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: index * 0.2 + 0.3,
-                    type: "spring",
-                    stiffness: 200
-                  }}
-                >
-                  {stat.number}
-                </motion.div>
-                
-                <motion.p 
-                  className="text-lg font-jetbrains-mono font-light opacity-80"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 0.8 } : { opacity: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 + 0.6 }}
-                >
-                  {stat.label}
-                </motion.p>
-              </div>
+              <motion.p 
+                className="text-sm font-roboto-condensed font-medium text-white/60 uppercase tracking-wider mb-4"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 0.6 } : { opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 + 0.2 }}
+              >
+                {stat.category}
+              </motion.p>
+              
+              <motion.div 
+                className="text-6xl md:text-8xl lg:text-9xl font-roboto-condensed font-black text-white/80 mb-4 leading-none"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isInView ? { scale: 1, opacity: 0.8 } : { scale: 0, opacity: 0 }}
+                transition={{ 
+                  duration: 1, 
+                  delay: index * 0.15 + 0.4,
+                  type: "spring",
+                  stiffness: 100
+                }}
+              >
+                {stat.number}
+              </motion.div>
+              
+              <motion.p 
+                className="text-sm font-roboto-condensed font-medium text-white/60 uppercase tracking-wider"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 0.6 } : { opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 + 0.8 }}
+              >
+                {stat.label}
+              </motion.p>
             </motion.div>
           ))}
         </div>
