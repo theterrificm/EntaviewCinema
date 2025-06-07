@@ -1,10 +1,19 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 export default function CoreOffersSection() {
   const ref = useRef(null);
+  const containerRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  // Scroll-based horizontal movement for mobile
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const xTransform = useTransform(scrollYProgress, [0, 1], ["0%", "-200%"]);
   
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const rotatingWords = ["Brand", "Content Strategy", "Launch Plan"];
@@ -39,7 +48,7 @@ export default function CoreOffersSection() {
 
   return (
     <section className="py-32 bg-onyx text-stone" ref={ref}>
-      <div className="w-full">
+      <div className="w-full" ref={containerRef}>
         {/* Animated Headline */}
         <motion.div
           className="text-center pt-8 pb-20 relative z-10 w-full"
@@ -66,8 +75,84 @@ export default function CoreOffersSection() {
           </div>
         </motion.div>
 
-        {/* Three Service Cards */}
-        <div className="grid md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto px-6 mb-16">
+        {/* Mobile: Horizontal Scroll Container */}
+        <div className="md:hidden overflow-hidden mb-16">
+          <motion.div 
+            className="flex gap-6 px-6 w-max"
+            style={{ x: xTransform }}
+          >
+            {offers.map((offer, index) => (
+              <motion.div
+                key={index}
+                className="group cursor-pointer relative flex-shrink-0 w-[280px] mx-auto"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                whileHover={{ 
+                  y: -10,
+                  scale: 1.05,
+                  zIndex: 50
+                }}
+                style={{ zIndex: 1 }}
+              >
+                {/* Video Container */}
+                <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[280px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
+                  {/* Animated Background Preview */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{ 
+                      background: offer.fallbackType === "brand" 
+                        ? 'linear-gradient(45deg, #1a1a1a 25%, #2a2a2a 25%, #2a2a2a 50%, #1a1a1a 50%, #1a1a1a 75%, #2a2a2a 75%, #2a2a2a)'
+                        : offer.fallbackType === "retainer"
+                        ? 'radial-gradient(circle at 30% 40%, #F24005 0%, #1a1a1a 70%)'
+                        : 'linear-gradient(135deg, #F24005 0%, #1a1a1a 100%)',
+                      backgroundSize: offer.fallbackType === "brand" ? '20px 20px' : 'cover',
+                      animation: offer.fallbackType === "brand" 
+                        ? 'slide 2s linear infinite'
+                        : offer.fallbackType === "retainer"
+                        ? 'pulse 3s ease-in-out infinite'
+                        : 'gradient-shift 4s ease-in-out infinite'
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <div className="text-center text-stone mix-blend-overlay">
+                      <div className="text-lg font-oswald font-medium mb-2 tracking-wide uppercase">
+                        {offer.title}
+                      </div>
+                      <div className="text-xs opacity-60 font-jetbrains-mono">
+                        Video Preview
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Hover Text Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center">
+                    <h3 className="text-sm font-oswald font-medium text-white mb-1 tracking-wide uppercase">
+                      {offer.title}
+                    </h3>
+                    <p className="text-xs font-jetbrains-mono text-white/90 leading-relaxed">
+                      {offer.caption}
+                    </p>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-fiery/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+
+                {/* Card Title - Always Visible */}
+                <div className="text-center">
+                  <h3 className="text-xl font-oswald font-medium group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
+                    {offer.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Desktop: Grid Layout */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto px-6 mb-16">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
