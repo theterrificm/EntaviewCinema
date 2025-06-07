@@ -59,7 +59,7 @@ export default function GuideSection() {
             x: "-50%",
           }}
           transition={{
-            duration: 3,
+            duration: 6,
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop",
