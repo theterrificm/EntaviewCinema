@@ -63,7 +63,7 @@ export default function FeaturesSection() {
             return (
               <motion.div
                 key={index}
-                className="text-center group cursor-pointer p-8 border border-white/10 rounded-none hover:border-fiery/30 transition-all duration-300 bg-black"
+                className="text-center group cursor-pointer p-8 transition-all duration-300 bg-black"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -77,7 +77,8 @@ export default function FeaturesSection() {
                   <IconComponent 
                     size={48} 
                     className="text-fiery group-hover:text-fiery transition-colors duration-300" 
-                    strokeWidth={1.5}
+                    strokeWidth={0}
+                    fill="currentColor"
                   />
                 </motion.div>
                 <h3 className="text-xl font-oswald font-medium mb-4 text-white group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
