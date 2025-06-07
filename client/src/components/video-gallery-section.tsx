@@ -33,8 +33,8 @@ export default function VideoGallerySection() {
       id: 1,
       title: "Rezzil Player",
       category: "Sports Tech",
-      thumbnail: "/Still 2025-02-03 213535_2.1.1_1749338281308.png",
-      videoUrl: "/Rezzil 16-9 PSVR Final_1749337960289.mp4"
+      thumbnail: "/rezzil-thumbnail.png",
+      videoUrl: "/rezzil-player.mp4"
     },
     {
       id: 2,

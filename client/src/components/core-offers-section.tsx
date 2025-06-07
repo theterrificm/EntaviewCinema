@@ -20,7 +20,7 @@ export default function CoreOffersSection() {
     {
       title: "Brand Campaigns",
       caption: "High-impact hero films that define your identity and build cultural buzz.",
-      videoSrc: "/offer-videos/brand-campaigns-loop.mp4",
+      videoSrc: "/2025 Showreel MAKU (1)_1749340063718.mp4",
       fallbackType: "brand"
     },
     {

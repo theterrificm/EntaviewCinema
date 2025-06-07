@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
+type Phase = 'noise' | 'glitch1' | 'digital' | 'glitch2' | 'stabilize' | 'enhance' | 'complete';
+
 export default function LogoLoader() {
-  const [phase, setPhase] = useState<'noise' | 'glitch1' | 'digital' | 'glitch2' | 'stabilize' | 'enhance' | 'complete'>('noise');
+  const [phase, setPhase] = useState<Phase>('noise');
 
   useEffect(() => {
     const timer1 = setTimeout(() => setPhase('glitch1'), 1200);
@@ -21,6 +23,9 @@ export default function LogoLoader() {
       clearTimeout(timer6);
     };
   }, []);
+
+  const isGlitching = phase === 'glitch1' || phase === 'glitch2';
+  const isVisible = phase !== 'noise';
 
   return (
     <motion.div 
@@ -63,7 +68,7 @@ export default function LogoLoader() {
         <motion.div
           className="relative"
           initial={{ opacity: 0 }}
-          animate={{ opacity: phase === 'noise' ? 0 : 1 }}
+          animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.1 }}
         >
           {/* Glitch Layer 1 - Red Channel */}
@@ -76,17 +81,13 @@ export default function LogoLoader() {
               mixBlendMode: 'screen'
             }}
             animate={{
-              x: phase === 'glitch1' || phase === 'glitch2' 
-                ? [0, -8, 12, -4, 8, -12, 4, 0] 
-                : 0,
-              opacity: phase === 'glitch1' || phase === 'glitch2' ? 0.7 : 0,
-              scaleX: phase === 'glitch1' || phase === 'glitch2' 
-                ? [1, 1.02, 0.98, 1.01, 0.99, 1.03, 0.97, 1]
-                : 1
+              x: isGlitching ? [0, -8, 12, -4, 8, -12, 4, 0] : 0,
+              opacity: isGlitching ? 0.7 : 0,
+              scaleX: isGlitching ? [1, 1.02, 0.98, 1.01, 0.99, 1.03, 0.97, 1] : 1
             }}
             transition={{
-              duration: phase === 'glitch1' ? 1.2 : phase === 'glitch2' ? 1.2 : 0.1,
-              repeat: phase === 'glitch1' || phase === 'glitch2' ? 3 : 0,
+              duration: 1.2,
+              repeat: isGlitching ? 3 : 0,
               ease: "easeInOut"
             }}
           />
@@ -101,17 +102,13 @@ export default function LogoLoader() {
               mixBlendMode: 'screen'
             }}
             animate={{
-              x: phase === 'glitch1' || phase === 'glitch2' 
-                ? [0, 6, -10, 8, -6, 10, -8, 0] 
-                : 0,
-              opacity: phase === 'glitch1' || phase === 'glitch2' ? 0.6 : 0,
-              scaleY: phase === 'glitch1' || phase === 'glitch2' 
-                ? [1, 0.98, 1.02, 0.99, 1.01, 0.97, 1.03, 1]
-                : 1
+              x: isGlitching ? [0, 6, -10, 8, -6, 10, -8, 0] : 0,
+              opacity: isGlitching ? 0.6 : 0,
+              scaleY: isGlitching ? [1, 0.98, 1.02, 0.99, 1.01, 0.97, 1.03, 1] : 1
             }}
             transition={{
-              duration: phase === 'glitch1' ? 1.2 : phase === 'glitch2' ? 1.2 : 0.1,
-              repeat: phase === 'glitch1' || phase === 'glitch2' ? 3 : 0,
+              duration: 1.2,
+              repeat: isGlitching ? 3 : 0,
               ease: "easeInOut",
               delay: 0.1
             }}
@@ -136,20 +133,18 @@ export default function LogoLoader() {
                 : phase === 'enhance'
                 ? ["brightness(1) contrast(1)", "brightness(1.3) contrast(1.2) saturate(1.1)", "brightness(1) contrast(1)"]
                 : "brightness(1) contrast(1)",
-              scale: phase === 'glitch1' || phase === 'glitch2'
+              scale: isGlitching
                 ? [1, 1.02, 0.98, 1.01, 0.99, 1]
                 : phase === 'digital'
                 ? [1, 1.05, 1]
                 : phase === 'enhance'
                 ? [1, 1.03, 1]
                 : 1,
-              y: phase === 'glitch1' || phase === 'glitch2'
-                ? [0, -2, 4, -1, 2, 0]
-                : 0
+              y: isGlitching ? [0, -2, 4, -1, 2, 0] : 0
             }}
             transition={{
-              duration: phase === 'glitch1' ? 1.2 : phase === 'glitch2' ? 1.2 : phase === 'digital' ? 1.2 : phase === 'stabilize' ? 1.2 : phase === 'enhance' ? 1.2 : 0.8,
-              repeat: phase === 'glitch1' || phase === 'glitch2' ? 3 : phase === 'digital' ? 2 : phase === 'enhance' ? 1 : 0,
+              duration: 1.2,
+              repeat: isGlitching ? 3 : phase === 'digital' ? 2 : phase === 'enhance' ? 1 : 0,
               ease: "easeInOut"
             }}
           />
