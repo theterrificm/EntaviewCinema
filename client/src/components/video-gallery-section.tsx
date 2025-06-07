@@ -31,10 +31,10 @@ export default function VideoGallerySection() {
   const videos = [
     {
       id: 1,
-      title: "PlayStation Campaign",
-      category: "Gaming",
-      thumbnail: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+      title: "Rezzil Player",
+      category: "Sports Tech",
+      thumbnail: "/Still 2025-02-03 213535_2.1.1_1749338281308.png",
+      videoUrl: "/Rezzil 16-9 PSVR Final_1749337960289.mp4"
     },
     {
       id: 2,
