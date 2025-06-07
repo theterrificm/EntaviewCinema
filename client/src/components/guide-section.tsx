@@ -56,14 +56,14 @@ export default function GuideSection() {
         <motion.div 
           className="flex space-x-12 items-center"
           animate={{
-            x: [1920, -(212 * brands.length)]
+            x: "-50%",
           }}
           transition={{
-            duration: 40,
+            duration: 30,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
+            repeatType: "loop",
           }}
-          style={{ width: `${(212 * brands.length * 2) + 1920}px` }}
         >
           {/* First set of brands */}
           {brands.map((brand, index) => (
