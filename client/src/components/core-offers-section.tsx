@@ -7,13 +7,18 @@ export default function CoreOffersSection() {
   const containerRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
-  // Scroll-based horizontal movement for mobile
+  // Sticky scroll setup for mobile
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end start"]
   });
   
-  const xTransform = useTransform(scrollYProgress, [0, 1], ["0%", "-200%"]);
+  // Create stepped horizontal movement: 0% -> -33% -> -66% -> normal scroll
+  const xTransform = useTransform(
+    scrollYProgress, 
+    [0, 0.33, 0.66, 1], 
+    ["0%", "-33.33%", "-66.66%", "-66.66%"]
+  );
   
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const rotatingWords = ["Brand", "Content Strategy", "Launch Plan"];
@@ -48,7 +53,7 @@ export default function CoreOffersSection() {
 
   return (
     <section className="py-32 bg-onyx text-stone" ref={ref}>
-      <div className="w-full" ref={containerRef}>
+      <div className="w-full relative" ref={containerRef}>
         {/* Animated Headline */}
         <motion.div
           className="text-center pt-8 pb-20 relative z-10 w-full"
@@ -75,26 +80,27 @@ export default function CoreOffersSection() {
           </div>
         </motion.div>
 
-        {/* Mobile: Horizontal Scroll Container */}
-        <div className="md:hidden overflow-hidden mb-16">
-          <motion.div 
-            className="flex gap-6 px-6 w-max"
-            style={{ x: xTransform }}
-          >
-            {offers.map((offer, index) => (
-              <motion.div
-                key={index}
-                className="group cursor-pointer relative flex-shrink-0 w-[280px] mx-auto"
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ 
-                  y: -10,
-                  scale: 1.05,
-                  zIndex: 50
-                }}
-                style={{ zIndex: 1 }}
-              >
+        {/* Mobile: Sticky Horizontal Scroll Container */}
+        <div className="md:hidden h-[300vh] relative">
+          <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+            <motion.div 
+              className="flex gap-8 px-6"
+              style={{ x: xTransform }}
+            >
+              {offers.map((offer, index) => (
+                <motion.div
+                  key={index}
+                  className="group cursor-pointer relative flex-shrink-0 w-[90vw] max-w-[320px] mx-auto"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  whileHover={{ 
+                    y: -10,
+                    scale: 1.05,
+                    zIndex: 50
+                  }}
+                  style={{ zIndex: 1 }}
+                >
                 {/* Video Container */}
                 <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[280px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
                   {/* Animated Background Preview */}
@@ -149,6 +155,7 @@ export default function CoreOffersSection() {
               </motion.div>
             ))}
           </motion.div>
+          </div>
         </div>
 
         {/* Desktop: Grid Layout */}
