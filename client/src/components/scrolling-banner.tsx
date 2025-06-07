@@ -40,7 +40,7 @@ export default function ScrollingBanner() {
       {bannerText.map((item, index) => (
         <span
           key={`${offset}-${index}`}
-          className={`text-6xl md:text-8xl lg:text-9xl font-bebas font-normal tracking-wider mr-8 ${
+          className={`text-6xl md:text-8xl lg:text-9xl font-bebas font-black tracking-tighter mr-8 ${
             item.color === "fiery" 
               ? "text-fiery" 
               : "text-white"
