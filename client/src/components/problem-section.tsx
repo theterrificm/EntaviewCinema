@@ -108,7 +108,7 @@ export default function ProblemSection() {
               transition={{ duration: 0.8 }}
               whileHover={{ scale: 1.05 }}
             >
-              Most content gets <em className="text-fiery not-italic">ignored</em>.
+              Most content gets <span className="text-fiery">ignored</span>
             </motion.h2>
             
             <motion.p 
