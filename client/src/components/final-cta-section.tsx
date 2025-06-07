@@ -19,9 +19,9 @@ export default function FinalCTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] tracking-wide uppercase">
+          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] tracking-tight uppercase">
             Ready to create<br />
-            something bold?
+            something <em className="text-fiery italic">bold?</em>
           </h2>
           
           <p className="text-xl font-jetbrains-mono font-light opacity-70 mb-12 max-w-2xl mx-auto">

@@ -34,9 +34,9 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 3.5 }}
             className="mb-8"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bebas font-normal leading-[0.9] mb-6 text-white text-center tracking-wide uppercase">
-              We help brands lead culture —<br />
-              <span className="text-fiery">not follow it.</span>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white text-center tracking-tight uppercase">
+              We help brands lead <em className="text-fiery not-italic">culture</em> —<br />
+              <span className="text-fiery italic">not follow it.</span>
             </h1>
           </motion.div>
           

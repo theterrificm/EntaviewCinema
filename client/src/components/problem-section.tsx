@@ -102,13 +102,13 @@ export default function ProblemSection() {
           
           <div className="relative z-10 p-8">
             <motion.h2 
-              className="text-5xl md:text-7xl font-bebas font-normal mb-8 leading-[0.9] group-hover:text-onyx transition-colors duration-300 tracking-wide uppercase"
+              className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] group-hover:text-onyx transition-colors duration-300 tracking-tight uppercase"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8 }}
               whileHover={{ scale: 1.05 }}
             >
-              Most content gets ignored.
+              Most content gets <em className="text-fiery not-italic">ignored</em>.
             </motion.h2>
             
             <motion.p 
