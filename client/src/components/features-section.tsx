@@ -41,7 +41,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="py-24 bg-black text-white" ref={ref} id="features">
+    <section className="py-24 bg-onyx text-white" ref={ref} id="features">
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -63,7 +63,7 @@ export default function FeaturesSection() {
             return (
               <motion.div
                 key={index}
-                className="text-center group cursor-pointer p-8 transition-all duration-300 bg-black"
+                className="text-center group cursor-pointer p-8 transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
