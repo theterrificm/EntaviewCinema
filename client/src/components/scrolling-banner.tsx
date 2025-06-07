@@ -20,47 +20,54 @@ export default function ScrollingBanner() {
     { text: "•", color: "fiery" },
   ];
 
-  // Calculate the total width of one complete text cycle
-  const textWidth = 1800; // Approximate width of one complete text cycle
-  
-  // Create the repeating text string
-  const createTextElement = (offset: number = 0) => (
-    <motion.div
-      key={offset}
-      className="flex items-center whitespace-nowrap"
-      initial={{ x: offset * textWidth }}
-      animate={{ x: (offset - 1) * textWidth }}
-      transition={{
-        duration: 25,
-        repeat: Infinity,
-        ease: "linear",
-        repeatType: "loop"
-      }}
-    >
-      {bannerText.map((item, index) => (
-        <span
-          key={`${offset}-${index}`}
-          className={`text-6xl md:text-8xl lg:text-9xl font-bebas font-black tracking-tight mr-8 ${
-            item.color === "fiery" 
-              ? "text-fiery" 
-              : "text-white"
-          }`}
-        >
-          {item.text}
-        </span>
-      ))}
-    </motion.div>
-  );
-
   return (
     <section className="bg-onyx border-y border-white/10 overflow-hidden relative">
       <div className="py-8 md:py-12 relative">
-        {/* Multiple offset text elements for continuous scroll */}
-        <div className="flex">
-          {createTextElement(0)}
-          {createTextElement(1)}
-          {createTextElement(2)}
-        </div>
+        {/* Seamless infinite scroll */}
+        <motion.div
+          className="flex"
+          animate={{
+            x: "-50%",
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+            repeatType: "loop",
+          }}
+        >
+          {/* First copy of text */}
+          <div className="flex items-center whitespace-nowrap">
+            {bannerText.map((item, index) => (
+              <span
+                key={`first-${index}`}
+                className={`text-6xl md:text-8xl lg:text-9xl font-bebas font-black tracking-tight mr-8 ${
+                  item.color === "fiery" 
+                    ? "text-fiery" 
+                    : "text-white"
+                }`}
+              >
+                {item.text}
+              </span>
+            ))}
+          </div>
+          
+          {/* Second copy of text for seamless loop */}
+          <div className="flex items-center whitespace-nowrap">
+            {bannerText.map((item, index) => (
+              <span
+                key={`second-${index}`}
+                className={`text-6xl md:text-8xl lg:text-9xl font-bebas font-black tracking-tight mr-8 ${
+                  item.color === "fiery" 
+                    ? "text-fiery" 
+                    : "text-white"
+                }`}
+              >
+                {item.text}
+              </span>
+            ))}
+          </div>
+        </motion.div>
         
         {/* Gradient fade on edges */}
         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-onyx to-transparent z-10"></div>
