@@ -26,8 +26,8 @@ export default function VideoGallerySection() {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
-      thumbnail: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-      videoUrl: "/attached_assets/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
+      thumbnail: "/attached_assets/Screenshot 2025-06-06 at 20.39.47_1749238887189.png",
+      videoUrl: "/icon-heist-video.mp4"
     },
     {
       id: 4,
