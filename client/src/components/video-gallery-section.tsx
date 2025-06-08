@@ -33,24 +33,28 @@ export default function VideoGallerySection() {
       id: 1,
       title: "MAKU Showreel 2025",
       category: "Brand Campaign",
+      thumbnail: "/maku-thumbnail.jpg",
       videoUrl: "/2025 Showreel MAKU (1)_1749340063718.mp4"
     },
     {
       id: 2,
       title: "Rezzil Player",
       category: "Sports Tech",
+      thumbnail: "/rezzil-thumbnail.png",
       videoUrl: "/Rezzil 16-9 PSVR Final_1749337960289.mp4"
     },
     {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
+      thumbnail: "/icon-heist-thumbnail.png",
       videoUrl: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
     },
     {
       id: 4,
       title: "Padel Website",
       category: "Digital Campaign",
+      thumbnail: "/maku-thumbnail.jpg",
       videoUrl: "/Padel Website (Wide - FINAL) _1749158053418.mp4"
     }
   ];
@@ -100,22 +104,14 @@ export default function VideoGallerySection() {
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative overflow-hidden rounded-lg">
-                {/* Static thumbnail video */}
-                <video
-                  src={video.videoUrl}
-                  muted
-                  preload="none"
-                  playsInline
-                  controls={false}
-                  crossOrigin="anonymous"
-                  onError={(e) => console.error('Gallery video error:', video.title, e)}
-                  onLoadedMetadata={(e) => {
-                    const videoEl = e.target as HTMLVideoElement;
-                    videoEl.currentTime = 0.1;
-                  }}
+                {/* Static thumbnail - Always visible */}
+                <img 
+                  src={video.thumbnail}
+                  alt={video.title}
                   className={`w-full h-64 object-cover transition-all duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
                   }`}
+                  onError={(e) => console.error('Gallery thumbnail error:', video.title, e)}
                 />
                 
                 {/* Video preview on hover */}
@@ -127,7 +123,6 @@ export default function VideoGallerySection() {
                   preload="none"
                   playsInline
                   controls={false}
-                  crossOrigin="anonymous"
                   onError={(e) => console.error('Gallery hover video error:', video.title, e)}
                   className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'

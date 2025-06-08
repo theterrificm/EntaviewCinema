@@ -42,18 +42,21 @@ export default function CoreOffersSection() {
       title: "Brand Campaigns",
       caption: "High-impact hero films that define your identity and build cultural buzz.",
       videoSrc: "/2025 Showreel MAKU (1)_1749340063718.mp4",
+      thumbnail: "/maku-thumbnail.jpg",
       fallbackType: "brand"
     },
     {
       title: "Retainers", 
       caption: "Ongoing content that keeps your brand top-of-mind every single month.",
       videoSrc: "/1. Comp Open - Manifest v5_1749342296563.mp4",
+      thumbnail: "/manifest-thumbnail.jpg",
       fallbackType: "retainer"
     },
     {
       title: "Startup Launches",
       caption: "Launch with purpose through strategic storytelling and product films.",
       videoSrc: "/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4",
+      thumbnail: "/teremana-thumbnail.jpg",
       fallbackType: "launch"
     }
   ];
@@ -158,7 +161,17 @@ export default function CoreOffersSection() {
             >
               {/* Video Container */}
               <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[350px] md:h-[400px] lg:h-[450px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
-                {/* Video Element */}
+                {/* Static Thumbnail - Always visible */}
+                <img 
+                  src={offer.thumbnail}
+                  alt={offer.title}
+                  className="absolute inset-0 w-full h-full object-cover z-5"
+                  onError={(e) => {
+                    console.error('Thumbnail error:', offer.title, e);
+                  }}
+                />
+
+                {/* Video Element - Only for hover playback */}
                 {offer.videoSrc && (
                   <video
                     ref={(el) => videoRefs.current[index] = el}
@@ -169,18 +182,11 @@ export default function CoreOffersSection() {
                     playsInline
                     preload="none"
                     controls={false}
-                    crossOrigin="anonymous"
                     onError={(e) => {
                       console.error('Video error:', offer.title, e);
                     }}
-                    onLoadedMetadata={() => {
-                      const video = videoRefs.current[index];
-                      if (video) {
-                        video.currentTime = 0.1; // Set to first frame for thumbnail
-                      }
-                    }}
                     style={{
-                      opacity: 1,
+                      opacity: hoveredCard === index ? 1 : 0,
                       transition: 'opacity 0.3s ease-in-out'
                     }}
                   />
