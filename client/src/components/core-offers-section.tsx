@@ -47,6 +47,7 @@ export default function CoreOffersSection() {
     {
       title: "Retainers", 
       caption: "Ongoing content that keeps your brand top-of-mind every single month.",
+      videoSrc: "/1. Comp Open - Manifest v5_1749342296563.mp4",
       fallbackType: "retainer"
     },
     {
