@@ -172,7 +172,7 @@ export default function CoreOffersSection() {
                     onError={(e) => console.error('Video error:', e)}
                     onLoadedData={() => console.log('Video loaded:', offer.videoSrc)}
                     style={{
-                      opacity: hoveredCard === index || !hoveredCard ? 1 : 0,
+                      opacity: 1,
                       transition: 'opacity 0.3s ease-in-out'
                     }}
                   />
