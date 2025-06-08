@@ -54,7 +54,7 @@ export default function VideoGallerySection() {
       id: 4,
       title: "Padel Website",
       category: "Digital Campaign",
-      thumbnail: "/maku-thumbnail.jpg",
+      thumbnail: "/padel-thumbnail.jpg",
       videoUrl: "/Padel Website (Wide - FINAL) _1749158053418.mp4"
     }
   ];

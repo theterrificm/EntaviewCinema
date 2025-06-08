@@ -24,7 +24,19 @@ export default function CoreOffersSection() {
       const video = videoRefs.current[hoveredCard];
       if (video && offers[hoveredCard].videoSrc) {
         video.currentTime = 0;
-        video.play().catch(console.error);
+        
+        const playVideo = () => {
+          video.play().catch(e => {
+            console.error('Video play failed:', offers[hoveredCard].title, e);
+          });
+        };
+        
+        if (video.readyState >= 2) {
+          playVideo();
+        } else {
+          video.addEventListener('loadeddata', playVideo, { once: true });
+          video.load();
+        }
       }
     } else {
       // Pause all videos when not hovering

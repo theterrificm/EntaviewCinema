@@ -8,8 +8,16 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-onyx">
-      {/* Background Video */}
+      {/* Background Video with Fallback */}
       <div className="absolute inset-0 w-full h-full">
+        {/* Static Background Image Fallback */}
+        <img 
+          src="/maku-thumbnail.jpg" 
+          alt="Background" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        
+        {/* Video Overlay - Only loads when supported */}
         <video 
           autoPlay 
           muted 
@@ -17,13 +25,19 @@ export default function HeroSection() {
           playsInline
           preload="auto"
           controls={false}
-          crossOrigin="anonymous"
-          className="w-full h-full object-cover"
-          onError={(e) => console.error('Hero video error:', e)}
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            console.error('Hero video error:', e);
+            const target = e.target as HTMLVideoElement;
+            if (target) target.style.display = 'none';
+          }}
+          onLoadedData={() => {
+            console.log('Hero video loaded successfully');
+          }}
         >
           <source src="/2025 Showreel MAKU (1)_1749340063718.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
+        
         <div className="absolute inset-0 bg-onyx/70"></div>
       </div>
       
