@@ -47,7 +47,6 @@ export default function CoreOffersSection() {
     {
       title: "Retainers", 
       caption: "Ongoing content that keeps your brand top-of-mind every single month.",
-      videoSrc: "/offer-videos/retainers-loop.mp4",
       fallbackType: "retainer"
     },
     {
@@ -178,36 +177,36 @@ export default function CoreOffersSection() {
                   />
                 )}
 
-                {/* Animated Background Preview */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ 
-                    background: offer.fallbackType === "brand" 
-                      ? 'linear-gradient(45deg, #1a1a1a 25%, #2a2a2a 25%, #2a2a2a 50%, #1a1a1a 50%, #1a1a1a 75%, #2a2a2a 75%, #2a2a2a)'
-                      : offer.fallbackType === "retainer"
-                      ? 'radial-gradient(circle at 30% 40%, #F24005 0%, #1a1a1a 70%)'
-                      : 'linear-gradient(135deg, #F24005 0%, #1a1a1a 100%)',
-                    backgroundSize: offer.fallbackType === "brand" ? '20px 20px' : 'cover',
-                    animation: offer.fallbackType === "brand" 
-                      ? 'slide 2s linear infinite'
-                      : offer.fallbackType === "retainer"
-                      ? 'pulse 3s ease-in-out infinite'
-                      : 'gradient-shift 4s ease-in-out infinite',
-                    opacity: hoveredCard === index && offer.videoSrc ? 0 : 1,
-                    transition: 'opacity 0.3s ease-in-out'
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <div className="text-center text-stone mix-blend-overlay">
-                    <div className="text-lg font-oswald font-medium mb-2 tracking-wide uppercase">
-                      {offer.title}
+                {/* Animated Background Preview - Only for cards without video */}
+                {!offer.videoSrc && (
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{ 
+                      background: offer.fallbackType === "brand" 
+                        ? 'linear-gradient(45deg, #1a1a1a 25%, #2a2a2a 25%, #2a2a2a 50%, #1a1a1a 50%, #1a1a1a 75%, #2a2a2a 75%, #2a2a2a)'
+                        : offer.fallbackType === "retainer"
+                        ? 'radial-gradient(circle at 30% 40%, #F24005 0%, #1a1a1a 70%)'
+                        : 'linear-gradient(135deg, #F24005 0%, #1a1a1a 100%)',
+                      backgroundSize: offer.fallbackType === "brand" ? '20px 20px' : 'cover',
+                      animation: offer.fallbackType === "brand" 
+                        ? 'slide 2s linear infinite'
+                        : offer.fallbackType === "retainer"
+                        ? 'pulse 3s ease-in-out infinite'
+                        : 'gradient-shift 4s ease-in-out infinite'
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <div className="text-center text-stone mix-blend-overlay">
+                      <div className="text-lg font-oswald font-medium mb-2 tracking-wide uppercase">
+                        {offer.title}
+                      </div>
+                      <div className="text-xs opacity-60 font-jetbrains-mono">
+                        {offer.videoSrc ? 'Hover to Preview' : 'Video Preview'}
+                      </div>
                     </div>
-                    <div className="text-xs opacity-60 font-jetbrains-mono">
-                      {offer.videoSrc ? 'Hover to Preview' : 'Video Preview'}
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                )}
                 
                 {/* Hover Text Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-center z-10">
