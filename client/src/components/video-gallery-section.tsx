@@ -31,31 +31,31 @@ export default function VideoGallerySection() {
   const videos = [
     {
       id: 1,
-      title: "Rezzil Player",
-      category: "Sports Tech",
-      thumbnail: "/rezzil-thumbnail.png",
-      videoUrl: "/rezzil-player.mp4"
+      title: "MAKU Showreel 2025",
+      category: "Brand Campaign",
+      thumbnail: "/2025 Showreel MAKU (1)_1749340063718.mp4#t=0.1",
+      videoUrl: "/2025 Showreel MAKU (1)_1749340063718.mp4"
     },
     {
       id: 2,
-      title: "Jägermeister Experience",
-      category: "Lifestyle",
-      thumbnail: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      title: "Rezzil Player",
+      category: "Sports Tech",
+      thumbnail: "/Rezzil 16-9 PSVR Final_1749337960289.mp4#t=0.1",
+      videoUrl: "/Rezzil 16-9 PSVR Final_1749337960289.mp4"
     },
     {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
-      thumbnail: "/icon-heist-thumbnail.png",
-      videoUrl: "/icon-heist-video.mp4"
+      thumbnail: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4#t=0.1",
+      videoUrl: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
     },
     {
       id: 4,
-      title: "Remington Innovation",
-      category: "Technology",
-      thumbnail: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+      title: "Padel Website",
+      category: "Digital Campaign",
+      thumbnail: "/Padel Website (Wide - FINAL) _1749158053418.mp4#t=0.1",
+      videoUrl: "/Padel Website (Wide - FINAL) _1749158053418.mp4"
     }
   ];
 
