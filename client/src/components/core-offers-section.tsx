@@ -53,7 +53,7 @@ export default function CoreOffersSection() {
     {
       title: "Startup Launches",
       caption: "Launch with purpose through strategic storytelling and product films.",
-      videoSrc: "/offer-videos/startup-launches-loop.mp4",
+      videoSrc: "/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4",
       fallbackType: "launch"
     }
   ];
