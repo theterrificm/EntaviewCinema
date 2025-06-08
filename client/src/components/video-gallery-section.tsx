@@ -33,28 +33,24 @@ export default function VideoGallerySection() {
       id: 1,
       title: "MAKU Showreel 2025",
       category: "Brand Campaign",
-      thumbnail: "/2025 Showreel MAKU (1)_1749340063718.mp4#t=0.1",
       videoUrl: "/2025 Showreel MAKU (1)_1749340063718.mp4"
     },
     {
       id: 2,
       title: "Rezzil Player",
       category: "Sports Tech",
-      thumbnail: "/Rezzil 16-9 PSVR Final_1749337960289.mp4#t=0.1",
       videoUrl: "/Rezzil 16-9 PSVR Final_1749337960289.mp4"
     },
     {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
-      thumbnail: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4#t=0.1",
       videoUrl: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
     },
     {
       id: 4,
       title: "Padel Website",
       category: "Digital Campaign",
-      thumbnail: "/Padel Website (Wide - FINAL) _1749158053418.mp4#t=0.1",
       videoUrl: "/Padel Website (Wide - FINAL) _1749158053418.mp4"
     }
   ];
@@ -104,10 +100,12 @@ export default function VideoGallerySection() {
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative overflow-hidden rounded-lg">
-                {/* Static thumbnail */}
-                <img 
-                  src={video.thumbnail}
-                  alt={video.title}
+                {/* Static thumbnail video */}
+                <video
+                  src={video.videoUrl}
+                  muted
+                  preload="metadata"
+                  playsInline
                   className={`w-full h-64 object-cover transition-all duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
                   }`}
