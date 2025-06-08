@@ -104,8 +104,15 @@ export default function VideoGallerySection() {
                 <video
                   src={video.videoUrl}
                   muted
-                  preload="metadata"
+                  preload="none"
                   playsInline
+                  controls={false}
+                  crossOrigin="anonymous"
+                  onError={(e) => console.error('Gallery video error:', video.title, e)}
+                  onLoadedMetadata={(e) => {
+                    const videoEl = e.target as HTMLVideoElement;
+                    videoEl.currentTime = 0.1;
+                  }}
                   className={`w-full h-64 object-cover transition-all duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
                   }`}
@@ -117,8 +124,11 @@ export default function VideoGallerySection() {
                   src={video.videoUrl}
                   muted
                   loop
-                  preload="metadata"
+                  preload="none"
                   playsInline
+                  controls={false}
+                  crossOrigin="anonymous"
+                  onError={(e) => console.error('Gallery hover video error:', video.title, e)}
                   className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
                   }`}

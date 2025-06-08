@@ -15,7 +15,11 @@ export default function HeroSection() {
           muted 
           loop 
           playsInline
+          preload="auto"
+          controls={false}
+          crossOrigin="anonymous"
           className="w-full h-full object-cover"
+          onError={(e) => console.error('Hero video error:', e)}
         >
           <source src="/2025 Showreel MAKU (1)_1749340063718.mp4" type="video/mp4" />
           Your browser does not support the video tag.

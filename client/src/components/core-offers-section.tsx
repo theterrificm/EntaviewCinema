@@ -158,19 +158,27 @@ export default function CoreOffersSection() {
             >
               {/* Video Container */}
               <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] h-[350px] md:h-[400px] lg:h-[450px] shadow-2xl bg-gradient-to-br from-stone/10 to-fiery/20">
-                {/* Video Element (for Brand Campaigns) */}
+                {/* Video Element */}
                 {offer.videoSrc && (
                   <video
                     ref={(el) => videoRefs.current[index] = el}
                     src={offer.videoSrc}
-                    poster={offer.videoSrc + "#t=0.1"}
                     className="absolute inset-0 w-full h-full object-cover z-10"
                     muted
                     loop
                     playsInline
-                    preload="metadata"
-                    onError={(e) => console.error('Video error:', e)}
-                    onLoadedData={() => console.log('Video loaded:', offer.videoSrc)}
+                    preload="none"
+                    controls={false}
+                    crossOrigin="anonymous"
+                    onError={(e) => {
+                      console.error('Video error:', offer.title, e);
+                    }}
+                    onLoadedMetadata={() => {
+                      const video = videoRefs.current[index];
+                      if (video) {
+                        video.currentTime = 0.1; // Set to first frame for thumbnail
+                      }
+                    }}
                     style={{
                       opacity: 1,
                       transition: 'opacity 0.3s ease-in-out'
