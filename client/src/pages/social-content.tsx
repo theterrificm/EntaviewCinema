@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import { Instagram, Youtube, CheckCircle, Video } from "lucide-react";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
-import newIconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749494851695.mp4";
+import teremanaVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
 
 export default function SocialContent() {
   const ref = useRef(null);
@@ -14,7 +14,7 @@ export default function SocialContent() {
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
   const videoRefs = {
     iconHeist: useRef<HTMLVideoElement>(null),
-    newIconHeist: useRef<HTMLVideoElement>(null),
+    teremana: useRef<HTMLVideoElement>(null),
     manifest: useRef<HTMLVideoElement>(null)
   };
 
@@ -237,7 +237,7 @@ export default function SocialContent() {
               </div>
             </motion.div>
 
-            {/* Video 2 - New ICON Heist */}
+            {/* Video 2 - Teremana UK Launch */}
             <motion.div
               className="group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
@@ -245,22 +245,22 @@ export default function SocialContent() {
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ y: -10, scale: 1.02 }}
               onMouseEnter={() => {
-                setHoveredVideo('newIconHeist');
-                if (videoRefs.newIconHeist.current) {
-                  videoRefs.newIconHeist.current.muted = false;
+                setHoveredVideo('teremana');
+                if (videoRefs.teremana.current) {
+                  videoRefs.teremana.current.muted = false;
                 }
               }}
               onMouseLeave={() => {
                 setHoveredVideo(null);
-                if (videoRefs.newIconHeist.current) {
-                  videoRefs.newIconHeist.current.muted = true;
+                if (videoRefs.teremana.current) {
+                  videoRefs.teremana.current.muted = true;
                 }
               }}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
-                    ref={videoRefs.newIconHeist}
+                    ref={videoRefs.teremana}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     autoPlay
                     muted
@@ -269,7 +269,7 @@ export default function SocialContent() {
                     controls={false}
                     preload="metadata"
                   >
-                    <source src={newIconHeistVideo} type="video/mp4" />
+                    <source src={teremanaVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   
@@ -292,10 +292,10 @@ export default function SocialContent() {
                   </div>
                 </div>
                 <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
-                  ICON Heist Extended
+                  Teremana UK Launch
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
-                  Full-length cinematic campaign showcasing complete brand narrative and visual storytelling.
+                  20-second vertical launch campaign for premium tequila brand's UK market entry.
                 </p>
               </div>
             </motion.div>
