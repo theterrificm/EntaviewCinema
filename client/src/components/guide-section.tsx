@@ -40,7 +40,7 @@ export default function GuideSection() {
     { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true, url: "https://parklife.uk.com" },
     { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true, url: "https://freshegokid.com" },
     { name: "Padel Social Club", id: "padel", logo: padelLogo, largeSize: true, url: "https://padelsocialclub.com" },
-    { name: "Relentless Records", id: "relentless", logo: relentlessLogo, largeSize: true, url: "https://relentlessrecords.co.uk" },
+    { name: "Relentless Records", id: "relentless", logo: relentlessLogo, largeSize: true, url: "https://www.relentlessrecs.com/" },
     { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo, url: "https://www.lights4fun.co.uk" },
     { name: "PlayStation VR", id: "playstation-vr", logo: playstationVRLogo, largeSize: true, url: "https://www.playstation.com/vr" }
   ];
