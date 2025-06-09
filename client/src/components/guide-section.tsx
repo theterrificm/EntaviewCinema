@@ -2,26 +2,42 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
+// Import logo assets
+import jagermeisterLogo from "@assets/JM_INT_Logo_SingleColour_White_Black_RGB_digital_display_1749467279534.png";
+import iconLogo from "@assets/ICON_1.9.1_1749334597260.png";
+import remingtonLogo from "@assets/Remington White_2x_1749467036215.png";
+import teremanaLogo from "@assets/Teremana_White_Gradient_Copper_Primary_Logo_sRGB (1)_1749470160928.png";
+import rezzilLogo from "@assets/Rezzil Player W_1749467627330.png";
+import appleMusicLogo from "@assets/Apple music White 2_1749467108225.png";
+import graftLogo from "@assets/GRAFT EVENTS SOLID LOGO-02_1749470064556.png";
+import manchesterLogo from "@assets/ManUtdLogo-notag-WO_1749467061387.png";
+import ministryLogo from "@assets/ministry-of-sound-logo-svg-vector 2_1749467061387.png";
+import parklifeLogo from "@assets/PL25_RSxPL_logo-03_1749470183599.png";
+import freshEgoLogo from "@assets/FreshEgoKid-LockUp-White 2_1749467123710.png";
+import padelLogo from "@assets/Padel Social Club_Logo_White_CMYK_AW_1749469804275.png";
+import relentlessLogo from "@assets/relentless-records- transparent_1749467088116.png";
+import lights4funLogo from "@assets/Lights4fun_ReversedLogo_RGB_1749467061387.png";
+
 export default function GuideSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const brands = [
     { name: "PlayStation", id: "playstation", logo: null },
-    { name: "Jägermeister", id: "jagermeister", logo: "/attached_assets/JM_INT_Logo_SingleColour_White_Black_RGB_digital_display_1749467279534.png" },
-    { name: "ICON Amsterdam", id: "icon", logo: "/attached_assets/ICON_1.9.1_1749334597260.png" },
-    { name: "Remington", id: "remington", logo: "/attached_assets/Remington White_2x_1749467036215.png" },
-    { name: "Teremana Tequila", id: "teremana", logo: "/attached_assets/Teremana_White_Gradient_Copper_Primary_Logo_sRGB (1)_1749470160928.png" },
-    { name: "Rezzil Player", id: "rezzil", logo: "/attached_assets/Rezzil Player W_1749467627330.png" },
-    { name: "Apple Music", id: "apple", logo: "/attached_assets/Apple music White 2_1749467108225.png" },
-    { name: "Graft Events", id: "graft", logo: "/attached_assets/GRAFT EVENTS SOLID LOGO-02_1749470064556.png" },
-    { name: "Manchester United", id: "manchester", logo: "/attached_assets/ManUtdLogo-notag-WO_1749467061387.png" },
-    { name: "Ministry of Sound", id: "ministry", logo: "/attached_assets/ministry-of-sound-logo-svg-vector 2_1749467061387.png" },
-    { name: "Parklife Festival", id: "parklife", logo: "/attached_assets/PL25_RSxPL_logo-03_1749470183599.png" },
-    { name: "Fresh Ego Kid", id: "fresh", logo: "/attached_assets/FreshEgoKid-LockUp-White 2_1749467123710.png" },
-    { name: "Padel Social Club", id: "padel", logo: "/attached_assets/Padel Social Club_Logo_White_CMYK_AW_1749469804275.png" },
-    { name: "Relentless Records", id: "relentless", logo: "/attached_assets/relentless-records- transparent_1749467088116.png" },
-    { name: "Lights4Fun", id: "lights4fun", logo: "/attached_assets/Lights4fun_ReversedLogo_RGB_1749467061387.png" }
+    { name: "Jägermeister", id: "jagermeister", logo: jagermeisterLogo },
+    { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
+    { name: "Remington", id: "remington", logo: remingtonLogo },
+    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo },
+    { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
+    { name: "Apple Music", id: "apple", logo: appleMusicLogo },
+    { name: "Graft Events", id: "graft", logo: graftLogo },
+    { name: "Manchester United", id: "manchester", logo: manchesterLogo },
+    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo },
+    { name: "Parklife Festival", id: "parklife", logo: parklifeLogo },
+    { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo },
+    { name: "Padel Social Club", id: "padel", logo: padelLogo },
+    { name: "Relentless Records", id: "relentless", logo: relentlessLogo },
+    { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo }
   ];
 
   return (
