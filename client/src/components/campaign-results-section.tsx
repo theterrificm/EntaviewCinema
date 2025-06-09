@@ -100,33 +100,33 @@ export default function CampaignResultsSection() {
         </motion.div>
 
         {/* Campaign Results Grid */}
-        <div className="space-y-24 mb-20">
+        <div className="space-y-32 mb-20 max-w-4xl mx-auto">
           {campaigns.map((campaign, index) => (
             <motion.div
               key={campaign.brand}
-              className="text-center max-w-5xl mx-auto"
+              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               {/* Campaign Title */}
-              <div className="mb-16 text-center">
-                <h3 className="text-3xl md:text-4xl font-roboto-condensed font-black text-fiery uppercase tracking-wide mb-4 text-center">
+              <div className="mb-20 text-center">
+                <h3 className="text-4xl md:text-5xl font-roboto-condensed font-black text-fiery uppercase tracking-wide mb-6 text-center">
                   {campaign.brand}
                 </h3>
-                <p className="text-lg md:text-xl font-jetbrains-mono font-light opacity-60 uppercase tracking-widest text-center">
+                <p className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-60 uppercase tracking-widest text-center">
                   {campaign.campaign}
                 </p>
               </div>
 
               {/* Results in AOD-style layout */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 mb-12 justify-items-center">
+              <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-24 mb-16">
                 {campaign.results.map((result, resultIndex) => (
-                  <div key={resultIndex} className="text-center">
-                    <div className="text-6xl md:text-8xl font-anton font-black text-stone mb-4 tracking-tight text-center">
+                  <div key={resultIndex} className="text-center flex-shrink-0">
+                    <div className="text-7xl md:text-9xl font-anton font-black text-stone mb-6 tracking-tight text-center leading-none">
                       {result.metric}
                     </div>
-                    <div className="text-sm md:text-base font-jetbrains-mono uppercase tracking-widest opacity-60 text-center max-w-32 mx-auto">
+                    <div className="text-base md:text-lg font-jetbrains-mono uppercase tracking-widest opacity-60 text-center max-w-40 mx-auto leading-tight">
                       {result.label}
                     </div>
                   </div>
@@ -135,7 +135,7 @@ export default function CampaignResultsSection() {
 
               {/* Divider */}
               {index < campaigns.length - 1 && (
-                <div className="w-32 h-px bg-fiery/30 mx-auto mt-20"></div>
+                <div className="w-40 h-px bg-fiery/30 mx-auto mt-24"></div>
               )}
             </motion.div>
           ))}
