@@ -11,40 +11,36 @@ export default function CampaignResultsSection() {
     {
       brand: "ICON Amsterdam",
       campaign: "Fashion Launch",
-      icon: "👗",
       results: [
-        { metric: "£500K", label: "in quality sales", icon: "💰" },
-        { metric: "27%", label: "uplift in conversions", icon: "📈" },
-        { metric: "15%", label: "IG follower growth", icon: "📱" }
+        { metric: "£500K", label: "in quality sales" },
+        { metric: "27%", label: "uplift in conversions" },
+        { metric: "15%", label: "IG follower growth" }
       ]
     },
     {
       brand: "PlayStation",
       campaign: "Rezzil Player Campaign",
-      icon: "🎮",
       results: [
-        { metric: "80+", label: "worldwide gaming platforms", icon: "🌍" },
-        { metric: "22%", label: "increase in launch sales", icon: "📊" },
-        { metric: "120K", label: "views opening week", icon: "👀" },
-        { metric: "95%", label: "positive sentiment", icon: "💯" }
+        { metric: "80+", label: "worldwide gaming platforms" },
+        { metric: "22%", label: "increase in launch sales" },
+        { metric: "120K", label: "views opening week" },
+        { metric: "95%", label: "positive sentiment" }
       ]
     },
     {
       brand: "Jägermeister",
       campaign: "Meister Hunter Series",
-      icon: "🥃",
       results: [
-        { metric: "250K+", label: "views across campaign", icon: "👁️" },
-        { metric: "61%", label: "boost in engagement", icon: "🔥" }
+        { metric: "250K+", label: "views across campaign" },
+        { metric: "61%", label: "boost in engagement" }
       ]
     },
     {
       brand: "Gain the Edge",
       campaign: "Brand Film Launch",
-      icon: "⚡",
       results: [
-        { metric: "17%", label: "increase in sales post-launch", icon: "💥" },
-        { metric: "75%+", label: "uplift in engagement", icon: "📈" }
+        { metric: "17%", label: "increase in sales post-launch" },
+        { metric: "75%+", label: "uplift in engagement" }
       ]
     }
   ];
@@ -74,53 +70,43 @@ export default function CampaignResultsSection() {
         </motion.div>
 
         {/* Campaign Results Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="space-y-16 mb-20">
           {campaigns.map((campaign, index) => (
             <motion.div
               key={campaign.brand}
-              className="bg-stone/5 border border-fiery/20 rounded-2xl p-8 hover:border-fiery/40 transition-all duration-300 group"
+              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              {/* Campaign Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-3xl">{campaign.icon}</span>
-                <div>
-                  <h3 className="text-2xl font-oswald font-bold text-fiery uppercase tracking-wide">
-                    {campaign.brand}
-                  </h3>
-                  <p className="text-lg font-jetbrains-mono font-light opacity-80">
-                    {campaign.campaign}
-                  </p>
-                </div>
+              {/* Campaign Title */}
+              <div className="mb-12">
+                <h3 className="text-2xl md:text-3xl font-roboto-condensed font-black text-fiery uppercase tracking-wide mb-2">
+                  {campaign.brand}
+                </h3>
+                <p className="text-lg font-jetbrains-mono font-light opacity-60 uppercase tracking-widest">
+                  {campaign.campaign}
+                </p>
               </div>
 
-              {/* Results Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              {/* Results in AOD-style layout */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 mb-8">
                 {campaign.results.map((result, resultIndex) => (
-                  <div key={resultIndex} className="flex items-center gap-3">
-                    <span className="text-lg">{result.icon}</span>
-                    <div>
-                      <div className="text-2xl font-anton font-bold text-fiery">
-                        {result.metric}
-                      </div>
-                      <div className="text-sm font-jetbrains-mono opacity-70">
-                        {result.label}
-                      </div>
+                  <div key={resultIndex} className="text-center">
+                    <div className="text-5xl md:text-7xl font-anton font-black text-stone mb-2 tracking-tight">
+                      {result.metric}
+                    </div>
+                    <div className="text-sm md:text-base font-jetbrains-mono uppercase tracking-widest opacity-60">
+                      {result.label}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* CTA */}
-              <motion.button
-                className="w-full bg-fiery text-onyx px-6 py-3 font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 uppercase tracking-wider group-hover:shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                See the Creative & Results
-              </motion.button>
+              {/* Divider */}
+              {index < campaigns.length - 1 && (
+                <div className="w-24 h-px bg-fiery/30 mx-auto mt-16"></div>
+              )}
             </motion.div>
           ))}
         </div>
