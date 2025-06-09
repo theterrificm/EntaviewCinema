@@ -159,7 +159,7 @@ export default function SocialContent() {
               transition={{ duration: 0.6, delay: 0.3 }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
@@ -227,7 +227,7 @@ export default function SocialContent() {
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
+              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <div className="w-full h-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 relative">
                     <img 
@@ -290,7 +290,7 @@ export default function SocialContent() {
               transition={{ duration: 0.6, delay: 0.5 }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
+              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
