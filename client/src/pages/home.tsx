@@ -15,6 +15,7 @@ import AfterEntaviewSection from "@/components/after-entaview-section";
 import StatsSection from "@/components/stats-section";
 import PricingSection from "@/components/pricing-section";
 import FinalCTASection from "@/components/final-cta-section";
+import FAQSection from "@/components/faq-section";
 import ScrollingBanner from "@/components/scrolling-banner";
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
       <AfterEntaviewSection />
       <StatsSection />
       <PricingSection />
+      <FAQSection />
       <FinalCTASection />
     </div>
   );
