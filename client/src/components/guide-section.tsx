@@ -7,21 +7,21 @@ export default function GuideSection() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const brands = [
-    { name: "PlayStation", id: "playstation" },
-    { name: "Jägermeister", id: "jagermeister" },
-    { name: "ICON Amsterdam", id: "icon" },
-    { name: "Remington", id: "remington" },
-    { name: "Teremana Tequila", id: "teremana" },
-    { name: "Sony Music Entertainment", id: "sony" },
-    { name: "Apple Music", id: "apple" },
-    { name: "Graft Events", id: "graft" },
-    { name: "Manchester United", id: "manchester" },
-    { name: "Parklife Festival", id: "parklife" },
-    { name: "Fresh Ego Kid", id: "fresh" },
-    { name: "Padel Social Club", id: "padel" },
-    { name: "Relentless Records", id: "relentless" },
-    { name: "Maximum Music", id: "maximum" },
-    { name: "RnB & Slow Jams", id: "rnb" }
+    { name: "PlayStation", id: "playstation", logo: null },
+    { name: "Jägermeister", id: "jagermeister", logo: null },
+    { name: "ICON Amsterdam", id: "icon", logo: "/attached_assets/ICON_1.9.1_1749334597260.png" },
+    { name: "Remington", id: "remington", logo: null },
+    { name: "Teremana Tequila", id: "teremana", logo: null },
+    { name: "Sony Music Entertainment", id: "sony", logo: null },
+    { name: "Apple Music", id: "apple", logo: null },
+    { name: "Graft Events", id: "graft", logo: null },
+    { name: "Manchester United", id: "manchester", logo: null },
+    { name: "Parklife Festival", id: "parklife", logo: null },
+    { name: "Fresh Ego Kid", id: "fresh", logo: null },
+    { name: "Padel Social Club", id: "padel", logo: null },
+    { name: "Relentless Records", id: "relentless", logo: null },
+    { name: "Maximum Music", id: "maximum", logo: null },
+    { name: "RnB & Slow Jams", id: "rnb", logo: null }
   ];
 
   return (
@@ -77,9 +77,17 @@ export default function GuideSection() {
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
-                {brand.name}
-              </span>
+              {brand.logo ? (
+                <img 
+                  src={brand.logo} 
+                  alt={brand.name}
+                  className="h-8 w-auto object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                />
+              ) : (
+                <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
+                  {brand.name}
+                </span>
+              )}
             </motion.div>
           ))}
           {/* Second set for seamless loop */}
@@ -94,9 +102,17 @@ export default function GuideSection() {
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
-                {brand.name}
-              </span>
+              {brand.logo ? (
+                <img 
+                  src={brand.logo} 
+                  alt={brand.name}
+                  className="h-8 w-auto object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                />
+              ) : (
+                <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
+                  {brand.name}
+                </span>
+              )}
             </motion.div>
           ))}
         </motion.div>
