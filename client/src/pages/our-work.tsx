@@ -3,7 +3,19 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import { Filter, Play, ArrowRight } from "lucide-react";
+import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
+
+// Import all video assets
+import iconHeistVideo from "@assets/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749160669052.mp4";
+import iconHeistShortVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
+import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
+import manifestV5Video from "@assets/1. Comp Open - Manifest v5_1749342296563.mp4";
+import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
+import makuShowreel2Video from "@assets/2025 Showreel MAKU (1)_1749341370057.mp4";
+import teremanaVideo from "@assets/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4";
+import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
+import padelVideo from "@assets/Padel Website (Wide - FINAL) _1749158053418.mp4";
+import rezzilVideo from "@assets/Rezzil 16-9 PSVR Final_1749337960289.mp4";
 
 export default function OurWork() {
   const ref = useRef(null);
@@ -11,64 +23,121 @@ export default function OurWork() {
   
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeFormat, setActiveFormat] = useState("all");
+  const [hoveredVideo, setHoveredVideo] = useState<number | null>(null);
 
-  const industries = ["all", "fashion", "fitness", "hospitality", "food", "tech"];
-  const formats = ["all", "brand-film", "series", "short-doc", "ad", "reels"];
+  const industries = ["all", "fashion", "spirits", "fitness", "tech", "showreel"];
+  const formats = ["all", "brand-film", "campaign", "social-vertical", "commercial", "showreel"];
 
   const projects = [
     {
       id: 1,
-      title: "ICON Amsterdam Heritage Film",
+      title: "ICON Black Friday Heist - Full Film",
       industry: "fashion",
       format: "brand-film",
-      thumbnail: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
-      metrics: ["+£500K launch sales", "2M+ views", "27% conversion uplift"],
-      description: "A cinematic exploration of craftsmanship and culture for Amsterdam's iconic streetwear brand."
+      video: iconHeistVideo,
+      metrics: ["+£500K launch sales", "2M+ organic views", "27% conversion uplift"],
+      description: "Full-length cinematic heist narrative for ICON Amsterdam's Black Friday campaign, showcasing streetwear through storytelling.",
+      duration: "15:00",
+      aspect: "16:9"
     },
     {
       id: 2,
-      title: "Jägermeister Culture Campaign",
-      industry: "hospitality", 
-      format: "series",
-      thumbnail: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&h=400&fit=crop",
-      metrics: ["+61% engagement", "3M+ reach", "22% brand lift"],
-      description: "Multi-part series capturing the spirit of nightlife and community."
+      title: "ICON Black Friday Heist - Commercial",
+      industry: "fashion",
+      format: "commercial",
+      video: iconHeistShortVideo,
+      metrics: ["+180% engagement", "3M+ impressions", "45% CTR"],
+      description: "15-second commercial cut showcasing the cinematic quality and brand narrative in a condensed format.",
+      duration: "0:15",
+      aspect: "16:9"
     },
     {
       id: 3,
-      title: "PlayStation VR Experience",
-      industry: "tech",
-      format: "short-doc",
-      thumbnail: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&h=400&fit=crop",
-      metrics: ["+10M views", "500K interactions", "35% trial increase"],
-      description: "Documentary-style content showcasing next-generation gaming experiences."
+      title: "Teremana UK Launch - Full Campaign",
+      industry: "spirits",
+      format: "brand-film",
+      video: teremanaVideo,
+      metrics: ["+40% market penetration", "5M+ reach", "32% brand awareness lift"],
+      description: "4K cinematic launch campaign for Dwayne Johnson's Teremana Tequila entering the UK market.",
+      duration: "2:30",
+      aspect: "16:9"
     },
     {
       id: 4,
-      title: "Fresh Ego Kid Streetwear",
-      industry: "fashion",
-      format: "ad",
-      thumbnail: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop",
-      metrics: ["+180% sales growth", "5M+ impressions", "45% CTR"],
-      description: "Bold advertising campaign for emerging streetwear collective."
+      title: "Teremana UK Launch - Vertical",
+      industry: "spirits",
+      format: "social-vertical",
+      video: teremanaShortVideo,
+      metrics: ["+200% social engagement", "1.5M+ views", "58% completion rate"],
+      description: "20-second vertical cut optimized for social media platforms and mobile consumption.",
+      duration: "0:20",
+      aspect: "9:16"
     },
     {
       id: 5,
-      title: "Padel Social Club Community",
-      industry: "fitness",
-      format: "reels",
-      thumbnail: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop",
-      metrics: ["+300% membership", "1M+ video views", "60% retention"],
-      description: "Social content series building community around premium fitness experiences."
+      title: "Manifest Collection V4",
+      industry: "fashion",
+      format: "campaign",
+      video: manifestVideo,
+      metrics: ["+150% pre-orders", "2.2M+ views", "35% conversion rate"],
+      description: "Dynamic product reveal campaign with cinematic quality and strategic brand messaging.",
+      duration: "1:45",
+      aspect: "16:9"
     },
     {
       id: 6,
-      title: "Ministry of Sound Legacy",
-      industry: "hospitality",
+      title: "Manifest Collection V5",
+      industry: "fashion",
+      format: "campaign",
+      video: manifestV5Video,
+      metrics: ["+120% engagement", "1.8M+ reach", "42% click-through"],
+      description: "Enhanced version of the Manifest collection reveal with refined messaging and visual effects.",
+      duration: "1:30",
+      aspect: "16:9"
+    },
+    {
+      id: 7,
+      title: "MAKU Media 2025 Showreel",
+      industry: "showreel",
+      format: "showreel",
+      video: makuShowreelVideo,
+      metrics: ["+300% client inquiries", "5M+ industry views", "90% completion rate"],
+      description: "Comprehensive showcase of MAKU Media's cinematic capabilities and diverse portfolio across industries.",
+      duration: "3:00",
+      aspect: "16:9"
+    },
+    {
+      id: 8,
+      title: "MAKU Media Showreel V2",
+      industry: "showreel",
+      format: "showreel",
+      video: makuShowreel2Video,
+      metrics: ["+250% brand recognition", "4.2M+ views", "85% engagement"],
+      description: "Alternative cut of the MAKU Media showreel featuring different project highlights and narrative flow.",
+      duration: "2:45",
+      aspect: "16:9"
+    },
+    {
+      id: 9,
+      title: "Padel Social Club",
+      industry: "fitness",
       format: "brand-film",
-      thumbnail: "https://images.unsplash.com/photo-1571266028243-3eca146fa8c4?w=600&h=400&fit=crop",
-      metrics: ["+40% venue bookings", "8M+ reach", "85% brand recall"],
-      description: "Celebrating 30 years of electronic music culture and innovation."
+      video: padelVideo,
+      metrics: ["+400% membership growth", "2.5M+ views", "65% retention rate"],
+      description: "Premium fitness community brand film showcasing the culture and lifestyle of padel tennis.",
+      duration: "2:00",
+      aspect: "16:9"
+    },
+    {
+      id: 10,
+      title: "Rezzil VR Training",
+      industry: "tech",
+      format: "commercial",
+      video: rezzilVideo,
+      metrics: ["+500% trial signups", "3.8M+ views", "78% demo conversion"],
+      description: "Next-generation VR training platform for professional athletes, showcasing cutting-edge technology.",
+      duration: "1:15",
+      aspect: "16:9"
     }
   ];
 
@@ -175,21 +244,55 @@ export default function OurWork() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
+                onMouseEnter={() => setHoveredVideo(project.id)}
+                onMouseLeave={() => setHoveredVideo(null)}
               >
-                <div className="relative overflow-hidden rounded-lg mb-6">
-                  <img
-                    src={project.thumbnail}
-                    alt={project.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Play className="text-white" size={48} />
+                <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
+                  <video
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
+                    autoPlay
+                    muted={hoveredVideo !== project.id}
+                    loop
+                    playsInline
+                    controls={false}
+                    preload="metadata"
+                  >
+                    <source src={project.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                  
+                  {/* Play overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div 
+                        className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Play className="w-8 h-8 text-white ml-1" />
+                      </motion.div>
+                    </div>
                   </div>
                   
+                  {/* Orange border on hover */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
+                  
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-fiery text-white px-3 py-1 text-xs font-oswald font-medium tracking-wide uppercase">
+                  <div className="absolute top-4 left-4 bg-fiery text-white px-3 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
                     {project.format.replace("-", " ")}
+                  </div>
+                  
+                  {/* Duration Badge */}
+                  <div className="absolute top-4 right-4 bg-black/60 text-white px-2 py-1 text-xs font-jetbrains-mono rounded backdrop-blur-sm">
+                    {project.duration}
+                  </div>
+                  
+                  {/* Audio indicator */}
+                  <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {hoveredVideo === project.id ? <Volume2 size={20} /> : <VolumeX size={20} />}
                   </div>
                 </div>
 
