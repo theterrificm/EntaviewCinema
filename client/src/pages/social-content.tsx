@@ -225,7 +225,7 @@ export default function SocialContent() {
               </div>
             </motion.div>
 
-            {/* Video 3 - YouTube Shorts */}
+            {/* Video 3 - Campaign Teaser */}
             <motion.div
               className="group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
@@ -234,20 +234,31 @@ export default function SocialContent() {
               whileHover={{ y: -10 }}
             >
               <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="aspect-[9/16] bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
+                <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src="/attached_assets/1. Comp Open - Manifest v4_1749493286513.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
-                    YouTube Shorts
+                  <div className="absolute top-4 left-4 bg-fiery text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                    Campaign Teaser
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="text-white text-sm font-jetbrains-mono mb-2">
-                      Product Launch
+                      Manifest Collection
                     </div>
                     <div className="w-full h-1 bg-white/20 rounded">
                       <div className="w-3/4 h-full bg-fiery rounded"></div>
@@ -255,10 +266,10 @@ export default function SocialContent() {
                   </div>
                 </div>
                 <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
-                  Campaign Teaser
+                  Manifest Campaign
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
-                  60-second product reveal with cinematic quality and strategic messaging.
+                  Dynamic product reveal with cinematic quality and strategic brand messaging.
                 </p>
               </div>
             </motion.div>
