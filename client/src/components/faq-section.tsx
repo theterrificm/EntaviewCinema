@@ -14,20 +14,24 @@ export default function FAQSection() {
       answer: "Each package includes pre-production planning, full-day filming, professional editing, color grading, sound design, and multiple video formats optimized for different platforms. You'll receive raw footage, final edited videos, and usage rights for commercial use."
     },
     {
-      question: "How long does the production process take?",
-      answer: "Timeline varies by project scope. Brand campaigns typically take 4-6 weeks from concept to delivery, while retainer content is delivered within 2-3 weeks. Startup launches require 6-8 weeks for comprehensive storytelling. We'll provide a detailed timeline during our discovery call."
+      question: "Will this actually grow my brand, or just look good?",
+      answer: "Our films are built for performance, not just aesthetics. We craft strategic narratives that drive action—whether that's increasing brand awareness, generating leads, or building cultural authority. Every creative decision serves your business goals, backed by proven frameworks that convert viewers into customers."
     },
     {
-      question: "Do you work with businesses outside London?",
-      answer: "Absolutely. While we're based in London, we work with clients globally. For international projects, we can arrange travel or partner with local crews while maintaining our creative direction and post-production standards."
+      question: "How do you turn our vision into a cinematic concept?",
+      answer: "We start with deep brand discovery to understand your essence, then develop concepts through our StoryBrand framework. Your vision becomes a cinematic narrative through collaborative mood boarding, strategic storytelling sessions, and iterative creative development until we achieve something authentically you—but elevated."
+    },
+    {
+      question: "What kind of results have your campaigns delivered?",
+      answer: "Our campaigns have generated millions of views across platforms, driven significant increases in brand awareness, and converted directly into sales growth. MAKU's showreel elevated their industry positioning, Teremana's launch campaign reached targeted demographics effectively, and our fashion films for ICON built cultural buzz that translated into market presence."
+    },
+    {
+      question: "How long does the production process take from start to finish?",
+      answer: "Timeline varies by project scope. Brand campaigns typically take 4-6 weeks from concept to delivery, while retainer content is delivered within 2-3 weeks. Startup launches require 6-8 weeks for comprehensive storytelling. We'll provide a detailed timeline during our discovery call."
     },
     {
       question: "Can I see examples of your work before committing?",
       answer: "Yes, our portfolio showcases authentic projects including MAKU showreels, Teremana launches, ICON fashion films, and Rezzil sports content. Each piece demonstrates our cinematic approach to brand storytelling and technical expertise."
-    },
-    {
-      question: "What's the difference between Standard and Premium packages?",
-      answer: "Standard packages focus on single-concept videos with essential deliverables. Premium packages include multiple concepts, extended filming days, advanced motion graphics, and comprehensive social media adaptations across all platforms."
     },
     {
       question: "Do you provide ongoing content for social media?",
