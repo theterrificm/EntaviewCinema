@@ -27,12 +27,12 @@ export default function GuideSection() {
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true },
     { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
     { name: "Remington", id: "remington", logo: remingtonLogo },
-    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true },
+    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true, extraLarge: true },
     { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
     { name: "Apple Music", id: "apple", logo: appleMusicLogo },
-    { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true },
-    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true },
-    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true },
+    { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true, extraLarge: true },
+    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true, extraLarge: true },
+    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true, extraLarge: true },
     { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true },
     { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true },
     { name: "Padel Social Club", id: "padel", logo: padelLogo, largeSize: true },
@@ -85,7 +85,7 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-1`}
-              className={`${brand.largeSize ? 'min-w-[300px]' : 'min-w-[240px]'} ${brand.id === 'relentless' ? 'min-w-[400px]' : ''} h-20 flex items-center justify-center group cursor-pointer`}
+              className={`${brand.extraLarge ? 'min-w-[450px]' : brand.largeSize ? 'min-w-[300px]' : 'min-w-[240px]'} ${brand.id === 'relentless' ? 'min-w-[400px]' : ''} h-20 flex items-center justify-center group cursor-pointer`}
               whileHover={{ 
                 scale: 1.1,
                 y: -2
@@ -96,7 +96,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain ${brand.id === 'icon' || brand.id === 'teremana' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
+                  className={`${brand.extraLarge ? 'h-20 max-w-[350px]' : brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain ${brand.id === 'icon' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
                 />
               ) : (
                 <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
@@ -109,7 +109,7 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-2`}
-              className={`${brand.largeSize ? 'min-w-[300px]' : 'min-w-[240px]'} ${brand.id === 'relentless' ? 'min-w-[400px]' : ''} h-20 flex items-center justify-center group cursor-pointer`}
+              className={`${brand.extraLarge ? 'min-w-[450px]' : brand.largeSize ? 'min-w-[300px]' : 'min-w-[240px]'} ${brand.id === 'relentless' ? 'min-w-[400px]' : ''} h-20 flex items-center justify-center group cursor-pointer`}
               whileHover={{ 
                 scale: 1.1,
                 y: -2
@@ -120,7 +120,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain ${brand.id === 'icon' || brand.id === 'teremana' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
+                  className={`${brand.extraLarge ? 'h-20 max-w-[350px]' : brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain ${brand.id === 'icon' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
                 />
               ) : (
                 <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
