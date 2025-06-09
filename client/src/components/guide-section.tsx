@@ -27,16 +27,16 @@ export default function GuideSection() {
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterLogo },
     { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
     { name: "Remington", id: "remington", logo: remingtonLogo },
-    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo },
+    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true },
     { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
     { name: "Apple Music", id: "apple", logo: appleMusicLogo },
-    { name: "Graft Events", id: "graft", logo: graftLogo },
-    { name: "Manchester United", id: "manchester", logo: manchesterLogo },
-    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo },
-    { name: "Parklife Festival", id: "parklife", logo: parklifeLogo },
-    { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo },
-    { name: "Padel Social Club", id: "padel", logo: padelLogo },
-    { name: "Relentless Records", id: "relentless", logo: relentlessLogo },
+    { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true },
+    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true },
+    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true },
+    { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true },
+    { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true },
+    { name: "Padel Social Club", id: "padel", logo: padelLogo, largeSize: true },
+    { name: "Relentless Records", id: "relentless", logo: relentlessLogo, largeSize: true },
     { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo }
   ];
 
@@ -85,7 +85,7 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-1`}
-              className="min-w-[240px] h-20 flex items-center justify-center group cursor-pointer"
+              className={`${brand.largeSize ? 'min-w-[300px]' : 'min-w-[240px]'} h-20 flex items-center justify-center group cursor-pointer`}
               whileHover={{ 
                 scale: 1.1,
                 y: -2
@@ -96,7 +96,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="h-12 w-auto max-w-[200px] object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300"
+                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} w-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300`}
                 />
               ) : (
                 <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
@@ -109,7 +109,7 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-2`}
-              className="min-w-[240px] h-20 flex items-center justify-center group cursor-pointer"
+              className={`${brand.largeSize ? 'min-w-[300px]' : 'min-w-[240px]'} h-20 flex items-center justify-center group cursor-pointer`}
               whileHover={{ 
                 scale: 1.1,
                 y: -2
@@ -120,7 +120,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="h-12 w-auto max-w-[200px] object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300"
+                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} w-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300`}
                 />
               ) : (
                 <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
