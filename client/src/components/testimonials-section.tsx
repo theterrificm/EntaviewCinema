@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white/90 p-8 rounded-lg relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
+              className="bg-white/90 p-8 rounded-lg relative overflow-hidden group hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -75,11 +75,11 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               
-              <blockquote className="text-lg font-jetbrains-mono mb-6 leading-relaxed relative z-10">
+              <blockquote className="text-lg font-jetbrains-mono mb-6 leading-relaxed relative z-10 flex-grow">
                 "{testimonial.quote}"
               </blockquote>
               
-              <div className="flex items-center relative z-10">
+              <div className="flex items-center relative z-10 mt-auto">
                 <motion.div 
                   className="w-12 h-12 mr-4 overflow-hidden rounded-full"
                   whileHover={{ scale: 1.1, rotate: 5 }}
