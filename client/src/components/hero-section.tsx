@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
 export default function HeroSection() {
   const handleBookCall = () => {
@@ -35,8 +36,7 @@ export default function HeroSection() {
             console.log('Hero video loaded successfully');
           }}
         >
-          <source src="/2025 Showreel MAKU (1)_1749340063718.mp4" type="video/mp4" />
-          <source src="/2025 Showreel MAKU (1)_1749340063718.webm" type="video/webm" />
+          <source src={makuShowreelVideo} type="video/mp4" />
         </video>
         
         <div className="absolute inset-0 bg-onyx/70"></div>
@@ -102,8 +102,10 @@ export default function HeroSection() {
             loop 
             playsInline
             className="w-full h-full object-cover"
+            preload="metadata"
+            onError={(e) => console.error('Secondary video error:', e)}
           >
-            <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1c9a1a1a2&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            <source src={makuShowreelVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           

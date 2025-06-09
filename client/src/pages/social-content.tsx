@@ -178,7 +178,7 @@ export default function SocialContent() {
                 }
               }}
             >
-              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     ref={videoRefs.iconHeist}
@@ -246,7 +246,7 @@ export default function SocialContent() {
                 }
               }}
             >
-              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
+              <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     ref={videoRefs.teremana}
