@@ -18,13 +18,14 @@ import padelLogo from "@assets/Padel Social Club_Logo_White_CMYK_AW_174946980427
 import relentlessLogo from "@assets/relentless-records- transparent_1749467088116.png";
 import lights4funLogo from "@assets/Lights4fun_ReversedLogo_RGB_1749467061387.png";
 import playstationVRLogo from "@assets/PS5_PSVR2 PS4_PSVR Combo Watermark - White_1749480707200.png";
+import playstationPS5Logo from "@assets/PS5_PSVR2 Combo Watermark - White_1749480923281.png";
 
 export default function GuideSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const brands = [
-    { name: "PlayStation", id: "playstation", logo: null },
+    { name: "PlayStation", id: "playstation", logo: playstationPS5Logo, largeSize: true },
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true },
     { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
     { name: "Remington", id: "remington", logo: remingtonLogo },
