@@ -17,6 +17,7 @@ import freshEgoLogo from "@assets/FreshEgoKid-LockUp-White 2_1749467123710.png";
 import padelLogo from "@assets/Padel Social Club_Logo_White_CMYK_AW_1749469804275.png";
 import relentlessLogo from "@assets/relentless-records- transparent_1749467088116.png";
 import lights4funLogo from "@assets/Lights4fun_ReversedLogo_RGB_1749467061387.png";
+import playstationVRLogo from "@assets/PS5_PSVR2 PS4_PSVR Combo Watermark - White_1749480707200.png";
 
 export default function GuideSection() {
   const ref = useRef(null);
@@ -37,7 +38,8 @@ export default function GuideSection() {
     { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true },
     { name: "Padel Social Club", id: "padel", logo: padelLogo, largeSize: true },
     { name: "Relentless Records", id: "relentless", logo: relentlessLogo, largeSize: true },
-    { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo }
+    { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo },
+    { name: "PlayStation VR", id: "playstation-vr", logo: playstationVRLogo, largeSize: true }
   ];
 
   return (
