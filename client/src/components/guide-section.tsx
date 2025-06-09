@@ -25,7 +25,7 @@ export default function GuideSection() {
   const brands = [
     { name: "PlayStation", id: "playstation", logo: null },
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true },
-    { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
+    { name: "ICON Amsterdam", id: "icon", logo: null },
     { name: "Remington", id: "remington", logo: remingtonLogo },
     { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true },
     { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
