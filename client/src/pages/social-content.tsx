@@ -131,6 +131,159 @@ export default function SocialContent() {
         </div>
       </section>
 
+      {/* Video Showcase Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-onyx to-iron">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
+              See Social Content In Action
+            </h2>
+            <p className="text-lg font-jetbrains-mono font-light text-white/70 max-w-3xl mx-auto">
+              Watch examples of our vertical video content optimized for Instagram, TikTok, and YouTube Shorts.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {/* Video 1 - Instagram Reel */}
+            <motion.div
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="aspect-[9/16] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4 bg-purple-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                    Instagram Reel
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="text-white text-sm font-jetbrains-mono mb-2">
+                      Brand Lifestyle Content
+                    </div>
+                    <div className="w-full h-1 bg-white/20 rounded">
+                      <div className="w-1/3 h-full bg-fiery rounded"></div>
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
+                  Fashion Brand Story
+                </h3>
+                <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
+                  15-second vertical video showcasing product lifestyle and brand personality.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Video 2 - TikTok Style */}
+            <motion.div
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="aspect-[9/16] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                    TikTok Style
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="text-white text-sm font-jetbrains-mono mb-2">
+                      Behind The Scenes
+                    </div>
+                    <div className="w-full h-1 bg-white/20 rounded">
+                      <div className="w-2/3 h-full bg-fiery rounded"></div>
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
+                  Production Process
+                </h3>
+                <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
+                  30-second behind-the-scenes content showing creative process and authenticity.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Video 3 - YouTube Shorts */}
+            <motion.div
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="aspect-[9/16] bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                    YouTube Shorts
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="text-white text-sm font-jetbrains-mono mb-2">
+                      Product Launch
+                    </div>
+                    <div className="w-full h-1 bg-white/20 rounded">
+                      <div className="w-3/4 h-full bg-fiery rounded"></div>
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
+                  Campaign Teaser
+                </h3>
+                <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
+                  60-second product reveal with cinematic quality and strategic messaging.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <p className="text-sm font-jetbrains-mono text-white/50 mb-6">
+              Click any video to see full examples of our social content work
+            </p>
+            <motion.button
+              className="bg-fiery text-white px-8 py-3 font-oswald font-medium text-sm tracking-widest uppercase hover:bg-fiery/90 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View Full Portfolio
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Problem Section */}
       <section ref={ref} className="py-20 px-6 bg-gradient-to-b from-onyx to-iron">
         <div className="max-w-6xl mx-auto text-center">
