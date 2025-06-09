@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
+// Import brand logos
+import playstationPS5Logo from "@assets/PS5_PSVR2 Combo Watermark - White_1749480923281.png";
+import jagermeisterWordmarkLogo from "@assets/JM_INT_Logo_Wordmark_White_RGB_digital_display_1749472035908.png";
+import iconLogo from "@assets/ICON LOGO white_1749472507635.png";
+
 export default function StatsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -26,9 +31,9 @@ export default function StatsSection() {
   ];
 
   const brands = [
-    "PlayStation",
-    "Jägermeister", 
-    "ICON Amsterdam"
+    { name: "PlayStation", logo: playstationPS5Logo },
+    { name: "Jägermeister", logo: jagermeisterWordmarkLogo },
+    { name: "ICON Amsterdam", logo: iconLogo }
   ];
 
   useEffect(() => {
@@ -120,17 +125,21 @@ export default function StatsSection() {
             Trusted by:
           </motion.p>
           
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-12">
             {brands.map((brand, index) => (
               <motion.div
                 key={index}
-                className="text-xl md:text-2xl font-bebas font-normal tracking-wider text-white/60 hover:text-fiery transition-colors duration-300"
+                className="h-12 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 0.6, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
                 whileHover={{ scale: 1.1, opacity: 1 }}
               >
-                {brand}
+                <img 
+                  src={brand.logo} 
+                  alt={brand.name}
+                  className="h-10 w-auto max-w-[180px] object-contain filter brightness-0 invert"
+                />
               </motion.div>
             ))}
           </div>
