@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
       author: "Sarah Chen",
       title: "Creative Director, Lifestyle Brand",
       rating: 5,
-      photo: "https://images.unsplash.com/photo-1494790108755-2616c6106db1?w=400&h=400&fit=crop&crop=face"
+      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face"
     },
     {
       quote: "Working with Entaview elevated our brand story from noise to narrative. The cinematic quality speaks for itself.",
