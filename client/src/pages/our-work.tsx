@@ -266,18 +266,7 @@ export default function OurWork() {
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
                   
-                  {/* Play overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div 
-                        className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Play className="w-8 h-8 text-white ml-1" />
-                      </motion.div>
-                    </div>
-                  </div>
+
                   
                   {/* Orange border on hover */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>

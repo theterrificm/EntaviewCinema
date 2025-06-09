@@ -109,14 +109,7 @@ export default function HeroSection() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Play button overlay */}
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-16 h-16 bg-fiery rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M8 5v10l8-5z"/>
-              </svg>
-            </div>
-          </div>
+
         </motion.div>
       </div>
     </section>
