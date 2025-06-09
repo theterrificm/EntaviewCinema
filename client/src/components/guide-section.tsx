@@ -77,10 +77,10 @@ export default function GuideSection() {
         <motion.div 
           className="flex space-x-16 items-center"
           animate={{
-            x: [0, "-50%"],
+            x: "-100%",
           }}
           transition={{
-            duration: 30,
+            duration: 60,
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop",
