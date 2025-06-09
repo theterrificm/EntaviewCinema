@@ -12,21 +12,21 @@ export default function TestimonialsSection() {
       author: "Sarah Chen",
       title: "Creative Director, Lifestyle Brand",
       rating: 5,
-      photo: "/client-photos/sarah-chen.svg"
+      photo: "https://images.unsplash.com/photo-1494790108755-2616c6106db1?w=400&h=400&fit=crop&crop=face"
     },
     {
       quote: "Working with Entaview elevated our brand story from noise to narrative. The cinematic quality speaks for itself.",
       author: "Marcus Rodriguez", 
       title: "Founder, Bold Startup",
       rating: 5,
-      photo: "/client-photos/marcus-rodriguez.svg"
+      photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
     },
     {
       quote: "The team's attention to detail and creative vision exceeded our expectations. Our campaign reached 10M+ views.",
       author: "James Wilson",
       title: "Marketing Director, PlayStation",
       rating: 5,
-      photo: "/client-photos/james-wilson.svg"
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
     }
   ];
 
