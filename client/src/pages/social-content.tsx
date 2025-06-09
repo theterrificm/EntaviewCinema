@@ -214,19 +214,7 @@ export default function SocialContent() {
                   
 
                   
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
-                      ICON Black Friday Heist
-                    </div>
-                    <div className="w-full h-1 bg-white/20 rounded overflow-hidden">
-                      <motion.div 
-                        className="h-full bg-fiery rounded"
-                        initial={{ width: "0%" }}
-                        animate={{ width: "33%" }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
-                      />
-                    </div>
-                  </div>
+
                 </div>
                 <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
                   ICON Heist Campaign
@@ -356,19 +344,7 @@ export default function SocialContent() {
                   
 
                   
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
-                      Manifest Collection
-                    </div>
-                    <div className="w-full h-1 bg-white/20 rounded overflow-hidden">
-                      <motion.div 
-                        className="h-full bg-fiery rounded"
-                        initial={{ width: "0%" }}
-                        animate={{ width: "75%" }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
-                      />
-                    </div>
-                  </div>
+
                 </div>
                 <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
                   Manifest Campaign
