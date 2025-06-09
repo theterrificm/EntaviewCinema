@@ -25,15 +25,15 @@ export default function GuideSection() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const brands = [
-    { name: "PlayStation", id: "playstation", logo: playstationPS5Logo, largeSize: true },
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true },
+    { name: "PlayStation", id: "playstation", logo: playstationPS5Logo, largeSize: true },
+    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true, extraLarge: true },
     { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
     { name: "Remington", id: "remington", logo: remingtonLogo },
     { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true, extraLarge: true },
     { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
     { name: "Apple Music", id: "apple", logo: appleMusicLogo },
     { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true, extraLarge: true },
-    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true, extraLarge: true },
     { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true, extraLarge: true },
     { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true },
     { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true },
