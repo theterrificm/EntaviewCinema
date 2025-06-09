@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import entaviewLogo from "@assets/Layer 25@4x.png";
 
 export default function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -23,31 +25,59 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/">
             <motion.div
-              className="text-2xl font-oswald font-bold text-white tracking-wider cursor-pointer"
+              className="flex items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              ENTAVIEW
+              <img 
+                src={entaviewLogo} 
+                alt="Entaview Creative"
+                className="h-8 w-auto"
+              />
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <Link key={item.path} href={item.path}>
+          {/* Desktop Navigation Menu */}
+          <div className="hidden md:flex items-center relative">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex items-center gap-2 text-white/80 hover:text-white font-jetbrains-mono font-medium text-sm tracking-wide transition-colors duration-300"
+            >
+              Menu
+              <ChevronDown 
+                size={16} 
+                className={`transform transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            
+            <AnimatePresence>
+              {isMenuOpen && (
                 <motion.div
-                  className={`font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 ${
-                    location === item.path
-                      ? "text-fiery"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                  whileHover={{ y: -2 }}
+                  className="absolute top-full right-0 mt-2 w-64 bg-onyx border border-white/10 rounded-lg shadow-2xl"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {item.label}
+                  <div className="py-4">
+                    {navItems.map((item) => (
+                      <Link key={item.path} href={item.path}>
+                        <div
+                          className={`block px-6 py-3 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
+                            location === item.path
+                              ? "text-fiery bg-white/5"
+                              : "text-white/80 hover:text-white"
+                          }`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.label}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </motion.div>
-              </Link>
-            ))}
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Mobile Menu Button */}

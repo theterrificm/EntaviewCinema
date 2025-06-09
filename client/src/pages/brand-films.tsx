@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 import { Play, CheckCircle } from "lucide-react";
 
 export default function BrandFilms() {
@@ -218,6 +219,8 @@ export default function BrandFilms() {
           </motion.div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

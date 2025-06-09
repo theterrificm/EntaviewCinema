@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 import { Instagram, Youtube, CheckCircle, Video } from "lucide-react";
 
 export default function SocialContent() {
