@@ -8,20 +8,20 @@ export default function GuideSection() {
 
   const brands = [
     { name: "PlayStation", id: "playstation", logo: null },
-    { name: "Jägermeister", id: "jagermeister", logo: null },
+    { name: "Jägermeister", id: "jagermeister", logo: "/attached_assets/JM_INT_Logo_SingleColour_White_Black_RGB_digital_display_1749467279534.png" },
     { name: "ICON Amsterdam", id: "icon", logo: "/attached_assets/ICON_1.9.1_1749334597260.png" },
-    { name: "Remington", id: "remington", logo: null },
-    { name: "Teremana Tequila", id: "teremana", logo: null },
-    { name: "Sony Music Entertainment", id: "sony", logo: null },
-    { name: "Apple Music", id: "apple", logo: null },
-    { name: "Graft Events", id: "graft", logo: null },
-    { name: "Manchester United", id: "manchester", logo: null },
-    { name: "Parklife Festival", id: "parklife", logo: null },
-    { name: "Fresh Ego Kid", id: "fresh", logo: null },
-    { name: "Padel Social Club", id: "padel", logo: null },
-    { name: "Relentless Records", id: "relentless", logo: null },
-    { name: "Maximum Music", id: "maximum", logo: null },
-    { name: "RnB & Slow Jams", id: "rnb", logo: null }
+    { name: "Remington", id: "remington", logo: "/attached_assets/Remington White_2x_1749467036215.png" },
+    { name: "Teremana Tequila", id: "teremana", logo: "/attached_assets/Teremana_White_Gradient_Copper_Primary_Logo_sRGB (1)_1749470160928.png" },
+    { name: "Rezzil Player", id: "rezzil", logo: "/attached_assets/Rezzil Player W_1749467627330.png" },
+    { name: "Apple Music", id: "apple", logo: "/attached_assets/Apple music White 2_1749467108225.png" },
+    { name: "Graft Events", id: "graft", logo: "/attached_assets/GRAFT EVENTS SOLID LOGO-02_1749470064556.png" },
+    { name: "Manchester United", id: "manchester", logo: "/attached_assets/ManUtdLogo-notag-WO_1749467061387.png" },
+    { name: "Ministry of Sound", id: "ministry", logo: "/attached_assets/ministry-of-sound-logo-svg-vector 2_1749467061387.png" },
+    { name: "Parklife Festival", id: "parklife", logo: "/attached_assets/PL25_RSxPL_logo-03_1749470183599.png" },
+    { name: "Fresh Ego Kid", id: "fresh", logo: "/attached_assets/FreshEgoKid-LockUp-White 2_1749467123710.png" },
+    { name: "Padel Social Club", id: "padel", logo: "/attached_assets/Padel Social Club_Logo_White_CMYK_AW_1749469804275.png" },
+    { name: "Relentless Records", id: "relentless", logo: "/attached_assets/relentless-records- transparent_1749467088116.png" },
+    { name: "Lights4Fun", id: "lights4fun", logo: "/attached_assets/Lights4fun_ReversedLogo_RGB_1749467061387.png" }
   ];
 
   return (
@@ -81,7 +81,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="h-8 w-auto object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                  className="h-10 w-auto max-w-[160px] object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
                 />
               ) : (
                 <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
@@ -106,7 +106,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="h-8 w-auto object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                  className="h-10 w-auto max-w-[160px] object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
                 />
               ) : (
                 <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
