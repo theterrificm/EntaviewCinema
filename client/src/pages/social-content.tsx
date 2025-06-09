@@ -155,37 +155,54 @@ export default function SocialContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     autoPlay
                     muted
                     loop
                     playsInline
+                    poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=700&fit=crop&crop=center"
                   >
                     <source src="/attached_assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  
+                  {/* Animated border on hover */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-purple-500/50 rounded-lg transition-all duration-500"></div>
+                  
+                  {/* Play overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <motion.div 
+                        className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
                         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4 bg-purple-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                  
+                  <div className="absolute top-4 left-4 bg-purple-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
                     Instagram Reel
                   </div>
+                  
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-sm font-jetbrains-mono mb-2">
+                    <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
                       ICON Black Friday Heist
                     </div>
-                    <div className="w-full h-1 bg-white/20 rounded">
-                      <div className="w-1/3 h-full bg-fiery rounded"></div>
+                    <div className="w-full h-1 bg-white/20 rounded overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-fiery rounded"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "33%" }}
+                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -204,26 +221,51 @@ export default function SocialContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="aspect-[9/16] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
+                <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 relative">
+                    <img 
+                      src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&h=700&fit=crop&crop=center"
+                      alt="Behind the scenes thumbnail"
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
+                    />
+                  </div>
+                  
+                  {/* Animated border on hover */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/50 rounded-lg transition-all duration-500"></div>
+                  
+                  {/* Play overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div 
+                        className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </motion.div>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                  
+                  <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
                     TikTok Style
                   </div>
+                  
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-sm font-jetbrains-mono mb-2">
+                    <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
                       Behind The Scenes
                     </div>
-                    <div className="w-full h-1 bg-white/20 rounded">
-                      <div className="w-2/3 h-full bg-fiery rounded"></div>
+                    <div className="w-full h-1 bg-white/20 rounded overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-fiery rounded"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "66%" }}
+                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -242,37 +284,54 @@ export default function SocialContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
+                <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     autoPlay
                     muted
                     loop
                     playsInline
+                    poster="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&h=700&fit=crop&crop=center"
                   >
                     <source src="/attached_assets/1. Comp Open - Manifest v4_1749493286513.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  
+                  {/* Animated border on hover */}
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
+                  
+                  {/* Play overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <motion.div 
+                        className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
                         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
-                  <div className="absolute top-4 left-4 bg-fiery text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded">
+                  
+                  <div className="absolute top-4 left-4 bg-fiery text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
                     Campaign Teaser
                   </div>
+                  
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-sm font-jetbrains-mono mb-2">
+                    <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
                       Manifest Collection
                     </div>
-                    <div className="w-full h-1 bg-white/20 rounded">
-                      <div className="w-3/4 h-full bg-fiery rounded"></div>
+                    <div className="w-full h-1 bg-white/20 rounded overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-fiery rounded"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "75%" }}
+                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+                      />
                     </div>
                   </div>
                 </div>
