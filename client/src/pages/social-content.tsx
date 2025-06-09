@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Instagram, Youtube, CheckCircle, Video } from "lucide-react";
@@ -10,6 +10,11 @@ import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4"
 export default function SocialContent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
+  const videoRefs = {
+    iconHeist: useRef<HTMLVideoElement>(null),
+    manifest: useRef<HTMLVideoElement>(null)
+  };
 
   const packages = [
     {
@@ -158,10 +163,23 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               whileHover={{ y: -10, scale: 1.02 }}
+              onMouseEnter={() => {
+                setHoveredVideo('iconHeist');
+                if (videoRefs.iconHeist.current) {
+                  videoRefs.iconHeist.current.muted = false;
+                }
+              }}
+              onMouseLeave={() => {
+                setHoveredVideo(null);
+                if (videoRefs.iconHeist.current) {
+                  videoRefs.iconHeist.current.muted = true;
+                }
+              }}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
+                    ref={videoRefs.iconHeist}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     autoPlay
                     muted
@@ -289,10 +307,23 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               whileHover={{ y: -10, scale: 1.02 }}
+              onMouseEnter={() => {
+                setHoveredVideo('manifest');
+                if (videoRefs.manifest.current) {
+                  videoRefs.manifest.current.muted = false;
+                }
+              }}
+              onMouseLeave={() => {
+                setHoveredVideo(null);
+                if (videoRefs.manifest.current) {
+                  videoRefs.manifest.current.muted = true;
+                }
+              }}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
+                    ref={videoRefs.manifest}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     autoPlay
                     muted
