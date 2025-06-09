@@ -67,36 +67,7 @@ export default function CampaignResultsSection() {
           <p className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-80 max-w-3xl mx-auto text-center">
             Real campaigns. Real results. Real impact on brands that matter.
           </p>
-          
-          {/* Campaign Thumbnail Window */}
-          <motion.div 
-            className="mt-16 max-w-4xl mx-auto"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <div className="relative bg-stone/5 border border-fiery/20 rounded-2xl p-4 group hover:border-fiery/40 transition-all duration-300">
-              <div className="aspect-video bg-onyx/50 rounded-xl overflow-hidden relative">
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="/attached_assets/Screenshot 2025-06-07 at 22.49.38_1749333297652.png"
-                >
-                  <source src="/attached_assets/MAKU_showreel.mp4" type="video/mp4" />
-                </video>
-                
-                {/* Play indicator overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-onyx/60 via-transparent to-transparent flex items-end justify-start p-6">
-                  <div className="text-fiery font-oswald font-medium uppercase tracking-wide">
-                    Campaign Showcase Reel
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+
         </motion.div>
 
         {/* Campaign Results Grid */}
