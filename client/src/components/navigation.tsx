@@ -32,52 +32,65 @@ export default function Navigation() {
               <img 
                 src={entaviewLogo} 
                 alt="Entaview Creative"
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation Menu */}
-          <div className="hidden md:flex items-center relative">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center gap-2 text-white/80 hover:text-white font-jetbrains-mono font-medium text-sm tracking-wide transition-colors duration-300"
-            >
-              Menu
-              <ChevronDown 
-                size={16} 
-                className={`transform transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            
-            <AnimatePresence>
-              {isMenuOpen && (
-                <motion.div
-                  className="absolute top-full right-0 mt-2 w-64 bg-onyx border border-white/10 rounded-lg shadow-2xl"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="py-4">
-                    {navItems.map((item) => (
-                      <Link key={item.path} href={item.path}>
-                        <div
-                          className={`block px-6 py-3 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
-                            location === item.path
-                              ? "text-fiery bg-white/5"
-                              : "text-white/80 hover:text-white"
-                          }`}
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.label}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+          {/* Desktop Navigation Menu and CTA */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="relative">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="flex items-center gap-2 text-white/80 hover:text-white font-jetbrains-mono font-medium text-sm tracking-wide transition-colors duration-300"
+              >
+                Menu
+                <ChevronDown 
+                  size={16} 
+                  className={`transform transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              
+              <AnimatePresence>
+                {isMenuOpen && (
+                  <motion.div
+                    className="absolute top-full right-0 mt-2 w-64 bg-onyx border border-white/10 rounded-lg shadow-2xl"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="py-4">
+                      {navItems.map((item) => (
+                        <Link key={item.path} href={item.path}>
+                          <div
+                            className={`block px-6 py-3 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
+                              location === item.path
+                                ? "text-fiery bg-white/5"
+                                : "text-white/80 hover:text-white"
+                            }`}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item.label}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* CTA Button */}
+            <Link href="/contact">
+              <motion.button
+                className="bg-fiery text-white px-6 py-3 font-oswald font-medium text-sm tracking-widest uppercase hover:bg-fiery/90 transition-colors duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Book Discovery Call
+              </motion.button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,19 +101,6 @@ export default function Navigation() {
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link href="/contact">
-              <motion.button
-                className="bg-fiery text-white px-6 py-3 font-oswald font-medium text-sm tracking-widest uppercase hover:bg-fiery/90 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Book Discovery Call
-              </motion.button>
-            </Link>
           </div>
         </div>
 

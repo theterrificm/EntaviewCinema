@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 import { Filter, Play, ArrowRight } from "lucide-react";
 
 export default function OurWork() {
@@ -257,6 +258,8 @@ export default function OurWork() {
           </motion.button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

@@ -328,6 +328,8 @@ export default function SocialContent() {
           </motion.button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
