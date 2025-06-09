@@ -19,6 +19,7 @@ import relentlessLogo from "@assets/relentless-records- transparent_174946708811
 import lights4funLogo from "@assets/Lights4fun_ReversedLogo_RGB_1749467061387.png";
 import playstationVRLogo from "@assets/PS5_PSVR2 PS4_PSVR Combo Watermark - White_1749480707200.png";
 import playstationPS5Logo from "@assets/PS5_PSVR2 Combo Watermark - White_1749480923281.png";
+import metaQuestLogo from "@assets/Meta-Quest-3-Logo_1749481153820.png";
 
 export default function GuideSection() {
   const ref = useRef(null);
@@ -28,11 +29,12 @@ export default function GuideSection() {
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true },
     { name: "PlayStation", id: "playstation", logo: playstationPS5Logo, largeSize: true },
     { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true, extraLarge: true },
+    { name: "Meta Quest", id: "meta-quest", logo: metaQuestLogo, largeSize: true },
+    { name: "Apple Music", id: "apple", logo: appleMusicLogo },
     { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
     { name: "Remington", id: "remington", logo: remingtonLogo },
     { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true, extraLarge: true },
     { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
-    { name: "Apple Music", id: "apple", logo: appleMusicLogo },
     { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true, extraLarge: true },
     { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true, extraLarge: true },
     { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true },
