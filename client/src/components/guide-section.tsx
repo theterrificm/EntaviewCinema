@@ -72,10 +72,10 @@ export default function GuideSection() {
         <motion.div 
           className="flex space-x-12 items-center"
           animate={{
-            x: "-50%",
+            x: [0, "-50%"],
           }}
           transition={{
-            duration: 6,
+            duration: 30,
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop",
@@ -96,7 +96,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300`}
+                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain ${brand.id === 'icon' || brand.id === 'teremana' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
                 />
               ) : (
                 <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
@@ -120,7 +120,7 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300`}
+                  className={`${brand.largeSize ? 'h-16 max-w-[280px]' : 'h-12 max-w-[200px]'} ${brand.id === 'relentless' ? 'scale-[2]' : ''} w-auto object-contain ${brand.id === 'icon' || brand.id === 'teremana' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
                 />
               ) : (
                 <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
