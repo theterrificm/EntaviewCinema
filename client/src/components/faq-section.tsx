@@ -116,8 +116,11 @@ export default function FAQSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <p className="text-lg font-jetbrains-mono font-light opacity-80 mb-8 text-onyx">
-            Still have questions? Let's discuss your project.
+          <p className="text-2xl font-oswald font-medium mb-2 text-onyx tracking-wide">
+            Still have questions?
+          </p>
+          <p className="text-xl font-jetbrains-mono font-light text-fiery mb-8">
+            Let's discuss your project.
           </p>
           <motion.button
             className="bg-onyx text-fiery px-12 py-4 text-lg font-oswald font-medium hover:bg-onyx/90 transition-all duration-300 shadow-lg hover:shadow-xl tracking-widest uppercase border-2 border-onyx"
