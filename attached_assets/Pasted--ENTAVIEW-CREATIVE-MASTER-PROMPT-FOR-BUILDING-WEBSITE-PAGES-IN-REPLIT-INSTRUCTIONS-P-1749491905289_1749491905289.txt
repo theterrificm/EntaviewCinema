@@ -1,0 +1,196 @@
+**ENTAVIEW CREATIVE — MASTER PROMPT FOR BUILDING WEBSITE PAGES IN REPLIT**
+
+---
+
+**INSTRUCTIONS:** Paste this into your Replit AI agent to generate all key website pages for Entaview Creative. The content should:
+- Match the brand tone: bold, clean, strategic, creative
+- Be optimised for SEO and AI discoverability (AEO-ready)
+- Follow the StoryBrand BrandScript structure (problem > guide > plan > CTA > success)
+- Be easily editable for visual tweaks and layout refinements
+
+---
+
+**GLOBAL SETTINGS:**
+- Brand Name: Entaview Creative
+- Brand Colours: #0E0D12 (Onyx Black), #53565A (Iron Grey), #D9D9D6 (Soft Stone), #F24005 (Fiery Red), #E65D25 (Burnt Amber)
+- Typography: Helvetica Neue
+- Target Audience: Lifestyle brands (fashion, hospitality, wellness, food, fitness, community-led startups)
+- CTA Language: “Book a Discovery Call”, “Watch Our Work”, “Get a Custom Plan”
+
+---
+
+### 1. HOME PAGE
+
+**Prompt:**
+Create a bold, full-width homepage using video or high-impact visuals in the hero section. Use the following structure:
+
+- **Header Hero Statement** (H1):
+  "We Help Brands Lead Culture — Not Follow It."
+
+- **Subhead / Clarifier**:
+  "For lifestyle labels, tech startups and culture-first brands ready to stop blending in."
+
+- **Primary CTA Buttons:**
+  - Book a Discovery Call (accent colour button)
+  - Watch Our Reel (outlined secondary button)
+
+- **StoryBrand Flow Sections:**
+  1. **The Problem:** “Most brands struggle to cut through the noise in saturated markets.”
+  2. **The Guide:** “We help lifestyle brands express their culture through bold, cinematic storytelling.”
+  3. **The Plan (3 steps):**
+     - Book a free discovery call
+     - Get a custom content roadmap
+     - Launch films that spark culture
+  4. **Results/Success:**
+     “Work featured on platforms across 80+ stores, with up to 500K in new sales, 2M+ views, and 61% increased engagement.”
+
+- **Trust Section:** Client logo bar + short testimonials
+
+- **SEO Title/Meta:**
+  Title: Video Production Agency for Lifestyle Brands | Entaview Creative
+  Meta: Cinematic brand films, social content, and storytelling campaigns for culture-led brands in fashion, fitness, food & hospitality.
+
+---
+
+### 2. SERVICE PAGE — BRAND FILMS
+
+**Prompt:**
+Build a service page titled "Brand Films for Lifestyle Brands". Use StoryBrand framework and target the keyword "brand storytelling video production".
+
+- **Hero Header (H1):**
+  "Your Story Deserves to Be Cinematic."
+
+- **Intro:**
+  “We create brand films that build trust, shape identity and move culture.”
+
+- **The Problem:**
+  “Most lifestyle brands struggle to show people who they *really* are.”
+
+- **Solution (You as Guide):**
+  “We script and shoot visually rich, narrative-driven films that make your audience *feel* something.”
+
+- **Benefits / Success Metrics (bullets):**
+  - £500K in quality sales for ICON Amsterdam
+  - 2M+ organic campaign views
+  - 27% conversion uplift
+
+- **Process (3 steps):**
+  - Discovery + strategy call
+  - Shoot & edit with you at the centre
+  - Release a cinematic story that builds legacy
+
+- **CTA:** Book a Discovery Call
+
+- **SEO Title/Meta:**
+  Title: Brand Film Production | Story-Driven Videos for Lifestyle Brands
+  Meta: We create cinematic brand storytelling videos that connect, convert and build culture. Book a free strategy call.
+
+---
+
+### 3. SERVICE PAGE — SOCIAL CONTENT
+
+**Prompt:**
+Build a page titled "Monthly Social Content Packages for Culture-Led Brands". Focus on keywords like "social media video production", "short-form video content".
+
+- **Hero Header (H1):**
+  “Your Audience Scrolls Fast. We Help You Keep Up.”
+
+- **Intro:**
+  “Custom short-form video built to match your brand, your audience, and your goals.”
+
+- **The Problem:**
+  “Creating regular content takes time. You’re juggling strategy, shooting, posting — and falling behind.”
+
+- **You as Guide:**
+  “We deliver monthly videos that help you stay consistent, creative and connected.”
+
+- **Packages (Example):**
+  - 4 reels/month – shot + edited
+  - 2 content strategy calls
+  - Ready to post assets + captions
+
+- **Proof:**
+  - 15% IG follower growth
+  - 61% engagement lift for Jägermeister
+
+- **Plan:**
+  - Choose a package
+  - Shoot day(s)
+  - Receive social-ready clips
+
+- **CTA:** Book a Discovery Call
+
+- **SEO Title/Meta:**
+  Title: Monthly Social Video Content | Reels & Short-Form for Lifestyle Brands
+  Meta: Done-for-you content plans for lifestyle brands. Get consistent social videos that engage your audience and build loyalty.
+
+---
+
+### 4. OUR WORK PAGE
+
+**Prompt:**
+Build a visually dynamic portfolio page that includes filters for industry (Fashion, Hospitality, Fitness, etc.) and video type (Brand Film, Campaign, Social). Each project links to a case study.
+
+- **Hero Statement:**
+  “See How We Help Brands Lead Culture Visually.”
+
+- **Filters:**
+  - Industry: Fashion / Fitness / Hospitality / Food / Tech
+  - Format: Brand Film / Series / Short Doc / Ad / Reels
+
+- **Case Study Previews:**
+  - Thumbnail, short summary, 3 key metrics (e.g. “+22% launch sales”)
+
+- **SEO Title/Meta:**
+  Title: Portfolio | Brand & Campaign Video Work by Entaview Creative
+  Meta: Explore our cinematic video work for fashion, food, fitness and community-led brands.
+
+---
+
+### 5. CONTACT PAGE
+
+**Prompt:**
+Create a clean contact page with a simple form and headline like:
+
+- **Headline:**
+  “Let’s Build Something That Leads Culture.”
+
+- **Form Fields:**
+  - Name
+  - Email
+  - Company Name
+  - Budget Range (dropdown)
+  - Tell us about your project (textarea)
+
+- **Sidebar Text:**
+  “Based in Leeds. Available UK-wide. We reply within 1 business day.”
+
+- **SEO Title/Meta:**
+  Title: Contact Entaview | Video Production Agency Leeds
+  Meta: Get in touch to discuss your brand film, social content or campaign needs. Book a discovery call today.
+
+---
+
+### 6. BLOG/INSIGHTS PAGE
+
+**Prompt:**
+Build a simple Insights (blog) page with a clean grid layout. Include intro copy:
+
+- **Hero Text:**
+  “Tips, Stories & Insight for Culture-Driven Brands.”
+
+- **Intro Paragraph:**
+  “From campaign breakdowns to strategy tips — we publish short-form advice to help brand leaders make smarter video decisions.”
+
+- **Categories:**
+  - Campaign Strategy
+  - BTS (Behind the Scenes)
+  - Creative Process
+
+- **SEO Title/Meta:**
+  Title: Blog | Video Strategy & Stories for Lifestyle Brands
+  Meta: Get insights into creative direction, campaign planning and content execution from Entaview Creative.
+
+---
+
+Let me know if you'd like this broken into smaller prompts for each page — or if you'd like a batch for all service pages, or only CTAs, or FAQ sections.
