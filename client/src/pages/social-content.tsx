@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { Instagram, Youtube, CheckCircle, Video } from "lucide-react";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
+import newIconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749494851695.mp4";
 
 export default function SocialContent() {
   const ref = useRef(null);
@@ -13,6 +14,7 @@ export default function SocialContent() {
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
   const videoRefs = {
     iconHeist: useRef<HTMLVideoElement>(null),
+    newIconHeist: useRef<HTMLVideoElement>(null),
     manifest: useRef<HTMLVideoElement>(null)
   };
 
@@ -193,7 +195,7 @@ export default function SocialContent() {
                   </video>
                   
                   {/* Animated border on hover */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-purple-500/50 rounded-lg transition-all duration-500"></div>
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
                   
                   {/* Play overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -210,9 +212,7 @@ export default function SocialContent() {
                     </div>
                   </div>
                   
-                  <div className="absolute top-4 left-4 bg-purple-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
-                    Instagram Reel
-                  </div>
+
                   
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
@@ -237,26 +237,44 @@ export default function SocialContent() {
               </div>
             </motion.div>
 
-            {/* Video 2 - TikTok Style */}
+            {/* Video 2 - New ICON Heist */}
             <motion.div
               className="group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ y: -10, scale: 1.02 }}
+              onMouseEnter={() => {
+                setHoveredVideo('newIconHeist');
+                if (videoRefs.newIconHeist.current) {
+                  videoRefs.newIconHeist.current.muted = false;
+                }
+              }}
+              onMouseLeave={() => {
+                setHoveredVideo(null);
+                if (videoRefs.newIconHeist.current) {
+                  videoRefs.newIconHeist.current.muted = true;
+                }
+              }}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&h=700&fit=crop&crop=center"
-                      alt="Behind the scenes thumbnail"
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    />
-                  </div>
+                  <video
+                    ref={videoRefs.newIconHeist}
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls={false}
+                    preload="metadata"
+                  >
+                    <source src={newIconHeistVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
                   {/* Animated border on hover */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/50 rounded-lg transition-all duration-500"></div>
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
                   
                   {/* Play overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -272,30 +290,12 @@ export default function SocialContent() {
                       </motion.div>
                     </div>
                   </div>
-                  
-                  <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
-                    TikTok Style
-                  </div>
-                  
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
-                      Behind The Scenes
-                    </div>
-                    <div className="w-full h-1 bg-white/20 rounded overflow-hidden">
-                      <motion.div 
-                        className="h-full bg-fiery rounded"
-                        initial={{ width: "0%" }}
-                        animate={{ width: "66%" }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
-                      />
-                    </div>
-                  </div>
                 </div>
-                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
-                  Production Process
+                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                  ICON Heist Extended
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
-                  30-second behind-the-scenes content showing creative process and authenticity.
+                  Full-length cinematic campaign showcasing complete brand narrative and visual storytelling.
                 </p>
               </div>
             </motion.div>
@@ -354,9 +354,7 @@ export default function SocialContent() {
                     </div>
                   </div>
                   
-                  <div className="absolute top-4 left-4 bg-fiery text-white px-2 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
-                    Campaign Teaser
-                  </div>
+
                   
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="text-white text-sm font-jetbrains-mono mb-2 drop-shadow-lg">
