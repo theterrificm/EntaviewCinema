@@ -279,7 +279,7 @@ export default function SocialContent() {
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-lg font-oswald font-medium text-white mb-2 group-hover:text-fiery transition-colors duration-300">
                   Teremana UK Launch
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">

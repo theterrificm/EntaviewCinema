@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Play, CheckCircle } from "lucide-react";
+import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
 export default function BrandFilms() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const benefits = [
     "£500K in quality sales for ICON Amsterdam",
@@ -80,6 +83,85 @@ export default function BrandFilms() {
               <Play size={20} />
               Watch Our Reel
             </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* MAKU Showreel Video Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-onyx to-iron">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-oswald font-bold text-white mb-6 tracking-tight">
+              Our Work in Action
+            </h2>
+            <p className="text-lg font-jetbrains-mono font-light text-white/80 leading-relaxed">
+              See how we craft cinematic stories that build brand legacy
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="relative aspect-video rounded-lg overflow-hidden group cursor-pointer"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            onMouseEnter={() => {
+              setIsVideoHovered(true);
+              if (videoRef.current) {
+                videoRef.current.muted = false;
+              }
+            }}
+            onMouseLeave={() => {
+              setIsVideoHovered(false);
+              if (videoRef.current) {
+                videoRef.current.muted = true;
+              }
+            }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls={false}
+              preload="metadata"
+            >
+              <source src={makuShowreelVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Animated border on hover */}
+            <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
+            
+            {/* Play overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div 
+                  className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Play className="w-10 h-10 text-white ml-1" />
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Video title overlay */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="text-white text-lg font-oswald font-medium mb-2 drop-shadow-lg">
+                MAKU Media 2025 Showreel
+              </div>
+              <div className="text-white/80 text-sm font-jetbrains-mono">
+                Cinematic brand storytelling that moves culture forward
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
