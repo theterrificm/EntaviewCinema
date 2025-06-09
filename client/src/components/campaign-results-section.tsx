@@ -61,42 +61,72 @@ export default function CampaignResultsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase text-stone">
+          <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase text-stone text-center">
             <span className="text-fiery">Performance</span> That Speaks <em className="italic">Volumes</em>
           </h2>
-          <p className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-80 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-80 max-w-3xl mx-auto text-center">
             Real campaigns. Real results. Real impact on brands that matter.
           </p>
+          
+          {/* Campaign Thumbnail Window */}
+          <motion.div 
+            className="mt-16 max-w-4xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            <div className="relative bg-stone/5 border border-fiery/20 rounded-2xl p-4 group hover:border-fiery/40 transition-all duration-300">
+              <div className="aspect-video bg-onyx/50 rounded-xl overflow-hidden relative">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="/attached_assets/Screenshot 2025-06-07 at 22.49.38_1749333297652.png"
+                >
+                  <source src="/attached_assets/MAKU_showreel.mp4" type="video/mp4" />
+                </video>
+                
+                {/* Play indicator overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-onyx/60 via-transparent to-transparent flex items-end justify-start p-6">
+                  <div className="text-fiery font-oswald font-medium uppercase tracking-wide">
+                    Campaign Showcase Reel
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Campaign Results Grid */}
-        <div className="space-y-16 mb-20">
+        <div className="space-y-24 mb-20">
           {campaigns.map((campaign, index) => (
             <motion.div
               key={campaign.brand}
-              className="text-center"
+              className="text-center max-w-5xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               {/* Campaign Title */}
-              <div className="mb-12">
-                <h3 className="text-2xl md:text-3xl font-roboto-condensed font-black text-fiery uppercase tracking-wide mb-2">
+              <div className="mb-16 text-center">
+                <h3 className="text-3xl md:text-4xl font-roboto-condensed font-black text-fiery uppercase tracking-wide mb-4 text-center">
                   {campaign.brand}
                 </h3>
-                <p className="text-lg font-jetbrains-mono font-light opacity-60 uppercase tracking-widest">
+                <p className="text-lg md:text-xl font-jetbrains-mono font-light opacity-60 uppercase tracking-widest text-center">
                   {campaign.campaign}
                 </p>
               </div>
 
               {/* Results in AOD-style layout */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 mb-12 justify-items-center">
                 {campaign.results.map((result, resultIndex) => (
                   <div key={resultIndex} className="text-center">
-                    <div className="text-5xl md:text-7xl font-anton font-black text-stone mb-2 tracking-tight">
+                    <div className="text-6xl md:text-8xl font-anton font-black text-stone mb-4 tracking-tight text-center">
                       {result.metric}
                     </div>
-                    <div className="text-sm md:text-base font-jetbrains-mono uppercase tracking-widest opacity-60">
+                    <div className="text-sm md:text-base font-jetbrains-mono uppercase tracking-widest opacity-60 text-center max-w-32 mx-auto">
                       {result.label}
                     </div>
                   </div>
@@ -105,7 +135,7 @@ export default function CampaignResultsSection() {
 
               {/* Divider */}
               {index < campaigns.length - 1 && (
-                <div className="w-24 h-px bg-fiery/30 mx-auto mt-16"></div>
+                <div className="w-32 h-px bg-fiery/30 mx-auto mt-20"></div>
               )}
             </motion.div>
           ))}
