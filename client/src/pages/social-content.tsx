@@ -4,6 +4,8 @@ import { useRef } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Instagram, Youtube, CheckCircle, Video } from "lucide-react";
+import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
+import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
 
 export default function SocialContent() {
   const ref = useRef(null);
@@ -165,9 +167,11 @@ export default function SocialContent() {
                     muted
                     loop
                     playsInline
-                    poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=700&fit=crop&crop=center"
+                    controls={false}
+                    preload="metadata"
                   >
-                    <source src="/attached_assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4" type="video/mp4" />
+                    <source src={iconHeistVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
                   
                   {/* Animated border on hover */}
@@ -294,9 +298,11 @@ export default function SocialContent() {
                     muted
                     loop
                     playsInline
-                    poster="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&h=700&fit=crop&crop=center"
+                    controls={false}
+                    preload="metadata"
                   >
-                    <source src="/attached_assets/1. Comp Open - Manifest v4_1749493286513.mp4" type="video/mp4" />
+                    <source src={manifestVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
                   
                   {/* Animated border on hover */}
