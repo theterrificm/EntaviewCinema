@@ -85,11 +85,10 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-1`}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
+              className="min-w-[240px] h-20 flex items-center justify-center group cursor-pointer"
               whileHover={{ 
-                scale: 1.05,
-                y: -2,
-                backgroundColor: "rgba(242, 64, 5, 0.1)"
+                scale: 1.1,
+                y: -2
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -97,10 +96,10 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="h-10 w-auto max-w-[160px] object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                  className="h-12 w-auto max-w-[200px] object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300"
                 />
               ) : (
-                <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
+                <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
                   {brand.name}
                 </span>
               )}
@@ -110,11 +109,10 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-2`}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 min-w-[200px] h-24 flex items-center justify-center border border-white/20 hover:border-fiery/50 transition-all duration-300 group cursor-pointer"
+              className="min-w-[240px] h-20 flex items-center justify-center group cursor-pointer"
               whileHover={{ 
-                scale: 1.05,
-                y: -2,
-                backgroundColor: "rgba(242, 64, 5, 0.1)"
+                scale: 1.1,
+                y: -2
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -122,10 +120,10 @@ export default function GuideSection() {
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="h-10 w-auto max-w-[160px] object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                  className="h-12 w-auto max-w-[200px] object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300"
                 />
               ) : (
-                <span className="font-oswald font-medium text-sm text-white/90 text-center group-hover:text-fiery transition-colors duration-300 tracking-wider uppercase">
+                <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
                   {brand.name}
                 </span>
               )}
