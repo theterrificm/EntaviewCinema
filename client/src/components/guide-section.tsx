@@ -26,23 +26,23 @@ export default function GuideSection() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const brands = [
-    { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true },
-    { name: "PlayStation", id: "playstation", logo: playstationPS5Logo, largeSize: true },
-    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true, extraLarge: true },
-    { name: "Meta Quest", id: "meta-quest", logo: metaQuestLogo, largeSize: true },
-    { name: "Apple Music", id: "apple", logo: appleMusicLogo },
-    { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
-    { name: "Remington", id: "remington", logo: remingtonLogo },
-    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true, extraLarge: true },
-    { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo },
-    { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true, extraLarge: true },
-    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true, extraLarge: true },
-    { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true },
-    { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true },
-    { name: "Padel Social Club", id: "padel", logo: padelLogo, largeSize: true },
-    { name: "Relentless Records", id: "relentless", logo: relentlessLogo, largeSize: true },
-    { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo },
-    { name: "PlayStation VR", id: "playstation-vr", logo: playstationVRLogo, largeSize: true }
+    { name: "Jägermeister", id: "jagermeister", logo: jagermeisterWordmarkLogo, largeSize: true, url: "https://www.jagermeister.com" },
+    { name: "PlayStation", id: "playstation", logo: playstationPS5Logo, largeSize: true, url: "https://www.playstation.com" },
+    { name: "Manchester United", id: "manchester", logo: manchesterLogo, largeSize: true, extraLarge: true, url: "https://www.manutd.com" },
+    { name: "Meta Quest", id: "meta-quest", logo: metaQuestLogo, largeSize: true, url: "https://www.meta.com/quest" },
+    { name: "Apple Music", id: "apple", logo: appleMusicLogo, url: "https://music.apple.com" },
+    { name: "ICON Amsterdam", id: "icon", logo: iconLogo, url: "https://iconamsterdam.com" },
+    { name: "Remington", id: "remington", logo: remingtonLogo, url: "https://www.remington.com" },
+    { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true, extraLarge: true, url: "https://www.teremana.com" },
+    { name: "Rezzil Player", id: "rezzil", logo: rezzilLogo, url: "https://rezzil.com" },
+    { name: "Graft Events", id: "graft", logo: graftLogo, largeSize: true, extraLarge: true, url: "https://graftevents.com" },
+    { name: "Ministry of Sound", id: "ministry", logo: ministryLogo, largeSize: true, extraLarge: true, url: "https://ministryofsound.com" },
+    { name: "Parklife Festival", id: "parklife", logo: parklifeLogo, largeSize: true, url: "https://parklife.uk.com" },
+    { name: "Fresh Ego Kid", id: "fresh", logo: freshEgoLogo, largeSize: true, url: "https://freshegokid.com" },
+    { name: "Padel Social Club", id: "padel", logo: padelLogo, largeSize: true, url: "https://padelsocialclub.com" },
+    { name: "Relentless Records", id: "relentless", logo: relentlessLogo, largeSize: true, url: "https://relentlessrecords.co.uk" },
+    { name: "Lights4Fun", id: "lights4fun", logo: lights4funLogo, url: "https://www.lights4fun.co.uk" },
+    { name: "PlayStation VR", id: "playstation-vr", logo: playstationVRLogo, largeSize: true, url: "https://www.playstation.com/vr" }
   ];
 
   return (
@@ -90,48 +90,62 @@ export default function GuideSection() {
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-1`}
-              className="min-w-[320px] h-20 flex items-center justify-center group cursor-pointer"
+              className="min-w-[320px] h-20 flex items-center justify-center group"
               whileHover={{ 
                 scale: 1.1,
                 y: -2
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {brand.logo ? (
-                <img 
-                  src={brand.logo} 
-                  alt={brand.name}
-                  className={`${brand.extraLarge ? 'h-20 max-w-[280px]' : brand.largeSize ? 'h-16 max-w-[240px]' : 'h-12 max-w-[180px]'} ${brand.id === 'relentless' ? 'scale-[1.8]' : ''} w-auto object-contain ${brand.id === 'icon' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
-                />
-              ) : (
-                <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
-                  {brand.name}
-                </span>
-              )}
+              <a 
+                href={brand.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full h-full cursor-pointer"
+              >
+                {brand.logo ? (
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name}
+                    className={`${brand.extraLarge ? 'h-20 max-w-[280px]' : brand.largeSize ? 'h-16 max-w-[240px]' : 'h-12 max-w-[180px]'} ${brand.id === 'relentless' ? 'scale-[1.8]' : ''} w-auto object-contain ${brand.id === 'icon' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
+                  />
+                ) : (
+                  <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
+                    {brand.name}
+                  </span>
+                )}
+              </a>
             </motion.div>
           ))}
           {/* Second set for seamless loop */}
           {brands.map((brand, index) => (
             <motion.div
               key={`${brand.id}-2`}
-              className="min-w-[320px] h-20 flex items-center justify-center group cursor-pointer"
+              className="min-w-[320px] h-20 flex items-center justify-center group"
               whileHover={{ 
                 scale: 1.1,
                 y: -2
               }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {brand.logo ? (
-                <img 
-                  src={brand.logo} 
-                  alt={brand.name}
-                  className={`${brand.extraLarge ? 'h-20 max-w-[280px]' : brand.largeSize ? 'h-16 max-w-[240px]' : 'h-12 max-w-[180px]'} ${brand.id === 'relentless' ? 'scale-[1.8]' : ''} w-auto object-contain ${brand.id === 'icon' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
-                />
-              ) : (
-                <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
-                  {brand.name}
-                </span>
-              )}
+              <a 
+                href={brand.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full h-full cursor-pointer"
+              >
+                {brand.logo ? (
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name}
+                    className={`${brand.extraLarge ? 'h-20 max-w-[280px]' : brand.largeSize ? 'h-16 max-w-[240px]' : 'h-12 max-w-[180px]'} ${brand.id === 'relentless' ? 'scale-[1.8]' : ''} w-auto object-contain ${brand.id === 'icon' ? 'opacity-80' : 'filter brightness-0 invert opacity-70'} group-hover:opacity-100 transition-all duration-300`}
+                  />
+                ) : (
+                  <span className="font-oswald font-medium text-lg text-white/70 text-center group-hover:text-white transition-colors duration-300 tracking-wider uppercase">
+                    {brand.name}
+                  </span>
+                )}
+              </a>
             </motion.div>
           ))}
         </motion.div>
