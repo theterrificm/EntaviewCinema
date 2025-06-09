@@ -132,6 +132,7 @@ export default function BrandFilms() {
               playsInline
               controls={false}
               preload="metadata"
+              onError={(e) => console.error('Video error:', e)}
             >
               <source src={makuShowreelVideo} type="video/mp4" />
               Your browser does not support the video tag.

@@ -256,6 +256,8 @@ export default function OurWork() {
                     playsInline
                     controls={false}
                     preload="metadata"
+                    onError={(e) => console.error('Video error:', e)}
+                    onLoadedData={() => console.log(`Video loaded: ${project.title}`)}
                   >
                     <source src={project.video} type="video/mp4" />
                     Your browser does not support the video tag.

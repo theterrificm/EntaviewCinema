@@ -23,7 +23,7 @@ export default function HeroSection() {
           muted 
           loop 
           playsInline
-          preload="auto"
+          preload="metadata"
           controls={false}
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => {
@@ -36,6 +36,7 @@ export default function HeroSection() {
           }}
         >
           <source src="/2025 Showreel MAKU (1)_1749340063718.mp4" type="video/mp4" />
+          <source src="/2025 Showreel MAKU (1)_1749340063718.webm" type="video/webm" />
         </video>
         
         <div className="absolute inset-0 bg-onyx/70"></div>

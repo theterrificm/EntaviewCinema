@@ -189,6 +189,7 @@ export default function SocialContent() {
                     playsInline
                     controls={false}
                     preload="metadata"
+                    onError={(e) => console.error('Video error:', e)}
                   >
                     <source src={iconHeistVideo} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -256,6 +257,7 @@ export default function SocialContent() {
                     playsInline
                     controls={false}
                     preload="metadata"
+                    onError={(e) => console.error('Video error:', e)}
                   >
                     <source src={teremanaVideo} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -319,6 +321,7 @@ export default function SocialContent() {
                     playsInline
                     controls={false}
                     preload="metadata"
+                    onError={(e) => console.error('Video error:', e)}
                   >
                     <source src={manifestVideo} type="video/mp4" />
                     Your browser does not support the video tag.
