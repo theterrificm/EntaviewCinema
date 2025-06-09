@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 // Import logo assets
 import jagermeisterLogo from "@assets/JM_INT_Logo_SingleColour_White_Black_RGB_digital_display_1749467279534.png";
+import jagermeisterWordmarkLogo from "@assets/JM_INT_Logo_Wordmark_White_RGB_digital_display_1749472035908.png";
 import iconLogo from "@assets/ICON_1.9.1_1749334597260.png";
 import remingtonLogo from "@assets/Remington White_2x_1749467036215.png";
 import teremanaLogo from "@assets/Teremana_White_Gradient_Copper_Primary_Logo_sRGB (1)_1749470160928.png";
@@ -25,6 +26,7 @@ export default function GuideSection() {
   const brands = [
     { name: "PlayStation", id: "playstation", logo: null },
     { name: "Jägermeister", id: "jagermeister", logo: jagermeisterLogo },
+    { name: "Jägermeister Wordmark", id: "jagermeister-wordmark", logo: jagermeisterWordmarkLogo, largeSize: true },
     { name: "ICON Amsterdam", id: "icon", logo: iconLogo },
     { name: "Remington", id: "remington", logo: remingtonLogo },
     { name: "Teremana Tequila", id: "teremana", logo: teremanaLogo, largeSize: true },
