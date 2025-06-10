@@ -176,11 +176,15 @@ export default function SocialContent() {
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
                   >
                     <source src={iconHeistVideo} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -218,11 +222,15 @@ export default function SocialContent() {
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
                   >
                     <source src={teremanaVideo} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -260,11 +268,15 @@ export default function SocialContent() {
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.pause();
+                      e.currentTarget.currentTime = 0;
+                    }}
                   >
                     <source src={manifestVideo} type="video/mp4" />
                     Your browser does not support the video tag.

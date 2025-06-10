@@ -113,14 +113,18 @@ export default function HeroSection() {
           whileHover={{ scale: 1.05 }}
         >
           <video 
-            autoPlay
             muted 
             loop 
             playsInline
-            preload="auto"
+            preload="metadata"
             className="w-full h-full object-cover"
             onClick={openShowreel}
             style={{ cursor: 'pointer' }}
+            onMouseEnter={(e) => e.currentTarget.play()}
+            onMouseLeave={(e) => {
+              e.currentTarget.pause();
+              e.currentTarget.currentTime = 0;
+            }}
           >
             <source src={makuShowreelVideo} type="video/mp4" />
             Your browser does not support the video tag.

@@ -124,13 +124,17 @@ export default function BrandFilms() {
           >
             <video
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-              autoPlay
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
               style={{ cursor: 'pointer' }}
               onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
+              onMouseEnter={(e) => e.currentTarget.play()}
+              onMouseLeave={(e) => {
+                e.currentTarget.pause();
+                e.currentTarget.currentTime = 0;
+              }}
             >
               <source src={makuShowreelVideo} type="video/mp4" />
               Your browser does not support the video tag.
