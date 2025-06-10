@@ -276,12 +276,24 @@ export default function OurWork() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     style={{ cursor: 'pointer' }}
-                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.play().catch(() => {
+                        console.log('Play on hover failed');
+                      });
+                    }}
                     onMouseLeave={(e) => {
                       e.currentTarget.pause();
                       e.currentTarget.currentTime = 0;
+                    }}
+                    onCanPlay={(e) => {
+                      const video = e.currentTarget;
+                      setTimeout(() => {
+                        video.play().catch(() => {
+                          console.log('Initial autoplay prevented');
+                        });
+                      }, 100);
                     }}
                   >
                     <source src={project.video} type="video/mp4" />

@@ -179,11 +179,23 @@ export default function SocialContent() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
-                    onMouseEnter={(e) => e.currentTarget.play()}
+                    preload="auto"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.play().catch(() => {
+                        console.log('Play on hover failed');
+                      });
+                    }}
                     onMouseLeave={(e) => {
                       e.currentTarget.pause();
                       e.currentTarget.currentTime = 0;
+                    }}
+                    onCanPlay={(e) => {
+                      const video = e.currentTarget;
+                      setTimeout(() => {
+                        video.play().catch(() => {
+                          console.log('Initial autoplay prevented');
+                        });
+                      }, 100);
                     }}
                   >
                     <source src={iconHeistVideo} type="video/mp4" />
@@ -225,11 +237,23 @@ export default function SocialContent() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
-                    onMouseEnter={(e) => e.currentTarget.play()}
+                    preload="auto"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.play().catch(() => {
+                        console.log('Play on hover failed');
+                      });
+                    }}
                     onMouseLeave={(e) => {
                       e.currentTarget.pause();
                       e.currentTarget.currentTime = 0;
+                    }}
+                    onCanPlay={(e) => {
+                      const video = e.currentTarget;
+                      setTimeout(() => {
+                        video.play().catch(() => {
+                          console.log('Initial autoplay prevented');
+                        });
+                      }, 100);
                     }}
                   >
                     <source src={teremanaVideo} type="video/mp4" />
