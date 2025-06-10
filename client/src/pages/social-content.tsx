@@ -284,6 +284,13 @@ export default function SocialContent() {
                     Your browser does not support the video tag.
                   </video>
                   
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-fiery/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-fiery transition-colors">
+                      <Play className="w-8 h-8 text-white ml-1" />
+                    </div>
+                  </div>
+                  
                   {/* Animated border on hover */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
                 </div>
@@ -516,6 +523,16 @@ export default function SocialContent() {
       </section>
 
       <Footer />
+
+      {/* Video Modal */}
+      {modalVideo && (
+        <VideoModal
+          isOpen={!!modalVideo}
+          onClose={closeVideoModal}
+          videoSrc={modalVideo.src}
+          title={modalVideo.title}
+        />
+      )}
     </div>
   );
 }

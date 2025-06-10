@@ -1,10 +1,22 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { VideoModal } from "@/components/video-modal";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
 export default function HeroSection() {
+  const [showReelModal, setShowReelModal] = useState(false);
+
   const handleBookCall = () => {
     console.log("Book a call clicked");
     alert("Booking system integration would be implemented here");
+  };
+
+  const openShowreel = () => {
+    setShowReelModal(true);
+  };
+
+  const closeShowreel = () => {
+    setShowReelModal(false);
   };
 
   return (
@@ -80,7 +92,10 @@ export default function HeroSection() {
             >
               BOOK A DISCOVERY CALL
             </button>
-            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300">
+            <button 
+              onClick={openShowreel}
+              className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300"
+            >
               WATCH OUR REEL
             </button>
           </motion.div>
@@ -113,6 +128,14 @@ export default function HeroSection() {
 
         </motion.div>
       </div>
+
+      {/* Showreel Video Modal */}
+      <VideoModal
+        isOpen={showReelModal}
+        onClose={closeShowreel}
+        videoSrc={makuShowreelVideo}
+        title="MAKU Media 2025 Showreel"
+      />
     </section>
   );
 }
