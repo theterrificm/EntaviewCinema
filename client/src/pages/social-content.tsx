@@ -3,7 +3,8 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import { Instagram, Youtube, CheckCircle, Video } from "lucide-react";
+import { VideoModal } from "@/components/video-modal";
+import { Instagram, Youtube, CheckCircle, Video, Play } from "lucide-react";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
 import teremanaVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
@@ -12,32 +13,19 @@ export default function SocialContent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
-  const [userInteracted, setUserInteracted] = useState(false);
+  const [modalVideo, setModalVideo] = useState<{ src: string; title: string } | null>(null);
   const videoRefs = {
     iconHeist: useRef<HTMLVideoElement>(null),
     teremana: useRef<HTMLVideoElement>(null),
     manifest: useRef<HTMLVideoElement>(null)
   };
 
-  // Enable video interaction on first user action
-  const enableVideoInteraction = () => {
-    if (!userInteracted) {
-      setUserInteracted(true);
-      // Apply autoplay fallback logic to all videos
-      Object.values(videoRefs).forEach(ref => {
-        if (ref.current) {
-          const playPromise = ref.current.play?.();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              if (ref.current) {
-                ref.current.muted = true;
-                ref.current.controls = true;
-              }
-            });
-          }
-        }
-      });
-    }
+  const openVideoModal = (src: string, title: string) => {
+    setModalVideo({ src, title });
+  };
+
+  const closeVideoModal = () => {
+    setModalVideo(null);
   };
 
   const packages = [
@@ -104,27 +92,8 @@ export default function SocialContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-onyx" onClick={enableVideoInteraction}>
+    <div className="min-h-screen bg-onyx">
       <Navigation />
-      
-      {/* User Interaction Overlay for Video Playback */}
-      {!userInteracted && (
-        <div className="fixed inset-0 bg-black/20 z-50 flex items-center justify-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-onyx/95 border border-fiery/30 rounded-lg p-6 text-center max-w-sm mx-4 backdrop-blur-sm"
-          >
-            <Video className="w-10 h-10 text-fiery mx-auto mb-3" />
-            <h3 className="text-lg font-oswald font-bold text-white mb-2">
-              Click to Enable Videos
-            </h3>
-            <p className="text-white/70 text-sm font-jetbrains-mono">
-              Videos will autoplay and unmute on hover
-            </p>
-          </motion.div>
-        </div>
-      )}
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
@@ -206,21 +175,7 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onMouseEnter={() => {
-                setHoveredVideo('iconHeist');
-                if (videoRefs.iconHeist.current) {
-                  videoRefs.iconHeist.current.muted = false;
-                  videoRefs.iconHeist.current.play().catch(() => {
-                    // Play failed, video will continue as muted
-                  });
-                }
-              }}
-              onMouseLeave={() => {
-                setHoveredVideo(null);
-                if (videoRefs.iconHeist.current) {
-                  videoRefs.iconHeist.current.muted = true;
-                }
-              }}
+              onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign")}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
@@ -238,6 +193,13 @@ export default function SocialContent() {
                     <source src={iconHeistVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+                  
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-fiery/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-fiery transition-colors">
+                      <Play className="w-8 h-8 text-white ml-1" />
+                    </div>
+                  </div>
                   
                   {/* Animated border on hover */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
@@ -258,21 +220,7 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onMouseEnter={() => {
-                setHoveredVideo('teremana');
-                if (videoRefs.teremana.current) {
-                  videoRefs.teremana.current.muted = false;
-                  videoRefs.teremana.current.play().catch(() => {
-                    // Play failed, video will continue as muted
-                  });
-                }
-              }}
-              onMouseLeave={() => {
-                setHoveredVideo(null);
-                if (videoRefs.teremana.current) {
-                  videoRefs.teremana.current.muted = true;
-                }
-              }}
+              onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch")}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
@@ -290,6 +238,13 @@ export default function SocialContent() {
                     <source src={teremanaVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+                  
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-fiery/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-fiery transition-colors">
+                      <Play className="w-8 h-8 text-white ml-1" />
+                    </div>
+                  </div>
                   
                   {/* Animated border on hover */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
@@ -310,21 +265,7 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onMouseEnter={() => {
-                setHoveredVideo('manifest');
-                if (videoRefs.manifest.current) {
-                  videoRefs.manifest.current.muted = false;
-                  videoRefs.manifest.current.play().catch(() => {
-                    // Play failed, video will continue as muted
-                  });
-                }
-              }}
-              onMouseLeave={() => {
-                setHoveredVideo(null);
-                if (videoRefs.manifest.current) {
-                  videoRefs.manifest.current.muted = true;
-                }
-              }}
+              onClick={() => openVideoModal(manifestVideo, "Manifest Campaign")}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
