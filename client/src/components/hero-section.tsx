@@ -112,11 +112,19 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 4.4 }}
           whileHover={{ scale: 1.05 }}
         >
-          <VideoPlayer
-            src={makuShowreelVideo}
+          <video 
+            autoPlay
+            muted 
+            loop 
+            playsInline
+            preload="auto"
             className="w-full h-full object-cover"
             onClick={openShowreel}
-          />
+            style={{ cursor: 'pointer' }}
+          >
+            <source src={makuShowreelVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           
 
         </motion.div>

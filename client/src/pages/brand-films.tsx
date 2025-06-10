@@ -122,11 +122,19 @@ export default function BrandFilms() {
             onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
             whileHover={{ scale: 1.02 }}
           >
-            <VideoPlayer
-              src={makuShowreelVideo}
+            <video
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              style={{ cursor: 'pointer' }}
               onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
-            />
+            >
+              <source src={makuShowreelVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             
             {/* Animated border on hover */}
             <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>

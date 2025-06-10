@@ -174,11 +174,17 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <VideoPlayer
-                    src={iconHeistVideo}
+                  <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign", "9:16")}
-                  />
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  >
+                    <source src={iconHeistVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -210,11 +216,17 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <VideoPlayer
-                    src={teremanaVideo}
+                  <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch", "9:16")}
-                  />
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  >
+                    <source src={teremanaVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -246,11 +258,17 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <VideoPlayer
-                    src={manifestVideo}
+                  <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    onClick={() => openVideoModal(manifestVideo, "Manifest Campaign", "9:16")}
-                  />
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  >
+                    <source src={manifestVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
