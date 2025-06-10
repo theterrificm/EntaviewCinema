@@ -9,6 +9,7 @@ interface VideoPlayerProps {
   onMouseLeave?: () => void;
   aspectRatio?: 'video' | '9/16';
   autoUnmute?: boolean;
+  poster?: string;
 }
 
 export function VideoPlayer({ 
@@ -18,7 +19,8 @@ export function VideoPlayer({
   onMouseEnter,
   onMouseLeave,
   aspectRatio = 'video',
-  autoUnmute = false
+  autoUnmute = false,
+  poster
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -87,12 +89,14 @@ export function VideoPlayer({
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
+        autoPlay
         muted={muted}
         loop
         playsInline
-        controls={false}
         preload="metadata"
-        onError={(e) => console.error('Video error:', e)}
+        poster={poster}
+        controls={false}
+        onError={() => console.error('Video load error')}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
