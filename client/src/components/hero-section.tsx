@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { VideoModal } from "@/components/video-modal";
+import { AutoplayVideo } from "@/components/AutoplayVideo";
 import { VideoPlayer } from "@/components/video-player";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
@@ -31,36 +32,13 @@ export default function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         
-        {/* Video Overlay - Only loads when supported */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          preload="auto"
-          controls={false}
+        {/* Video Overlay - Production-ready autoplay */}
+        <AutoplayVideo
+          src={makuShowreelVideo}
           className="absolute inset-0 w-full h-full object-cover"
-          onError={(e) => {
-            console.error('Hero video error:', e);
-            const target = e.target as HTMLVideoElement;
-            if (target) target.style.display = 'none';
-          }}
-          onLoadedData={(e) => {
-            console.log('Hero video loaded successfully');
-            const video = e.target as HTMLVideoElement;
-            video.play().catch(() => {
-              console.log('Autoplay prevented, will play on user interaction');
-            });
-          }}
-          onCanPlay={(e) => {
-            const video = e.target as HTMLVideoElement;
-            video.play().catch(() => {
-              console.log('Autoplay prevented');
-            });
-          }}
-        >
-          <source src={makuShowreelVideo} type="video/mp4" />
-        </video>
+          enableHoverPlay={false}
+          enableIntersectionPlay={true}
+        />
         
         <div className="absolute inset-0 bg-onyx/70"></div>
       </div>
