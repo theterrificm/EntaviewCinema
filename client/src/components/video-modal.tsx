@@ -7,9 +7,10 @@ interface VideoModalProps {
   onClose: () => void;
   videoSrc: string;
   title: string;
+  aspectRatio?: '16:9' | '9:16';
 }
 
-export function VideoModal({ isOpen, onClose, videoSrc, title }: VideoModalProps) {
+export function VideoModal({ isOpen, onClose, videoSrc, title, aspectRatio = '16:9' }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -50,7 +51,11 @@ export function VideoModal({ isOpen, onClose, videoSrc, title }: VideoModalProps
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden"
+            className={`relative w-full bg-black rounded-lg overflow-hidden ${
+              aspectRatio === '9:16' 
+                ? 'max-w-sm aspect-[9/16]' 
+                : 'max-w-4xl aspect-video'
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             <button

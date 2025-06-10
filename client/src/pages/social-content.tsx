@@ -13,10 +13,10 @@ import teremanaVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical
 export default function SocialContent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [modalVideo, setModalVideo] = useState<{ src: string; title: string } | null>(null);
+  const [modalVideo, setModalVideo] = useState<{ src: string; title: string; aspectRatio?: '16:9' | '9:16' } | null>(null);
 
-  const openVideoModal = (src: string, title: string) => {
-    setModalVideo({ src, title });
+  const openVideoModal = (src: string, title: string, aspectRatio: '16:9' | '9:16' = '16:9') => {
+    setModalVideo({ src, title, aspectRatio });
   };
 
   const closeVideoModal = () => {
@@ -170,14 +170,14 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign")}
+              onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign", "9:16")}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <VideoPlayer
                     src={iconHeistVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign")}
+                    onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign", "9:16")}
                   />
                   
                   {/* Play button overlay */}
@@ -206,14 +206,14 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch")}
+              onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch", "9:16")}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <VideoPlayer
                     src={teremanaVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch")}
+                    onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch", "9:16")}
                   />
                   
                   {/* Play button overlay */}
@@ -242,14 +242,14 @@ export default function SocialContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onClick={() => openVideoModal(manifestVideo, "Manifest Campaign")}
+              onClick={() => openVideoModal(manifestVideo, "Manifest Campaign", "9:16")}
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                   <VideoPlayer
                     src={manifestVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    onClick={() => openVideoModal(manifestVideo, "Manifest Campaign")}
+                    onClick={() => openVideoModal(manifestVideo, "Manifest Campaign", "9:16")}
                   />
                   
                   {/* Play button overlay */}
