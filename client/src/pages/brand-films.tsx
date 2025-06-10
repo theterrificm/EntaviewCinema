@@ -10,8 +10,15 @@ import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4"
 export default function BrandFilms() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [isVideoHovered, setIsVideoHovered] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [modalVideo, setModalVideo] = useState<{ src: string; title: string } | null>(null);
+
+  const openVideoModal = (src: string, title: string) => {
+    setModalVideo({ src, title });
+  };
+
+  const closeVideoModal = () => {
+    setModalVideo(null);
+  };
 
   const benefits = [
     "£500K in quality sales for ICON Amsterdam",
@@ -77,6 +84,7 @@ export default function BrandFilms() {
               Book Discovery Call
             </motion.button>
             <motion.button
+              onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
               className="border-2 border-white text-white px-8 py-4 text-lg font-oswald font-medium hover:bg-white hover:text-onyx transition-all duration-300 tracking-widest uppercase flex items-center justify-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -110,25 +118,10 @@ export default function BrandFilms() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            onMouseEnter={() => {
-              setIsVideoHovered(true);
-              if (videoRef.current) {
-                videoRef.current.muted = false;
-                videoRef.current.play().catch(() => {
-                  // Play failed, video will continue as muted
-                });
-              }
-            }}
-            onMouseLeave={() => {
-              setIsVideoHovered(false);
-              if (videoRef.current) {
-                videoRef.current.muted = true;
-              }
-            }}
+            onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
             whileHover={{ scale: 1.02 }}
           >
             <video
-              ref={videoRef}
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
               autoPlay
               muted
@@ -297,6 +290,16 @@ export default function BrandFilms() {
       </section>
 
       <Footer />
+      
+      {/* Video Modal */}
+      {modalVideo && (
+        <VideoModal
+          isOpen={true}
+          onClose={closeVideoModal}
+          videoSrc={modalVideo.src}
+          title={modalVideo.title}
+        />
+      )}
     </div>
   );
 }
