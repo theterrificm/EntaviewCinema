@@ -169,6 +169,9 @@ export default function SocialContent() {
                 setHoveredVideo('iconHeist');
                 if (videoRefs.iconHeist.current) {
                   videoRefs.iconHeist.current.muted = false;
+                  videoRefs.iconHeist.current.play().catch(() => {
+                    // Play failed, video will continue as muted
+                  });
                 }
               }}
               onMouseLeave={() => {
@@ -223,6 +226,9 @@ export default function SocialContent() {
                 setHoveredVideo('teremana');
                 if (videoRefs.teremana.current) {
                   videoRefs.teremana.current.muted = false;
+                  videoRefs.teremana.current.play().catch(() => {
+                    // Play failed, video will continue as muted
+                  });
                 }
               }}
               onMouseLeave={() => {
@@ -276,6 +282,9 @@ export default function SocialContent() {
                 setHoveredVideo('manifest');
                 if (videoRefs.manifest.current) {
                   videoRefs.manifest.current.muted = false;
+                  videoRefs.manifest.current.play().catch(() => {
+                    // Play failed, video will continue as muted
+                  });
                 }
               }}
               onMouseLeave={() => {
@@ -290,13 +299,17 @@ export default function SocialContent() {
                   <video
                     ref={videoRefs.manifest}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
                     muted
                     loop
                     playsInline
                     controls={false}
                     preload="metadata"
                     onError={(e) => console.error('Video error:', e)}
+                    onLoadedData={(e) => {
+                      e.currentTarget.play().catch(() => {
+                        // Autoplay blocked, will play on user interaction
+                      });
+                    }}
                   >
                     <source src={manifestVideo} type="video/mp4" />
                     Your browser does not support the video tag.
