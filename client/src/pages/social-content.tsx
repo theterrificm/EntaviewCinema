@@ -13,13 +13,7 @@ import teremanaVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical
 export default function SocialContent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
   const [modalVideo, setModalVideo] = useState<{ src: string; title: string } | null>(null);
-  const videoRefs = {
-    iconHeist: useRef<HTMLVideoElement>(null),
-    teremana: useRef<HTMLVideoElement>(null),
-    manifest: useRef<HTMLVideoElement>(null)
-  };
 
   const openVideoModal = (src: string, title: string) => {
     setModalVideo({ src, title });
@@ -252,20 +246,11 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <video
-                    ref={videoRefs.manifest}
+                  <VideoPlayer
+                    src={manifestVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    controls={false}
-                    onError={() => console.error('Video load error')}
-                  >
-                    <source src={manifestVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(manifestVideo, "Manifest Campaign")}
+                  />
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

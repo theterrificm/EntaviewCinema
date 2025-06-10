@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
+import { VideoPlayer } from "@/components/video-player";
 import { Play, CheckCircle } from "lucide-react";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
@@ -121,19 +122,11 @@ export default function BrandFilms() {
             onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
             whileHover={{ scale: 1.02 }}
           >
-            <video
+            <VideoPlayer
+              src={makuShowreelVideo}
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              controls={false}
-              onError={() => console.error('Video load error')}
-            >
-              <source src={makuShowreelVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
+            />
             
             {/* Animated border on hover */}
             <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
