@@ -249,26 +249,14 @@ export default function OurWork() {
               >
                 <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
                   <video
-                    ref={(el) => {
-                      if (el) {
-                        // Force play when hovered in production
-                        if (hoveredVideo === project.id) {
-                          el.play().catch(() => {
-                            // Silently handle autoplay restrictions
-                          });
-                        } else {
-                          el.pause();
-                        }
-                      }
-                    }}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
+                    autoPlay
                     muted={hoveredVideo !== project.id}
                     loop
                     playsInline
-                    controls={false}
                     preload="metadata"
-                    onError={(e) => console.error('Video error:', e)}
-                    onLoadedData={() => console.log(`Video loaded: ${project.title}`)}
+                    controls={false}
+                    onError={() => console.error('Video load error')}
                   >
                     <source src={project.video} type="video/mp4" />
                     Your browser does not support the video tag.

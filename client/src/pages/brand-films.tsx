@@ -129,17 +129,13 @@ export default function BrandFilms() {
             <video
               ref={videoRef}
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
+              autoPlay
               muted
               loop
               playsInline
-              controls={false}
               preload="metadata"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadedData={(e) => {
-                e.currentTarget.play().catch(() => {
-                  // Autoplay blocked, will play on user interaction
-                });
-              }}
+              controls={false}
+              onError={() => console.error('Video load error')}
             >
               <source src={makuShowreelVideo} type="video/mp4" />
               Your browser does not support the video tag.
