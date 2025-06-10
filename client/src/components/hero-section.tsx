@@ -37,7 +37,7 @@ export default function HeroSection() {
           muted 
           loop 
           playsInline
-          preload="metadata"
+          preload="auto"
           controls={false}
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => {
@@ -45,8 +45,18 @@ export default function HeroSection() {
             const target = e.target as HTMLVideoElement;
             if (target) target.style.display = 'none';
           }}
-          onLoadedData={() => {
+          onLoadedData={(e) => {
             console.log('Hero video loaded successfully');
+            const video = e.target as HTMLVideoElement;
+            video.play().catch(() => {
+              console.log('Autoplay prevented, will play on user interaction');
+            });
+          }}
+          onCanPlay={(e) => {
+            const video = e.target as HTMLVideoElement;
+            video.play().catch(() => {
+              console.log('Autoplay prevented');
+            });
           }}
         >
           <source src={makuShowreelVideo} type="video/mp4" />
