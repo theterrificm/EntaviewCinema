@@ -5,6 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
+import { AutoplayVideo } from "@/components/AutoplayVideo";
 import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
 
 // Import all video assets
@@ -271,34 +272,14 @@ export default function OurWork() {
                 onClick={() => openVideoModal(project.video, project.title)}
               >
                 <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
-                  <video
+                  <AutoplayVideo
+                    src={project.video}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
                     style={{ cursor: 'pointer' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.play().catch(() => {
-                        console.log('Play on hover failed');
-                      });
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.pause();
-                      e.currentTarget.currentTime = 0;
-                    }}
-                    onCanPlay={(e) => {
-                      const video = e.currentTarget;
-                      setTimeout(() => {
-                        video.play().catch(() => {
-                          console.log('Initial autoplay prevented');
-                        });
-                      }, 100);
-                    }}
-                  >
-                    <source src={project.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(project.video, project.title)}
+                    enableHoverPlay={true}
+                    enableIntersectionPlay={true}
+                  />
                   
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />

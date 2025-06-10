@@ -5,6 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
+import { AutoplayVideo } from "@/components/AutoplayVideo";
 import { Play, CheckCircle } from "lucide-react";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
@@ -123,36 +124,14 @@ export default function BrandFilms() {
             onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
             whileHover={{ scale: 1.02 }}
           >
-            <video
+            <AutoplayVideo
+              src={makuShowreelVideo}
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-              muted
-              loop
-              playsInline
-              preload="auto"
               style={{ cursor: 'pointer' }}
               onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
-              onMouseEnter={(e) => {
-                e.currentTarget.play().catch(() => {
-                  console.log('Play on hover failed');
-                });
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.pause();
-                e.currentTarget.currentTime = 0;
-              }}
-              onCanPlay={(e) => {
-                // Attempt immediate play when video is ready
-                const video = e.currentTarget;
-                setTimeout(() => {
-                  video.play().catch(() => {
-                    console.log('Initial autoplay prevented');
-                  });
-                }, 100);
-              }}
-            >
-              <source src={makuShowreelVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              enableHoverPlay={true}
+              enableIntersectionPlay={true}
+            />
             
             {/* Animated border on hover */}
             <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>

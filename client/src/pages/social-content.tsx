@@ -5,6 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
+import { AutoplayVideo } from "@/components/AutoplayVideo";
 import { Instagram, Youtube, CheckCircle, Video, Play } from "lucide-react";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
@@ -174,33 +175,13 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <video
+                  <AutoplayVideo
+                    src={iconHeistVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    onMouseEnter={(e) => {
-                      e.currentTarget.play().catch(() => {
-                        console.log('Play on hover failed');
-                      });
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.pause();
-                      e.currentTarget.currentTime = 0;
-                    }}
-                    onCanPlay={(e) => {
-                      const video = e.currentTarget;
-                      setTimeout(() => {
-                        video.play().catch(() => {
-                          console.log('Initial autoplay prevented');
-                        });
-                      }, 100);
-                    }}
-                  >
-                    <source src={iconHeistVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign", "9:16")}
+                    enableHoverPlay={true}
+                    enableIntersectionPlay={true}
+                  />
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -232,33 +213,13 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <video
+                  <AutoplayVideo
+                    src={teremanaVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    onMouseEnter={(e) => {
-                      e.currentTarget.play().catch(() => {
-                        console.log('Play on hover failed');
-                      });
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.pause();
-                      e.currentTarget.currentTime = 0;
-                    }}
-                    onCanPlay={(e) => {
-                      const video = e.currentTarget;
-                      setTimeout(() => {
-                        video.play().catch(() => {
-                          console.log('Initial autoplay prevented');
-                        });
-                      }, 100);
-                    }}
-                  >
-                    <source src={teremanaVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch", "9:16")}
+                    enableHoverPlay={true}
+                    enableIntersectionPlay={true}
+                  />
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
