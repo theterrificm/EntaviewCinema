@@ -23,10 +23,18 @@ export default function SocialContent() {
   const enableVideoInteraction = () => {
     if (!userInteracted) {
       setUserInteracted(true);
-      // Start all videos playing when user first interacts
+      // Apply autoplay fallback logic to all videos
       Object.values(videoRefs).forEach(ref => {
         if (ref.current) {
-          ref.current.play().catch(() => {});
+          const playPromise = ref.current.play?.();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              if (ref.current) {
+                ref.current.muted = true;
+                ref.current.controls = true;
+              }
+            });
+          }
         }
       });
     }
