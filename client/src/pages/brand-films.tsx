@@ -124,13 +124,12 @@ export default function BrandFilms() {
             onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
             whileHover={{ scale: 1.02 }}
           >
-            <AutoplayVideo
+            <ProductionVideo
               src={makuShowreelVideo}
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
               style={{ cursor: 'pointer' }}
               onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
               enableHoverPlay={true}
-              enableIntersectionPlay={true}
             />
             
             {/* Animated border on hover */}
