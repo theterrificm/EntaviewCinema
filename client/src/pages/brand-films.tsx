@@ -7,6 +7,7 @@ import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
 import { Play, CheckCircle } from "lucide-react";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
+import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
 
 export default function BrandFilms() {
   const ref = useRef(null);
@@ -115,11 +116,11 @@ export default function BrandFilms() {
           </motion.div>
 
           <motion.div
-            className="relative aspect-video rounded-lg overflow-hidden group cursor-pointer"
+            className="relative aspect-[9/16] max-w-md mx-auto rounded-lg overflow-hidden group cursor-pointer"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
+            onClick={() => openVideoModal(teremanaShortVideo, "Teremana Vertical Social Reel")}
             whileHover={{ scale: 1.02 }}
           >
             <video
@@ -129,14 +130,14 @@ export default function BrandFilms() {
               playsInline
               preload="metadata"
               style={{ cursor: 'pointer' }}
-              onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
+              onClick={() => openVideoModal(teremanaShortVideo, "Teremana Vertical Social Reel")}
               onMouseEnter={(e) => e.currentTarget.play()}
               onMouseLeave={(e) => {
                 e.currentTarget.pause();
                 e.currentTarget.currentTime = 0;
               }}
             >
-              <source src={makuShowreelVideo} type="video/mp4" />
+              <source src={teremanaShortVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
@@ -148,10 +149,10 @@ export default function BrandFilms() {
             {/* Video title overlay */}
             <div className="absolute bottom-6 left-6 right-6">
               <div className="text-white text-lg font-oswald font-medium mb-2 drop-shadow-lg">
-                MAKU Media 2025 Showreel
+                Teremana Vertical Social Reel
               </div>
               <div className="text-white/80 text-sm font-jetbrains-mono">
-                Cinematic brand storytelling that moves culture forward
+                Premium spirits brand storytelling optimized for social platforms
               </div>
             </div>
           </motion.div>
