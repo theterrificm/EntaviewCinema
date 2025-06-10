@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
+import { VideoPlayer } from "@/components/video-player";
 import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
 
 // Import all video assets
@@ -259,19 +260,11 @@ export default function OurWork() {
                 onClick={() => openVideoModal(project.video, project.title)}
               >
                 <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
-                  <video
+                  <VideoPlayer
+                    src={project.video}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    controls={false}
-                    onError={() => console.error('Video load error')}
-                  >
-                    <source src={project.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(project.video, project.title)}
+                  />
                   
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />

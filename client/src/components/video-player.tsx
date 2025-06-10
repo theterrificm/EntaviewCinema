@@ -1,84 +1,76 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface VideoPlayerProps {
   src: string;
-  poster?: string;
   className?: string;
-  muted?: boolean;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  aspectRatio?: 'video' | '9/16';
-  autoUnmute?: boolean;
+  poster?: string;
+  onClick?: () => void;
 }
 
-export function VideoPlayer({ 
-  src, 
-  poster,
-  className = '', 
-  muted = true, 
-  onMouseEnter,
-  onMouseLeave,
-  aspectRatio = 'video',
-  autoUnmute = false,
-  ...rest
-}: VideoPlayerProps) {
+export function VideoPlayer({ src, className = "", poster, onClick }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showControls, setShowControls] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const playPromise = video.play?.();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          // Autoplay successful
-        })
-        .catch(() => {
-          // Autoplay blocked: show controls
-          video.muted = true;
-          video.controls = true;
-        });
-    }
-  }, []);
+    const tryAutoplay = async () => {
+      try {
+        // Set video properties before attempting play
+        video.muted = true;
+        video.playsInline = true;
+        
+        // Attempt to play
+        await video.play();
+        setIsPlaying(true);
+        console.log("Video autoplay successful");
+      } catch (error) {
+        console.log("Autoplay blocked, showing controls:", error);
+        setShowControls(true);
+        setIsPlaying(false);
+      }
+    };
 
-  const handleMouseEnter = () => {
-    if (autoUnmute && videoRef.current) {
-      videoRef.current.muted = false;
-    }
-    onMouseEnter?.();
-  };
+    // Load video first
+    video.load();
+    
+    // Try autoplay after a short delay to ensure video is ready
+    const timer = setTimeout(tryAutoplay, 100);
 
-  const handleMouseLeave = () => {
-    if (autoUnmute && videoRef.current) {
-      videoRef.current.muted = true;
+    return () => clearTimeout(timer);
+  }, [src]);
+
+  const handleVideoClick = () => {
+    if (onClick) {
+      onClick();
+    } else if (!isPlaying && videoRef.current) {
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+        setShowControls(false);
+      }).catch(() => {
+        setShowControls(true);
+      });
     }
-    onMouseLeave?.();
   };
 
   return (
-    <div 
-      className={`relative ${aspectRatio === '9/16' ? 'aspect-[9/16]' : 'aspect-video'} ${className}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <video
+      ref={videoRef}
+      className={`${className} ${!isPlaying ? 'cursor-pointer' : ''}`}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      controls={showControls}
+      poster={poster}
+      onClick={handleVideoClick}
+      onLoadedData={() => console.log("Video loaded successfully")}
+      onError={(e) => console.error("Video load error:", e)}
     >
-      <video
-        ref={videoRef}
-        src={src}
-        poster={poster}
-        autoPlay
-        muted={muted}
-        loop
-        playsInline
-        preload="metadata"
-        controls={false}
-        className="w-full h-full object-cover"
-        onError={() => console.error('Video load error')}
-        {...rest}
-      >
-        <source src={src} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+      <source src={src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   );
 }

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { VideoModal } from "@/components/video-modal";
+import { VideoPlayer } from "@/components/video-player";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
 export default function HeroSection() {
@@ -111,19 +112,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 4.4 }}
           whileHover={{ scale: 1.05 }}
         >
-          <video 
-            autoPlay
-            muted 
-            loop 
-            playsInline
-            preload="metadata"
-            controls={false}
+          <VideoPlayer
+            src={makuShowreelVideo}
             className="w-full h-full object-cover"
-            onError={() => console.error('Video load error')}
-          >
-            <source src={makuShowreelVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            onClick={openShowreel}
+          />
           
 
         </motion.div>

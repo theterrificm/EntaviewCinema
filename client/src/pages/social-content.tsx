@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
+import { VideoPlayer } from "@/components/video-player";
 import { Instagram, Youtube, CheckCircle, Video, Play } from "lucide-react";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
@@ -179,20 +180,11 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <video
-                    ref={videoRefs.iconHeist}
+                  <VideoPlayer
+                    src={iconHeistVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    controls={false}
-                    onError={() => console.error('Video load error')}
-                  >
-                    <source src={iconHeistVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign")}
+                  />
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -224,20 +216,11 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <video
-                    ref={videoRefs.teremana}
+                  <VideoPlayer
+                    src={teremanaVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    controls={false}
-                    onError={() => console.error('Video load error')}
-                  >
-                    <source src={teremanaVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch")}
+                  />
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
