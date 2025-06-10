@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Play } from "lucide-react";
 
 interface VideoPlayerProps {
   src: string;
@@ -10,67 +11,79 @@ interface VideoPlayerProps {
 export function VideoPlayer({ src, className = "", poster, onClick }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showControls, setShowControls] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const tryAutoplay = async () => {
+    // Try immediate autoplay after a short delay
+    const timer = setTimeout(async () => {
       try {
-        // Set video properties before attempting play
         video.muted = true;
         video.playsInline = true;
-        
-        // Attempt to play
+        video.load();
         await video.play();
         setIsPlaying(true);
+        setHasStarted(true);
         console.log("Video autoplay successful");
       } catch (error) {
-        console.log("Autoplay blocked, showing controls:", error);
-        setShowControls(true);
+        console.log("Autoplay blocked, showing play button");
         setIsPlaying(false);
+        setHasStarted(false);
       }
-    };
-
-    // Load video first
-    video.load();
-    
-    // Try autoplay after a short delay to ensure video is ready
-    const timer = setTimeout(tryAutoplay, 100);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [src]);
 
   const handleVideoClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
     if (onClick) {
       onClick();
-    } else if (!isPlaying && videoRef.current) {
-      videoRef.current.play().then(() => {
+      return;
+    }
+
+    if (!hasStarted || !isPlaying) {
+      video.muted = false; // Unmute for user-initiated playback
+      video.play().then(() => {
         setIsPlaying(true);
-        setShowControls(false);
+        setHasStarted(true);
       }).catch(() => {
-        setShowControls(true);
+        console.log("Manual play failed");
       });
     }
   };
 
   return (
-    <video
-      ref={videoRef}
-      className={`${className} ${!isPlaying ? 'cursor-pointer' : ''}`}
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      controls={showControls}
-      poster={poster}
-      onClick={handleVideoClick}
-      onLoadedData={() => console.log("Video loaded successfully")}
-      onError={(e) => console.error("Video load error:", e)}
-    >
-      <source src={src} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div className="relative group cursor-pointer" onClick={handleVideoClick}>
+      <video
+        ref={videoRef}
+        className={className}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={poster}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onLoadedData={() => console.log("Video loaded successfully")}
+        onError={(e) => console.error("Video load error:", e)}
+      >
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Play overlay when not started or not playing */}
+      {(!hasStarted || !isPlaying) && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="w-16 h-16 bg-fiery/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-fiery transition-colors">
+            <Play className="w-8 h-8 text-white ml-1" fill="white" />
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

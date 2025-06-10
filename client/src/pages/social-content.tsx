@@ -499,6 +499,7 @@ export default function SocialContent() {
           onClose={closeVideoModal}
           videoSrc={modalVideo.src}
           title={modalVideo.title}
+          aspectRatio={modalVideo.aspectRatio}
         />
       )}
     </div>
