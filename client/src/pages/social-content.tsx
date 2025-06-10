@@ -12,10 +12,24 @@ export default function SocialContent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
+  const [userInteracted, setUserInteracted] = useState(false);
   const videoRefs = {
     iconHeist: useRef<HTMLVideoElement>(null),
     teremana: useRef<HTMLVideoElement>(null),
     manifest: useRef<HTMLVideoElement>(null)
+  };
+
+  // Enable video interaction on first user action
+  const enableVideoInteraction = () => {
+    if (!userInteracted) {
+      setUserInteracted(true);
+      // Start all videos playing when user first interacts
+      Object.values(videoRefs).forEach(ref => {
+        if (ref.current) {
+          ref.current.play().catch(() => {});
+        }
+      });
+    }
   };
 
   const packages = [
@@ -82,8 +96,27 @@ export default function SocialContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-onyx">
+    <div className="min-h-screen bg-onyx" onClick={enableVideoInteraction}>
       <Navigation />
+      
+      {/* User Interaction Overlay for Video Playback */}
+      {!userInteracted && (
+        <div className="fixed inset-0 bg-black/20 z-50 flex items-center justify-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-onyx/95 border border-fiery/30 rounded-lg p-6 text-center max-w-sm mx-4 backdrop-blur-sm"
+          >
+            <Video className="w-10 h-10 text-fiery mx-auto mb-3" />
+            <h3 className="text-lg font-oswald font-bold text-white mb-2">
+              Click to Enable Videos
+            </h3>
+            <p className="text-white/70 text-sm font-jetbrains-mono">
+              Videos will autoplay and unmute on hover
+            </p>
+          </motion.div>
+        </div>
+      )}
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
