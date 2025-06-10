@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { VideoModal } from "@/components/video-modal";
 import { Play, CheckCircle } from "lucide-react";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 

@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { VideoModal } from "@/components/video-modal";
 import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
 
 // Import all video assets
@@ -24,6 +25,15 @@ export default function OurWork() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeFormat, setActiveFormat] = useState("all");
   const [hoveredVideo, setHoveredVideo] = useState<number | null>(null);
+  const [modalVideo, setModalVideo] = useState<{ src: string; title: string } | null>(null);
+
+  const openVideoModal = (src: string, title: string) => {
+    setModalVideo({ src, title });
+  };
+
+  const closeVideoModal = () => {
+    setModalVideo(null);
+  };
 
   const industries = ["all", "fashion", "spirits", "fitness", "tech", "showreel"];
   const formats = ["all", "brand-film", "campaign", "social-vertical", "commercial", "showreel"];
@@ -246,12 +256,13 @@ export default function OurWork() {
                 whileHover={{ y: -10 }}
                 onMouseEnter={() => setHoveredVideo(project.id)}
                 onMouseLeave={() => setHoveredVideo(null)}
+                onClick={() => openVideoModal(project.video, project.title)}
               >
                 <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
                   <video
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
                     autoPlay
-                    muted={hoveredVideo !== project.id}
+                    muted
                     loop
                     playsInline
                     preload="metadata"
@@ -280,9 +291,9 @@ export default function OurWork() {
                     {project.duration}
                   </div>
                   
-                  {/* Audio indicator */}
+                  {/* Click indicator */}
                   <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {hoveredVideo === project.id ? <Volume2 size={20} /> : <VolumeX size={20} />}
+                    <Play size={20} />
                   </div>
                 </div>
 
@@ -353,6 +364,16 @@ export default function OurWork() {
       </section>
 
       <Footer />
+      
+      {/* Video Modal */}
+      {modalVideo && (
+        <VideoModal
+          isOpen={true}
+          onClose={closeVideoModal}
+          videoSrc={modalVideo.src}
+          title={modalVideo.title}
+        />
+      )}
     </div>
   );
 }
