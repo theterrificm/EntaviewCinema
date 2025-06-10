@@ -149,6 +149,17 @@ export default function OurWork() {
       description: "Next-generation VR training platform for professional athletes, showcasing cutting-edge technology.",
       duration: "1:15",
       aspect: "16:9"
+    },
+    {
+      id: 11,
+      title: "ICON Social Reel",
+      industry: "fashion",
+      format: "social-vertical",
+      video: iconHeistShortVideo,
+      metrics: ["+350% social engagement", "2.1M+ views", "72% completion rate"],
+      description: "High-impact vertical social reel showcasing streetwear through dynamic storytelling and culture-forward messaging.",
+      duration: "0:15",
+      aspect: "9:16"
     }
   ];
 
@@ -279,8 +290,6 @@ export default function OurWork() {
                   
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                  
-
                   
                   {/* Orange border on hover */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>

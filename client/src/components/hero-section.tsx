@@ -103,36 +103,7 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Video Section */}
-      <div className="absolute bottom-20 right-20 hidden lg:block">
-        <motion.div 
-          className="w-80 h-52 bg-onyx/80 rounded-lg border border-white/20 overflow-hidden relative group cursor-pointer"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 4.4 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <video 
-            muted 
-            loop 
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-            onClick={openShowreel}
-            style={{ cursor: 'pointer' }}
-            onMouseEnter={(e) => e.currentTarget.play()}
-            onMouseLeave={(e) => {
-              e.currentTarget.pause();
-              e.currentTarget.currentTime = 0;
-            }}
-          >
-            <source src={makuShowreelVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          
 
-        </motion.div>
-      </div>
 
       {/* Showreel Video Modal */}
       <VideoModal
