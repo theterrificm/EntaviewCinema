@@ -183,13 +183,18 @@ export default function SocialContent() {
                   <video
                     ref={videoRefs.iconHeist}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
                     muted
                     loop
                     playsInline
                     controls={false}
                     preload="metadata"
                     onError={(e) => console.error('Video error:', e)}
+                    onLoadedData={(e) => {
+                      // Try to play when video loads, handle autoplay restrictions
+                      e.currentTarget.play().catch(() => {
+                        // Autoplay blocked, will play on user interaction
+                      });
+                    }}
                   >
                     <source src={iconHeistVideo} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -232,13 +237,17 @@ export default function SocialContent() {
                   <video
                     ref={videoRefs.teremana}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    autoPlay
                     muted
                     loop
                     playsInline
                     controls={false}
                     preload="metadata"
                     onError={(e) => console.error('Video error:', e)}
+                    onLoadedData={(e) => {
+                      e.currentTarget.play().catch(() => {
+                        // Autoplay blocked, will play on user interaction
+                      });
+                    }}
                   >
                     <source src={teremanaVideo} type="video/mp4" />
                     Your browser does not support the video tag.

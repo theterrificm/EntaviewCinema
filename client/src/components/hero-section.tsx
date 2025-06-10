@@ -97,13 +97,22 @@ export default function HeroSection() {
           whileHover={{ scale: 1.05 }}
         >
           <video 
-            autoPlay 
+            ref={(el) => {
+              if (el) {
+                // Try to autoplay in production with error handling
+                el.play().catch(() => {
+                  // Show poster frame if autoplay fails
+                  el.load();
+                });
+              }
+            }}
             muted 
             loop 
             playsInline
             className="w-full h-full object-cover"
             preload="metadata"
             onError={(e) => console.error('Secondary video error:', e)}
+            onLoadedData={() => console.log('Hero video loaded successfully')}
           >
             <source src={makuShowreelVideo} type="video/mp4" />
             Your browser does not support the video tag.

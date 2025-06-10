@@ -249,8 +249,19 @@ export default function OurWork() {
               >
                 <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
                   <video
+                    ref={(el) => {
+                      if (el) {
+                        // Force play when hovered in production
+                        if (hoveredVideo === project.id) {
+                          el.play().catch(() => {
+                            // Silently handle autoplay restrictions
+                          });
+                        } else {
+                          el.pause();
+                        }
+                      }
+                    }}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    autoPlay
                     muted={hoveredVideo !== project.id}
                     loop
                     playsInline
