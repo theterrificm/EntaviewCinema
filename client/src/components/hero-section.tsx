@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { VideoModal } from "@/components/video-modal";
-import { AutoplayVideo } from "@/components/AutoplayVideo";
+import { ProductionVideo } from "@/components/ProductionVideo";
 import { VideoPlayer } from "@/components/video-player";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
@@ -33,11 +33,10 @@ export default function HeroSection() {
         />
         
         {/* Video Overlay - Production-ready autoplay */}
-        <AutoplayVideo
+        <ProductionVideo
           src={makuShowreelVideo}
           className="absolute inset-0 w-full h-full object-cover"
           enableHoverPlay={false}
-          enableIntersectionPlay={true}
         />
         
         <div className="absolute inset-0 bg-onyx/70"></div>
