@@ -5,7 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
-import { ProductionVideo } from "@/components/ProductionVideo";
+import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
 
 // Import all video assets
@@ -272,7 +272,7 @@ export default function OurWork() {
                 onClick={() => openVideoModal(project.video, project.title)}
               >
                 <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
-                  <ProductionVideo
+                  <SimpleVideoAutoplay
                     src={project.video}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
                     style={{ cursor: 'pointer' }}

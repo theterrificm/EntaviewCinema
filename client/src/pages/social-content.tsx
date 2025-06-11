@@ -5,7 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
-import { ProductionVideo } from "@/components/ProductionVideo";
+import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Instagram, Youtube, CheckCircle, Video, Play } from "lucide-react";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
@@ -128,7 +128,7 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <ProductionVideo
+                  <SimpleVideoAutoplay
                     src={iconHeistVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     onClick={() => openVideoModal(iconHeistVideo, "ICON Heist Campaign", "9:16")}
@@ -165,7 +165,7 @@ export default function SocialContent() {
             >
               <div className="rounded-lg p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-fiery/20">
                 <div className="aspect-[9/16] rounded-lg mb-4 relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                  <ProductionVideo
+                  <SimpleVideoAutoplay
                     src={teremanaVideo}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                     onClick={() => openVideoModal(teremanaVideo, "Teremana UK Launch", "9:16")}

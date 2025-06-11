@@ -5,7 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
-import { ProductionVideo } from "@/components/ProductionVideo";
+import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Play, CheckCircle } from "lucide-react";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
@@ -124,7 +124,7 @@ export default function BrandFilms() {
             onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
             whileHover={{ scale: 1.02 }}
           >
-            <ProductionVideo
+            <SimpleVideoAutoplay
               src={makuShowreelVideo}
               className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
               style={{ cursor: 'pointer' }}
