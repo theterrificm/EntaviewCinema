@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { validateAndEncodeVideoUrl } from '@/utils/videoValidator';
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -77,11 +78,15 @@ export function VideoModal({ isOpen, onClose, videoSrc, title, aspectRatio = '16
               controls
               loop
               playsInline
+              webkit-playsinline=""
               preload="metadata"
-              onError={() => console.error('Video load error')}
+              onError={(e) => {
+                console.error('Video modal load error:', videoSrc, e);
+                e.currentTarget.style.display = 'none';
+              }}
             >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
+              <source src={validateAndEncodeVideoUrl(videoSrc).encodedUrl} type="video/mp4" />
+              <p>Your browser does not support HTML5 video. <a href={validateAndEncodeVideoUrl(videoSrc).encodedUrl} target="_blank" rel="noopener noreferrer">Download video</a></p>
             </video>
           </motion.div>
         </motion.div>

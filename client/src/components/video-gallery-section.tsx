@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
+import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
 import { validateAndEncodeVideoUrl } from "@/utils/videoValidator";
 
 export default function VideoGallerySection() {
@@ -101,13 +102,15 @@ export default function VideoGallerySection() {
                 />
                 
                 {/* Video preview on hover */}
-                <SimpleVideoAutoplay
-                  src={validateAndEncodeVideoUrl(video.videoUrl).encodedUrl}
-                  enableHoverPlay={true}
-                  className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
-                    hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
+                <VideoErrorBoundary>
+                  <SimpleVideoAutoplay
+                    src={validateAndEncodeVideoUrl(video.videoUrl).encodedUrl}
+                    enableHoverPlay={true}
+                    className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
+                      hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                </VideoErrorBoundary>
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
