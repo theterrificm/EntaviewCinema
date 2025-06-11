@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
+import { validateAndEncodeVideoUrl } from "@/utils/videoValidator";
 
 export default function VideoGallerySection() {
   const ref = useRef(null);
@@ -15,28 +16,28 @@ export default function VideoGallerySection() {
       title: "MAKU Showreel 2025",
       category: "Brand Campaign",
       thumbnail: "/maku-thumbnail.jpg",
-      videoUrl: "/2025 Showreel MAKU (1)_1749340063718.mp4"
+      videoUrl: "/2025%20Showreel%20MAKU%20(1)_1749340063718.mp4"
     },
     {
       id: 2,
       title: "Rezzil Player",
       category: "Sports Tech",
       thumbnail: "/rezzil-thumbnail.png",
-      videoUrl: "/Rezzil 16-9 PSVR Final_1749337960289.mp4"
+      videoUrl: "/Rezzil%2016-9%20PSVR%20Final_1749337960289.mp4"
     },
     {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
       thumbnail: "/icon-heist-thumbnail.png",
-      videoUrl: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
+      videoUrl: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC%20(1)_1749333927336.mp4"
     },
     {
       id: 4,
       title: "Padel Website",
       category: "Digital Campaign",
       thumbnail: "/padel-thumbnail.jpg",
-      videoUrl: "/Padel Website (Wide - FINAL) _1749158053418.mp4"
+      videoUrl: "/Padel%20Website%20(Wide%20-%20FINAL)%20_1749158053418.mp4"
     }
   ];
 
@@ -101,7 +102,7 @@ export default function VideoGallerySection() {
                 
                 {/* Video preview on hover */}
                 <SimpleVideoAutoplay
-                  src={video.videoUrl}
+                  src={validateAndEncodeVideoUrl(video.videoUrl).encodedUrl}
                   enableHoverPlay={true}
                   className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'

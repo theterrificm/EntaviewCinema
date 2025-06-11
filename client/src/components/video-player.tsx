@@ -22,13 +22,17 @@ export function VideoPlayer({ src, className = "", poster, onClick }: VideoPlaye
         muted
         loop
         playsInline
-        preload="auto"
+        webkit-playsinline=""
+        preload="metadata"
         poster={poster}
         onLoadedData={() => console.log("Video loaded successfully")}
-        onError={(e) => console.error("Video load error:", e)}
+        onError={(e) => {
+          console.error("Video load error:", src, e);
+          e.currentTarget.style.display = 'none';
+        }}
       >
         <source src={src} type="video/mp4" />
-        Your browser does not support the video tag.
+        <p>Your browser does not support HTML5 video. <a href={src} target="_blank" rel="noopener noreferrer">View video</a></p>
       </video>
       
       {/* Play overlay on hover */}

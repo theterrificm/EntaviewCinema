@@ -1,0 +1,63 @@
+You are a web development assistant helping fix video and media errors on a website deployed via Replit.
+
+Context:
+- The website is for Entaview Creative.
+- The issue involves multiple 500 errors and video player failures.
+- There are gallery hover videos and embedded videos that fail to load.
+- Errors include: "Failed to load resource: server responded with a status of 500", "NotSupportedError: The element has no supported sources.", and "Video error: Startup Launches".
+
+**Instructions for AI Agent:**
+
+1. **Video Resource Path Fixes:**
+   - Check all video `<source src=...>` and `<video src=...>` tags.
+   - Ensure that:
+     - Paths are correct and file names match the asset folders in `/public/assets/`.
+     - All video file URLs are **URL-encoded** (e.g., use `%20` for spaces).
+     - Video files exist on the server and are published to Replit's `public` directory.
+     - Fallback formats like `.webm` or `.ogg` are offered if `.mp4` fails.
+
+2. **Add Fallback Handling:**
+   Add this fallback block in every `<video>` element:
+   ```html
+   <video controls autoplay muted loop>
+     <source src="correct-path.mp4" type="video/mp4">
+     <p>Your browser does not support HTML5 video. Here is a <a href='correct-path.mp4'>link to the video</a> instead.</p>
+   </video>
+   ```
+
+3. **Hover Gallery Errors:**
+   - Make sure the `hover-preview` videos do not autoplay or require user interaction if not supported.
+   - Replace or remove videos without valid sources.
+   - Add a check to only autoplay if source is valid:
+   ```javascript
+   const video = document.querySelector("video");
+   if (video && video.canPlayType("video/mp4")) {
+     video.play();
+   }
+   ```
+
+4. **Check for Browser Compatibility:**
+   - Make sure all `<video>` elements include: `playsinline`, `muted`, `autoplay`, and `preload="metadata"`.
+   - For Safari or mobile issues, always use `playsinline` and `muted` together.
+
+5. **Handle Server 500 Errors:**
+   - Any file returning 500 errors likely:
+     - Doesn’t exist in the published public path
+     - Was deleted or renamed
+     - Was not deployed correctly
+   - Solution: Re-upload the `.mp4` files in the Replit `/public` folder and make sure their names match exactly.
+
+6. **Audit Broken Links or Misnamed Files:**
+   - Check for typos like `/Teremana%20UK...` or `ICON_Heist...`
+   - Correct casing issues (Replit is case-sensitive)
+   - Example: rename `Teremana UK Launch.mp4` to `teremana-uk-launch.mp4` and update the path.
+
+7. **Performance Tip:**
+   - Lazy-load video thumbnails or use preview images for hover.
+   - Use poster="thumbnail.jpg" inside `<video>` tags to improve loading.
+
+8. **Final Step:**
+   - After fixing all sources, re-deploy the site and test on Chrome + Safari.
+   - Confirm videos play smoothly and no errors show in DevTools.
+
+> Output should include a confirmation of working `<video>` elements, corrected source paths, and fallback behaviour in all cases.

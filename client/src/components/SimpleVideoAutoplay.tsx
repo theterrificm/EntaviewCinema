@@ -43,7 +43,7 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
     };
   }, []);
 
-  // Immediate autoplay attempt on mount
+  // Enhanced autoplay with browser compatibility checks
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -56,24 +56,48 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
 
-    // Immediate play attempt
+    // Check if video source is valid before attempting play
     const attemptPlay = () => {
+      if (!video.canPlayType || !video.canPlayType('video/mp4')) {
+        console.warn('Browser does not support MP4 format');
+        return;
+      }
+
       video.muted = true;
       video.volume = 0;
-      video.play().catch(() => {
-        // Silent fail - will play after user interaction
-      });
+      
+      // Test if video source loads successfully
+      const testPlay = video.play();
+      if (testPlay !== undefined) {
+        testPlay.catch((error) => {
+          console.warn('Autoplay failed:', error.message);
+          // Will play after user interaction
+        });
+      }
     };
 
-    // Try playing when video can play
+    // Enhanced error handling
+    const handleError = (e: Event) => {
+      console.error('Video load error:', video.src, e);
+      video.style.display = 'none';
+    };
+
     const handleCanPlay = () => {
       attemptPlay();
     };
 
+    const handleLoadStart = () => {
+      // Ensure attributes are set when loading starts
+      video.muted = true;
+      video.volume = 0;
+    };
+
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleCanPlay);
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('error', handleError);
 
-    // Also try immediate play
+    // Immediate attempt if video is already ready
     if (video.readyState >= 3) {
       attemptPlay();
     }
@@ -81,6 +105,8 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
     return () => {
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleCanPlay);
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('error', handleError);
     };
   }, [src]);
 
@@ -106,7 +132,6 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
   return (
     <video
       ref={videoRef}
-      src={src}
       poster={poster}
       className={className}
       style={style}
@@ -121,6 +146,16 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
       preload="metadata"
       disablePictureInPicture
       controls={false}
-    />
+      onError={(e) => {
+        console.error('Video error:', src, e);
+        // Hide video on error to prevent broken displays
+        if (videoRef.current) {
+          videoRef.current.style.display = 'none';
+        }
+      }}
+    >
+      <source src={src} type="video/mp4" />
+      <p>Your browser does not support HTML5 video. <a href={src} target="_blank" rel="noopener noreferrer">View video</a></p>
+    </video>
   );
 };
