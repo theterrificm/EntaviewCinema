@@ -1,32 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 
 export default function VideoGallerySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
-  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
-
-  // Handle video playback based on hover state
-  useEffect(() => {
-    if (hoveredVideo) {
-      const video = videoRefs.current[hoveredVideo];
-      if (video) {
-        video.currentTime = 0;
-        video.play().catch(console.error);
-      }
-    } else {
-      // Pause all videos when not hovering
-      Object.values(videoRefs.current).forEach(video => {
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-    }
-  }, [hoveredVideo]);
 
   const videos = [
     {
@@ -111,19 +92,17 @@ export default function VideoGallerySection() {
                   className={`w-full h-64 object-cover transition-all duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
                   }`}
-                  onError={(e) => console.error('Gallery thumbnail error:', video.title, e)}
+                  onError={(e) => {
+                    console.error('Gallery thumbnail error:', video.title, e);
+                    // Fallback to a default thumbnail or hide thumbnail
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
                 
                 {/* Video preview on hover */}
-                <video
-                  ref={(el) => { videoRefs.current[video.videoUrl] = el; }}
+                <SimpleVideoAutoplay
                   src={video.videoUrl}
-                  muted
-                  loop
-                  preload="none"
-                  playsInline
-                  controls={false}
-                  onError={(e) => console.error('Gallery hover video error:', video.title, e)}
+                  enableHoverPlay={true}
                   className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                     hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
                   }`}
