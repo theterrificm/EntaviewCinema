@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface ProductionVideoProps {
   src: string;
@@ -6,6 +6,7 @@ interface ProductionVideoProps {
   poster?: string;
   onClick?: () => void;
   enableHoverPlay?: boolean;
+  enableIntersectionPlay?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -15,9 +16,31 @@ export const ProductionVideo: React.FC<ProductionVideoProps> = ({
   poster,
   onClick,
   enableHoverPlay = true,
+  enableIntersectionPlay = true,
   style
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  // Intersection Observer for viewport-based triggering
+  useEffect(() => {
+    if (!enableIntersectionPlay || !videoRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsIntersecting(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(videoRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [enableIntersectionPlay]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -36,9 +59,11 @@ export const ProductionVideo: React.FC<ProductionVideoProps> = ({
     const handleLoadStart = () => {
       video.muted = true;
       video.volume = 0;
-      video.play().catch(() => {
-        // Silent fail, will play on user interaction
-      });
+      if (isIntersecting || !enableIntersectionPlay) {
+        video.play().catch(() => {
+          // Silent fail, will play on user interaction
+        });
+      }
     };
 
     const handleCanPlay = () => {
@@ -47,14 +72,16 @@ export const ProductionVideo: React.FC<ProductionVideoProps> = ({
       
       // Multiple aggressive play attempts
       const attemptPlay = () => {
-        video.play().catch(() => {
-          setTimeout(() => {
-            video.play().catch(() => {
-              // Final attempt after delay
-              setTimeout(() => video.play().catch(() => {}), 200);
-            });
-          }, 100);
-        });
+        if (isIntersecting || !enableIntersectionPlay) {
+          video.play().catch(() => {
+            setTimeout(() => {
+              video.play().catch(() => {
+                // Final attempt after delay
+                setTimeout(() => video.play().catch(() => {}), 200);
+              });
+            }, 100);
+          });
+        }
       };
       
       attemptPlay();
@@ -85,82 +112,48 @@ export const ProductionVideo: React.FC<ProductionVideoProps> = ({
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleCanPlay);
 
-    // Intersection observer for viewport detection
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.muted = true;
-            video.volume = 0;
-            video.play().catch(() => {});
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '100px' }
-    );
-
-    observer.observe(video);
-
-    // Cleanup
+    // Cleanup function
     return () => {
-      observer.disconnect();
       video.removeEventListener('loadstart', handleLoadStart);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleCanPlay);
+      
       document.removeEventListener('click', handleUserInteraction);
       document.removeEventListener('touchstart', handleUserInteraction);
       document.removeEventListener('scroll', handleUserInteraction);
     };
-  }, [src]);
+  }, [isIntersecting, enableIntersectionPlay]);
 
+  // Handle hover play
   const handleMouseEnter = () => {
-    if (!enableHoverPlay || !videoRef.current) return;
-    
-    const video = videoRef.current;
-    video.muted = true;
-    video.volume = 0;
-    video.play().catch(() => {});
-  };
-
-  const handleMouseLeave = () => {
-    if (!enableHoverPlay || !videoRef.current) return;
-    
-    const video = videoRef.current;
-    video.pause();
-    video.currentTime = 0;
-  };
-
-  const handleClick = () => {
-    if (videoRef.current) {
+    if (enableHoverPlay && videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.volume = 0;
       videoRef.current.play().catch(() => {});
     }
-    
-    if (onClick) {
-      onClick();
+  };
+
+  const handleMouseLeave = () => {
+    if (enableHoverPlay && videoRef.current) {
+      videoRef.current.pause();
     }
   };
 
   return (
     <video
       ref={videoRef}
+      src={src}
+      poster={poster}
       className={className}
       style={style}
-      autoPlay
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       muted
       loop
       playsInline
-      preload="auto"
-      poster={poster}
-      controls={false}
-      disablePictureInPicture
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <source src={src} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+      webkit-playsinline=""
+      preload="metadata"
+    />
   );
 };
