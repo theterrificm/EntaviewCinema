@@ -3,7 +3,6 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
-import { validateAndEncodeVideoUrl } from "@/utils/videoValidator";
 
 export default function VideoGallerySection() {
   const ref = useRef(null);
@@ -104,7 +103,7 @@ export default function VideoGallerySection() {
                 {/* Video preview on hover */}
                 <VideoErrorBoundary>
                   <SimpleVideoAutoplay
-                    src={validateAndEncodeVideoUrl(video.videoUrl).encodedUrl}
+                    src={video.videoUrl}
                     enableHoverPlay={true}
                     className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
                       hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
