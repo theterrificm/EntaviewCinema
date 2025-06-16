@@ -43,8 +43,8 @@ export default function HeroSection() {
       </div>
       
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="max-w-6xl">
+      <div className="relative z-10 container mx-auto px-6 py-20 flex items-center justify-center min-h-screen">
+        <div className="max-w-6xl text-center">
 
           
           <motion.div
