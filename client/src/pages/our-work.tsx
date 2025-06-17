@@ -8,17 +8,17 @@ import { VideoPlayer } from "@/components/video-player";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
 
-// Import all video assets
-import iconHeistVideo from "@assets/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749160669052.mp4";
-import iconHeistShortVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
-import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
-import manifestV5Video from "@assets/1. Comp Open - Manifest v5_1749342296563.mp4";
-import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
-import makuShowreel2Video from "@assets/2025 Showreel MAKU (1)_1749341370057.mp4";
-import teremanaVideo from "@assets/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4";
-import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
-import padelVideo from "@assets/Padel Website (Wide - FINAL) _1749158053418.mp4";
-import rezzilVideo from "@assets/Rezzil 16-9 PSVR Final_1749337960289.mp4";
+// Video file paths (using actual files in public directory)
+const iconHeistVideo = "/icon-heist-video.mp4";
+const iconHeistShortVideo = "/hero-video.mp4"; // Using available video as placeholder
+const manifestVideo = "/maku-showreel-optimized.mp4"; // Using available video
+const manifestV5Video = "/1. Comp Open - Manifest v5_1749342296563.mp4";
+const makuShowreelVideo = "/maku-showreel-optimized.mp4";
+const makuShowreel2Video = "/2025 Showreel MAKU (1)_1749340063718.mp4";
+const teremanaVideo = "/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4";
+const teremanaShortVideo = "/hero-video.mp4"; // Using available video as placeholder  
+const padelVideo = "/Padel Website (Wide - FINAL) _1749158053418.mp4";
+const rezzilVideo = "/rezzil-player.mp4";
 
 export default function OurWork() {
   const ref = useRef(null);

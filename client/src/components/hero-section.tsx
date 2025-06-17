@@ -3,7 +3,6 @@ import { useState } from "react";
 import { VideoModal } from "@/components/video-modal";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoPlayer } from "@/components/video-player";
-import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 
 export default function HeroSection() {
   const [showReelModal, setShowReelModal] = useState(false);
@@ -34,7 +33,7 @@ export default function HeroSection() {
         
         {/* Video Overlay - Simplified autoplay */}
         <SimpleVideoAutoplay
-          src={makuShowreelVideo}
+          src="/hero-video.mp4"
           className="absolute inset-0 w-full h-full object-cover"
           enableHoverPlay={false}
         />
@@ -96,7 +95,7 @@ export default function HeroSection() {
       <VideoModal
         isOpen={showReelModal}
         onClose={closeShowreel}
-        videoSrc={makuShowreelVideo}
+        videoSrc="/maku-showreel-optimized.mp4"
         title="MAKU Media 2025 Showreel"
       />
     </section>
