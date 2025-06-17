@@ -15,28 +15,28 @@ export default function VideoGallerySection() {
       id: 1,
       title: "MAKU Showreel 2025",
       category: "Brand Campaign",
-      thumbnail: "/maku-thumbnail.jpg",
+      thumbnail: "/video-thumbnail-placeholder.svg",
       videoUrl: "/maku-showreel-optimized.mp4"
     },
     {
       id: 2,
       title: "Rezzil Player",
       category: "Sports Tech",
-      thumbnail: "/rezzil-thumbnail.png",
+      thumbnail: "/video-thumbnail-placeholder.svg",
       videoUrl: "/rezzil-player.mp4"
     },
     {
       id: 3,
       title: "ICON Heist",
       category: "Fashion Film",
-      thumbnail: "/icon-heist-thumbnail.png",
+      thumbnail: "/video-thumbnail-placeholder.svg",
       videoUrl: "/icon-heist-video.mp4"
     },
     {
       id: 4,
       title: "Padel Website",
       category: "Digital Campaign",
-      thumbnail: "/padel-thumbnail.jpg",
+      thumbnail: "/video-thumbnail-placeholder.svg",
       videoUrl: "/hero-video.mp4"
     }
   ];
