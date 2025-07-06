@@ -210,7 +210,7 @@ export default function ContentPartnership() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-stone text-onyx" ref={featuresRef}>
+      <section className="py-24 bg-fiery text-white" ref={featuresRef}>
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -219,7 +219,7 @@ export default function ContentPartnership() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 tracking-tight uppercase">
-              What's <span className="text-fiery">Included</span>
+              What's <span className="text-onyx">Included</span>
             </h2>
             <p className="text-xl font-jetbrains-mono text-white max-w-3xl mx-auto">
               Everything you need for a consistent, professional content presence
@@ -239,14 +239,14 @@ export default function ContentPartnership() {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 transition-all duration-300 ${
-                  hoveredFeature === index ? 'bg-onyx text-white shadow-lg' : 'bg-fiery text-white'
+                  hoveredFeature === index ? 'bg-white text-fiery shadow-lg' : 'bg-onyx text-white'
                 }`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide group-hover:text-fiery transition-colors duration-300">
+                <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide group-hover:text-onyx transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="font-jetbrains-mono text-white leading-relaxed group-hover:text-fiery transition-colors duration-300">
+                <p className="font-jetbrains-mono text-white leading-relaxed group-hover:text-onyx transition-colors duration-300">
                   {feature.description}
                 </p>
               </motion.div>
@@ -325,7 +325,7 @@ export default function ContentPartnership() {
       </section>
 
       {/* Process Timeline Section */}
-      <section className="py-24 bg-stone text-onyx" ref={processRef}>
+      <section className="py-24 bg-fiery text-white" ref={processRef}>
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -334,7 +334,7 @@ export default function ContentPartnership() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 tracking-tight uppercase">
-              Our <span className="text-fiery">Process</span>
+              Our <span className="text-onyx">Process</span>
             </h2>
             <p className="text-xl font-jetbrains-mono text-white max-w-3xl mx-auto">
               From concept to delivery - a streamlined 3-step process that delivers results
@@ -352,11 +352,11 @@ export default function ContentPartnership() {
               >
                 {/* Timeline Line */}
                 {index < processSteps.length - 1 && (
-                  <div className="absolute left-8 top-16 w-0.5 h-16 bg-fiery/30"></div>
+                  <div className="absolute left-8 top-16 w-0.5 h-16 bg-onyx/30"></div>
                 )}
                 
                 {/* Step Number */}
-                <div className="flex-shrink-0 w-16 h-16 bg-fiery text-white rounded-full flex items-center justify-center mr-8">
+                <div className="flex-shrink-0 w-16 h-16 bg-onyx text-white rounded-full flex items-center justify-center mr-8">
                   <span className="text-xl font-roboto-condensed font-black">{step.step}</span>
                 </div>
                 
@@ -387,7 +387,7 @@ export default function ContentPartnership() {
 
 
       {/* Benefits Section */}
-      <section className="py-24 bg-stone text-onyx" ref={benefitsRef}>
+      <section className="py-24 bg-fiery text-white" ref={benefitsRef}>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -396,7 +396,7 @@ export default function ContentPartnership() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-5xl md:text-6xl font-roboto-condensed font-black leading-[0.85] mb-8 text-white tracking-tight uppercase">
-                <span className="text-fiery">Dedicated Account</span><br />
+                <span className="text-onyx">Dedicated Account</span><br />
                 Management
               </h2>
               <p className="text-xl font-jetbrains-mono text-white/80 mb-8 leading-relaxed">
@@ -434,7 +434,7 @@ export default function ContentPartnership() {
       </section>
 
       {/* Investment Section */}
-      <section className="py-24 bg-stone text-onyx" ref={pricingRef}>
+      <section className="py-24 bg-fiery text-white" ref={pricingRef}>
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -443,9 +443,9 @@ export default function ContentPartnership() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 tracking-tight uppercase">
-              <span className="text-fiery">Investment</span>
+              <span className="text-onyx">Investment</span>
             </h2>
-            <p className="text-xl font-jetbrains-mono text-onyx/80 max-w-3xl mx-auto">
+            <p className="text-xl font-jetbrains-mono text-white max-w-3xl mx-auto">
               Transform your brand with premium content that drives results
             </p>
           </motion.div>
