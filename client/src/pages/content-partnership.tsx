@@ -181,7 +181,7 @@ export default function ContentPartnership() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -221,7 +221,7 @@ export default function ContentPartnership() {
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 tracking-tight uppercase">
               What's <span className="text-fiery">Included</span>
             </h2>
-            <p className="text-xl font-jetbrains-mono text-onyx/80 max-w-3xl mx-auto">
+            <p className="text-xl font-jetbrains-mono text-white max-w-3xl mx-auto">
               Everything you need for a consistent, professional content presence
             </p>
           </motion.div>
@@ -246,7 +246,7 @@ export default function ContentPartnership() {
                 <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide group-hover:text-fiery transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="font-jetbrains-mono text-onyx/70 leading-relaxed group-hover:text-onyx transition-colors duration-300">
+                <p className="font-jetbrains-mono text-white leading-relaxed group-hover:text-fiery transition-colors duration-300">
                   {feature.description}
                 </p>
               </motion.div>
@@ -336,7 +336,7 @@ export default function ContentPartnership() {
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 tracking-tight uppercase">
               Our <span className="text-fiery">Process</span>
             </h2>
-            <p className="text-xl font-jetbrains-mono text-onyx/80 max-w-3xl mx-auto">
+            <p className="text-xl font-jetbrains-mono text-white max-w-3xl mx-auto">
               From concept to delivery - a streamlined 3-step process that delivers results
             </p>
           </motion.div>
@@ -374,7 +374,7 @@ export default function ContentPartnership() {
                       <span className="font-jetbrains-mono text-sm">{step.timeline}</span>
                     </div>
                   </div>
-                  <p className="font-jetbrains-mono text-onyx/80 leading-relaxed">
+                  <p className="font-jetbrains-mono text-white leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -384,67 +384,7 @@ export default function ContentPartnership() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-onyx" ref={faqRef}>
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isFaqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white tracking-tight uppercase">
-              <span className="text-fiery">Frequently Asked</span><br />Questions
-            </h2>
-            <p className="text-xl font-jetbrains-mono text-white/80 max-w-3xl mx-auto">
-              Everything you need to know about our subscription service
-            </p>
-          </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                className="border-b border-white/10 last:border-b-0"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isFaqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-              >
-                <button
-                  className="w-full py-6 flex items-center justify-between text-left hover:text-fiery transition-colors duration-300"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <h3 className="text-xl md:text-2xl font-oswald font-medium text-white pr-8">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown 
-                    className={`w-6 h-6 text-fiery flex-shrink-0 transform transition-transform duration-300 ${
-                      openFaq === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <AnimatePresence>
-                  {openFaq === index && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pb-6">
-                        <p className="font-jetbrains-mono text-white/80 leading-relaxed text-lg">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Benefits Section */}
       <section className="py-24 bg-stone text-onyx" ref={benefitsRef}>
@@ -583,6 +523,68 @@ export default function ContentPartnership() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-onyx" ref={faqRef}>
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isFaqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white tracking-tight uppercase">
+              <span className="text-fiery">Frequently Asked</span><br />Questions
+            </h2>
+            <p className="text-xl font-jetbrains-mono text-white/80 max-w-3xl mx-auto">
+              Everything you need to know about our partnership service
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                className="border-b border-white/10 last:border-b-0"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isFaqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+              >
+                <button
+                  className="w-full py-6 flex items-center justify-between text-left hover:text-fiery transition-colors duration-300"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                >
+                  <h3 className="text-xl md:text-2xl font-oswald font-medium text-white pr-8">
+                    {faq.question}
+                  </h3>
+                  <ChevronDown 
+                    className={`w-6 h-6 text-fiery flex-shrink-0 transform transition-transform duration-300 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-6">
+                        <p className="font-jetbrains-mono text-white/80 leading-relaxed text-lg">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
