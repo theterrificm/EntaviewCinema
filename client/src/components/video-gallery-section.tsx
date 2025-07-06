@@ -86,12 +86,12 @@ export default function VideoGallerySection() {
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative overflow-hidden rounded-lg">
-                {/* Static thumbnail - Always visible */}
+                {/* Static thumbnail - Always visible when not hovered */}
                 <img 
                   src={video.thumbnail}
                   alt={video.title}
-                  className={`w-full h-64 object-cover transition-all duration-500 ${
-                    hoveredVideo === video.videoUrl ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
+                  className={`w-full h-64 object-cover transition-all duration-500 z-10 ${
+                    hoveredVideo === video.videoUrl ? 'opacity-0 scale-110' : 'opacity-100'
                   }`}
                   onError={(e) => {
                     console.error('Gallery thumbnail error:', video.title, e);
@@ -100,22 +100,22 @@ export default function VideoGallerySection() {
                   }}
                 />
                 
-                {/* Video preview on hover */}
+                {/* Video preview on hover - behind thumbnail initially */}
                 <VideoErrorBoundary>
                   <SimpleVideoAutoplay
                     src={video.videoUrl}
                     enableHoverPlay={true}
-                    className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${
+                    className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 z-5 ${
                       hoveredVideo === video.videoUrl ? 'opacity-100' : 'opacity-0'
                     }`}
                   />
                 </VideoErrorBoundary>
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20"></div>
                 
                 {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
                   <div className="w-20 h-20 bg-fiery/90 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M8 5v10l8-5z"/>
@@ -124,7 +124,7 @@ export default function VideoGallerySection() {
                 </div>
                 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-25">
                   <div className="text-sm text-fiery font-oswald font-medium mb-2 tracking-wider uppercase">{video.category}</div>
                   <h3 className="text-xl font-oswald font-medium tracking-wide">{video.title}</h3>
                 </div>
