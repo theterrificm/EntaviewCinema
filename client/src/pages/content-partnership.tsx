@@ -293,7 +293,11 @@ export default function ContentPartnership() {
                   alt={client.name}
                   className="max-h-12 w-auto object-contain"
                   onError={(e) => {
+                    console.log('Logo failed to load:', client.name, client.logo);
                     e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={(e) => {
+                    console.log('Logo loaded successfully:', client.name);
                   }}
                 />
               </motion.div>
