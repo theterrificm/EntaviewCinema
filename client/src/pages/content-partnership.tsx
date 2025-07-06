@@ -419,10 +419,10 @@ export default function ContentPartnership() {
               animate={isBenefitsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl bg-onyx">
                 <VideoErrorBoundary>
                   <SimpleVideoAutoplay
-                    src="/maku-showreel-optimized.mp4"
+                    src="/2025 Showreel MAKU (1)_1749340063718.mp4"
                     className="w-full h-full object-cover"
                     enableHoverPlay={true}
                   />
