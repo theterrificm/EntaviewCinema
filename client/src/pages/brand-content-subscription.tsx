@@ -66,7 +66,7 @@ export default function BrandContentSubscription() {
           <VideoErrorBoundary>
             <SimpleVideoAutoplay
               src="/1. Comp Open - Manifest v5_1749342296563.mp4"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-top"
               enableHoverPlay={false}
             />
           </VideoErrorBoundary>
