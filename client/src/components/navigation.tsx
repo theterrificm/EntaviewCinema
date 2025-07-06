@@ -13,7 +13,7 @@ export default function Navigation() {
     { path: "/", label: "Home" },
     { path: "/brand-films", label: "Brand Films" },
     { path: "/social-content", label: "Social Content" },
-    { path: "/brand-content-subscription", label: "Brand Content Subscription" },
+    { path: "/content-partnership", label: "Content Partnership" },
     { path: "/our-work", label: "Our Work" },
     { path: "/insights", label: "Insights" },
     { path: "/contact", label: "Contact" },

@@ -15,7 +15,7 @@ import IconLogo from "@assets/ICON LOGO white_1749472507635.png";
 import PadelLogo from "@assets/Padel Social Club_Logo_White_CMYK_AW_1749469804275.png";
 import FreshEgoKidLogo from "@assets/FreshEgoKid-LockUp-White 2_1749467123710.png";
 
-export default function BrandContentSubscription() {
+export default function ContentPartnership() {
   const heroRef = useRef(null);
   const featuresRef = useRef(null);
   const benefitsRef = useRef(null);
@@ -172,8 +172,8 @@ export default function BrandContentSubscription() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white tracking-tight uppercase">
-              Brand Content<br />
-              <span className="text-fiery italic">Subscription</span>
+              Content<br />
+              <span className="text-fiery italic">Partnership</span>
             </h1>
           </motion.div>
           
