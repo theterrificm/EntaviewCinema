@@ -83,29 +83,22 @@ export default function BrandContentSubscription() {
   const processSteps = [
     {
       step: "01",
-      title: "Discovery & Strategy",
-      description: "We dive deep into your brand, audience, and goals to create a content strategy that resonates.",
+      title: "Strategy & Concepts",
+      description: "We dive deep into your brand, develop compelling concepts, and create a content strategy that resonates with your audience.",
       timeline: "Week 1",
       icon: <Users className="w-6 h-6" />
     },
     {
-      step: "02", 
-      title: "Creative Concepts",
-      description: "Our team develops compelling concepts, storyboards, and campaign ideas tailored to your brand.",
-      timeline: "Week 1-2",
-      icon: <TrendingUp className="w-6 h-6" />
-    },
-    {
-      step: "03",
+      step: "02",
       title: "Production",
       description: "High-quality cinematic shoots with consistent style and storytelling aligned with your vision.",
       timeline: "Week 2-3",
       icon: <Play className="w-6 h-6" />
     },
     {
-      step: "04",
-      title: "Post-Production",
-      description: "Professional editing, color grading, and delivery of polished content ready for launch.",
+      step: "03",
+      title: "Post-Production & Delivery",
+      description: "Professional editing, color grading, and delivery of polished content ready for launch across all platforms.",
       timeline: "Week 3-4",
       icon: <Award className="w-6 h-6" />
     }
@@ -353,7 +346,7 @@ export default function BrandContentSubscription() {
               Our <span className="text-fiery">Process</span>
             </h2>
             <p className="text-xl font-jetbrains-mono text-onyx/80 max-w-3xl mx-auto">
-              From concept to delivery - a streamlined 4-week process that delivers results
+              From concept to delivery - a streamlined 3-step process that delivers results
             </p>
           </motion.div>
 
