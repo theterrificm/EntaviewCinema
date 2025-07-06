@@ -7,13 +7,7 @@ import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
 import { CheckCircle, Play, Calendar, Users, TrendingUp, Award, ArrowRight, Clock, Star, ChevronDown } from "lucide-react";
 
-// Import client logos
-import ManUtdLogo from "@assets/ManUtdLogo-notag-WO_1749467061387.png";
-import RezzilLogo from "@assets/Rezzil Player W_1749467627330.png";
-import TeremanaLogo from "@assets/JM_INT_Logo_Wordmark_White_RGB_digital_display_1749472035908.png";
-import IconLogo from "@assets/ICON LOGO white_1749472507635.png";
-import PadelLogo from "@assets/Padel Social Club_Logo_White_CMYK_AW_1749469804275.png";
-import FreshEgoKidLogo from "@assets/FreshEgoKid-LockUp-White 2_1749467123710.png";
+
 
 export default function ContentPartnership() {
   const heroRef = useRef(null);
@@ -72,12 +66,12 @@ export default function ContentPartnership() {
   };
 
   const clientLogos = [
-    { name: "ManUtd", logo: ManUtdLogo },
-    { name: "Rezzil", logo: RezzilLogo },
-    { name: "Teremana", logo: TeremanaLogo },
-    { name: "Icon", logo: IconLogo },
-    { name: "Padel Social Club", logo: PadelLogo },
-    { name: "Fresh Ego Kid", logo: FreshEgoKidLogo }
+    { name: "ManUtd", logo: "/logos/manutd.png" },
+    { name: "Rezzil", logo: "/logos/rezzil.png" },
+    { name: "Teremana", logo: "/logos/teremana.png" },
+    { name: "Icon", logo: "/logos/icon.png" },
+    { name: "Padel Social Club", logo: "/logos/padel.png" },
+    { name: "Fresh Ego Kid", logo: "/logos/freshegokid.png" }
   ];
 
   const processSteps = [
@@ -292,13 +286,6 @@ export default function ContentPartnership() {
                   src={client.logo} 
                   alt={client.name}
                   className="max-h-12 w-auto object-contain"
-                  onError={(e) => {
-                    console.log('Logo failed to load:', client.name, client.logo);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={(e) => {
-                    console.log('Logo loaded successfully:', client.name);
-                  }}
                 />
               </motion.div>
             ))}
