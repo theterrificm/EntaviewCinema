@@ -167,17 +167,17 @@ export default function PricingSection() {
                 </div>
                 
                 <div className="text-center">
-                  <h3 className="text-2xl font-helvetica font-normal mb-2 group-hover:text-fiery transition-colors duration-300">
+                  <h3 className="text-2xl font-oswald font-medium mb-2 group-hover:text-fiery transition-colors duration-300 tracking-wide uppercase">
                     {pkg.name}
                   </h3>
                   <motion.div 
-                    className="text-4xl font-helvetica font-light mb-2"
+                    className="text-4xl font-roboto-condensed font-black mb-2"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                   >
                     {pkg.price}
                   </motion.div>
-                  <p className="text-sm opacity-70 font-helvetica font-light">{pkg.description}</p>
+                  <p className="text-sm opacity-70 font-jetbrains-mono">{pkg.description}</p>
                 </div>
               </div>
               
@@ -197,7 +197,7 @@ export default function PricingSection() {
                     >
                       •
                     </motion.span>
-                    <span className="text-sm font-helvetica font-light">{feature}</span>
+                    <span className="text-sm font-jetbrains-mono">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
