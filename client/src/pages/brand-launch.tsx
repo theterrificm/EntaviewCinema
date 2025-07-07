@@ -36,18 +36,18 @@ export default function BrandLaunch() {
   const process = [
     {
       step: "01",
-      title: "StoryBrand Strategy",
-      description: "We identify your customer's problem, position your brand as the guide, and create a clear plan that leads to success."
+      title: "Strategic Foundation",
+      description: "We identify your customer's core problems, position your brand as the trusted guide, and create a clear plan that leads to success."
     },
     {
       step: "02", 
       title: "Launch Campaign",
-      description: "Cinematic storytelling that introduces your brand hero's journey and calls customers to transformative action."
+      description: "Cinematic storytelling that introduces your brand solution and calls customers to take meaningful action toward transformation."
     },
     {
       step: "03",
       title: "Market Impact",
-      description: "Measure success through customer engagement, brand recognition, and revenue growth that proves your story works."
+      description: "Measure success through customer engagement, brand recognition, and revenue growth that proves your messaging resonates."
     }
   ];
 
@@ -74,7 +74,7 @@ export default function BrandLaunch() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Using the proven StoryBrand framework, we craft compelling launch narratives that position your brand as the hero your customers need, driving immediate market impact and lasting brand loyalty.
+            We craft compelling launch narratives that connect your brand with customers who need what you offer, driving immediate market impact and lasting brand loyalty through strategic storytelling.
           </motion.p>
           
           <motion.div
@@ -85,7 +85,7 @@ export default function BrandLaunch() {
           >
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
               <Target className="w-5 h-5 text-fiery" />
-              <span className="font-jetbrains-mono text-sm text-white">StoryBrand Framework</span>
+              <span className="font-jetbrains-mono text-sm text-white">Strategic Messaging</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
               <TrendingUp className="w-5 h-5 text-fiery" />
@@ -149,7 +149,7 @@ export default function BrandLaunch() {
                   ICON Brand Launch Story
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
-                  StoryBrand framework applied to streetwear launch, positioning ICON as the guide to customer style transformation.
+                  Strategic messaging applied to streetwear launch, positioning ICON as the guide to customer style transformation.
                 </p>
               </div>
             </motion.div>
@@ -186,7 +186,7 @@ export default function BrandLaunch() {
                   Teremana UK Market Entry
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
-                  Premium spirits brand launch using StoryBrand principles to establish market authority and customer trust.
+                  Premium spirits brand launch using strategic storytelling principles to establish market authority and customer trust.
                 </p>
               </div>
             </motion.div>
@@ -223,10 +223,10 @@ export default function BrandLaunch() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
-              The StoryBrand Solution
+              Our Strategic Solution
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
-              We use the proven StoryBrand framework to create crystal-clear launch narratives that position your brand as the guide and your customer as the hero of their transformation story.
+              We create crystal-clear launch narratives that position your brand as the trusted guide, helping customers understand exactly how your solution transforms their world.
             </p>
           </motion.div>
         </div>
@@ -277,7 +277,7 @@ export default function BrandLaunch() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight">
-              The StoryBrand Launch Process
+              Our Launch Process
             </h2>
             
             <div className="grid md:grid-cols-3 gap-12">
@@ -317,7 +317,7 @@ export default function BrandLaunch() {
               Ready to Launch Your Brand Story?
             </h2>
             <p className="text-xl font-jetbrains-mono font-light text-white/80 mb-8">
-              Let's transform your brand launch into a customer success story using the proven StoryBrand framework.
+              Let's transform your brand launch into a customer success story with clear, compelling messaging that drives action.
             </p>
             <motion.button
               className="bg-fiery text-white px-12 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
