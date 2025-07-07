@@ -218,7 +218,7 @@ export default function BrandFilms() {
                     Investment details:
                   </p>
                   <div className="text-3xl md:text-4xl font-oswald font-bold text-fiery mb-4">
-                    Book call for investment
+                    Book a call for quote
                   </div>
                   <p className="text-lg font-jetbrains-mono font-light text-white/70 mb-8">
                     Complete culture film package
