@@ -82,7 +82,7 @@ export default function PricingSection() {
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
-              className={`relative p-8 rounded-lg border overflow-hidden group cursor-pointer ${
+              className={`relative p-8 rounded-lg border overflow-hidden group cursor-pointer flex flex-col h-full ${
                 pkg.popular 
                   ? 'border-fiery bg-fiery/5' 
                   : 'border-white/20 bg-white/5'
@@ -181,7 +181,7 @@ export default function PricingSection() {
                 </div>
               </div>
               
-              <ul className="space-y-3 mb-8 relative z-10">
+              <ul className="space-y-3 mb-8 relative z-10 flex-1">
                 {pkg.features.map((feature, i) => (
                   <motion.li 
                     key={i} 
@@ -204,7 +204,7 @@ export default function PricingSection() {
               
               <motion.button 
                 onClick={handleBookCall}
-                className={`w-full py-3 font-oswald font-medium text-sm uppercase tracking-widest transition-all duration-300 relative z-10 ${
+                className={`w-full py-3 font-oswald font-medium text-sm uppercase tracking-widest transition-all duration-300 relative z-10 mt-auto ${
                   pkg.popular
                     ? 'bg-fiery hover:bg-fiery/90 text-white'
                     : 'border border-white/30 text-white hover:bg-white/10'
