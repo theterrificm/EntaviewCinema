@@ -170,6 +170,10 @@ export default function OurWork() {
     return industryMatch && formatMatch;
   });
 
+  // Separate vertical videos for social content section
+  const verticalVideos = filteredProjects.filter(project => project.aspect === "9:16");
+  const horizontalVideos = filteredProjects.filter(project => project.aspect === "16:9");
+
   return (
     <div className="min-h-screen bg-black">
       <Navigation />
@@ -219,7 +223,7 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* Clean Grid Layout - Art of Documentary Style */}
+      {/* Main Projects - Horizontal Videos */}
       <section className="py-16 px-6 bg-onyx">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -228,7 +232,7 @@ export default function OurWork() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {filteredProjects.map((project, index) => (
+            {horizontalVideos.map((project, index) => (
               <motion.div
                 key={project.id}
                 className="group cursor-pointer"
@@ -293,6 +297,102 @@ export default function OurWork() {
           </motion.div>
         </div>
       </section>
+
+      {/* Social Content - Vertical Videos */}
+      {verticalVideos.length > 0 && (
+        <section className="py-16 px-6 bg-black">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-4 tracking-tight">
+                Social Content
+              </h2>
+              <p className="text-lg font-jetbrains-mono font-light text-white/70 max-w-2xl mx-auto">
+                Optimized for social media platforms and mobile consumption.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              {verticalVideos.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="group cursor-pointer max-w-xs"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredVideo(project.id)}
+                  onMouseLeave={() => setHoveredVideo(null)}
+                  onClick={() => openVideoModal(project.video, project.title)}
+                >
+                  {/* Vertical Video Thumbnail */}
+                  <div className="aspect-[9/16] bg-stone/10 overflow-hidden mb-4 relative rounded-lg">
+                    <SimpleVideoAutoplay
+                      src={project.video}
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                      enableHoverPlay={hoveredVideo === project.id}
+                    />
+                    
+                    {/* Subtle Overlay */}
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-12 h-12 border border-white/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <Play className="w-5 h-5 text-white ml-0.5" />
+                      </div>
+                    </div>
+                    
+                    {/* Duration */}
+                    <div className="absolute bottom-3 right-3 bg-black/70 text-white px-2 py-1 text-xs font-jetbrains-mono rounded backdrop-blur-sm">
+                      {project.duration}
+                    </div>
+                    
+                    {/* Social Badge */}
+                    <div className="absolute top-3 left-3 bg-fiery text-white px-2 py-1 text-xs font-jetbrains-mono rounded">
+                      Social
+                    </div>
+                  </div>
+
+                  {/* Project Info */}
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-oswald font-medium text-white group-hover:text-fiery transition-colors duration-300 leading-tight">
+                      {project.title}
+                    </h3>
+                    
+                    <div className="flex items-center gap-2 text-xs font-jetbrains-mono text-white/60">
+                      <span className="capitalize">{project.industry}</span>
+                      <span>•</span>
+                      <span>{project.aspect}</span>
+                    </div>
+                    
+                    <p className="text-xs font-jetbrains-mono text-white/70 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    {/* Key Metrics */}
+                    <div className="space-y-1 pt-1">
+                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
+                        <div key={metricIndex} className="text-xs font-jetbrains-mono text-fiery">
+                          {metric}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-t from-fiery/10 to-onyx">
