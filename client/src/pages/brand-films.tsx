@@ -55,13 +55,13 @@ export default function BrandFilms() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none"
+            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none uppercase"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Your Story Deserves to Be{" "}
-            <span className="text-fiery">Cinematic</span>
+            YOUR STORY DESERVES TO BE{" "}
+            <span className="text-fiery">CINEMATIC</span>
           </motion.h1>
           
           <motion.p
