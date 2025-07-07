@@ -12,7 +12,7 @@ export default function Navigation() {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/brand-films", label: "Brand Films" },
-    { path: "/social-content", label: "Social Content" },
+    { path: "/brand-launch", label: "Brand Launch" },
     { path: "/content-partnership", label: "Content Partnership" },
     { path: "/our-work", label: "Our Work" },
     { path: "/insights", label: "Insights" },

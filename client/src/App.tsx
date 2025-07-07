@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import BrandFilms from "@/pages/brand-films";
-import SocialContent from "@/pages/social-content";
+import BrandLaunch from "@/pages/brand-launch";
 import ContentPartnership from "@/pages/content-partnership";
 import OurWork from "@/pages/our-work";
 import Contact from "@/pages/contact";
@@ -17,7 +17,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/brand-films" component={BrandFilms} />
-      <Route path="/social-content" component={SocialContent} />
+      <Route path="/brand-launch" component={BrandLaunch} />
       <Route path="/content-partnership" component={ContentPartnership} />
       <Route path="/our-work" component={OurWork} />
       <Route path="/contact" component={Contact} />
