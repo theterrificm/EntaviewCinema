@@ -226,7 +226,7 @@ export default function BrandLaunch() {
               OUR STRATEGIC SOLUTION
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
-              We create crystal-clear launch narratives that position your brand as the trusted guide, helping customers understand exactly how your solution transforms their world.
+              Through the power of storytelling, we create crystal-clear launch narratives that position your brand as the trusted guide, helping customers understand exactly how your solution transforms their world.
             </p>
           </motion.div>
         </div>
