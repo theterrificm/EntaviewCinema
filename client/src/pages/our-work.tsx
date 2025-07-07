@@ -255,89 +255,265 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-20 px-6 bg-iron">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className="group cursor-pointer"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                onMouseEnter={() => setHoveredVideo(project.id)}
-                onMouseLeave={() => setHoveredVideo(null)}
-                onClick={() => openVideoModal(project.video, project.title)}
-              >
-                <div className={`relative overflow-hidden rounded-lg mb-6 ${project.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video'}`}>
-                  <SimpleVideoAutoplay
-                    src={project.video}
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => openVideoModal(project.video, project.title)}
-                    enableHoverPlay={true}
-                  />
-                  
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                  
-                  {/* Orange border on hover */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-fiery text-white px-3 py-1 text-xs font-oswald font-medium tracking-wide uppercase rounded shadow-lg">
-                    {project.format.replace("-", " ")}
+      {/* Netflix-Style Content Rows */}
+      <section className="py-20 px-6 bg-black">
+        <div className="max-w-full mx-auto">
+          {/* Featured Content Row */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Featured Projects</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
+              {filteredProjects.slice(0, 6).map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredVideo(project.id)}
+                  onMouseLeave={() => setHoveredVideo(null)}
+                  onClick={() => openVideoModal(project.video, project.title)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="aspect-video bg-black relative overflow-hidden">
+                    <SimpleVideoAutoplay
+                      src={project.video}
+                      className="w-full h-full object-cover"
+                      enableHoverPlay={hoveredVideo === project.id}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                      {project.format.replace("-", " ")}
+                    </div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
+                      <p className="text-sm text-gray-300">{project.duration}</p>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play className="w-16 h-16 text-white" />
+                    </div>
                   </div>
-                  
-                  {/* Duration Badge */}
-                  <div className="absolute top-4 right-4 bg-black/60 text-white px-2 py-1 text-xs font-jetbrains-mono rounded backdrop-blur-sm">
-                    {project.duration}
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-500 text-sm font-medium uppercase">
+                        {project.industry}
+                      </span>
+                      <span className="text-gray-500">•</span>
+                      <span className="text-gray-400 text-sm">
+                        {project.aspect}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="space-y-1">
+                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
+                        <div key={metricIndex} className="flex items-center gap-2">
+                          <ArrowRight className="w-3 h-3 text-red-500" />
+                          <span className="text-gray-400 text-xs">
+                            {metric}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  
-                  {/* Click indicator */}
-                  <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Play size={20} />
-                  </div>
-                </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-oswald font-bold text-white group-hover:text-fiery transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="font-jetbrains-mono text-sm text-white/70 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  {/* Metrics */}
-                  <div className="space-y-2">
-                    {project.metrics.map((metric, metricIndex) => (
-                      <div
-                        key={metricIndex}
-                        className="text-sm font-jetbrains-mono font-medium text-fiery"
-                      >
-                        {metric}
-                      </div>
-                    ))}
+          {/* Brand Films Row */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Brand Films</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
+              {filteredProjects.filter(p => p.format === 'brand-film').map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredVideo(project.id)}
+                  onMouseLeave={() => setHoveredVideo(null)}
+                  onClick={() => openVideoModal(project.video, project.title)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="aspect-video bg-black relative overflow-hidden">
+                    <SimpleVideoAutoplay
+                      src={project.video}
+                      className="w-full h-full object-cover"
+                      enableHoverPlay={hoveredVideo === project.id}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                      Brand Film
+                    </div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
+                      <p className="text-sm text-gray-300">{project.duration}</p>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play className="w-16 h-16 text-white" />
+                    </div>
                   </div>
-                  
-                  <div className="flex items-center text-white/60 group-hover:text-white transition-colors duration-300">
-                    <span className="font-jetbrains-mono text-sm font-medium mr-2">
-                      View Case Study
-                    </span>
-                    <ArrowRight size={16} className="transform group-hover:translate-x-2 transition-transform duration-300" />
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-500 text-sm font-medium uppercase">
+                        {project.industry}
+                      </span>
+                      <span className="text-gray-500">•</span>
+                      <span className="text-gray-400 text-sm">
+                        {project.aspect}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="space-y-1">
+                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
+                        <div key={metricIndex} className="flex items-center gap-2">
+                          <ArrowRight className="w-3 h-3 text-red-500" />
+                          <span className="text-gray-400 text-xs">
+                            {metric}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Campaigns Row */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Campaigns</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
+              {filteredProjects.filter(p => p.format === 'campaign').map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredVideo(project.id)}
+                  onMouseLeave={() => setHoveredVideo(null)}
+                  onClick={() => openVideoModal(project.video, project.title)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="aspect-video bg-black relative overflow-hidden">
+                    <SimpleVideoAutoplay
+                      src={project.video}
+                      className="w-full h-full object-cover"
+                      enableHoverPlay={hoveredVideo === project.id}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                      Campaign
+                    </div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
+                      <p className="text-sm text-gray-300">{project.duration}</p>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play className="w-16 h-16 text-white" />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-500 text-sm font-medium uppercase">
+                        {project.industry}
+                      </span>
+                      <span className="text-gray-500">•</span>
+                      <span className="text-gray-400 text-sm">
+                        {project.aspect}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="space-y-1">
+                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
+                        <div key={metricIndex} className="flex items-center gap-2">
+                          <ArrowRight className="w-3 h-3 text-red-500" />
+                          <span className="text-gray-400 text-xs">
+                            {metric}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Showreels Row */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Showreels</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
+              {filteredProjects.filter(p => p.format === 'showreel').map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredVideo(project.id)}
+                  onMouseLeave={() => setHoveredVideo(null)}
+                  onClick={() => openVideoModal(project.video, project.title)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="aspect-video bg-black relative overflow-hidden">
+                    <SimpleVideoAutoplay
+                      src={project.video}
+                      className="w-full h-full object-cover"
+                      enableHoverPlay={hoveredVideo === project.id}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                      Showreel
+                    </div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
+                      <p className="text-sm text-gray-300">{project.duration}</p>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play className="w-16 h-16 text-white" />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-500 text-sm font-medium uppercase">
+                        {project.industry}
+                      </span>
+                      <span className="text-gray-500">•</span>
+                      <span className="text-gray-400 text-sm">
+                        {project.aspect}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="space-y-1">
+                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
+                        <div key={metricIndex} className="flex items-center gap-2">
+                          <ArrowRight className="w-3 h-3 text-red-500" />
+                          <span className="text-gray-400 text-xs">
+                            {metric}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-t from-fiery/10 to-iron">
+      <section className="py-20 px-6 bg-gradient-to-t from-red-900/20 to-black">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight"
