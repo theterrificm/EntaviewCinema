@@ -174,346 +174,128 @@ export default function OurWork() {
     <div className="min-h-screen bg-black">
       <Navigation />
       
-      {/* Hero Section - Home Page Style */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            See How We Help Brands{" "}
-            <span className="text-fiery">Lead Culture</span>
-          </motion.h1>
-          
-          <motion.p
-            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 mb-12 leading-relaxed max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Visually.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Filters Section - Netflix Style */}
-      <section ref={ref} className="py-12 px-6 bg-gray-900">
-        <div className="max-w-6xl mx-auto">
+      {/* Hero Section - Art of Documentary Style */}
+      <section className="pt-32 pb-16 px-6 bg-onyx">
+        <div className="max-w-7xl mx-auto">
           <motion.div
-            className="flex flex-col lg:flex-row gap-8 mb-12"
+            className="text-left mb-16"
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Industry Filter */}
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Filter size={20} />
-                Industry
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {industries.map((industry) => (
-                  <button
-                    key={industry}
-                    onClick={() => setActiveFilter(industry)}
-                    className={`px-4 py-2 text-sm font-medium rounded transition-all duration-300 ${
-                      activeFilter === industry
-                        ? "bg-red-600 text-white"
-                        : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-                    }`}
-                  >
-                    {industry.replace("-", " ")}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Format Filter */}
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Format
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {formats.map((format) => (
-                  <button
-                    key={format}
-                    onClick={() => setActiveFormat(format)}
-                    className={`px-4 py-2 text-sm font-medium rounded transition-all duration-300 ${
-                      activeFormat === format
-                        ? "bg-red-600 text-white"
-                        : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-                    }`}
-                  >
-                    {format.replace("-", " ")}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <h1 className="text-5xl md:text-6xl font-oswald font-light text-white mb-8 tracking-wide">
+              Our Work
+            </h1>
+            <p className="text-lg md:text-xl font-jetbrains-mono font-light text-white/70 max-w-2xl leading-relaxed">
+              A curated collection of cinematic stories that elevate brands and connect with audiences through authentic storytelling.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Netflix-Style Content Rows */}
-      <section className="py-20 px-6 bg-black">
-        <div className="max-w-full mx-auto">
-          {/* Featured Content Row */}
-          <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Featured Projects</h3>
-            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
-              {filteredProjects.slice(0, 6).map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredVideo(project.id)}
-                  onMouseLeave={() => setHoveredVideo(null)}
-                  onClick={() => openVideoModal(project.video, project.title)}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="aspect-video bg-black relative overflow-hidden">
-                    <SimpleVideoAutoplay
-                      src={project.video}
-                      className="w-full h-full object-cover"
-                      enableHoverPlay={hoveredVideo === project.id}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                      {project.format.replace("-", " ")}
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
-                      <p className="text-sm text-gray-300">{project.duration}</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play className="w-16 h-16 text-white" />
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-red-500 text-sm font-medium uppercase">
-                        {project.industry}
-                      </span>
-                      <span className="text-gray-500">•</span>
-                      <span className="text-gray-400 text-sm">
-                        {project.aspect}
-                      </span>
-                    </div>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="space-y-1">
-                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
-                        <div key={metricIndex} className="flex items-center gap-2">
-                          <ArrowRight className="w-3 h-3 text-red-500" />
-                          <span className="text-gray-400 text-xs">
-                            {metric}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+      {/* Simple Filter Section */}
+      <section ref={ref} className="py-8 px-6 bg-onyx border-b border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="flex flex-wrap gap-6 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+          >
+            {industries.map((industry) => (
+              <button
+                key={industry}
+                onClick={() => setActiveFilter(industry)}
+                className={`px-6 py-2 font-jetbrains-mono text-sm tracking-wide transition-all duration-300 ${
+                  activeFilter === industry
+                    ? "text-fiery border-b border-fiery"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                {industry === "all" ? "All" : industry.charAt(0).toUpperCase() + industry.slice(1)}
+              </button>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-          {/* Brand Films Row */}
-          <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Brand Films</h3>
-            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
-              {filteredProjects.filter(p => p.format === 'brand-film').map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredVideo(project.id)}
-                  onMouseLeave={() => setHoveredVideo(null)}
-                  onClick={() => openVideoModal(project.video, project.title)}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="aspect-video bg-black relative overflow-hidden">
-                    <SimpleVideoAutoplay
-                      src={project.video}
-                      className="w-full h-full object-cover"
-                      enableHoverPlay={hoveredVideo === project.id}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                      Brand Film
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
-                      <p className="text-sm text-gray-300">{project.duration}</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play className="w-16 h-16 text-white" />
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-red-500 text-sm font-medium uppercase">
-                        {project.industry}
-                      </span>
-                      <span className="text-gray-500">•</span>
-                      <span className="text-gray-400 text-sm">
-                        {project.aspect}
-                      </span>
-                    </div>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="space-y-1">
-                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
-                        <div key={metricIndex} className="flex items-center gap-2">
-                          <ArrowRight className="w-3 h-3 text-red-500" />
-                          <span className="text-gray-400 text-xs">
-                            {metric}
-                          </span>
-                        </div>
-                      ))}
+      {/* Clean Grid Layout - Art of Documentary Style */}
+      <section className="py-16 px-6 bg-onyx">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                onMouseEnter={() => setHoveredVideo(project.id)}
+                onMouseLeave={() => setHoveredVideo(null)}
+                onClick={() => openVideoModal(project.video, project.title)}
+              >
+                {/* Video Thumbnail */}
+                <div className="aspect-video bg-stone/10 overflow-hidden mb-6 relative">
+                  <SimpleVideoAutoplay
+                    src={project.video}
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    enableHoverPlay={hoveredVideo === project.id}
+                  />
+                  
+                  {/* Subtle Overlay */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 border border-white/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Play className="w-5 h-5 text-white ml-0.5" />
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                  
+                  {/* Duration */}
+                  <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 text-xs font-jetbrains-mono rounded backdrop-blur-sm">
+                    {project.duration}
+                  </div>
+                </div>
 
-          {/* Campaigns Row */}
-          <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Campaigns</h3>
-            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
-              {filteredProjects.filter(p => p.format === 'campaign').map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredVideo(project.id)}
-                  onMouseLeave={() => setHoveredVideo(null)}
-                  onClick={() => openVideoModal(project.video, project.title)}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="aspect-video bg-black relative overflow-hidden">
-                    <SimpleVideoAutoplay
-                      src={project.video}
-                      className="w-full h-full object-cover"
-                      enableHoverPlay={hoveredVideo === project.id}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                      Campaign
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
-                      <p className="text-sm text-gray-300">{project.duration}</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play className="w-16 h-16 text-white" />
-                    </div>
+                {/* Project Info */}
+                <div className="space-y-3">
+                  <h3 className="text-xl font-oswald font-medium text-white group-hover:text-fiery transition-colors duration-300 leading-tight">
+                    {project.title}
+                  </h3>
+                  
+                  <div className="flex items-center gap-3 text-sm font-jetbrains-mono text-white/60">
+                    <span className="capitalize">{project.industry}</span>
+                    <span>•</span>
+                    <span className="capitalize">{project.format.replace("-", " ")}</span>
                   </div>
-                  <div className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-red-500 text-sm font-medium uppercase">
-                        {project.industry}
-                      </span>
-                      <span className="text-gray-500">•</span>
-                      <span className="text-gray-400 text-sm">
-                        {project.aspect}
-                      </span>
-                    </div>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="space-y-1">
-                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
-                        <div key={metricIndex} className="flex items-center gap-2">
-                          <ArrowRight className="w-3 h-3 text-red-500" />
-                          <span className="text-gray-400 text-xs">
-                            {metric}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                  
+                  <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  {/* Key Metrics */}
+                  <div className="space-y-1 pt-2">
+                    {project.metrics.slice(0, 2).map((metric, metricIndex) => (
+                      <div key={metricIndex} className="text-xs font-jetbrains-mono text-fiery">
+                        {metric}
+                      </div>
+                    ))}
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Showreels Row */}
-          <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6 px-6">Showreels</h3>
-            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-6">
-              {filteredProjects.filter(p => p.format === 'showreel').map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  className="flex-shrink-0 w-80 bg-gray-900 rounded-lg overflow-hidden group cursor-pointer relative"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredVideo(project.id)}
-                  onMouseLeave={() => setHoveredVideo(null)}
-                  onClick={() => openVideoModal(project.video, project.title)}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="aspect-video bg-black relative overflow-hidden">
-                    <SimpleVideoAutoplay
-                      src={project.video}
-                      className="w-full h-full object-cover"
-                      enableHoverPlay={hoveredVideo === project.id}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
-                      Showreel
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-lg font-semibold mb-1">{project.title}</h4>
-                      <p className="text-sm text-gray-300">{project.duration}</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play className="w-16 h-16 text-white" />
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-red-500 text-sm font-medium uppercase">
-                        {project.industry}
-                      </span>
-                      <span className="text-gray-500">•</span>
-                      <span className="text-gray-400 text-sm">
-                        {project.aspect}
-                      </span>
-                    </div>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-3 line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="space-y-1">
-                      {project.metrics.slice(0, 2).map((metric, metricIndex) => (
-                        <div key={metricIndex} className="flex items-center gap-2">
-                          <ArrowRight className="w-3 h-3 text-red-500" />
-                          <span className="text-gray-400 text-xs">
-                            {metric}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-t from-red-900/20 to-black">
+      <section className="py-20 px-6 bg-gradient-to-t from-fiery/10 to-onyx">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight"
