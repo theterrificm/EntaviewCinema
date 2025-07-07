@@ -330,10 +330,7 @@ export default function BrandCampaign() {
             transition={{ duration: 0.8, delay: 1.2 }}
             whileHover={{ scale: 1.02 }}
           >
-            {/* Most Popular Badge */}
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-6 py-2 text-sm font-oswald font-medium rounded-full z-20 shadow-lg border-2 border-white tracking-wider uppercase">
-              Most Popular
-            </div>
+
             
             <div className="text-center mb-8">
               <h3 className="text-3xl font-oswald font-medium text-white mb-4 tracking-wide uppercase">
