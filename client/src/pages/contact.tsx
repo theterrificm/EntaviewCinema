@@ -238,18 +238,14 @@ export default function Contact() {
               <ul className="space-y-3 font-jetbrains-mono text-sm text-white/80">
                 <li className="flex items-start gap-3">
                   <span className="text-fiery font-bold">1.</span>
-                  We review your project details within 24 hours
+                  We review your project and schedule a discovery call within 24 hours
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-fiery font-bold">2.</span>
-                  Schedule a discovery call to discuss your vision
+                  Discuss your vision and receive a custom strategy proposal
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-fiery font-bold">3.</span>
-                  Receive a custom strategy and proposal
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-fiery font-bold">4.</span>
                   Begin creating content that moves culture
                 </li>
               </ul>
