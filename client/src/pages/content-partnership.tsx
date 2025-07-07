@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Link } from "wouter";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
@@ -641,22 +642,26 @@ export default function ContentPartnership() {
                 </div>
 
                 <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.button 
-                    className="bg-fiery text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 hover:bg-fiery/90 hover:shadow-lg flex items-center gap-3 justify-center"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    BOOK A DISCOVERY CALL
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.button>
-                  <motion.button 
-                    className="border-2 border-onyx text-onyx hover:bg-onyx hover:text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-3 justify-center"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    VIEW PORTFOLIO
-                    <Play className="w-5 h-5" />
-                  </motion.button>
+                  <Link href="/contact">
+                    <motion.button 
+                      className="bg-fiery text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 hover:bg-fiery/90 hover:shadow-lg flex items-center gap-3 justify-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      BOOK A DISCOVERY CALL
+                      <ArrowRight className="w-5 h-5" />
+                    </motion.button>
+                  </Link>
+                  <Link href="/our-work">
+                    <motion.button 
+                      className="border-2 border-onyx text-onyx hover:bg-onyx hover:text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-3 justify-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      VIEW PORTFOLIO
+                      <Play className="w-5 h-5" />
+                    </motion.button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -743,22 +748,26 @@ export default function ContentPartnership() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <motion.button 
-                className="bg-fiery hover:bg-fiery/90 text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-3 justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                BOOK A DISCOVERY CALL
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              <motion.button 
-                className="border border-white/30 text-white hover:bg-white/10 px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-3 justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Play className="w-5 h-5" />
-                VIEW PORTFOLIO
-              </motion.button>
+              <Link href="/contact">
+                <motion.button 
+                  className="bg-fiery hover:bg-fiery/90 text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-3 justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  BOOK A DISCOVERY CALL
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+              </Link>
+              <Link href="/our-work">
+                <motion.button 
+                  className="border border-white/30 text-white hover:bg-white/10 px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-3 justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Play className="w-5 h-5" />
+                  VIEW PORTFOLIO
+                </motion.button>
+              </Link>
             </div>
 
             {/* Stats or Trust Indicators */}
