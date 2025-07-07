@@ -141,11 +141,11 @@ export default function ContentPartnership() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-onyx text-white">
       <Navigation />
       
-      {/* Hero Section - Netflix Style */}
-      <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-black" ref={heroRef}>
+      {/* Hero Section with Video */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden" ref={heroRef}>
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full">
           <VideoErrorBoundary>
@@ -155,41 +155,56 @@ export default function ContentPartnership() {
               enableHoverPlay={false}
             />
           </VideoErrorBoundary>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-onyx/70"></div>
         </div>
 
-        {/* Hero Content - Left Aligned Netflix Style */}
-        <div className="relative z-10 container mx-auto px-6 max-w-2xl">
+        {/* Hero Content */}
+        <div className="relative z-10 container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
-              Content Partnership
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white tracking-tight uppercase">
+              Content<br />
+              <span className="text-fiery italic">Partnership</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Never run out of premium content. Transform your brand with consistent, culture-shaping content that keeps you leading the conversation.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <motion.button 
-                className="bg-white text-black px-8 py-3 font-semibold text-lg rounded hover:bg-white/90 transition-all duration-300 flex items-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Play className="w-5 h-5" />
-                LEARN MORE
-              </motion.button>
-              <motion.button 
-                onClick={() => setShowReelModal(true)}
-                className="bg-gray-700/80 text-white px-8 py-3 font-semibold text-lg rounded hover:bg-gray-700/60 transition-all duration-300 flex items-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Info className="w-5 h-5" />
-                MORE INFO
-              </motion.button>
-            </div>
+          </motion.div>
+          
+          <motion.h2
+            className="text-3xl md:text-4xl font-oswald font-medium text-white mb-6 tracking-wide"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+            Consistent, Culture-Shaping Content for Your Brand
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white mb-12 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            Stay relevant and lead culture with a steady stream of cinematic content crafted for your brand.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+          >
+            <button className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 hover:scale-105">
+              BOOK A DISCOVERY CALL
+            </button>
+            <button 
+              onClick={() => setShowReelModal(true)}
+              className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-2"
+            >
+              <Play className="w-5 h-5" />
+              WATCH EXAMPLES
+            </button>
           </motion.div>
         </div>
       </section>

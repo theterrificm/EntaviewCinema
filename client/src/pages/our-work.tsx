@@ -171,10 +171,10 @@ export default function OurWork() {
   });
 
   return (
-    <div className="min-h-screen bg-onyx">
+    <div className="min-h-screen bg-black">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section - Home Page Style */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h1
@@ -198,8 +198,8 @@ export default function OurWork() {
         </div>
       </section>
 
-      {/* Filters Section */}
-      <section ref={ref} className="py-12 px-6 bg-gradient-to-b from-onyx to-iron">
+      {/* Filters Section - Netflix Style */}
+      <section ref={ref} className="py-12 px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <motion.div
             className="flex flex-col lg:flex-row gap-8 mb-12"
@@ -209,7 +209,7 @@ export default function OurWork() {
           >
             {/* Industry Filter */}
             <div className="flex-1">
-              <h3 className="text-lg font-oswald font-medium text-white mb-4 tracking-wide flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Filter size={20} />
                 Industry
               </h3>
@@ -218,10 +218,10 @@ export default function OurWork() {
                   <button
                     key={industry}
                     onClick={() => setActiveFilter(industry)}
-                    className={`px-4 py-2 text-sm font-jetbrains-mono font-medium tracking-wide uppercase transition-all duration-300 ${
+                    className={`px-4 py-2 text-sm font-medium rounded transition-all duration-300 ${
                       activeFilter === industry
-                        ? "bg-fiery text-white"
-                        : "bg-white/10 text-white/70 hover:bg-white/20"
+                        ? "bg-red-600 text-white"
+                        : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                     }`}
                   >
                     {industry.replace("-", " ")}
@@ -232,7 +232,7 @@ export default function OurWork() {
 
             {/* Format Filter */}
             <div className="flex-1">
-              <h3 className="text-lg font-oswald font-medium text-white mb-4 tracking-wide">
+              <h3 className="text-lg font-semibold text-white mb-4">
                 Format
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -240,10 +240,10 @@ export default function OurWork() {
                   <button
                     key={format}
                     onClick={() => setActiveFormat(format)}
-                    className={`px-4 py-2 text-sm font-jetbrains-mono font-medium tracking-wide uppercase transition-all duration-300 ${
+                    className={`px-4 py-2 text-sm font-medium rounded transition-all duration-300 ${
                       activeFormat === format
-                        ? "bg-fiery text-white"
-                        : "bg-white/10 text-white/70 hover:bg-white/20"
+                        ? "bg-red-600 text-white"
+                        : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                     }`}
                   >
                     {format.replace("-", " ")}
