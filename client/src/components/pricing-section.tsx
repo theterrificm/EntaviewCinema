@@ -45,7 +45,7 @@ export default function PricingSection() {
     },
     {
       name: "Culture Campaign",
-      price: "£22,000",
+      price: "From £22,000",
       description: "For brands ready to scale their influence",
       packageType: "professional" as const,
       features: [
