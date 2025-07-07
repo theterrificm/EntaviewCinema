@@ -15,45 +15,46 @@ export default function PricingSection() {
 
   const packages = [
     {
-      name: "Essential",
-      price: "From $15k",
-      description: "Perfect for emerging brands",
+      name: "Culture Film",
+      price: "£15,000",
+      description: "For brands ready to lead culture",
       packageType: "essential" as const,
       features: [
-        "30-60 second commercial",
-        "Single location shoot",
-        "Basic post-production",
-        "2 rounds of revisions",
-        "HD delivery"
+        "Hero brand film (60–90s)",
+        "Narrative scripting + storyboarding",
+        "Cinematic production + direction",
+        "4K colour grade + sound design",
+        "Launch-ready social cutdowns (3 formats)",
+        "Usage rights for web + social"
       ]
     },
     {
-      name: "Professional",
-      price: "From $35k",
-      description: "For established businesses",
+      name: "Culture Campaign",
+      price: "£22,000",
+      description: "For brands ready to scale their influence",
       packageType: "professional" as const,
       features: [
-        "60-120 second film",
-        "Multiple locations",
-        "Advanced cinematography",
-        "Color grading & sound design",
-        "4K delivery",
-        "Social media versions"
+        "Hero brand film (60–90s)",
+        "Up to 5 episodic social reels (15–30s each)",
+        "Creative direction + campaign ideation",
+        "Location + talent sourcing",
+        "On-set direction + art direction",
+        "Usage rights for ads, web + social"
       ],
       popular: true
     },
     {
-      name: "Premium",
-      price: "From $75k",
-      description: "For global campaigns",
+      name: "Brand Partnership",
+      price: "From £6,000/month",
+      description: "For brands wanting consistent culture-shaping content",
       packageType: "premium" as const,
       features: [
-        "Feature-length content",
-        "International shoots",
-        "Celebrity talent",
-        "Full production crew",
-        "Cinema-grade equipment",
-        "Global distribution strategy"
+        "Monthly or quarterly content drops",
+        "Short-form campaigns, reels, micro-docs",
+        "Strategy sessions + campaign planning",
+        "Cinematic shoots, BTS, interviews",
+        "Editing, grading, delivery",
+        "Dedicated account management"
       ]
     }
   ];
@@ -116,7 +117,7 @@ export default function PricingSection() {
               {/* 3D Course Package Graphics Section */}
               <div className="mb-8 relative z-10">
                 <div className="flex items-center justify-center h-48">
-                  {pkg.name === "Essential" && (
+                  {pkg.name === "Culture Film" && (
                     <motion.div
                       className="relative"
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -126,13 +127,13 @@ export default function PricingSection() {
                     >
                       <img
                         src="/essential-package.jpeg"
-                        alt="Essential Course Package"
+                        alt="Culture Film Package"
                         className="w-40 h-40 object-contain drop-shadow-2xl"
                       />
                     </motion.div>
                   )}
                   
-                  {pkg.name === "Professional" && (
+                  {pkg.name === "Culture Campaign" && (
                     <motion.div
                       className="relative"
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -142,13 +143,13 @@ export default function PricingSection() {
                     >
                       <img
                         src="/professional-package.jpeg"
-                        alt="Professional Course Package Bundle"
+                        alt="Culture Campaign Package"
                         className="w-48 h-40 object-contain drop-shadow-2xl"
                       />
                     </motion.div>
                   )}
                   
-                  {pkg.name === "Premium" && (
+                  {pkg.name === "Brand Partnership" && (
                     <motion.div
                       className="relative"
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -158,7 +159,7 @@ export default function PricingSection() {
                     >
                       <img
                         src="/premium-package.jpeg"
-                        alt="Premium Course Package"
+                        alt="Brand Partnership Package"
                         className="w-44 h-40 object-contain drop-shadow-2xl"
                       />
                     </motion.div>
