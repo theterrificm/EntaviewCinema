@@ -110,7 +110,7 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Mail className="text-fiery" size={16} />
                 <span className="font-jetbrains-mono text-sm text-white/70">
-                  hello@entaview.com
+                  info@entaview.com
                 </span>
               </div>
               <div className="flex items-center gap-3">
