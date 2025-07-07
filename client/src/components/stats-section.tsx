@@ -56,8 +56,8 @@ export default function StatsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-roboto-condensed font-black leading-tight tracking-tight mb-8">
-            <span className="text-white">Over 10M+ people have had</span><br />
-            <span className="text-white">their content </span><span className="text-fiery italic">impacted by Entaview</span>
+            <span className="text-white">OVER 10M+ PEOPLE HAVE HAD</span><br />
+            <span className="text-white">THEIR CONTENT </span><span className="text-fiery italic">IMPACTED BY ENTAVIEW</span>
           </h2>
         </motion.div>
 

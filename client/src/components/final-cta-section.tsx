@@ -20,8 +20,8 @@ export default function FinalCTASection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-8 leading-[0.85] tracking-tight uppercase">
-            Ready to create<br />
-            something <em className="text-fiery italic">bold?</em>
+            READY TO CREATE<br />
+            SOMETHING <em className="text-fiery italic">BOLD?</em>
           </h2>
           
           <p className="text-xl font-jetbrains-mono font-light opacity-70 mb-12 max-w-2xl mx-auto">

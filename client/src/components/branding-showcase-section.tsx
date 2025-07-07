@@ -58,8 +58,8 @@ export default function BrandingShowcaseSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            Brand
-            <span className="text-fiery block italic">Everywhere</span>
+            BRAND
+            <span className="text-fiery block italic">EVERYWHERE</span>
           </motion.h2>
           
           <motion.p 

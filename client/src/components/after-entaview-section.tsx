@@ -25,7 +25,7 @@ export default function AfterEntaviewSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            After working with <em className="text-fiery italic">Entaview</em>
+            AFTER WORKING WITH <em className="text-fiery italic">ENTAVIEW</em>
           </motion.h2>
           
           <motion.p 

@@ -172,12 +172,12 @@ export default function ContentPartnership() {
           </motion.div>
           
           <motion.h2
-            className="text-3xl md:text-4xl font-oswald font-medium text-white mb-6 tracking-wide"
+            className="text-3xl md:text-4xl font-oswald font-medium text-white mb-6 tracking-wide uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            Consistent, Culture-Shaping Content for Your Brand
+            CONSISTENT, CULTURE-SHAPING CONTENT FOR YOUR BRAND
           </motion.h2>
           
           <motion.p 

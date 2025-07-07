@@ -58,7 +58,7 @@ export default function GuideSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            Trusted by brands that <em className="text-fiery not-italic">lead</em>
+            TRUSTED BY BRANDS THAT <em className="text-fiery not-italic">LEAD</em>
           </motion.h2>
           
           <motion.p 

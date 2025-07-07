@@ -187,8 +187,8 @@ export default function OurWork() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-oswald font-bold text-white mb-8 tracking-wide">
-              Our Work
+            <h1 className="text-5xl md:text-6xl font-oswald font-bold text-white mb-8 tracking-wide uppercase">
+              OUR WORK
             </h1>
             <p className="text-lg md:text-xl font-jetbrains-mono font-light text-white/70 max-w-2xl leading-relaxed">
               A curated collection of cinematic stories that elevate brands and connect with audiences through authentic storytelling.
@@ -308,8 +308,8 @@ export default function OurWork() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-4 tracking-tight">
-                Social Content
+              <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-4 tracking-tight uppercase">
+                SOCIAL CONTENT
               </h2>
               <p className="text-lg font-jetbrains-mono font-light text-white/70 max-w-2xl mx-auto">
                 Optimized for social media platforms and mobile consumption.
@@ -398,12 +398,12 @@ export default function OurWork() {
       <section className="py-20 px-6 bg-gradient-to-t from-fiery/10 to-onyx">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
-            className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Ready to Join Our Portfolio?
+            READY TO JOIN OUR PORTFOLIO?
           </motion.h2>
           <motion.p
             className="text-xl font-jetbrains-mono font-light text-white/80 mb-8"

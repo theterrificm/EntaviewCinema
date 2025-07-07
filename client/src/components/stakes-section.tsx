@@ -24,7 +24,7 @@ export default function StakesSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            Without <em className="text-fiery not-italic">story</em>, your brand becomes forgettable.
+            WITHOUT <em className="text-fiery not-italic">STORY</em>, YOUR BRAND BECOMES FORGETTABLE.
           </motion.h2>
           
           <motion.p 

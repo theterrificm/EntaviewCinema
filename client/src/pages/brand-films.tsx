@@ -108,8 +108,8 @@ export default function BrandFilms() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h2 className="text-3xl md:text-4xl font-oswald font-bold text-white mb-6 tracking-tight">
-              Our Work in Action
+            <h2 className="text-3xl md:text-4xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              OUR WORK IN ACTION
             </h2>
             <p className="text-lg font-jetbrains-mono font-light text-white/80 leading-relaxed">
               See how we craft cinematic stories that build brand legacy
@@ -159,8 +159,8 @@ export default function BrandFilms() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
-              The Problem
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              THE PROBLEM
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
               Most lifestyle brands struggle to show people who they <em className="text-fiery">really</em> are.
@@ -178,8 +178,8 @@ export default function BrandFilms() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
-              Our Solution
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              OUR SOLUTION
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
               We script and shoot visually rich, narrative-driven films that make your audience <em className="text-fiery">feel</em> something.
@@ -197,8 +197,8 @@ export default function BrandFilms() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight">
-              Proven Results
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
+              PROVEN RESULTS
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -232,8 +232,8 @@ export default function BrandFilms() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight">
-              Our Process
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
+              OUR PROCESS
             </h2>
             
             <div className="grid md:grid-cols-3 gap-12">
@@ -269,8 +269,8 @@ export default function BrandFilms() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight">
-              Ready to Build Your Legacy?
+            <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              READY TO BUILD YOUR LEGACY?
             </h2>
             <p className="text-xl font-jetbrains-mono font-light text-white/80 mb-8">
               Let's create a cinematic story that moves culture.

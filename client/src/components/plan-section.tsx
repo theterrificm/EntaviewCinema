@@ -37,7 +37,7 @@ export default function PlanSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            Here's how <em className="text-fiery not-italic">it works</em>
+            HERE'S HOW <em className="text-fiery not-italic">IT WORKS</em>
           </motion.h2>
         </div>
         

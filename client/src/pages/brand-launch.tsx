@@ -59,13 +59,13 @@ export default function BrandLaunch() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h1
-            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none"
+            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none uppercase"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Brand Launches That{" "}
-            <span className="text-fiery">Define Markets</span>
+            BRAND LAUNCHES THAT{" "}
+            <span className="text-fiery">DEFINE MARKETS</span>
           </motion.h1>
           
           <motion.p
@@ -222,8 +222,8 @@ export default function BrandLaunch() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
-              Our Strategic Solution
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              OUR STRATEGIC SOLUTION
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
               We create crystal-clear launch narratives that position your brand as the trusted guide, helping customers understand exactly how your solution transforms their world.
@@ -276,8 +276,8 @@ export default function BrandLaunch() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight">
-              Our Launch Process
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
+              OUR LAUNCH PROCESS
             </h2>
             
             <div className="grid md:grid-cols-3 gap-12">
@@ -313,8 +313,8 @@ export default function BrandLaunch() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight">
-              Ready to Launch Your Brand Story?
+            <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              READY TO LAUNCH YOUR BRAND STORY?
             </h2>
             <p className="text-xl font-jetbrains-mono font-light text-white/80 mb-8">
               Let's transform your brand launch into a customer success story with clear, compelling messaging that drives action.

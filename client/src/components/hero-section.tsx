@@ -53,8 +53,8 @@ export default function HeroSection() {
             className="mb-8"
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white text-center tracking-tight uppercase">
-              We help brands lead <em className="text-fiery not-italic">culture</em> —<br />
-              <span className="text-fiery italic">not follow it.</span>
+              WE HELP BRANDS LEAD <em className="text-fiery not-italic">CULTURE</em> —<br />
+              <span className="text-fiery italic">NOT FOLLOW IT.</span>
             </h1>
           </motion.div>
           

@@ -62,7 +62,7 @@ export default function CampaignResultsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase text-stone text-center">
-            <span className="text-fiery">Performance</span> That Speaks <em className="italic">Volumes</em>
+            <span className="text-fiery">PERFORMANCE</span> THAT SPEAKS <em className="italic">VOLUMES</em>
           </h2>
           <p className="text-xl md:text-2xl font-jetbrains-mono font-light opacity-80 max-w-3xl mx-auto text-center">
             Real campaigns. Real results. Real impact on brands that matter.

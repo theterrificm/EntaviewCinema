@@ -50,7 +50,7 @@ export default function FeaturesSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-6xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase text-white">
-            Why Choose <em className="text-fiery italic">Entaview</em>
+            WHY CHOOSE <em className="text-fiery italic">ENTAVIEW</em>
           </h2>
           <p className="text-lg font-jetbrains-mono font-light text-white/70 max-w-2xl mx-auto">
             We combine technical expertise with creative vision to deliver films that make an impact.

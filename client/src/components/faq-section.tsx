@@ -59,7 +59,7 @@ export default function FAQSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black mb-6 leading-[0.85] tracking-tight uppercase text-onyx">
-            Frequently Asked <em className="italic">Questions</em>
+            FREQUENTLY ASKED <em className="italic">QUESTIONS</em>
           </h2>
           <p className="text-xl font-jetbrains-mono font-light opacity-80 max-w-2xl mx-auto text-onyx">
             Everything you need to know about working with Entaview
