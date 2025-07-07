@@ -7,6 +7,7 @@ import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Play, CheckCircle } from "lucide-react";
+import { Link } from "wouter";
 import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
 import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
 
@@ -60,8 +61,7 @@ export default function BrandFilms() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            YOUR STORY DESERVES TO BE{" "}
-            <span className="text-fiery">CINEMATIC</span>
+            <span className="text-fiery">CULTURE</span> FILM
           </motion.h1>
           
           <motion.p
@@ -70,7 +70,7 @@ export default function BrandFilms() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            We create brand films that build trust, shape identity and move culture.
+            For brands ready to lead culture.
           </motion.p>
 
           <motion.div
@@ -79,13 +79,15 @@ export default function BrandFilms() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <motion.button
-              className="bg-fiery text-white px-8 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Book Discovery Call
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                className="bg-fiery text-white px-8 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Book Discovery Call
+              </motion.button>
+            </Link>
             <motion.button
               onClick={() => openVideoModal(makuShowreelVideo, "MAKU Media 2025 Showreel")}
               className="border-2 border-white text-white px-8 py-4 text-lg font-oswald font-medium hover:bg-white hover:text-onyx transition-all duration-300 tracking-widest uppercase flex items-center justify-center gap-2"
@@ -150,7 +152,7 @@ export default function BrandFilms() {
         </div>
       </section>
 
-      {/* Problem Section */}
+      {/* What's Included Section */}
       <section ref={ref} className="py-20 px-6 bg-gradient-to-b from-onyx to-iron">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -159,36 +161,38 @@ export default function BrandFilms() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
-              THE PROBLEM
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
+              WHAT'S INCLUDED
             </h2>
-            <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
-              Most lifestyle brands struggle to show people who they <em className="text-fiery">really</em> are.
-            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+              {[
+                "Hero brand film (60–90s)",
+                "Narrative scripting + storyboarding", 
+                "Cinematic production + direction",
+                "4K colour grade + sound design",
+                "Launch-ready social cutdowns (3 formats)",
+                "Usage rights for web + social"
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                >
+                  <div className="text-fiery text-2xl font-oswald font-bold">–</div>
+                  <p className="text-lg font-jetbrains-mono font-light text-white/90 leading-relaxed">
+                    {feature}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20 px-6 bg-iron">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
-              OUR SOLUTION
-            </h2>
-            <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
-              We script and shoot visually rich, narrative-driven films that make your audience <em className="text-fiery">feel</em> something.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
+      {/* Investment Section */}
       <section className="py-20 px-6 bg-gradient-to-b from-iron to-onyx">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -198,26 +202,29 @@ export default function BrandFilms() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
-              PROVEN RESULTS
+              INVESTMENT
             </h2>
             
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center justify-center text-center"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                >
-                  <div className="flex flex-col items-center">
-                    <CheckCircle className="text-fiery mb-4" size={32} />
-                    <p className="text-lg font-jetbrains-mono font-medium text-white/90">
-                      {benefit}
-                    </p>
+            <div className="max-w-2xl mx-auto">
+              <motion.div
+                className="bg-gradient-to-br from-white/5 to-white/10 border border-white/20 rounded-lg p-12 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-fiery/5 to-transparent"></div>
+                <div className="relative z-10">
+                  <p className="text-lg font-jetbrains-mono font-light text-white/80 mb-6">
+                    Investment starts from:
+                  </p>
+                  <div className="text-5xl md:text-6xl font-oswald font-bold text-fiery mb-4">
+                    £15,000
                   </div>
-                </motion.div>
-              ))}
+                  <p className="text-lg font-jetbrains-mono font-light text-white/70">
+                    Complete culture film package
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -275,13 +282,15 @@ export default function BrandFilms() {
             <p className="text-xl font-jetbrains-mono font-light text-white/80 mb-8">
               Let's create a cinematic story that moves culture.
             </p>
-            <motion.button
-              className="bg-fiery text-white px-12 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Book Discovery Call
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                className="bg-fiery text-white px-12 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Book Discovery Call
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>
