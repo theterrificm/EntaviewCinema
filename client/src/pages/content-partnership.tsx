@@ -602,7 +602,7 @@ export default function ContentPartnership() {
               <div className="relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide">
+                    <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide text-onyx">
                       Investment Details
                     </h3>
                     <div className="mb-6">
