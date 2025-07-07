@@ -183,7 +183,7 @@ export default function OurWork() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-oswald font-light text-white mb-8 tracking-wide">
+            <h1 className="text-5xl md:text-6xl font-oswald font-bold text-white mb-8 tracking-wide">
               Our Work
             </h1>
             <p className="text-lg md:text-xl font-jetbrains-mono font-light text-white/70 max-w-2xl leading-relaxed">
