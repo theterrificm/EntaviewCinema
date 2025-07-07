@@ -6,12 +6,13 @@ import Footer from "@/components/footer";
 import { VideoModal } from "@/components/video-modal";
 import { VideoPlayer } from "@/components/video-player";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
-import { Target, TrendingUp, CheckCircle, Video, Play, Users, Zap, Star } from "lucide-react";
+import { Target, TrendingUp, CheckCircle, Video, Play, Users, Zap, Star, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
 import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
 import teremanaVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
 
-export default function BrandLaunch() {
+export default function BrandCampaign() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   
@@ -26,28 +27,28 @@ export default function BrandLaunch() {
   };
 
   const benefits = [
-    "Clear brand story that resonates with your target market",
-    "Successful launch campaigns with measurable ROI",
-    "Strong market positioning from day one",
-    "Customer-centric messaging that drives conversions",
-    "Brand narrative that builds lasting customer relationships"
+    "Hero brand films that establish market authority",
+    "Episodic social content that builds ongoing engagement", 
+    "Strategic campaign ideation and creative direction",
+    "Cross-platform content optimized for maximum reach",
+    "Comprehensive usage rights for ads, web, and social"
   ];
 
   const process = [
     {
       step: "01",
-      title: "Strategic Foundation",
-      description: "We identify your customer's core problems, position your brand as the trusted guide, and create a clear plan that leads to success."
+      title: "Campaign Strategy",
+      description: "We develop comprehensive campaign ideation, identify your brand's unique positioning, and create a strategic plan for multi-platform influence."
     },
     {
       step: "02", 
-      title: "Launch Campaign",
-      description: "Cinematic storytelling that introduces your brand solution and calls customers to take meaningful action toward transformation."
+      title: "Content Creation",
+      description: "Hero brand films (60-90s) and up to 5 episodic social reels (15-30s) with full creative direction, location sourcing, and on-set art direction."
     },
     {
       step: "03",
-      title: "Market Impact",
-      description: "Measure success through customer engagement, brand recognition, and revenue growth that proves your messaging resonates."
+      title: "Market Amplification", 
+      description: "Deploy content across all platforms with comprehensive usage rights, measuring engagement and scaling influence through strategic distribution."
     }
   ];
 
@@ -64,8 +65,8 @@ export default function BrandLaunch() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            BRAND LAUNCHES THAT{" "}
-            <span className="text-fiery">DEFINE MARKETS</span>
+            BRAND CAMPAIGNS THAT{" "}
+            <span className="text-fiery">SCALE INFLUENCE</span>
           </motion.h1>
           
           <motion.p
@@ -74,7 +75,7 @@ export default function BrandLaunch() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We craft compelling launch narratives that connect your brand with customers who need what you offer, driving immediate market impact and lasting brand loyalty through strategic storytelling.
+            We create comprehensive campaigns with hero films and episodic content that amplify your brand across every platform, scaling your influence and establishing market dominance through strategic storytelling.
           </motion.p>
           
           <motion.div
@@ -85,15 +86,15 @@ export default function BrandLaunch() {
           >
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
               <Target className="w-5 h-5 text-fiery" />
-              <span className="font-jetbrains-mono text-sm text-white">Strategic Messaging</span>
+              <span className="font-jetbrains-mono text-sm text-white">Hero Brand Films</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-              <TrendingUp className="w-5 h-5 text-fiery" />
-              <span className="font-jetbrains-mono text-sm text-white">Market Launch</span>
+              <Video className="w-5 h-5 text-fiery" />
+              <span className="font-jetbrains-mono text-sm text-white">Episodic Social Reels</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-              <Users className="w-5 h-5 text-fiery" />
-              <span className="font-jetbrains-mono text-sm text-white">Customer Journey</span>
+              <Zap className="w-5 h-5 text-fiery" />
+              <span className="font-jetbrains-mono text-sm text-white">Campaign Strategy</span>
             </div>
           </motion.div>
         </div>
@@ -109,10 +110,10 @@ export default function BrandLaunch() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
-              SUCCESSFUL BRAND LAUNCH PORTFOLIO
+              SUCCESSFUL BRAND CAMPAIGNS PORTFOLIO
             </h2>
             <p className="text-lg font-jetbrains-mono font-light text-white/80 leading-relaxed">
-              See how we transform brand stories into market-defining launch campaigns that create lasting customer connections.
+              See how we create comprehensive campaigns that scale brand influence through hero films and strategic episodic content.
             </p>
           </motion.div>
 
@@ -204,10 +205,10 @@ export default function BrandLaunch() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
-              THE LAUNCH CHALLENGE
+              THE CAMPAIGN CHALLENGE
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
-              Most brands launch with confusing messages that fail to connect with customers, leaving them wondering <em className="text-fiery">"What's in it for me?"</em>
+              Most brands create disconnected content that fails to build sustained influence, leaving audiences confused about your brand's value and unable to engage meaningfully.
             </p>
           </motion.div>
         </div>
@@ -226,7 +227,7 @@ export default function BrandLaunch() {
               OUR STRATEGIC SOLUTION
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
-              Through the power of storytelling, we create crystal-clear launch narratives that position your brand as the trusted guide, helping customers understand exactly how your solution transforms their world.
+              Through comprehensive campaign strategy, we create cohesive narratives that connect hero films with episodic content, positioning your brand as the culture leader and scaling your influence across every platform.
             </p>
           </motion.div>
         </div>
@@ -242,7 +243,7 @@ export default function BrandLaunch() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
-              LAUNCH SUCCESS STORIES
+              CAMPAIGN SUCCESS OUTCOMES
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -277,7 +278,7 @@ export default function BrandLaunch() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
-              OUR LAUNCH PROCESS
+              OUR CAMPAIGN PROCESS
             </h2>
             
             <div className="grid md:grid-cols-3 gap-12">
@@ -305,27 +306,116 @@ export default function BrandLaunch() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section className="py-20 px-6 bg-onyx">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              CULTURE CAMPAIGN
+            </h2>
+            <p className="text-xl font-jetbrains-mono text-white/80 mb-8">
+              For brands ready to scale their influence.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="bg-gradient-to-br from-white/5 to-white/10 border border-white/20 rounded-lg p-8 mb-8 relative overflow-hidden group"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            whileHover={{ scale: 1.02 }}
+          >
+            {/* Most Popular Badge */}
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-fiery text-white px-6 py-2 text-sm font-oswald font-medium rounded-full z-20 shadow-lg border-2 border-white tracking-wider uppercase">
+              Most Popular
+            </div>
+            
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-oswald font-medium text-white mb-4 tracking-wide uppercase">
+                Culture Campaign
+              </h3>
+              <div className="text-5xl font-roboto-condensed font-black text-fiery mb-4">
+                From £22,000
+              </div>
+              <p className="text-lg font-jetbrains-mono text-white/80">
+                For brands ready to scale their influence
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-fiery text-xl">•</span>
+                  <span className="font-jetbrains-mono text-white">Hero brand film (60–90s)</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-fiery text-xl">•</span>
+                  <span className="font-jetbrains-mono text-white">Up to 5 episodic social reels (15–30s each)</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-fiery text-xl">•</span>
+                  <span className="font-jetbrains-mono text-white">Creative direction + campaign ideation</span>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-fiery text-xl">•</span>
+                  <span className="font-jetbrains-mono text-white">Location + talent sourcing</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-fiery text-xl">•</span>
+                  <span className="font-jetbrains-mono text-white">On-set direction + art direction</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-fiery text-xl">•</span>
+                  <span className="font-jetbrains-mono text-white">Usage rights for ads, web + social</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link href="/contact">
+                <motion.button 
+                  className="bg-fiery hover:bg-fiery/90 text-white px-12 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 w-full md:w-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Start Your Campaign
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-t from-fiery/10 to-iron">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
           >
             <h2 className="text-4xl md:text-5xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
-              READY TO LAUNCH YOUR BRAND STORY?
+              Ready to Scale Your Brand Influence?
             </h2>
             <p className="text-xl font-jetbrains-mono font-light text-white/80 mb-8">
-              Let's transform your brand launch into a customer success story with clear, compelling messaging that drives action.
+              Every culture-defining campaign starts with strategic storytelling.
             </p>
-            <motion.button
-              className="bg-fiery text-white px-12 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Book Discovery Call
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                className="bg-fiery text-white px-12 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Scale Your Influence
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>
