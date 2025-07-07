@@ -15,6 +15,21 @@ export default function PricingSection() {
 
   const packages = [
     {
+      name: "Brand Partnership",
+      price: "From £6,000/month",
+      description: "For brands wanting consistent culture-shaping content",
+      packageType: "premium" as const,
+      features: [
+        "Monthly or quarterly content drops",
+        "Short-form campaigns, reels, micro-docs",
+        "Strategy sessions + campaign planning",
+        "Cinematic shoots, BTS, interviews",
+        "Editing, grading, delivery",
+        "Dedicated account management"
+      ],
+      popular: true
+    },
+    {
       name: "Culture Film",
       price: "£15,000",
       description: "For brands ready to lead culture",
@@ -40,21 +55,6 @@ export default function PricingSection() {
         "Location + talent sourcing",
         "On-set direction + art direction",
         "Usage rights for ads, web + social"
-      ],
-      popular: true
-    },
-    {
-      name: "Brand Partnership",
-      price: "From £6,000/month",
-      description: "For brands wanting consistent culture-shaping content",
-      packageType: "premium" as const,
-      features: [
-        "Monthly or quarterly content drops",
-        "Short-form campaigns, reels, micro-docs",
-        "Strategy sessions + campaign planning",
-        "Cinematic shoots, BTS, interviews",
-        "Editing, grading, delivery",
-        "Dedicated account management"
       ]
     }
   ];
