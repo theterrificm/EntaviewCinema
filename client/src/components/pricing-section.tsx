@@ -31,7 +31,7 @@ export default function PricingSection() {
     },
     {
       name: "Culture Film",
-      price: "£15,000",
+      price: "From £15,000",
       description: "For brands ready to lead culture",
       packageType: "essential" as const,
       features: [
