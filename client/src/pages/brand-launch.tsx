@@ -108,8 +108,8 @@ export default function BrandLaunch() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
-              Successful Brand Launch Portfolio
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              SUCCESSFUL BRAND LAUNCH PORTFOLIO
             </h2>
             <p className="text-lg font-jetbrains-mono font-light text-white/80 leading-relaxed">
               See how we transform brand stories into market-defining launch campaigns that create lasting customer connections.
@@ -203,8 +203,8 @@ export default function BrandLaunch() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight">
-              The Launch Challenge
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-6 tracking-tight uppercase">
+              THE LAUNCH CHALLENGE
             </h2>
             <p className="text-xl md:text-2xl font-jetbrains-mono font-light text-white/80 leading-relaxed max-w-4xl mx-auto">
               Most brands launch with confusing messages that fail to connect with customers, leaving them wondering <em className="text-fiery">"What's in it for me?"</em>
@@ -241,8 +241,8 @@ export default function BrandLaunch() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight">
-              Launch Success Stories
+            <h2 className="text-4xl md:text-6xl font-oswald font-bold text-white mb-12 tracking-tight uppercase">
+              LAUNCH SUCCESS STORIES
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -292,7 +292,7 @@ export default function BrandLaunch() {
                   <div className="text-6xl font-oswald font-bold text-fiery mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-oswald font-medium text-white mb-4 tracking-wide">
+                  <h3 className="text-xl font-oswald font-medium text-white mb-4 tracking-wide uppercase">
                     {item.title}
                   </h3>
                   <p className="font-jetbrains-mono font-light text-white/70 leading-relaxed">
