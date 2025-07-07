@@ -60,8 +60,8 @@ export default function ContentPartnership() {
   ];
 
   const investmentInfo = {
-    price: "Book call",
-    period: "for investment",
+    price: "Book a call",
+    period: "for quote",
     minimum: "Custom packages available",
     description: "Premium content subscription for culture-leading brands"
   };
@@ -606,8 +606,8 @@ export default function ContentPartnership() {
                       Investment Details
                     </h3>
                     <div className="mb-6">
-                      <span className="text-6xl md:text-7xl font-roboto-condensed font-black text-fiery">{investmentInfo.price}</span>
-                      <span className="text-2xl font-jetbrains-mono text-onyx/70">/{investmentInfo.period}</span>
+                      <span className="text-4xl md:text-5xl font-roboto-condensed font-black text-onyx">{investmentInfo.price}</span>
+                      <span className="text-xl font-jetbrains-mono text-onyx/80"> {investmentInfo.period}</span>
                     </div>
                     <p className="font-jetbrains-mono text-onyx/80 text-lg mb-4">
                       {investmentInfo.description}
