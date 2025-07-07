@@ -5,7 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
-import { CheckCircle, Play, Calendar, Users, TrendingUp, Award, ArrowRight, Clock, Star, ChevronDown } from "lucide-react";
+import { CheckCircle, Play, Calendar, Users, TrendingUp, Award, ArrowRight, Clock, Star, ChevronDown, Info } from "lucide-react";
 
 
 
@@ -141,11 +141,11 @@ export default function ContentPartnership() {
   ];
 
   return (
-    <div className="min-h-screen bg-onyx text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
-      {/* Hero Section with Video */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden" ref={heroRef}>
+      {/* Hero Section - Netflix Style */}
+      <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-black" ref={heroRef}>
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full">
           <VideoErrorBoundary>
@@ -155,62 +155,185 @@ export default function ContentPartnership() {
               enableHoverPlay={false}
             />
           </VideoErrorBoundary>
-          <div className="absolute inset-0 bg-onyx/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        {/* Hero Content - Left Aligned Netflix Style */}
+        <div className="relative z-10 container mx-auto px-6 max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white tracking-tight uppercase">
-              Content<br />
-              <span className="text-fiery italic">Partnership</span>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
+              Content Partnership
             </h1>
-          </motion.div>
-          
-          <motion.h2
-            className="text-3xl md:text-4xl font-oswald font-medium text-white mb-6 tracking-wide"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            Consistent, Culture-Shaping Content for Your Brand
-          </motion.h2>
-          
-          <motion.p 
-            className="text-xl md:text-2xl font-jetbrains-mono font-light text-white mb-12 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            Stay relevant and lead culture with a steady stream of cinematic content crafted for your brand.
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-          >
-            <button className="bg-fiery hover:bg-fiery/90 text-white px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 hover:scale-105">
-              BOOK A DISCOVERY CALL
-            </button>
-            <button 
-              onClick={() => setShowReelModal(true)}
-              className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 font-oswald font-medium text-lg tracking-widest uppercase transition-all duration-300 flex items-center gap-2"
-            >
-              <Play className="w-5 h-5" />
-              WATCH EXAMPLES
-            </button>
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+              Never run out of premium content. Transform your brand with consistent, culture-shaping content that keeps you leading the conversation.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <motion.button 
+                className="bg-white text-black px-8 py-3 font-semibold text-lg rounded hover:bg-white/90 transition-all duration-300 flex items-center gap-3"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Play className="w-5 h-5" />
+                LEARN MORE
+              </motion.button>
+              <motion.button 
+                onClick={() => setShowReelModal(true)}
+                className="bg-gray-700/80 text-white px-8 py-3 font-semibold text-lg rounded hover:bg-gray-700/60 transition-all duration-300 flex items-center gap-3"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Info className="w-5 h-5" />
+                MORE INFO
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Vertical Video Reels Section - Netflix Style */}
+      <section className="py-16 bg-black">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Latest Content</h2>
+            <p className="text-gray-400 text-sm">Premium vertical content for social media</p>
+          </motion.div>
+          
+          {/* Horizontal Scrolling Vertical Videos */}
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+            {/* Vertical Video 1 */}
+            <motion.div 
+              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VideoErrorBoundary>
+                <SimpleVideoAutoplay
+                  src="/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4"
+                  className="w-full h-full object-cover"
+                  enableHoverPlay={true}
+                />
+              </VideoErrorBoundary>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-sm font-semibold">Teremana Launch</h3>
+                <p className="text-xs text-gray-300">20 sec</p>
+              </div>
+            </motion.div>
+
+            {/* Vertical Video 2 */}
+            <motion.div 
+              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VideoErrorBoundary>
+                <SimpleVideoAutoplay
+                  src="/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4"
+                  className="w-full h-full object-cover"
+                  enableHoverPlay={true}
+                />
+              </VideoErrorBoundary>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-sm font-semibold">ICON Black Friday</h3>
+                <p className="text-xs text-gray-300">15 min</p>
+              </div>
+            </motion.div>
+
+            {/* Vertical Video 3 */}
+            <motion.div 
+              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VideoErrorBoundary>
+                <SimpleVideoAutoplay
+                  src="/2025 Showreel MAKU (1)_1749340063718.mp4"
+                  className="w-full h-full object-cover"
+                  enableHoverPlay={true}
+                />
+              </VideoErrorBoundary>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-sm font-semibold">MAKU Showreel</h3>
+                <p className="text-xs text-gray-300">2025</p>
+              </div>
+            </motion.div>
+
+            {/* Vertical Video 4 */}
+            <motion.div 
+              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VideoErrorBoundary>
+                <SimpleVideoAutoplay
+                  src="/Rezzil 16-9 PSVR Final_1749337960289.mp4"
+                  className="w-full h-full object-cover"
+                  enableHoverPlay={true}
+                />
+              </VideoErrorBoundary>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-sm font-semibold">Rezzil PSVR</h3>
+                <p className="text-xs text-gray-300">16:9</p>
+              </div>
+            </motion.div>
+
+            {/* Vertical Video 5 */}
+            <motion.div 
+              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VideoErrorBoundary>
+                <SimpleVideoAutoplay
+                  src="/Padel Website (Wide - FINAL) _1749158053418.mp4"
+                  className="w-full h-full object-cover"
+                  enableHoverPlay={true}
+                />
+              </VideoErrorBoundary>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-sm font-semibold">Padel Website</h3>
+                <p className="text-xs text-gray-300">Wide format</p>
+              </div>
+            </motion.div>
+
+            {/* Vertical Video 6 */}
+            <motion.div 
+              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <VideoErrorBoundary>
+                <SimpleVideoAutoplay
+                  src="/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
+                  className="w-full h-full object-cover"
+                  enableHoverPlay={true}
+                />
+              </VideoErrorBoundary>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-sm font-semibold">ICON Heist</h3>
+                <p className="text-xs text-gray-300">Full film</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="py-24 bg-fiery text-white" ref={featuresRef}>
+      <section className="py-24 bg-gray-900 text-white" ref={featuresRef}>
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -218,35 +341,31 @@ export default function ContentPartnership() {
             animate={isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-6 tracking-tight uppercase">
-              What's <span className="text-onyx">Included</span>
-            </h2>
-            <p className="text-xl font-jetbrains-mono text-white max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">What's Included</h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               Everything you need for a consistent, professional content presence
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="text-center group cursor-pointer"
+                className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-all duration-300 cursor-pointer"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                onMouseEnter={() => setHoveredFeature(index)}
-                onMouseLeave={() => setHoveredFeature(null)}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 transition-all duration-300 ${
-                  hoveredFeature === index ? 'bg-white text-fiery shadow-lg' : 'bg-onyx text-white'
-                }`}>
-                  {feature.icon}
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white mr-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">
+                    {feature.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide group-hover:text-onyx transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="font-jetbrains-mono text-white leading-relaxed group-hover:text-onyx transition-colors duration-300">
+                <p className="text-gray-300 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -386,8 +505,8 @@ export default function ContentPartnership() {
 
 
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-fiery text-white" ref={benefitsRef}>
+      {/* Benefits Section - Netflix Style */}
+      <section className="py-24 bg-black text-white" ref={benefitsRef}>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -395,19 +514,18 @@ export default function ContentPartnership() {
               animate={isBenefitsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-5xl md:text-6xl font-roboto-condensed font-black leading-[0.85] mb-8 text-white tracking-tight uppercase">
-                <span className="text-onyx">Dedicated Account</span><br />
-                Management
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
+                Dedicated Account Management
               </h2>
-              <p className="text-xl font-jetbrains-mono text-white/80 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 A seamless process from concept to delivery, so you can focus on your business.
               </p>
               
               <div className="mb-12">
-                <h3 className="text-3xl font-oswald font-medium text-white mb-6 tracking-wide uppercase">
+                <h3 className="text-xl font-semibold text-white mb-4">
                   Ideal For:
                 </h3>
-                <p className="text-lg font-jetbrains-mono text-white/90 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Brands that want to stay top-of-mind, grow their community, and position themselves as cultural leaders—without the stress of planning and producing content alone.
                 </p>
               </div>
@@ -433,8 +551,8 @@ export default function ContentPartnership() {
         </div>
       </section>
 
-      {/* Investment Section */}
-      <section className="py-24 bg-fiery text-white" ref={pricingRef}>
+      {/* Investment Section - Netflix Style */}
+      <section className="py-24 bg-gray-900 text-white" ref={pricingRef}>
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
