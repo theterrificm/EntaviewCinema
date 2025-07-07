@@ -60,9 +60,9 @@ export default function ContentPartnership() {
   ];
 
   const investmentInfo = {
-    price: "£6,000",
-    period: "per month",
-    minimum: "3-month minimum subscription",
+    price: "Book call",
+    period: "for investment",
+    minimum: "Custom packages available",
     description: "Premium content subscription for culture-leading brands"
   };
 
@@ -603,7 +603,7 @@ export default function ContentPartnership() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="text-center md:text-left">
                     <h3 className="text-2xl font-oswald font-medium mb-4 uppercase tracking-wide">
-                      Starting from
+                      Investment Details
                     </h3>
                     <div className="mb-6">
                       <span className="text-6xl md:text-7xl font-roboto-condensed font-black text-fiery">{investmentInfo.price}</span>

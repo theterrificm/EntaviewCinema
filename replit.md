@@ -107,6 +107,9 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - Graceful degradation for disabled JavaScript
 
 ## Changelog
+- July 07, 2025: Removed all pricing information across website, replaced with "Book call for investment" messaging
+- July 07, 2025: Updated all CTA buttons to link to contact page for consistent user journey
+- July 07, 2025: Aligned pricing section buttons and implemented proper flexbox layout
 - July 07, 2025: Renamed Social Content page to Brand Launch page with StoryBrand framework focus
 - July 07, 2025: Transformed Our Work page to Netflix-style horizontal scrolling interface 
 - July 06, 2025: Initial setup

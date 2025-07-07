@@ -336,8 +336,8 @@ export default function BrandCampaign() {
               <h3 className="text-3xl font-oswald font-medium text-white mb-4 tracking-wide uppercase">
                 Culture Campaign
               </h3>
-              <div className="text-5xl font-roboto-condensed font-black text-fiery mb-4">
-                From £22,000
+              <div className="text-3xl font-roboto-condensed font-black text-fiery mb-4">
+                Book call for investment
               </div>
               <p className="text-lg font-jetbrains-mono text-white/80">
                 For brands ready to scale their influence

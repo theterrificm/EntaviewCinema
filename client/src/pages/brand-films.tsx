@@ -215,10 +215,10 @@ export default function BrandFilms() {
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-fiery/5 to-transparent"></div>
                 <div className="relative z-10">
                   <p className="text-lg font-jetbrains-mono font-light text-white/80 mb-6">
-                    Investment starts from:
+                    Investment details:
                   </p>
-                  <div className="text-5xl md:text-6xl font-oswald font-bold text-fiery mb-4">
-                    £15,000
+                  <div className="text-3xl md:text-4xl font-oswald font-bold text-fiery mb-4">
+                    Book call for investment
                   </div>
                   <p className="text-lg font-jetbrains-mono font-light text-white/70 mb-8">
                     Complete culture film package

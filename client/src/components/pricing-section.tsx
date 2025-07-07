@@ -12,7 +12,7 @@ export default function PricingSection() {
   const packages = [
     {
       name: "Brand Partnership",
-      price: "From £6,000/month",
+      price: "Book call for investment",
       description: "For brands wanting consistent culture-shaping content",
       packageType: "premium" as const,
       features: [
@@ -27,7 +27,7 @@ export default function PricingSection() {
     },
     {
       name: "Culture Film",
-      price: "From £15,000",
+      price: "Book call for investment",
       description: "For brands ready to lead culture",
       packageType: "essential" as const,
       features: [
@@ -41,7 +41,7 @@ export default function PricingSection() {
     },
     {
       name: "Culture Campaign",
-      price: "From £22,000",
+      price: "Book call for investment",
       description: "For brands ready to scale their influence",
       packageType: "professional" as const,
       features: [
@@ -167,11 +167,11 @@ export default function PricingSection() {
                     {pkg.name}
                   </h3>
                   <motion.div 
-                    className="text-4xl font-roboto-condensed font-black mb-2"
-                    whileHover={{ scale: 1.1 }}
+                    className="text-lg font-jetbrains-mono font-light mb-2 text-white/70"
+                    whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {pkg.price}
+                    Contact for pricing
                   </motion.div>
                   <p className="text-sm opacity-70 font-jetbrains-mono">{pkg.description}</p>
                 </div>
