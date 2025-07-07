@@ -2,16 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { usePackageImages } from "@/hooks/use-package-images";
+import { Link } from "wouter";
 
 export default function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const { images, isLoading, error, generateImages } = usePackageImages();
-
-  const handleBookCall = () => {
-    console.log("Book a call clicked");
-    alert("Booking system integration would be implemented here");
-  };
 
   const packages = [
     {
@@ -202,18 +198,19 @@ export default function PricingSection() {
                 ))}
               </ul>
               
-              <motion.button 
-                onClick={handleBookCall}
-                className={`w-full py-3 font-oswald font-medium text-sm uppercase tracking-widest transition-all duration-300 relative z-10 mt-auto ${
-                  pkg.popular
-                    ? 'bg-fiery hover:bg-fiery/90 text-white'
-                    : 'border border-white/30 text-white hover:bg-white/10'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.button>
+              <Link href="/contact">
+                <motion.button 
+                  className={`w-full py-3 font-oswald font-medium text-sm uppercase tracking-widest transition-all duration-300 relative z-10 mt-auto ${
+                    pkg.popular
+                      ? 'bg-fiery hover:bg-fiery/90 text-white'
+                      : 'border border-white/30 text-white hover:bg-white/10'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Get Started
+                </motion.button>
+              </Link>
             </motion.div>
           ))}
         </div>
