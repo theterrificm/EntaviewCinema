@@ -136,15 +136,6 @@ export default function BrandFilms() {
             
             {/* Animated border on hover */}
             <div className="absolute inset-0 border-2 border-transparent group-hover:border-fiery/50 rounded-lg transition-all duration-500"></div>
-            
-
-
-            {/* Video title overlay */}
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="text-white text-lg font-oswald font-medium drop-shadow-lg">
-                MAKU Media 2025 Showreel
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
