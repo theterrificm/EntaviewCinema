@@ -35,7 +35,7 @@ export default function Navigation() {
               <img 
                 src={entaviewLogo} 
                 alt="Entaview Creative"
-                className="h-8 w-auto"
+                className="h-6 w-auto"
               />
             </motion.div>
           </Link>

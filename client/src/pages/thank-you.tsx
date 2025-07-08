@@ -29,7 +29,7 @@ export default function ThankYou() {
             <img 
               src={entaviewLogo} 
               alt="Entaview Creative"
-              className="h-8 w-auto"
+              className="h-6 w-auto"
             />
           </Link>
         </div>
