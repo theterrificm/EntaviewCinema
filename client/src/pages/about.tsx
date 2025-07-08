@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Users, Target, Award, Heart } from "lucide-react";
+import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 
 // Import client logos
@@ -61,6 +62,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
       {/* Hero Section */}
       <section className="py-32 px-6 bg-gradient-to-br from-onyx via-iron to-onyx text-white relative overflow-hidden" ref={heroRef}>
         {/* Background Pattern */}
