@@ -40,7 +40,6 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-onyx">
       <Navigation />
-      
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -64,7 +63,6 @@ export default function Contact() {
           </motion.p>
         </div>
       </section>
-
       {/* Contact Form & Info Section */}
       <section ref={ref} className="py-20 px-6 bg-gradient-to-b from-onyx to-iron">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
@@ -198,7 +196,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-oswald font-medium text-white text-lg">Email</h3>
-                  <p className="font-jetbrains-mono text-white/70">hello@entaview.com</p>
+                  <p className="font-jetbrains-mono text-white/70">info@entaview.com</p>
                 </div>
               </motion.div>
 
@@ -253,7 +251,6 @@ export default function Contact() {
           </motion.div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-t from-fiery/10 to-iron">
         <div className="max-w-4xl mx-auto text-center">
