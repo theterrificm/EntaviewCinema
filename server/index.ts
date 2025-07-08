@@ -47,8 +47,15 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // serve static files from public directory
-  app.use(express.static("public"));
+  // serve static files from public directory with proper MIME types
+  app.use(express.static("public", {
+    setHeaders: (res, path) => {
+      if (path.endsWith('.mp4')) {
+        res.setHeader('Content-Type', 'video/mp4');
+        res.setHeader('Accept-Ranges', 'bytes');
+      }
+    }
+  }));
   
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route

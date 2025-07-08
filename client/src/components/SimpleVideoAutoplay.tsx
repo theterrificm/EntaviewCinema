@@ -76,10 +76,23 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
       }
     };
 
-    // Enhanced error handling
+    // Enhanced error handling with detailed debugging
     const handleError = (e: Event) => {
-      console.error('Video load error:', video.src, e);
-      video.style.display = 'none';
+      const target = e.target as HTMLVideoElement;
+      const errorCode = target.error?.code;
+      const errorMessage = target.error?.message;
+      
+      console.error('Video load error details:', {
+        src: video.src,
+        errorCode,
+        errorMessage,
+        networkState: video.networkState,
+        readyState: video.readyState,
+        event: e
+      });
+      
+      // Don't hide video immediately, let it try to recover
+      // video.style.display = 'none';
     };
 
     const handleCanPlay = () => {
@@ -147,10 +160,26 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
       disablePictureInPicture
       controls={false}
       onError={(e) => {
-        console.error('Video error:', src, e);
-        // Hide video on error to prevent broken displays
-        if (videoRef.current) {
-          videoRef.current.style.display = 'none';
+        const target = e.target as HTMLVideoElement;
+        const errorCode = target.error?.code;
+        const errorMessage = target.error?.message;
+        
+        console.error('Video JSX error details:', {
+          src: src,
+          errorCode,
+          errorMessage,
+          networkState: target.networkState,
+          readyState: target.readyState,
+          currentSrc: target.currentSrc,
+          event: e
+        });
+        
+        // Try to reload the video once
+        if (target.error && !target.hasAttribute('data-retry')) {
+          target.setAttribute('data-retry', 'true');
+          setTimeout(() => {
+            target.load();
+          }, 1000);
         }
       }}
     >
