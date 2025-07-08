@@ -536,18 +536,18 @@ export default function ContentPartnership() {
               animate={isBenefitsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
-                Dedicated Account Management
+              <h2 className="text-4xl md:text-5xl font-roboto-condensed font-black mb-8 text-white tracking-tight uppercase">
+                Dedicated Account <span className="text-fiery italic">Management</span>
               </h2>
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+              <p className="text-lg font-jetbrains-mono text-white/80 mb-8 leading-relaxed">
                 A seamless process from concept to delivery, so you can focus on your business.
               </p>
               
               <div className="mb-12">
-                <h3 className="text-xl font-semibold text-white mb-4">
+                <h3 className="text-xl font-oswald font-medium text-white mb-4 tracking-wide uppercase">
                   Ideal For:
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="font-jetbrains-mono text-white/70 leading-relaxed">
                   Brands that want to stay top-of-mind, grow their community, and position themselves as cultural leaders—without the stress of planning and producing content alone.
                 </p>
               </div>
