@@ -154,7 +154,7 @@ export default function PricingSection() {
                       whileHover={{ scale: 1.05, rotateY: 5 }}
                     >
                       <img
-                        src="/attached_assets/d24ed9ec-6611-4134-ba62-469c7f34dd7e_1751979773531.png"
+                        src="/brand-partnership-package.png"
                         alt="Brand Partnership Package"
                         className="w-40 h-40 object-cover drop-shadow-2xl rounded-lg"
                       />
