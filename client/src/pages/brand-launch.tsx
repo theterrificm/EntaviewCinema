@@ -30,7 +30,7 @@ export default function BrandCampaign() {
     "Hero brand films that establish market authority",
     "Episodic social content that builds ongoing engagement", 
     "Strategic campaign ideation and creative direction",
-    "Cross-platform content optimized for maximum reach",
+    "Cross-platform content optimised for maximum reach",
     "Comprehensive usage rights for ads, web, and social"
   ];
 

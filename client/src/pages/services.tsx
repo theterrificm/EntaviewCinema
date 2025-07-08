@@ -112,7 +112,7 @@ export default function Services() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-b from-iron/5 to-transparent border border-iron/20 rounded-lg p-8 hover:border-fiery/30 transition-all duration-300 group"
+                className="bg-gradient-to-b from-iron/5 to-transparent border border-iron/20 rounded-lg p-8 hover:border-fiery/30 transition-all duration-300 group flex flex-col"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isServicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
@@ -129,7 +129,7 @@ export default function Services() {
                   </p>
                 </div>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-grow">
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-fiery rounded-full mt-2 flex-shrink-0"></div>
@@ -140,7 +140,7 @@ export default function Services() {
 
                 <Link href={service.link}>
                   <motion.button
-                    className="w-full bg-transparent border-2 border-onyx text-onyx hover:bg-onyx hover:text-white px-6 py-3 font-oswald font-medium text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-3"
+                    className="w-full bg-transparent border-2 border-onyx text-onyx hover:bg-onyx hover:text-white px-6 py-3 font-oswald font-medium text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-3 mt-auto"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -172,7 +172,7 @@ export default function Services() {
             {[
               { step: "01", title: "Discovery", description: "Understanding your brand, audience, and cultural positioning goals" },
               { step: "02", title: "Production", description: "Cinematic filming with professional direction and art coordination" },
-              { step: "03", title: "Delivery", description: "Final edits optimized for your launch strategy and platforms" }
+              { step: "03", title: "Delivery", description: "Final edits optimised for your launch strategy and platforms" }
             ].map((item, index) => (
               <motion.div
                 key={index}

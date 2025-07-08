@@ -42,11 +42,11 @@ export default function SocialContent() {
     {
       step: "02", 
       title: "Content Creation",
-      description: "Vertical-first video production optimized for mobile consumption and social algorithms."
+      description: "Vertical-first video production optimised for mobile consumption and social algorithms."
     },
     {
       step: "03",
-      title: "Optimization",
+      title: "Optimisation",
       description: "Data-driven refinement using analytics to improve performance and audience engagement."
     }
   ];
@@ -186,7 +186,7 @@ export default function SocialContent() {
                   Teremana UK Launch
                 </h3>
                 <p className="text-sm font-jetbrains-mono text-white/70 leading-relaxed">
-                  20-second premium spirits brand launch optimized for mobile-first consumption.
+                  20-second premium spirits brand launch optimised for mobile-first consumption.
                 </p>
               </div>
             </motion.div>

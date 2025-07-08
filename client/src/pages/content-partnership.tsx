@@ -219,10 +219,12 @@ export default function ContentPartnership() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Latest Content</h2>
-            <p className="text-gray-400 text-sm">Premium vertical content for social media</p>
+            <h2 className="text-4xl md:text-5xl font-roboto-condensed font-black text-white mb-4 tracking-tight uppercase">
+              Latest <span className="text-fiery italic">Content</span>
+            </h2>
+            <p className="font-jetbrains-mono text-white/80 text-sm">Premium vertical content for social media</p>
             {/* Mobile swipe indicator */}
-            <p className="text-gray-500 text-xs mt-2 md:hidden">← Swipe left to see more</p>
+            <p className="font-jetbrains-mono text-white/60 text-xs mt-2 md:hidden">← Swipe left to see more</p>
           </motion.div>
           
           {/* Horizontal Scrolling Vertical Videos */}
@@ -242,8 +244,8 @@ export default function ContentPartnership() {
               </VideoErrorBoundary>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-semibold">Teremana Launch</h3>
-                <p className="text-xs text-gray-300">20 sec</p>
+                <h3 className="text-sm font-oswald font-medium">Teremana Launch</h3>
+                <p className="text-xs font-jetbrains-mono text-white/80">20 sec</p>
               </div>
             </motion.div>
 
@@ -262,8 +264,8 @@ export default function ContentPartnership() {
               </VideoErrorBoundary>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-semibold">ICON Black Friday</h3>
-                <p className="text-xs text-gray-300">15 min</p>
+                <h3 className="text-sm font-oswald font-medium">ICON Black Friday</h3>
+                <p className="text-xs font-jetbrains-mono text-white/80">15 min</p>
               </div>
             </motion.div>
 
@@ -282,8 +284,8 @@ export default function ContentPartnership() {
               </VideoErrorBoundary>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-semibold">MAKU Showreel</h3>
-                <p className="text-xs text-gray-300">2025</p>
+                <h3 className="text-sm font-oswald font-medium">MAKU Showreel</h3>
+                <p className="text-xs font-jetbrains-mono text-white/80">2025</p>
               </div>
             </motion.div>
 
@@ -302,8 +304,8 @@ export default function ContentPartnership() {
               </VideoErrorBoundary>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-semibold">Rezzil PSVR</h3>
-                <p className="text-xs text-gray-300">16:9</p>
+                <h3 className="text-sm font-oswald font-medium">Rezzil PSVR</h3>
+                <p className="text-xs font-jetbrains-mono text-white/80">16:9</p>
               </div>
             </motion.div>
 
@@ -322,8 +324,8 @@ export default function ContentPartnership() {
               </VideoErrorBoundary>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-semibold">Padel Website</h3>
-                <p className="text-xs text-gray-300">Wide format</p>
+                <h3 className="text-sm font-oswald font-medium">Padel Website</h3>
+                <p className="text-xs font-jetbrains-mono text-white/80">Wide format</p>
               </div>
             </motion.div>
 
@@ -342,8 +344,8 @@ export default function ContentPartnership() {
               </VideoErrorBoundary>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-semibold">ICON Heist</h3>
-                <p className="text-xs text-gray-300">Full film</p>
+                <h3 className="text-sm font-oswald font-medium">ICON Heist</h3>
+                <p className="text-xs font-jetbrains-mono text-white/80">Full film</p>
               </div>
             </motion.div>
           </div>

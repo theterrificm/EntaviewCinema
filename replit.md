@@ -98,13 +98,13 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 
 ### Production Configuration
 - Environment variables for database connection and API keys
-- Video optimization with `preload="metadata"` for faster loading
+- Video optimisation with `preload="metadata"` for faster loading
 - CDN-ready static asset structure
 
-### Performance Optimizations
+### Performance Optimisations
 - Video autoplay with mute to comply with browser policies
 - Intersection Observer for lazy loading
-- Optimized image formats and responsive breakpoints
+- Optimised image formats and responsive breakpoints
 - Minimal JavaScript bundles with code splitting
 
 ### Error Handling
@@ -114,6 +114,7 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - Graceful degradation for disabled JavaScript
 
 ## Changelog
+- July 08, 2025: Updated all text to use UK English grammar and spelling throughout website
 - July 08, 2025: Restructured navigation with Services overview page and hierarchical dropdown menu structure
 - July 08, 2025: Built lead magnet landing page with "10-Step Video Marketing Blueprint" offer and thank-you page
 - July 08, 2025: Added italics to standout works in About page section titles for visual emphasis

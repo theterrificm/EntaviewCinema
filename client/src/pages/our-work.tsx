@@ -81,7 +81,7 @@ export default function OurWork() {
       format: "social-vertical",
       video: teremanaShortVideo,
       metrics: ["+200% social engagement", "1.5M+ views", "58% completion rate"],
-      description: "20-second vertical cut optimized for social media platforms and mobile consumption.",
+      description: "20-second vertical cut optimised for social media platforms and mobile consumption.",
       duration: "0:20",
       aspect: "9:16"
     },
