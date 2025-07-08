@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
 import { CheckCircle, Play, Calendar, Users, TrendingUp, Award, ArrowRight, Clock, Star, ChevronDown, Info } from "lucide-react";
-import { encodeVideoUrl } from "@/utils/videoUtils";
+import { encodeVideoUrl, getVideoUrl } from "@/utils/videoUtils";
 
 
 
@@ -238,7 +238,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src={encodeVideoUrl("/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4")}
+                  src={getVideoUrl('teremanaFull')}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -258,7 +258,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src={encodeVideoUrl("/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4")}
+                  src={getVideoUrl('iconHeist')}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -278,7 +278,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src={encodeVideoUrl("/2025 Showreel MAKU (1)_1749340063718.mp4")}
+                  src={getVideoUrl('makuShowreel')}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -298,7 +298,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src={encodeVideoUrl("/Rezzil 16-9 PSVR Final_1749337960289.mp4")}
+                  src={getVideoUrl('rezzilPSVR')}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -318,7 +318,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src={encodeVideoUrl("/Padel Website (Wide - FINAL) _1749158053418.mp4")}
+                  src={getVideoUrl('padelWebsite')}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -338,7 +338,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src={encodeVideoUrl("/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4")}
+                  src={getVideoUrl('iconHeistFull')}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
