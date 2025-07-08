@@ -70,13 +70,13 @@ export default function Contact() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none"
+            className="text-6xl md:text-8xl font-oswald font-bold text-white mb-8 tracking-tight leading-none uppercase"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
             Let's Build Something That{" "}
-            <span className="text-fiery">Leads Culture</span>
+            <span className="text-fiery italic">Leads Culture</span>
           </motion.h1>
           
           <motion.p
