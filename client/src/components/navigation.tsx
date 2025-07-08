@@ -16,6 +16,7 @@ export default function Navigation() {
     { path: "/content-partnership", label: "Content Partnership" },
     { path: "/our-work", label: "Our Work" },
     { path: "/about", label: "About" },
+    { path: "/lead-magnet", label: "Free Guide" },
     { path: "/insights", label: "Insights" },
     { path: "/contact", label: "Contact" },
   ];
