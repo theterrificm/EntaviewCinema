@@ -97,13 +97,11 @@ export default function PricingSection() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ 
                     opacity: 1, 
-                    scale: 1,
-                    y: [0, -2, 0] 
+                    scale: 1
                   }}
                   transition={{ 
                     opacity: { duration: 0.5, delay: 0.3 },
-                    scale: { duration: 0.5, delay: 0.3 },
-                    y: { duration: 2, repeat: Infinity, delay: 0.8 }
+                    scale: { duration: 0.5, delay: 0.3 }
                   }}
                 >
                   Most Popular
