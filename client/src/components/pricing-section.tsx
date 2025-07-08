@@ -138,9 +138,9 @@ export default function PricingSection() {
                       whileHover={{ scale: 1.05, rotateY: 5 }}
                     >
                       <img
-                        src="/professional-package.jpeg"
+                        src="/culture-campaign-package.png"
                         alt="Culture Campaign Package"
-                        className="w-48 h-40 object-contain drop-shadow-2xl"
+                        className="w-40 h-40 object-cover drop-shadow-2xl rounded-lg"
                       />
                     </motion.div>
                   )}
