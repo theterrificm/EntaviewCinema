@@ -147,6 +147,7 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
   return (
     <video
       ref={videoRef}
+      src={src}
       poster={poster}
       className={className}
       style={style}
@@ -175,18 +176,9 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
           currentSrc: target.currentSrc,
           event: e
         });
-        
-        // Try to reload the video once
-        if (target.error && !target.hasAttribute('data-retry')) {
-          target.setAttribute('data-retry', 'true');
-          setTimeout(() => {
-            target.load();
-          }, 1000);
-        }
       }}
     >
-      <source src={src} type="video/mp4" />
-      <p>Your browser does not support HTML5 video. <a href={src} target="_blank" rel="noopener noreferrer">View video</a></p>
+      Your browser does not support HTML5 video. <a href={src} target="_blank" rel="noopener noreferrer">View video</a>
     </video>
   );
 };
