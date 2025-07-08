@@ -12,13 +12,13 @@ import { getVideoUrl, getFallbackVideo } from "@/utils/videoUtils";
 
 // Video file paths using deployment-safe utility
 const iconHeistVideo = getVideoUrl('iconHeist');
-const iconHeistShortVideo = getFallbackVideo();
-const manifestVideo = getVideoUrl('makuShowreel');
+const iconHeistShortVideo = getVideoUrl('iconHeistAds');
+const manifestVideo = getVideoUrl('manifestV4');
 const manifestV5Video = getVideoUrl('manifestV5');
 const makuShowreelVideo = getVideoUrl('makuShowreel');
 const makuShowreel2Video = getVideoUrl('makuShowreel2025');
 const teremanaVideo = getVideoUrl('teremanaFull');
-const teremanaShortVideo = getFallbackVideo();
+const teremanaShortVideo = getVideoUrl('teremanaShort');
 const padelVideo = getVideoUrl('padelWebsite');
 const rezzilVideo = getVideoUrl('rezzilPlayer');
 

@@ -38,7 +38,7 @@ export default function VideoGallerySection() {
       title: "Padel Website",
       category: "Digital Campaign",
       thumbnail: "/video-thumbnail-placeholder.svg",
-      videoUrl: "/hero-video.mp4"
+      videoUrl: getVideoUrl('padelWebsite')
     }
   ];
 
