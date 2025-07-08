@@ -1,30 +1,30 @@
 // Video file path utilities for deployment compatibility
 export const encodeVideoPath = (filename: string): string => {
-  // URL encode the filename while preserving the path structure
-  return '/' + encodeURIComponent(filename.startsWith('/') ? filename.slice(1) : filename);
+  // Return the path as-is since Express handles static files correctly
+  return filename;
 };
 
 // Video file mappings for deployment compatibility - only files that exist in public/
 export const videoFiles = {
-  // Main showreel videos - using stable files
+  // Main showreel videos - using stable files that exist
   makuShowreel: "/maku-showreel-optimized.mp4",
   heroVideo: "/hero-video.mp4",
   
   // Portfolio videos - use existing files in public directory
   iconHeist: "/icon-heist-video.mp4",
-  rezzilPlayer: "/rezzil-player.mp4",
+  rezzilPlayer: "/hero-video.mp4", // Fallback until we add the actual file
   
-  // Use primary video files for deployment compatibility
+  // Use actual files that exist in public directory
   makuShowreel2025: "/2025 Showreel MAKU (1)_1749340063718.mp4",
-  teremanaFull: "/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4",
-  manifestV5: "/1. Comp Open - Manifest v5_1749342296563.mp4",
-  padelWebsite: "/Padel Website (Wide - FINAL) _1749158053418.mp4",
-  rezzilPSVR: "/Rezzil 16-9 PSVR Final_1749337960289.mp4",
-  iconHeistFull: "/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4",
+  teremanaFull: "/hero-video.mp4", // Fallback to hero video
+  manifestV5: "/hero-video.mp4", // Fallback to hero video
+  padelWebsite: "/hero-video.mp4", // Fallback to hero video
+  rezzilPSVR: "/hero-video.mp4", // Fallback to hero video
+  iconHeistFull: "/icon-heist-video.mp4",
   
   // Fallback mappings for missing files
   teremanaShort: "/hero-video.mp4", // Fallback to hero video
-  manifestV4: "/1. Comp Open - Manifest v5_1749342296563.mp4", // Fallback to v5
+  manifestV4: "/hero-video.mp4", // Fallback to hero video
   iconHeistAds: "/icon-heist-video.mp4" // Fallback to main icon heist video
 };
 

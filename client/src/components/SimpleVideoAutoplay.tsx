@@ -58,6 +58,8 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
 
     // Check if video source is valid before attempting play
     const attemptPlay = () => {
+      console.log('Attempting to play video:', src);
+      
       if (!video.canPlayType || !video.canPlayType('video/mp4')) {
         console.warn('Browser does not support MP4 format');
         return;
@@ -70,7 +72,7 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
       const testPlay = video.play();
       if (testPlay !== undefined) {
         testPlay.catch((error) => {
-          console.warn('Autoplay failed:', error.message);
+          console.warn('Autoplay failed for:', src, error.message);
           // Will play after user interaction
         });
       }
