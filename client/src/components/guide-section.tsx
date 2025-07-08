@@ -80,7 +80,7 @@ export default function GuideSection() {
             x: "-100%",
           }}
           transition={{
-            duration: 60,
+            duration: window.innerWidth < 768 ? 10 : 60, // 6x faster on mobile (60/6 = 10)
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop",

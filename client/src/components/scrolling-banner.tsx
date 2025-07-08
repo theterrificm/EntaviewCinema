@@ -30,7 +30,7 @@ export default function ScrollingBanner() {
             x: "-50%",
           }}
           transition={{
-            duration: 20,
+            duration: window.innerWidth < 768 ? 4 : 20, // 5x faster on mobile (20/5 = 4)
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop",
