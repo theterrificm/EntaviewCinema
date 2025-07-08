@@ -46,7 +46,9 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
   // Enhanced autoplay with browser compatibility checks
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !src) return;
+
+    let isMounted = true;
 
     // Set video attributes for maximum browser compatibility
     video.muted = true;
@@ -58,6 +60,8 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
 
     // Check if video source is valid before attempting play
     const attemptPlay = () => {
+      if (!isMounted || !video.isConnected) return;
+      
       console.log('Attempting to play video:', src);
       
       if (!video.canPlayType || !video.canPlayType('video/mp4')) {
@@ -72,8 +76,9 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
       const testPlay = video.play();
       if (testPlay !== undefined) {
         testPlay.catch((error) => {
-          console.warn('Autoplay failed for:', src, error.message);
-          // Will play after user interaction
+          if (isMounted) {
+            console.warn('Autoplay failed for:', src, error.message);
+          }
         });
       }
     };
@@ -118,10 +123,14 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
     }
 
     return () => {
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('loadeddata', handleCanPlay);
-      video.removeEventListener('loadstart', handleLoadStart);
-      video.removeEventListener('error', handleError);
+      isMounted = false;
+      if (video) {
+        video.pause();
+        video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('loadeddata', handleCanPlay);
+        video.removeEventListener('loadstart', handleLoadStart);
+        video.removeEventListener('error', handleError);
+      }
     };
   }, [src]);
 
@@ -130,6 +139,8 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
     if (!enableHoverPlay || !videoRef.current) return;
     
     const video = videoRef.current;
+    if (!video.isConnected) return;
+    
     video.muted = true;
     video.volume = 0;
     video.currentTime = 0;
@@ -140,6 +151,8 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
     if (!enableHoverPlay || !videoRef.current) return;
     
     const video = videoRef.current;
+    if (!video.isConnected) return;
+    
     video.pause();
     video.currentTime = 0;
   };
@@ -176,6 +189,12 @@ export const SimpleVideoAutoplay: React.FC<SimpleVideoAutoplayProps> = ({
           currentSrc: target.currentSrc,
           event: e
         });
+      }}
+      onLoadStart={() => {
+        console.log('Video loading started:', src);
+      }}
+      onCanPlay={() => {
+        console.log('Video can play:', src);
       }}
     >
       Your browser does not support HTML5 video. <a href={src} target="_blank" rel="noopener noreferrer">View video</a>
