@@ -7,19 +7,19 @@ export default function Footer() {
   const quickLinks = [
     { path: "/", label: "Home" },
     { path: "/brand-films", label: "Brand Films" },
-    { path: "/social-content", label: "Social Content" },
+    { path: "/content-partnership", label: "Social Content" },
     { path: "/our-work", label: "Our Work" },
     { path: "/insights", label: "Insights" },
     { path: "/contact", label: "Contact" },
   ];
 
   const services = [
-    "Brand Films",
-    "Social Content",
-    "Campaign Strategy",
-    "Video Production",
-    "Creative Direction",
-    "Post-Production"
+    { path: "/brand-films", label: "Brand Films" },
+    { path: "/content-partnership", label: "Social Content" },
+    { path: "/brand-launch", label: "Brand Strategy" },
+    { path: "/our-work", label: "Video Production" },
+    { path: "/about", label: "Creative Direction" },
+    { path: "/contact", label: "Post-Production" }
   ];
 
   return (
@@ -93,9 +93,11 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <span className="font-jetbrains-mono text-sm text-white/70 hover:text-white transition-colors duration-300 cursor-pointer">
-                    {service}
-                  </span>
+                  <Link href={service.path}>
+                    <span className="font-jetbrains-mono text-sm text-white/70 hover:text-white transition-colors duration-300 cursor-pointer">
+                      {service.label}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
