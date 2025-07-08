@@ -337,7 +337,7 @@ export default function BrandCampaign() {
                 Culture Campaign
               </h3>
               <div className="text-3xl font-roboto-condensed font-black text-fiery mb-4">
-                Book call for investment
+                Book a call for quote
               </div>
               <p className="text-lg font-jetbrains-mono text-white/80">
                 For brands ready to scale their influence
