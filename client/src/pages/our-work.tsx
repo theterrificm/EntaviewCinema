@@ -8,17 +8,19 @@ import { VideoPlayer } from "@/components/video-player";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Filter, Play, ArrowRight, Volume2, VolumeX } from "lucide-react";
 
-// Video file paths (using actual files in public directory)
-const iconHeistVideo = "/icon-heist-video.mp4";
-const iconHeistShortVideo = "/hero-video.mp4"; // Using available video as placeholder
-const manifestVideo = "/maku-showreel-optimized.mp4"; // Using available video
-const manifestV5Video = "/1. Comp Open - Manifest v5_1749342296563.mp4";
-const makuShowreelVideo = "/maku-showreel-optimized.mp4";
-const makuShowreel2Video = "/2025 Showreel MAKU (1)_1749340063718.mp4";
-const teremanaVideo = "/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4";
-const teremanaShortVideo = "/hero-video.mp4"; // Using available video as placeholder  
-const padelVideo = "/Padel Website (Wide - FINAL) _1749158053418.mp4";
-const rezzilVideo = "/rezzil-player.mp4";
+import { getVideoUrl, getFallbackVideo } from "@/utils/videoUtils";
+
+// Video file paths using deployment-safe utility
+const iconHeistVideo = getVideoUrl('iconHeist');
+const iconHeistShortVideo = getFallbackVideo();
+const manifestVideo = getVideoUrl('makuShowreel');
+const manifestV5Video = getVideoUrl('manifestV5');
+const makuShowreelVideo = getVideoUrl('makuShowreel');
+const makuShowreel2Video = getVideoUrl('makuShowreel2025');
+const teremanaVideo = getVideoUrl('teremanaFull');
+const teremanaShortVideo = getFallbackVideo();
+const padelVideo = getVideoUrl('padelWebsite');
+const rezzilVideo = getVideoUrl('rezzilPlayer');
 
 export default function OurWork() {
   const ref = useRef(null);

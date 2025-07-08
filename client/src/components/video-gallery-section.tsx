@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
+import { getVideoUrl } from "@/utils/videoUtils";
 
 export default function VideoGallerySection() {
   const ref = useRef(null);
@@ -16,14 +17,14 @@ export default function VideoGallerySection() {
       title: "MAKU Showreel 2025",
       category: "Brand Campaign",
       thumbnail: "/video-thumbnail-placeholder.svg",
-      videoUrl: "/maku-showreel-optimized.mp4"
+      videoUrl: getVideoUrl('makuShowreel')
     },
     {
       id: 2,
       title: "Rezzil Player",
       category: "Sports Tech",
       thumbnail: "/video-thumbnail-placeholder.svg",
-      videoUrl: "/rezzil-player.mp4"
+      videoUrl: getVideoUrl('rezzilPlayer')
     },
     {
       id: 3,

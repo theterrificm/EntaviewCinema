@@ -8,8 +8,11 @@ import { VideoPlayer } from "@/components/video-player";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Play, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
-import makuShowreelVideo from "@assets/2025 Showreel MAKU (1)_1749340063718.mp4";
-import teremanaShortVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
+import { getVideoUrl, getFallbackVideo } from "@/utils/videoUtils";
+
+// Video file paths for deployment compatibility
+const makuShowreelVideo = getVideoUrl('makuShowreel');
+const teremanaShortVideo = getFallbackVideo();
 
 export default function BrandFilms() {
   const ref = useRef(null);
