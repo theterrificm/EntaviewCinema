@@ -35,15 +35,19 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - **Video Validator**: URL encoding and validation utilities for video sources
 
 ### Navigation & Layout
-- **Responsive Navigation**: Mobile-first navigation with hamburger menu
-- **Footer**: Company information and social links
+- **Structured Navigation**: Hierarchical menu with Services dropdown containing sub-pages
+- **Responsive Navigation**: Mobile-first navigation with hamburger menu and Services submenu
+- **Footer**: Company information and social links with proper service routing
 - **Logo Loader**: Animated brand introduction sequence
 
 ### Content Sections
 - **Hero Section**: Full-screen video background with call-to-action
 - **Portfolio Gallery**: Interactive video showcase with hover effects
 - **Netflix-Style Our Work**: Horizontal scrolling video rows with category organization
-- **Brand Launch Page**: StoryBrand framework-based content for market launches
+- **Services Overview**: Comprehensive service offerings with sub-navigation
+- **Brand Films Page**: Hero brand film production with cinematic focus
+- **Content Partnership Page**: Monthly content creation and brand consistency
+- **Brand Launch Page**: Strategic campaign development for cultural impact
 - **About Page**: StoryBrand-structured company overview with mission, team, and values
 - **Lead Magnet**: High-converting landing page for "10-Step Video Marketing Blueprint"
 - **Thank You Page**: Post-download page with next steps and discovery call CTA
@@ -110,6 +114,7 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - Graceful degradation for disabled JavaScript
 
 ## Changelog
+- July 08, 2025: Restructured navigation with Services overview page and hierarchical dropdown menu structure
 - July 08, 2025: Built lead magnet landing page with "10-Step Video Marketing Blueprint" offer and thank-you page
 - July 08, 2025: Added italics to standout works in About page section titles for visual emphasis
 - July 08, 2025: Created comprehensive About page using StoryBrand structure with mission, team story, values, and client logos

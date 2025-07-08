@@ -9,6 +9,7 @@ import BrandLaunch from "@/pages/brand-launch";
 import ContentPartnership from "@/pages/content-partnership";
 import OurWork from "@/pages/our-work";
 import About from "@/pages/about";
+import Services from "@/pages/services";
 import LeadMagnet from "@/pages/lead-magnet";
 import ThankYou from "@/pages/thank-you";
 import Contact from "@/pages/contact";
@@ -19,15 +20,16 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/brand-films" component={BrandFilms} />
-      <Route path="/brand-launch" component={BrandLaunch} />
-      <Route path="/content-partnership" component={ContentPartnership} />
-      <Route path="/our-work" component={OurWork} />
       <Route path="/about" component={About} />
+      <Route path="/services" component={Services} />
+      <Route path="/brand-films" component={BrandFilms} />
+      <Route path="/content-partnership" component={ContentPartnership} />
+      <Route path="/brand-launch" component={BrandLaunch} />
+      <Route path="/our-work" component={OurWork} />
+      <Route path="/insights" component={Insights} />
+      <Route path="/contact" component={Contact} />
       <Route path="/lead-magnet" component={LeadMagnet} />
       <Route path="/thank-you" component={ThankYou} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/insights" component={Insights} />
       <Route component={NotFound} />
     </Switch>
   );

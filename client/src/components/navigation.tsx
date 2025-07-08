@@ -8,17 +8,24 @@ export default function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/brand-films", label: "Brand Films" },
-    { path: "/brand-launch", label: "Brand Campaigns" },
-    { path: "/content-partnership", label: "Content Partnership" },
-    { path: "/our-work", label: "Our Work" },
     { path: "/about", label: "About" },
-    { path: "/lead-magnet", label: "Free Guide" },
-    { path: "/insights", label: "Insights" },
+    { 
+      path: "/services", 
+      label: "Services",
+      subItems: [
+        { path: "/brand-films", label: "Brand Films" },
+        { path: "/content-partnership", label: "Social Content" },
+        { path: "/brand-launch", label: "Campaigns" }
+      ]
+    },
+    { path: "/our-work", label: "Our Work" },
+    { path: "/insights", label: "Blog / Insights" },
     { path: "/contact", label: "Contact" },
+    { path: "/lead-magnet", label: "Free Guide" },
   ];
 
   return (
@@ -65,18 +72,55 @@ export default function Navigation() {
                   >
                     <div className="py-4">
                       {navItems.map((item) => (
-                        <Link key={item.path} href={item.path}>
-                          <div
-                            className={`block px-6 py-3 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
-                              location === item.path
-                                ? "text-fiery bg-white/5"
-                                : "text-white/80 hover:text-white"
-                            }`}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {item.label}
-                          </div>
-                        </Link>
+                        <div key={item.path}>
+                          {item.subItems ? (
+                            // Services dropdown with sub-items
+                            <div>
+                              <Link href={item.path}>
+                                <div
+                                  className={`block px-6 py-3 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
+                                    location === item.path
+                                      ? "text-fiery bg-white/5"
+                                      : "text-white/80 hover:text-white"
+                                  }`}
+                                  onClick={() => setIsMenuOpen(false)}
+                                >
+                                  {item.label}
+                                </div>
+                              </Link>
+                              <div className="bg-white/5">
+                                {item.subItems.map((subItem) => (
+                                  <Link key={subItem.path} href={subItem.path}>
+                                    <div
+                                      className={`block px-10 py-2 font-jetbrains-mono text-xs tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
+                                        location === subItem.path
+                                          ? "text-fiery bg-white/5"
+                                          : "text-white/60 hover:text-white/80"
+                                      }`}
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {subItem.label}
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            // Regular menu item
+                            <Link href={item.path}>
+                              <div
+                                className={`block px-6 py-3 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 hover:bg-white/5 ${
+                                  location === item.path
+                                    ? "text-fiery bg-white/5"
+                                    : "text-white/80 hover:text-white"
+                                }`}
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {item.label}
+                              </div>
+                            </Link>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -118,18 +162,55 @@ export default function Navigation() {
           >
             <div className="py-6 space-y-4">
               {navItems.map((item) => (
-                <Link key={item.path} href={item.path}>
-                  <div
-                    className={`block px-6 py-2 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 ${
-                      location === item.path
-                        ? "text-fiery"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </div>
-                </Link>
+                <div key={item.path}>
+                  {item.subItems ? (
+                    // Services with sub-items
+                    <div>
+                      <Link href={item.path}>
+                        <div
+                          className={`block px-6 py-2 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 ${
+                            location === item.path
+                              ? "text-fiery"
+                              : "text-white/80 hover:text-white"
+                          }`}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.label}
+                        </div>
+                      </Link>
+                      <div className="ml-4 mt-2 space-y-2">
+                        {item.subItems.map((subItem) => (
+                          <Link key={subItem.path} href={subItem.path}>
+                            <div
+                              className={`block px-6 py-1 font-jetbrains-mono text-xs tracking-wide cursor-pointer transition-colors duration-300 ${
+                                location === subItem.path
+                                  ? "text-fiery"
+                                  : "text-white/60 hover:text-white/80"
+                              }`}
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {subItem.label}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    // Regular menu item
+                    <Link href={item.path}>
+                      <div
+                        className={`block px-6 py-2 font-jetbrains-mono font-medium text-sm tracking-wide cursor-pointer transition-colors duration-300 ${
+                          location === item.path
+                            ? "text-fiery"
+                            : "text-white/80 hover:text-white"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </div>
+                    </Link>
+                  )}
+                </div>
               ))}
               <div className="px-6 pt-4">
                 <Link href="/contact">
