@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Video, Users, Target } from "lucide-react";
+import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 
 export default function Services() {
@@ -61,8 +62,10 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
+      
       {/* Hero Section */}
-      <section className="py-32 px-6 bg-gradient-to-br from-onyx via-iron to-onyx text-white relative overflow-hidden" ref={heroRef}>
+      <section className="py-32 px-6 bg-gradient-to-br from-onyx via-iron to-onyx text-white relative overflow-hidden mt-20" ref={heroRef}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-64 h-64 bg-fiery rounded-full blur-3xl"></div>
