@@ -93,7 +93,7 @@ export default function PricingSection() {
               
               {pkg.popular && (
                 <motion.div 
-                  className="absolute -top-6 -right-6 bg-fiery text-white px-4 py-2 text-sm font-oswald font-medium rounded-full z-30 shadow-xl border-2 border-white tracking-wider uppercase"
+                  className="absolute -top-6 -left-6 bg-fiery text-white px-4 py-2 text-sm font-oswald font-medium rounded-full z-30 shadow-xl border-2 border-white tracking-wider uppercase"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ 
                     opacity: 1, 
