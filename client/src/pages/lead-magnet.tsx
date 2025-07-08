@@ -81,7 +81,7 @@ export default function LeadMagnet() {
             />
           </Link>
           <Link href="/contact">
-            <Button variant="outline" className="text-onyx border-onyx hover:bg-onyx hover:text-white">
+            <Button className="bg-fiery hover:bg-fiery/90 text-white border-fiery">
               Book a Call
             </Button>
           </Link>
