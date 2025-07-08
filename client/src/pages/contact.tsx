@@ -31,10 +31,36 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage("Thank you! We'll be in touch within 24 hours.");
+        setFormData({ name: "", email: "", company: "", budget: "", project: "" });
+      } else {
+        setSubmitMessage(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setSubmitMessage("Network error. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -159,13 +185,30 @@ export default function Contact() {
 
               <motion.button
                 type="submit"
-                className="w-full bg-fiery text-white px-8 py-4 text-lg font-oswald font-medium hover:bg-fiery/90 transition-all duration-300 tracking-widest uppercase flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting}
+                className={`w-full px-8 py-4 text-lg font-oswald font-medium transition-all duration-300 tracking-widest uppercase flex items-center justify-center gap-2 ${
+                  isSubmitting 
+                    ? 'bg-fiery/50 text-white/50 cursor-not-allowed' 
+                    : 'bg-fiery text-white hover:bg-fiery/90'
+                }`}
+                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
               >
                 <Send size={20} />
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
+              
+              {submitMessage && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`text-center mt-4 font-jetbrains-mono ${
+                    submitMessage.includes('Thank you') ? 'text-green-400' : 'text-red-400'
+                  }`}
+                >
+                  {submitMessage}
+                </motion.p>
+              )}
             </form>
           </motion.div>
 
