@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { encodeVideoUrl } from "@/utils/videoUtils";
 
 export default function CoreOffersSection() {
   const ref = useRef(null);
@@ -53,21 +54,21 @@ export default function CoreOffersSection() {
     {
       title: "Brand Campaigns",
       caption: "High-impact hero films that define your identity and build cultural buzz.",
-      videoSrc: "/2025 Showreel MAKU (1)_1749340063718.mp4",
+      videoSrc: encodeVideoUrl("/2025 Showreel MAKU (1)_1749340063718.mp4"),
       thumbnail: "/maku-thumbnail.jpg",
       fallbackType: "brand"
     },
     {
       title: "Brand Content Subscription", 
       caption: "Ongoing content that keeps your brand top-of-mind every single month.",
-      videoSrc: "/1. Comp Open - Manifest v5_1749342296563.mp4",
+      videoSrc: encodeVideoUrl("/1. Comp Open - Manifest v5_1749342296563.mp4"),
       thumbnail: "/manifest-thumbnail.jpg",
       fallbackType: "retainer"
     },
     {
       title: "Startup Launches",
       caption: "Launch with purpose through strategic storytelling and product films.",
-      videoSrc: "/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4",
+      videoSrc: encodeVideoUrl("/Teremana UK Launch - (Full Version - 4K)_1749341946737.mp4"),
       thumbnail: "/teremana-thumbnail.jpg",
       fallbackType: "launch"
     }

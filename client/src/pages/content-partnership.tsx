@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { VideoErrorBoundary } from "@/components/VideoErrorBoundary";
 import { CheckCircle, Play, Calendar, Users, TrendingUp, Award, ArrowRight, Clock, Star, ChevronDown, Info } from "lucide-react";
+import { encodeVideoUrl } from "@/utils/videoUtils";
 
 
 
@@ -151,7 +152,7 @@ export default function ContentPartnership() {
         <div className="absolute inset-0 w-full h-full">
           <VideoErrorBoundary>
             <SimpleVideoAutoplay
-              src="/1. Comp Open - Manifest v5_1749342296563.mp4"
+              src={encodeVideoUrl("/1. Comp Open - Manifest v5_1749342296563.mp4")}
               className="absolute inset-0 w-full h-full object-cover object-top"
               enableHoverPlay={false}
             />
@@ -237,7 +238,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src="/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4"
+                  src={encodeVideoUrl("/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4")}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -257,7 +258,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src="/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4"
+                  src={encodeVideoUrl("/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4")}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -277,7 +278,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src="/2025 Showreel MAKU (1)_1749340063718.mp4"
+                  src={encodeVideoUrl("/2025 Showreel MAKU (1)_1749340063718.mp4")}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -297,7 +298,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src="/Rezzil 16-9 PSVR Final_1749337960289.mp4"
+                  src={encodeVideoUrl("/Rezzil 16-9 PSVR Final_1749337960289.mp4")}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -317,7 +318,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src="/Padel Website (Wide - FINAL) _1749158053418.mp4"
+                  src={encodeVideoUrl("/Padel Website (Wide - FINAL) _1749158053418.mp4")}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -337,7 +338,7 @@ export default function ContentPartnership() {
             >
               <VideoErrorBoundary>
                 <SimpleVideoAutoplay
-                  src="/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4"
+                  src={encodeVideoUrl("/ICON_Heist_FullFilm_Edit06_OriginalVersion_DC (1)_1749333927336.mp4")}
                   className="w-full h-full object-cover"
                   enableHoverPlay={true}
                 />
@@ -564,7 +565,7 @@ export default function ContentPartnership() {
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl bg-onyx">
                 <VideoErrorBoundary>
                   <SimpleVideoAutoplay
-                    src="/2025 Showreel MAKU (1)_1749340063718.mp4"
+                    src={encodeVideoUrl("/2025 Showreel MAKU (1)_1749340063718.mp4")}
                     className="w-full h-full object-cover"
                     enableHoverPlay={true}
                   />

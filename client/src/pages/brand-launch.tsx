@@ -8,9 +8,12 @@ import { VideoPlayer } from "@/components/video-player";
 import { SimpleVideoAutoplay } from "@/components/SimpleVideoAutoplay";
 import { Target, TrendingUp, CheckCircle, Video, Play, Users, Zap, Star, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import iconHeistVideo from "@assets/15 MIN - ICON BLACK FRIDAY HEIST  - RICO GETS AWAY (ADS)_1749493489639.mp4";
-import manifestVideo from "@assets/1. Comp Open - Manifest v4_1749493286513.mp4";
-import teremanaVideo from "@assets/Teremana UK Launch (20 Sec Cutdown - Vertical) (1)_1749495031895.mp4";
+import { getVideoUrl, encodeVideoUrl } from "@/utils/videoUtils";
+
+// Video file paths using deployment-safe utility
+const iconHeistVideo = getVideoUrl('iconHeistAds');
+const manifestVideo = getVideoUrl('manifestV4');
+const teremanaVideo = getVideoUrl('teremanaShort');
 
 export default function BrandCampaign() {
   const ref = useRef(null);
