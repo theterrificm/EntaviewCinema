@@ -210,7 +210,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-oswald font-medium text-white text-lg">Phone</h3>
-                  <p className="font-jetbrains-mono text-white/70">+44 (0) 113 XXX XXXX</p>
+                  <p className="font-jetbrains-mono text-white/70">+44 (0) 113 460 1645</p>
                 </div>
               </motion.div>
 
