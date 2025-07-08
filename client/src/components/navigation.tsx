@@ -15,6 +15,7 @@ export default function Navigation() {
     { path: "/brand-launch", label: "Brand Campaigns" },
     { path: "/content-partnership", label: "Content Partnership" },
     { path: "/our-work", label: "Our Work" },
+    { path: "/about", label: "About" },
     { path: "/insights", label: "Insights" },
     { path: "/contact", label: "Contact" },
   ];

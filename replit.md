@@ -44,6 +44,7 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - **Portfolio Gallery**: Interactive video showcase with hover effects
 - **Netflix-Style Our Work**: Horizontal scrolling video rows with category organization
 - **Brand Launch Page**: StoryBrand framework-based content for market launches
+- **About Page**: StoryBrand-structured company overview with mission, team, and values
 - **Testimonials**: Client feedback with rating system
 - **Pricing**: Service packages with dynamic image generation
 - **FAQ**: Expandable question/answer interface
@@ -107,6 +108,10 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - Graceful degradation for disabled JavaScript
 
 ## Changelog
+- July 08, 2025: Created comprehensive About page using StoryBrand structure with mission, team story, values, and client logos
+- July 08, 2025: Optimized mobile video scrolling with overlap effect and swipe indicators for better UX
+- July 08, 2025: Increased mobile animation speeds (5x banner, 6x brand logos) for improved performance
+- July 08, 2025: Simplified video overlays by removing descriptive text for cleaner design
 - July 07, 2025: Removed all pricing information across website, replaced with "Book call for investment" messaging
 - July 07, 2025: Updated all CTA buttons to link to contact page for consistent user journey
 - July 07, 2025: Aligned pricing section buttons and implemented proper flexbox layout

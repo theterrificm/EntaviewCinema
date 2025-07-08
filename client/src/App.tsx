@@ -8,6 +8,7 @@ import BrandFilms from "@/pages/brand-films";
 import BrandLaunch from "@/pages/brand-launch";
 import ContentPartnership from "@/pages/content-partnership";
 import OurWork from "@/pages/our-work";
+import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Insights from "@/pages/insights";
 import NotFound from "@/pages/not-found";
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/brand-launch" component={BrandLaunch} />
       <Route path="/content-partnership" component={ContentPartnership} />
       <Route path="/our-work" component={OurWork} />
+      <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/insights" component={Insights} />
       <Route component={NotFound} />
