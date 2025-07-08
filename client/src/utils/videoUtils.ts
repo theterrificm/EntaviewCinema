@@ -7,7 +7,7 @@ export const encodeVideoPath = (filename: string): string => {
 // Video file mappings for deployment compatibility - only files that exist in public/
 export const videoFiles = {
   // Main showreel videos - using stable files that exist
-  makuShowreel: "/maku-showreel-optimized.mp4",
+  makuShowreel: "/2025 Showreel MAKU (1)_1749340063718.mp4",
   heroVideo: "/hero-video.mp4",
   
   // Portfolio videos - use existing files in public directory
@@ -15,7 +15,7 @@ export const videoFiles = {
   rezzilPlayer: "/hero-video.mp4", // Fallback until we add the actual file
   
   // Use actual files that exist in public directory
-  makuShowreel2025: "/2025 Showreel MAKU (1)_1749340063718.mp4",
+  makuShowreel2025: "/2025%20Showreel%20MAKU%20(1)_1749340063718.mp4",
   teremanaFull: "/hero-video.mp4", // Fallback to hero video
   manifestV5: "/hero-video.mp4", // Fallback to hero video
   padelWebsite: "/hero-video.mp4", // Fallback to hero video
