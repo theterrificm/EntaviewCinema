@@ -141,11 +141,8 @@ export default function BrandFilms() {
 
             {/* Video title overlay */}
             <div className="absolute bottom-6 left-6 right-6">
-              <div className="text-white text-lg font-oswald font-medium mb-2 drop-shadow-lg">
+              <div className="text-white text-lg font-oswald font-medium drop-shadow-lg">
                 MAKU Media 2025 Showreel
-              </div>
-              <div className="text-white/80 text-sm font-jetbrains-mono">
-                Cinematic brand storytelling that moves culture forward
               </div>
             </div>
           </motion.div>

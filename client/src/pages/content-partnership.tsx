@@ -221,13 +221,15 @@ export default function ContentPartnership() {
           >
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Latest Content</h2>
             <p className="text-gray-400 text-sm">Premium vertical content for social media</p>
+            {/* Mobile swipe indicator */}
+            <p className="text-gray-500 text-xs mt-2 md:hidden">← Swipe left to see more</p>
           </motion.div>
           
           {/* Horizontal Scrolling Vertical Videos */}
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex gap-4 md:gap-4 gap-2 overflow-x-auto pb-4 scrollbar-hide" style={{ paddingRight: '20px' }}>
             {/* Vertical Video 1 */}
             <motion.div 
-              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              className="flex-shrink-0 w-44 md:w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -247,7 +249,7 @@ export default function ContentPartnership() {
 
             {/* Vertical Video 2 */}
             <motion.div 
-              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              className="flex-shrink-0 w-44 md:w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -267,7 +269,7 @@ export default function ContentPartnership() {
 
             {/* Vertical Video 3 */}
             <motion.div 
-              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              className="flex-shrink-0 w-44 md:w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -287,7 +289,7 @@ export default function ContentPartnership() {
 
             {/* Vertical Video 4 */}
             <motion.div 
-              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              className="flex-shrink-0 w-44 md:w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -307,7 +309,7 @@ export default function ContentPartnership() {
 
             {/* Vertical Video 5 */}
             <motion.div 
-              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              className="flex-shrink-0 w-44 md:w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -327,7 +329,7 @@ export default function ContentPartnership() {
 
             {/* Vertical Video 6 */}
             <motion.div 
-              className="flex-shrink-0 w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
+              className="flex-shrink-0 w-44 md:w-48 h-80 bg-gray-900 rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
