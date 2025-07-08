@@ -74,11 +74,11 @@ export default function PricingSection() {
 
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto overflow-visible">
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
-              className={`relative p-8 rounded-lg border overflow-hidden group cursor-pointer flex flex-col h-full ${
+              className={`relative p-8 rounded-lg border overflow-visible group cursor-pointer flex flex-col h-full ${
                 pkg.popular 
                   ? 'border-fiery bg-fiery/5' 
                   : 'border-white/20 bg-white/5'
@@ -93,7 +93,7 @@ export default function PricingSection() {
               
               {pkg.popular && (
                 <motion.div 
-                  className="absolute -top-4 -right-4 bg-fiery text-white px-4 py-2 text-sm font-oswald font-medium rounded-full z-20 shadow-lg border-2 border-white tracking-wider uppercase rotate-12"
+                  className="absolute -top-6 -right-6 bg-fiery text-white px-4 py-2 text-sm font-oswald font-medium rounded-full z-30 shadow-xl border-2 border-white tracking-wider uppercase rotate-12"
                   initial={{ opacity: 0, scale: 0, rotate: 0 }}
                   animate={{ 
                     opacity: 1, 
