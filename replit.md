@@ -45,6 +45,8 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - **Netflix-Style Our Work**: Horizontal scrolling video rows with category organization
 - **Brand Launch Page**: StoryBrand framework-based content for market launches
 - **About Page**: StoryBrand-structured company overview with mission, team, and values
+- **Lead Magnet**: High-converting landing page for "10-Step Video Marketing Blueprint"
+- **Thank You Page**: Post-download page with next steps and discovery call CTA
 - **Testimonials**: Client feedback with rating system
 - **Pricing**: Service packages with dynamic image generation
 - **FAQ**: Expandable question/answer interface
@@ -108,6 +110,8 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - Graceful degradation for disabled JavaScript
 
 ## Changelog
+- July 08, 2025: Built lead magnet landing page with "10-Step Video Marketing Blueprint" offer and thank-you page
+- July 08, 2025: Added italics to standout works in About page section titles for visual emphasis
 - July 08, 2025: Created comprehensive About page using StoryBrand structure with mission, team story, values, and client logos
 - July 08, 2025: Optimized mobile video scrolling with overlap effect and swipe indicators for better UX
 - July 08, 2025: Increased mobile animation speeds (5x banner, 6x brand logos) for improved performance

@@ -101,7 +101,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-8 text-onyx tracking-tight uppercase">
-              The <span className="text-fiery">Mission</span>
+              The <span className="text-fiery italic">Mission</span>
             </h2>
             <p className="text-2xl md:text-3xl font-jetbrains-mono text-onyx/80 max-w-4xl mx-auto leading-relaxed">
               We help lifestyle brands build culture through cinematic storytelling that moves audiences, drives engagement, and creates lasting impact.
@@ -145,7 +145,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-8 tracking-tight uppercase">
-              Who <span className="text-fiery">We Are</span>
+              Who <span className="text-fiery italic">We Are</span>
             </h2>
           </motion.div>
 
@@ -206,7 +206,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl font-roboto-condensed font-black leading-[0.85] mb-8 text-onyx tracking-tight uppercase">
-              What Sets <span className="text-fiery">Us Apart</span>
+              What Sets <span className="text-fiery italic">Us Apart</span>
             </h2>
             <p className="text-xl font-jetbrains-mono text-onyx/70 max-w-3xl mx-auto">
               Our commitment to culture-first strategy, cinematic excellence, and measurable results.
@@ -247,7 +247,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-roboto-condensed font-black leading-[0.85] mb-6 text-white tracking-tight uppercase">
-              Trusted by <span className="text-fiery">Culture Leaders</span>
+              Trusted by <span className="text-fiery italic">Culture Leaders</span>
             </h2>
             <p className="text-lg font-jetbrains-mono text-white/70">
               Brands that choose to lead culture, not follow it
