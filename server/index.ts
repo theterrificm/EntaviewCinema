@@ -67,9 +67,23 @@ app.use((req, res, next) => {
       if (path.endsWith('.mp4')) {
         res.setHeader('Content-Type', 'video/mp4');
         res.setHeader('Accept-Ranges', 'bytes');
+        res.setHeader('Cache-Control', 'public, max-age=31536000');
       }
     }
   }));
+
+  // In production, also serve from root public directory for video files
+  if (app.get("env") === "production") {
+    app.use(express.static("public", {
+      setHeaders: (res, path) => {
+        if (path.endsWith('.mp4')) {
+          res.setHeader('Content-Type', 'video/mp4');
+          res.setHeader('Accept-Ranges', 'bytes');
+          res.setHeader('Cache-Control', 'public, max-age=31536000');
+        }
+      }
+    }));
+  }
   
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
