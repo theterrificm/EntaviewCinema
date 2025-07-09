@@ -72,6 +72,19 @@ app.use((req, res, next) => {
     }
   }));
   
+  // In production, also serve from dist/public with proper headers
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static("dist/public", {
+      setHeaders: (res, path) => {
+        if (path.endsWith('.mp4')) {
+          res.setHeader('Content-Type', 'video/mp4');
+          res.setHeader('Accept-Ranges', 'bytes');
+          res.setHeader('Cache-Control', 'public, max-age=31536000');
+        }
+      }
+    }));
+  }
+  
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
