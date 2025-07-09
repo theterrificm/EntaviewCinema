@@ -67,8 +67,41 @@ app.use((req, res, next) => {
       res.setHeader('Content-Type', 'video/mp4');
       res.setHeader('Accept-Ranges', 'bytes');
       res.setHeader('Cache-Control', 'public, max-age=31536000');
+      res.setHeader('Access-Control-Allow-Origin', '*');
     }
   };
+
+  // Copy video files on server startup if in production
+  const fs = require('fs');
+  const path = require('path');
+  
+  if (process.env.NODE_ENV === 'production') {
+    const publicPath = path.join(process.cwd(), 'public');
+    const distPublicPath = path.join(process.cwd(), 'dist', 'public');
+    
+    // Ensure dist/public exists
+    if (!fs.existsSync(distPublicPath)) {
+      fs.mkdirSync(distPublicPath, { recursive: true });
+    }
+    
+    // Copy all video files from public to dist/public on startup
+    if (fs.existsSync(publicPath)) {
+      const files = fs.readdirSync(publicPath);
+      files.filter(file => file.endsWith('.mp4')).forEach(file => {
+        const sourcePath = path.join(publicPath, file);
+        const destPath = path.join(distPublicPath, file);
+        
+        if (fs.existsSync(sourcePath) && !fs.existsSync(destPath)) {
+          try {
+            fs.copyFileSync(sourcePath, destPath);
+            console.log(`✅ Copied video file: ${file}`);
+          } catch (error) {
+            console.error(`❌ Failed to copy ${file}:`, error.message);
+          }
+        }
+      });
+    }
+  }
 
   // Serve from multiple locations to ensure videos work in all environments
   app.use(express.static("public", { setHeaders: videoHeaders }));
@@ -76,9 +109,6 @@ app.use((req, res, next) => {
   
   // Additional video-specific route handler for deployment compatibility
   app.get('*.mp4', (req, res, next) => {
-    const fs = require('fs');
-    const path = require('path');
-    
     // Try multiple locations for video files
     const possiblePaths = [
       path.join(process.cwd(), 'public', req.path),
@@ -96,7 +126,8 @@ app.use((req, res, next) => {
       }
     }
     
-    next(); // File not found, continue to next handler
+    // If file not found, return 404 with proper error
+    res.status(404).json({ error: 'Video file not found' });
   });
   
   // importantly only setup vite in development and after
