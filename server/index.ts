@@ -61,29 +61,43 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // serve static files from public directory with proper MIME types
-  app.use(express.static("public", {
-    setHeaders: (res, path) => {
-      if (path.endsWith('.mp4')) {
+  // Enhanced static file serving with video support
+  const videoHeaders = (res: Response, path: string) => {
+    if (path.endsWith('.mp4')) {
+      res.setHeader('Content-Type', 'video/mp4');
+      res.setHeader('Accept-Ranges', 'bytes');
+      res.setHeader('Cache-Control', 'public, max-age=31536000');
+    }
+  };
+
+  // Serve from multiple locations to ensure videos work in all environments
+  app.use(express.static("public", { setHeaders: videoHeaders }));
+  app.use(express.static("dist/public", { setHeaders: videoHeaders }));
+  
+  // Additional video-specific route handler for deployment compatibility
+  app.get('*.mp4', (req, res, next) => {
+    const fs = require('fs');
+    const path = require('path');
+    
+    // Try multiple locations for video files
+    const possiblePaths = [
+      path.join(process.cwd(), 'public', req.path),
+      path.join(process.cwd(), 'dist/public', req.path),
+      path.join(process.cwd(), req.path.substring(1))
+    ];
+    
+    for (const filePath of possiblePaths) {
+      if (fs.existsSync(filePath)) {
         res.setHeader('Content-Type', 'video/mp4');
         res.setHeader('Accept-Ranges', 'bytes');
         res.setHeader('Cache-Control', 'public, max-age=31536000');
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        return res.sendFile(filePath);
       }
     }
-  }));
-  
-  // In production, also serve from dist/public with proper headers
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static("dist/public", {
-      setHeaders: (res, path) => {
-        if (path.endsWith('.mp4')) {
-          res.setHeader('Content-Type', 'video/mp4');
-          res.setHeader('Accept-Ranges', 'bytes');
-          res.setHeader('Cache-Control', 'public, max-age=31536000');
-        }
-      }
-    }));
-  }
+    
+    next(); // File not found, continue to next handler
+  });
   
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
