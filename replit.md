@@ -114,6 +114,7 @@ Entaview Creative is a cinematic video production agency specializing in brand f
 - Graceful degradation for disabled JavaScript
 
 ## Changelog
+- July 09, 2025: Fixed video deployment issue - created deployment script and ensured all video files are properly copied to production directory (dist/public/)
 - July 08, 2025: Updated all text to use UK English grammar and spelling throughout website
 - July 08, 2025: Restructured navigation with Services overview page and hierarchical dropdown menu structure
 - July 08, 2025: Built lead magnet landing page with "10-Step Video Marketing Blueprint" offer and thank-you page

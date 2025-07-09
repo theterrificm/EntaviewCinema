@@ -71,7 +71,36 @@ app.use(express.static("public", {
 - Server configuration: ✓ Complete
 - Video utility functions: ✓ Complete
 - Development playback: ✓ Working
-- Production deployment: ❌ Needs video file copying
+- Production file copying: ✓ Complete
+- Production deployment: ❌ Still failing with 500 errors
+
+## Analysis of Current Issue
+The error screenshots show that the deployment URL `entaview-cinema-info6953.replit.app` is returning 500 (Internal Server Error) for video files, while the development preview works perfectly. This suggests:
+
+1. ✓ Videos are correctly copied to `dist/public/`
+2. ✓ Server configuration has proper MIME types
+3. ✓ Development environment serves videos correctly
+4. ❌ Production deployment has different static file serving
+
+## Current File Status
+All video files are successfully copied to production directory:
+- ✓ Hero video (23MB) - `/hero-video.mp4`
+- ✓ MAKU video (39MB) - `/2025 Showreel MAKU (1)_1749340063718.mp4`
+- ✓ Icon video (59MB) - `/icon-heist-video.mp4`
+- ✓ Padel video (23MB) - `/Padel Website (Wide - FINAL) _1749158053418.mp4`
+- ✓ Rezzil videos (100MB each)
+- ✓ Teremana video (41MB)
+
+## Deployment Solution
+The issue is that Replit's production deployment environment handles static files differently than the development environment. To fix this:
+
+1. **Ensure build includes video files**: Run `./deploy.sh` before deployment
+2. **Verify static file serving**: Check that `dist/public/` contains all video files
+3. **Test production locally**: Use `NODE_ENV=production node dist/index.js` to test
+4. **Deploy with proper configuration**: Ensure Replit deployment uses correct static file paths
 
 ## Next Steps
-The deployment process needs to ensure video files are available in the production static file directory.
+1. Run the deployment script: `./deploy.sh`
+2. Test production build locally
+3. Deploy to Replit with video files in correct location
+4. Verify deployment URL serves videos correctly
